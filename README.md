@@ -1,2 +1,2 @@
 # slipperygg
-legit cheat
+- Best Cheat Ever!
