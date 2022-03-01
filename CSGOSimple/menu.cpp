@@ -6,7 +6,7 @@
 #include <array>
 #include <iomanip>
 #include <mutex>
-//#include <numbers>
+//#include <numbers> //<- this shit causes some random error for some reason and I don't care enough to fix it
 #include <numeric>
 #include <sstream>
 #include <vector>
@@ -29,6 +29,7 @@
 
 
 
+/*
 
 struct MiscConfig {
     MiscConfig() { clanTag[0] = '\0'; }
@@ -49,7 +50,7 @@ void Misc::updateClanTag(bool tagChanged) noexcept
         return;
     }
 
-    /*static auto lastTime = 0.0f;
+    static auto lastTime = 0.0f;
     if (miscConfig.customClanTag)
     {
         if (memory->globalVars->realtime - lastTime < 0.6f)
@@ -61,9 +62,9 @@ void Misc::updateClanTag(bool tagChanged) noexcept
         }
         lastTime = memory->globalVars->realtime;
         memory->setClanTag(clanTag.c_str(), clanTag.c_str());
-    }*/
+    }
 }
-
+*/
 
 // =========================================================
 // 
@@ -160,6 +161,9 @@ int get_fps()                   //count fps
 
     return fps;
 }
+
+
+
 
 void RenderVisualTab()                 //Render Visual tab
 {
@@ -353,9 +357,9 @@ void RenderMiscTab()                    //Misc tab
 		ImGui::NextColumn();
         ImGui::SliderInt("Viewmodel FOV", g_Options.viewmodel_fov, 68, 120);
         //ImGui::PopItemWidth();
-        if (ImGui::InputText("", miscConfig.clanTag, sizeof(miscConfig.clanTag)))
-            Misc::updateClanTag(true);
-        ImGui::Checkbox("Animated clantag", &miscConfig.animatedClanTag);
+        //if (ImGui::InputText("", miscConfig.clanTag, sizeof(miscConfig.clanTag)))
+            //Misc::updateClanTag(true);                                            //CLANTAG SHIT HERE
+       // ImGui::Checkbox("Animated clantag", &miscConfig.animatedClanTag);
         ImGui::Columns(1, nullptr, false);
         ImGui::PopStyleVar();
     }
@@ -467,6 +471,7 @@ void Menu::Initialize()
     _visible = true;
 }
 
+
 void Menu::Shutdown()
 {
     ImGui_ImplDX9_Shutdown();
@@ -483,6 +488,41 @@ void Menu::OnDeviceReset()
 {
     ImGui_ImplDX9_CreateDeviceObjects();
 }
+/// <summary>
+/// TODO: make config window work, perhaps it doesn't work because it doesn't get called anywhere?? who knows,
+/// that will remain a mistery for me till the end of times, tried pasting menu rendering function to do it
+/// but it didn't work, hopefully xxxcept helps me figure this shit out
+/// </summary>
+void Menu::ConfigWindow()
+{
+
+    if (!_visiblecfg)
+        return;
+
+    int screen_w, screen_h;
+    g_EngineClient->GetScreenSize(screen_w, screen_h);
+
+        ImGui::SetNextWindowPos(ImVec2{ screen_w / 2.f, screen_h / 2.f }, ImGuiSetCond_Once);
+        ImGui::SetNextWindowSize(ImVec2{ 100,100 }, ImGuiSetCond_Once);
+
+        if (ImGui::Begin("Configurations Menu",
+            &_visible,
+            ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoResize))         //add <<ImGuiWindowFlags_NoTitleBar>> here in case it looks weird
+        {
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0,0));
+            {
+            }
+
+                ImGui::End();
+        }
+
+
+    }
+/// <summary>
+/// 1:50AM update: this shit doesn't work I just spent like an hour trying to make it work
+/// :waaaaaaaaaaaaaaa:
+/// </summary>
 
 void Menu::Render()
 {
@@ -545,12 +585,12 @@ void Menu::Render()
         ImGui::TextColored(ImVec4{ 0.0f, 0.5f, 0.0f, 1.0f }, "FPS: %03d", get_fps());
         //ImGui::TextColored(ImVec4{ 0.0f, 0.5f, 0.0f, 1.0f }, g_Options.color_menu_background, get_fps());
         
-                                                                                  //Unload button
-        ImGui::SameLine(ImGui::GetWindowWidth() - 305 - ImGui::GetStyle().WindowPadding.x);
+                                                                                  
+        ImGui::SameLine(ImGui::GetWindowWidth() - 305 - ImGui::GetStyle().WindowPadding.x); //Open cfg window button
         if (ImGui::Button("Configs", ImVec2{ 150, 25 })) {
-            g_cfg_open = true;
+            g_Options.cfg_win_open;
         }
-        ImGui::SameLine(ImGui::GetWindowWidth() - 150 - ImGui::GetStyle().WindowPadding.x);
+        ImGui::SameLine(ImGui::GetWindowWidth() - 150 - ImGui::GetStyle().WindowPadding.x); //Unload button
         if(ImGui::Button("Unload", ImVec2{ 150, 25 })) {
             g_Unload = true;
         }
@@ -563,6 +603,10 @@ void Menu::Toggle()
     _visible = !_visible;
 }
 
+void Menu::ToggleCfg()
+{
+    _visiblecfg = !_visiblecfg;
+}
 
 void Menu::CreateStyle()
 {

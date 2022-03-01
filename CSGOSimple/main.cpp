@@ -37,16 +37,24 @@ DWORD WINAPI OnDllAttach(LPVOID base)
         //          is called from the WndProc thread, not this thread.
         // 
 
-        // Panic button
-        InputSys::Get().RegisterHotkey(VK_DELETE, [base]() {
+        // Panic button <- csgosimple dev comment
+        /*InputSys::Get().RegisterHotkey(VK_DELETE, [base]() {
             g_Unload = true;
-        });
+        });*/
+        //why would this even be a thing <-ricencheese comment
+
 
         // Menu Toggle
         InputSys::Get().RegisterHotkey(VK_INSERT, [base]() {
             Menu::Get().Toggle();
         });
 
+        //Config Toggle(((to understand if the window actually works or not)))
+        InputSys::Get().RegisterHotkey(VK_HOME, [base]() {
+            Menu::Get().ToggleCfg();
+            });
+        //Update 10 minutes later: it doesn't
+        
         Utils::ConsolePrint("Finished.\n");
 		Utils::ConsolePrint("Built on: %s %s\n", __DATE__, __TIME__);
 

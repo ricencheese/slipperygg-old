@@ -22,16 +22,21 @@ public:
     void OnDeviceReset();
 
     void Render();
-
+    void ConfigWindow();
     void Toggle();
+    void ToggleCfg(); //this is fucky but I don't know how to do it any other way yet :)
 
-    void LightTheme();
+
+    //void LightTheme();
 
     bool IsVisible() const { return _visible; }
+
+    bool IsVisiblecfg() const { return _visiblecfg;  }
 
 private:
     void CreateStyle();
 
     ImGuiStyle        _style;
     bool              _visible;
+    bool              _visiblecfg;
 };

@@ -97,6 +97,7 @@ public:
 		OPTION(float, mat_ambient_light_g, 0.0f);
 		OPTION(float, mat_ambient_light_b, 0.0f);
 		OPTION(bool, clanTag_enabled, false);
+		OPTION(bool, cfg_win_open, false);
 
 		// 
 		// COLORS
@@ -133,4 +134,3 @@ public:
 
 inline Options g_Options;
 inline bool   g_Unload;
-inline bool g_cfg_open;
