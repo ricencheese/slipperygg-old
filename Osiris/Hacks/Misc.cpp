@@ -6,6 +6,7 @@
 #include <numeric>
 #include <sstream>
 #include <vector>
+#include <fstream>
 
 #include "../imgui/imgui.h"
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -115,6 +116,7 @@ struct MiscConfig {
     bool oppositeHandKnife = false;
     PreserveKillfeed preserveKillfeed;
     char clanTag[16];
+    int tagAnimationType{ 0 };
     KeyBind edgejumpkey;
     KeyBind slowwalkKey;
     ColorToggleThickness noscopeCrosshair;
@@ -275,9 +277,31 @@ void Misc::updateClanTag(bool tagChanged) noexcept
         if (memory->globalVars->realtime - lastTime < 0.6f)
             return;
 
-        if (miscConfig.animatedClanTag && !clanTag.empty()) {
+        if (miscConfig.animatedClanTag && !clanTag.empty() && miscConfig.tagAnimationType==0) { //basic rotation animation
             if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length())
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
+        }
+        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) {
+            std::ifstream in("C:/Users/ricencheese/Desktop/clantag.txt");
+            std::string str;
+            std::vector <std::string> vecOfStrs(0);
+            while (std::getline(in, str))
+            {
+                if (str.size() > 0)
+                    vecOfStrs.push_back(str);
+            }
+            int i{};
+            unsigned int tagsCount{ vecOfStrs.size() };
+                if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length()) {
+                    clanTag = vecOfStrs[0];
+                    Sleep(500);
+                    clanTag = vecOfStrs[1];
+                    Sleep(500);
+                    clanTag = vecOfStrs[2];
+                    Sleep(500);
+                    clanTag = vecOfStrs[3];
+                    Sleep(500);
+                }
         }
         lastTime = memory->globalVars->realtime;
         memory->setClanTag(clanTag.c_str(), clanTag.c_str());
@@ -1397,6 +1421,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::NextColumn();
     ImGui::Checkbox("Disable HUD blur", &miscConfig.disablePanoramablur);
     ImGui::Checkbox("Animated clan tag", &miscConfig.animatedClanTag);
+    ImGui::Combo("Animation Type: ", &miscConfig.tagAnimationType, "Rotate text\0Input from file\0");
     ImGui::Checkbox("Clock tag", &miscConfig.clocktag);
     ImGui::Checkbox("Custom clantag", &miscConfig.customClanTag);
     ImGui::SameLine();
