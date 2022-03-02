@@ -1,0 +1,23 @@
+name: Linux
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler: [g++-10, clang++-12]
+        configuration: [Debug, Release]
+    steps:
+    - uses: actions/checkout@v2
+    - name: install
+      run: sudo apt-get update && sudo apt-get install -y libsdl2-dev libfreetype-dev ${{ matrix.compiler }}
+    - name: configure
+      run: cmake -D CMAKE_BUILD_TYPE=${{ matrix.configuration }} -D CMAKE_CXX_COMPILER=${{ matrix.compiler }} -D BUILD_TESTS=1 -S . -B ${{ matrix.configuration }}
+    - name: build
+      run: cmake --build ${{ matrix.configuration }} -j $(nproc --all)
+    - name: run unit tests
+      run: |
+        cd ${{ matrix.configuration }}
+        ctest --output-on-failure --schedule-random -j $(nproc --all)
