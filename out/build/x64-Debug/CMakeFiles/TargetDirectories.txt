@@ -1,0 +1,10 @@
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/Osiris.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/Osiris/freetype/CMakeFiles/FreeType.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/Osiris/freetype/CMakeFiles/edit_cache.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/Osiris/freetype/CMakeFiles/rebuild_cache.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/Osiris/Resources/Shaders/CMakeFiles/Shaders.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/Osiris/Resources/Shaders/CMakeFiles/edit_cache.dir
+C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/Osiris/Resources/Shaders/CMakeFiles/rebuild_cache.dir

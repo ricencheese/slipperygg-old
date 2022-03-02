@@ -1,0 +1,122 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"build" : "Osiris/freetype",
+					"jsonFile" : "directory-Osiris.freetype-Debug-e5a5e44efa44e892c0a7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Osiris/freetype",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Osiris/Resources/Shaders",
+					"jsonFile" : "directory-Osiris.Resources.Shaders-Debug-7e95169be8ecff89551e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Osiris/Resources/Shaders",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "Osiris",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "FreeType::@a2f8b0614e08a05cf67c",
+					"jsonFile" : "target-FreeType-Debug-0bc7d6779d6b28da3d90.json",
+					"name" : "FreeType",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Osiris::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Osiris-Debug-52cec2fe63dfaef61302.json",
+					"name" : "Osiris",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OsirisOBJ::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OsirisOBJ-Debug-fdbfe3b384358d8f9e75.json",
+					"name" : "OsirisOBJ",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Shaders::@9eb21bcd895a841737d0",
+					"jsonFile" : "target-Shaders-Debug-b69337bca6ace46f9e2b.json",
+					"name" : "Shaders",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug",
+		"source" : "C:/Users/ricencheese/Desktop/GitHub"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

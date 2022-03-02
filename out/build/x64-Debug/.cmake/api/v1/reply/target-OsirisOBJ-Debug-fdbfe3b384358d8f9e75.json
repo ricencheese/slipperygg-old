@@ -1,0 +1,888 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./cmake_pch.cxx.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./cmake_pch.c.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Config.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/ConfigStructs.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/EventListener.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/GUI.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/GameData.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Aimbot.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/AntiAim.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Backtrack.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Chams.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/EnginePrediction.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Glow.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Misc.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Sound.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/StreamProofESP.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Triggerbot.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Visuals.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Helpers.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks/MinHook.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks/VmtHook.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks/VmtSwap.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InputUtil.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/Inventory.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/InventoryChanger.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/InventoryConfig.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/ItemGenerator.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/StaticData.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/ToolUser.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Memory.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Netvars.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/EconItemView.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/Entity.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/GlobalVars.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/KeyValues.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/Utils.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Texture.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_demo.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_draw.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_freetype.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_impl_dx9.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_impl_win32.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_stdlib.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_tables.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_widgets.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imguiCustom.cpp.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/buffer.c.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/hde/hde32.c.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/hde/hde64.c.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/hook.c.obj"
+		},
+		{
+			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/trampoline.c.obj"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"add_dependencies",
+			"target_compile_options",
+			"target_compile_definitions",
+			"target_include_directories",
+			"target_precompile_headers"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 37,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 52,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 39,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/utf-8"
+				},
+				{
+					"fragment" : "-std:c++20"
+				},
+				{
+					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "_USE_MATH_DEFINES"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "20"
+			},
+			"precompileHeaders" : 
+			[
+				{
+					"backtrace" : 7,
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+				}
+			],
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/utf-8"
+				},
+				{
+					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "_USE_MATH_DEFINES"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+				}
+			],
+			"language" : "C",
+			"precompileHeaders" : 
+			[
+				{
+					"backtrace" : 7,
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+				}
+			],
+			"sourceIndexes" : 
+			[
+				1
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/utf-8"
+				},
+				{
+					"fragment" : "-std:c++20"
+				},
+				{
+					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "_USE_MATH_DEFINES"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "20"
+			},
+			"precompileHeaders" : 
+			[
+				{
+					"backtrace" : 7,
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+				}
+			],
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/utf-8"
+				},
+				{
+					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "_USE_MATH_DEFINES"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+				}
+			],
+			"language" : "C",
+			"precompileHeaders" : 
+			[
+				{
+					"backtrace" : 7,
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+				}
+			],
+			"sourceIndexes" : 
+			[
+				48,
+				49,
+				50,
+				51,
+				52
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "FreeType::@a2f8b0614e08a05cf67c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Shaders::@9eb21bcd895a841737d0"
+		}
+	],
+	"id" : "OsirisOBJ::@6890427a1f51a3e7e1df",
+	"name" : "OsirisOBJ",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52
+			]
+		},
+		{
+			"name" : "Precompile Header File",
+			"sourceIndexes" : 
+			[
+				53,
+				54
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.cxx",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Config.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/ConfigStructs.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/EventListener.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/GUI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/GameData.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Aimbot.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/AntiAim.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Backtrack.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Chams.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/EnginePrediction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Glow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Misc.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Sound.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/StreamProofESP.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Triggerbot.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hacks/Visuals.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Helpers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hooks.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hooks/MinHook.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hooks/VmtHook.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Hooks/VmtSwap.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/InputUtil.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/InventoryChanger/Inventory.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/InventoryChanger/InventoryChanger.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/InventoryChanger/InventoryConfig.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/InventoryChanger/ItemGenerator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/InventoryChanger/StaticData.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/InventoryChanger/ToolUser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Memory.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Netvars.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/SDK/EconItemView.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/SDK/Entity.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/SDK/GlobalVars.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/SDK/KeyValues.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/SDK/Utils.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/Texture.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_demo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_draw.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_freetype.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_impl_dx9.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_impl_win32.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_stdlib.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_tables.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imgui/imgui_widgets.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Osiris/imguiCustom.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 3,
+			"path" : "Osiris/MinHook/buffer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 3,
+			"path" : "Osiris/MinHook/hde/hde32.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 3,
+			"path" : "Osiris/MinHook/hde/hde64.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 3,
+			"path" : "Osiris/MinHook/hook.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 3,
+			"path" : "Osiris/MinHook/trampoline.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "OBJECT_LIBRARY"
+}

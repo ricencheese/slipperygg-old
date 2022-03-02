@@ -1,4 +1,5 @@
-﻿#include <algorithm>
+﻿//window size no more than 1280x720, please :l
+#include <algorithm>
 #include <array>
 #include <fstream>
 #include <iterator>
@@ -32,7 +33,7 @@
 #include "Hacks/StreamProofESP.h"
 
 constexpr auto windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize
-| ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse;
+| ImGuiWindowFlags_NoScrollbar;
 
 static ImFont* addFontFromVFONT(const std::string& path, float size, const ImWchar* glyphRanges, bool merge) noexcept
 {
@@ -53,7 +54,7 @@ static ImFont* addFontFromVFONT(const std::string& path, float size, const ImWch
 
 GUI::GUI() noexcept
 {
-    ImGui::StyleColorsDark();
+    ImGui::StyleColorsDark(); //I am going to change default colors in imgui_draw.cpp because fuck you imgui
     ImGuiStyle& style = ImGui::GetStyle();
 
     style.ScrollbarSize = 9.0f;
@@ -94,8 +95,8 @@ GUI::GUI() noexcept
 
 void GUI::render() noexcept
 {
-    if (!config->style.menuStyle) {
-        renderMenuBar();
+    /*if (!config->style.menuStyle) {                   //commenting this all out makes single window menu the only 
+        renderMenuBar();                                //available window style
         renderAimbotWindow();
         AntiAim::drawGUI(false);
         renderTriggerbotWindow();
@@ -111,7 +112,8 @@ void GUI::render() noexcept
         renderConfigWindow();
     } else {
         renderGuiStyle2();
-    }
+    }*/
+    renderGuiStyle2();
 }
 
 void GUI::updateColors() const noexcept
@@ -623,11 +625,13 @@ void GUI::renderConfigWindow(bool contentOnly) noexcept
             ImGui::End();
 }
 
+//next code renders the single window menu, we're going to be using this instead of the classic top of the screen menu, right?
 void GUI::renderGuiStyle2() noexcept
 {
-    ImGui::Begin("Osiris", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize);
+    ImGui::SetNextWindowSize(ImVec2(800,600), ImGuiCond_Once);
+    ImGui::Begin("Osiris", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar/* | ImGuiWindowFlags_AlwaysAutoResize*/);
 
-    if (ImGui::BeginTabBar("TabBar", ImGuiTabBarFlags_Reorderable | ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) {
+    if (ImGui::BeginTabBar("TabBar",/* ImGuiTabBarFlags_Reorderable |*/ ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) { 
         if (ImGui::BeginTabItem("Aimbot")) {
             renderAimbotWindow(true);
             ImGui::EndTabItem();
@@ -661,3 +665,21 @@ void GUI::renderGuiStyle2() noexcept
 
     ImGui::End();
 }
+
+//TODO LIST:
+//scrolling down the menu hides the top menu bar, maybe make menu taller/wider+move the options a bit?
+//https://thats-crazy-but-i-dont.remember911.bar/e8a3e2668f352caf66.png
+
+//tabs with not enough options look retarded, maybe move tabs with a few options to bigger tabs?
+//i.e. move backtracking to aimbot tab https://thats-crazy-but-i-dont.remember911.bar/b479a901be9743d77d.png
+
+//https://thats-crazy-but-i-dont.remember911.bar/bf0df5f0c78f95ec4c.png sliders are too big :(
+
+//ESP on key? why? it just takes up space https://thats-crazy-but-i-dont.remember911.bar/c493984b1f68179321.png
+
+
+//options in the wrong place todo list:
+//choked packets is in misc + choked packets is limited to 64 :face_with_raised_eyebrow: 
+//putting antiaim, triggerbot and backtrack in aimbot tab would free up a lot of space, perhaps divide the aimbot tab into 4 tabs with diff features?
+//^same for glow, chams, esp, inventory changer, sound and style
+//https://thats-crazy-but-i-dont.remember911.bar/2c4fef225901e35c0b.png something like that 
