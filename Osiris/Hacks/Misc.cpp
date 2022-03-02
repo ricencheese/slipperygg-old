@@ -281,7 +281,7 @@ void Misc::updateClanTag(bool tagChanged) noexcept
             if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length())
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
         }
-        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) {
+        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
             std::ifstream in("C:/Users/ricencheese/Desktop/clantag.txt");
             std::string str;
             std::vector <std::string> vecOfStrs(0);
@@ -293,14 +293,10 @@ void Misc::updateClanTag(bool tagChanged) noexcept
             int i{};
             unsigned int tagsCount{ vecOfStrs.size() };
                 if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length()) {
-                    clanTag = vecOfStrs[0];
-                    Sleep(500);
-                    clanTag = vecOfStrs[1];
-                    Sleep(500);
-                    clanTag = vecOfStrs[2];
-                    Sleep(500);
-                    clanTag = vecOfStrs[3];
-                    Sleep(500);
+                    clanTag = vecOfStrs[i];
+                    if (i == tagsCount) { i = 0; };
+                    if (i != tagsCount) { i = +1; };
+
                 }
         }
         lastTime = memory->globalVars->realtime;
