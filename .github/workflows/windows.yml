@@ -20,4 +20,4 @@ jobs:
       run: echo "toolset=/p:PlatformToolset=${{ matrix.toolset }}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
     - name: Build
       shell: cmd
-      run: msbuild Osiris.sln /p:Platform=x86 /p:Configuration=${{ matrix.configuration }} ${{ env.toolset }}
+      run: msbuild slipperygg.sln /p:Platform=x86 /p:Configuration=${{ matrix.configuration }} ${{ env.toolset }}
