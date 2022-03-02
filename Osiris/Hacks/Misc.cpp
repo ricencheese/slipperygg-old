@@ -41,6 +41,7 @@
 #include "../SDK/NetworkChannel.h"
 #include "../SDK/Panorama.h"
 #include "../SDK/Platform.h"
+#include "../SDK/PlayerResource.h"
 #include "../SDK/UserCmd.h"
 #include "../SDK/UtlVector.h"
 #include "../SDK/Vector.h"
@@ -131,7 +132,7 @@ struct MiscConfig {
 
     SpectatorList spectatorList;
     struct Watermark {
-        bool enabled = false;
+        bool enabled = true;
     };
     Watermark watermark;
     float aspectratio{ 0 };
@@ -419,17 +420,20 @@ void Misc::watermark() noexcept
     if (!miscConfig.watermark.enabled)
         return;
 
-    ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize;
+    ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize;
     if (!gui->isOpen())
         windowFlags |= ImGuiWindowFlags_NoInputs;
 
-    ImGui::SetNextWindowBgAlpha(0.3f);
+    ImGui::SetNextWindowBgAlpha(0.4f);
+    ImGui::SetNextWindowPos({20, 20}, ImGuiCond_Once);
     ImGui::Begin("Watermark", nullptr, windowFlags);
 
     static auto frameRate = 1.0f;
     frameRate = 0.9f * frameRate + 0.1f * memory->globalVars->absoluteFrameTime;
 
-    ImGui::Text("Osiris | %d fps | %d ms", frameRate != 0.0f ? static_cast<int>(1 / frameRate) : 0, GameData::getNetOutgoingLatency());
+    ImGui::Text("slippery.gg/[convar name value]/[uid]"/*, frameRate != 0.0f ? static_cast<int>(1 / frameRate) : 0, GameData::getNetOutgoingLatency()*/);
+    //you can add | %d fps | %d ms if you want but idk I think having it just say <<slippery.gg | [username] | UID>> would look better
+    //+ doesn't need to be resizeable
     ImGui::End();
 }
 
