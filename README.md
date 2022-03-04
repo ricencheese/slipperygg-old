@@ -39,7 +39,7 @@ The config files are stored in `Documents\slippery.gg\`
 *   [Zer0Mem0ry](https://github.com/Zer0Mem0ry) - For great tutorials on reverse engineering and game hacking.
 
 ## License
-`> Copyright (c) 2022 ricencheese, Tomomi Kitagawa` 
+`> Copyright (c) 2022 ricencheese, bluebewwy` 
 This project is licensed under the [MIT License](https://opensource.org/licenses/mit-license.php) - see the [LICENSE](https://github.com/ricencheese/slipperygg/blob/master/LICENSE) file for details.
 
 ## From the creators of the initial cheat:
