@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "Osiris/Resources/Shaders",
-		"source" : "Osiris/Resources/Shaders"
+		"build" : "slipperygg/Resources/Shaders",
+		"source" : "slipperygg/Resources/Shaders"
 	}
 }

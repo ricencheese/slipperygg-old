@@ -2,163 +2,163 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./cmake_pch.cxx.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./cmake_pch.c.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Config.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Config.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/ConfigStructs.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/ConfigStructs.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/EventListener.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/EventListener.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/GUI.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/GUI.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/GameData.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/GameData.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Aimbot.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Aimbot.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/AntiAim.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/AntiAim.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Backtrack.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Backtrack.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Chams.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Chams.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/EnginePrediction.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/EnginePrediction.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Glow.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Glow.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Misc.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Misc.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Sound.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Sound.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/StreamProofESP.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/StreamProofESP.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Triggerbot.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Triggerbot.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hacks/Visuals.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hacks/Visuals.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Helpers.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Helpers.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hooks.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks/MinHook.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hooks/MinHook.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks/VmtHook.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hooks/VmtHook.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Hooks/VmtSwap.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Hooks/VmtSwap.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InputUtil.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/InputUtil.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/Inventory.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/InventoryChanger/Inventory.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/InventoryChanger.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/InventoryChanger/InventoryChanger.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/InventoryConfig.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/InventoryChanger/InventoryConfig.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/ItemGenerator.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/InventoryChanger/ItemGenerator.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/StaticData.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/InventoryChanger/StaticData.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/InventoryChanger/ToolUser.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/InventoryChanger/ToolUser.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Memory.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Memory.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Netvars.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Netvars.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/EconItemView.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/SDK/EconItemView.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/Entity.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/SDK/Entity.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/GlobalVars.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/SDK/GlobalVars.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/KeyValues.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/SDK/KeyValues.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/SDK/Utils.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/SDK/Utils.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/Texture.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/Texture.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_demo.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_demo.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_draw.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_draw.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_freetype.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_freetype.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_impl_dx9.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_impl_dx9.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_impl_win32.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_impl_win32.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_stdlib.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_stdlib.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_tables.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_tables.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imgui/imgui_widgets.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imgui/imgui_widgets.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/imguiCustom.cpp.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/imguiCustom.cpp.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/buffer.c.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/MinHook/buffer.c.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/hde/hde32.c.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/MinHook/hde/hde32.c.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/hde/hde64.c.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/MinHook/hde/hde64.c.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/hook.c.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/MinHook/hook.c.obj"
 		},
 		{
-			"path" : "CMakeFiles/OsirisOBJ.dir/./Osiris/MinHook/trampoline.c.obj"
+			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/MinHook/trampoline.c.obj"
 		}
 	],
 	"backtrace" : 1,
@@ -243,7 +243,7 @@
 					"fragment" : "-std:c++20"
 				},
 				{
-					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx"
+					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx"
 				}
 			],
 			"defines" : 
@@ -257,7 +257,7 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "CXX",
@@ -273,7 +273,7 @@
 			[
 				{
 					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -292,7 +292,7 @@
 					"fragment" : "/utf-8"
 				},
 				{
-					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h"
+					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h"
 				}
 			],
 			"defines" : 
@@ -306,7 +306,7 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "C",
@@ -314,7 +314,7 @@
 			[
 				{
 					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -336,7 +336,7 @@
 					"fragment" : "-std:c++20"
 				},
 				{
-					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx"
+					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx"
 				}
 			],
 			"defines" : 
@@ -350,7 +350,7 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "CXX",
@@ -366,7 +366,7 @@
 			[
 				{
 					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -430,7 +430,7 @@
 					"fragment" : "/utf-8"
 				},
 				{
-					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h"
+					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h"
 				}
 			],
 			"defines" : 
@@ -444,7 +444,7 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype"
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "C",
@@ -452,7 +452,7 @@
 			[
 				{
 					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/pch.h"
+					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -469,15 +469,15 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "FreeType::@a2f8b0614e08a05cf67c"
+			"id" : "FreeType::@80e08a9cfe1f50a3ccc4"
 		},
 		{
 			"backtrace" : 3,
-			"id" : "Shaders::@9eb21bcd895a841737d0"
+			"id" : "Shaders::@bf254893378f663de1b2"
 		}
 	],
-	"id" : "OsirisOBJ::@6890427a1f51a3e7e1df",
-	"name" : "OsirisOBJ",
+	"id" : "slipperyggOBJ::@6890427a1f51a3e7e1df",
+	"name" : "slipperyggOBJ",
 	"paths" : 
 	{
 		"build" : ".",
@@ -558,329 +558,329 @@
 		{
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.cxx",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.cxx",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"compileGroupIndex" : 1,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.c",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Config.cpp",
+			"path" : "slipperygg/Config.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/ConfigStructs.cpp",
+			"path" : "slipperygg/ConfigStructs.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/EventListener.cpp",
+			"path" : "slipperygg/EventListener.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/GUI.cpp",
+			"path" : "slipperygg/GUI.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/GameData.cpp",
+			"path" : "slipperygg/GameData.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Aimbot.cpp",
+			"path" : "slipperygg/Hacks/Aimbot.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/AntiAim.cpp",
+			"path" : "slipperygg/Hacks/AntiAim.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Backtrack.cpp",
+			"path" : "slipperygg/Hacks/Backtrack.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Chams.cpp",
+			"path" : "slipperygg/Hacks/Chams.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/EnginePrediction.cpp",
+			"path" : "slipperygg/Hacks/EnginePrediction.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Glow.cpp",
+			"path" : "slipperygg/Hacks/Glow.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Misc.cpp",
+			"path" : "slipperygg/Hacks/Misc.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Sound.cpp",
+			"path" : "slipperygg/Hacks/Sound.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/StreamProofESP.cpp",
+			"path" : "slipperygg/Hacks/StreamProofESP.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Triggerbot.cpp",
+			"path" : "slipperygg/Hacks/Triggerbot.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hacks/Visuals.cpp",
+			"path" : "slipperygg/Hacks/Visuals.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Helpers.cpp",
+			"path" : "slipperygg/Helpers.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hooks.cpp",
+			"path" : "slipperygg/Hooks.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hooks/MinHook.cpp",
+			"path" : "slipperygg/Hooks/MinHook.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hooks/VmtHook.cpp",
+			"path" : "slipperygg/Hooks/VmtHook.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Hooks/VmtSwap.cpp",
+			"path" : "slipperygg/Hooks/VmtSwap.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/InputUtil.cpp",
+			"path" : "slipperygg/InputUtil.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/InventoryChanger/Inventory.cpp",
+			"path" : "slipperygg/InventoryChanger/Inventory.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/InventoryChanger/InventoryChanger.cpp",
+			"path" : "slipperygg/InventoryChanger/InventoryChanger.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/InventoryChanger/InventoryConfig.cpp",
+			"path" : "slipperygg/InventoryChanger/InventoryConfig.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/InventoryChanger/ItemGenerator.cpp",
+			"path" : "slipperygg/InventoryChanger/ItemGenerator.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/InventoryChanger/StaticData.cpp",
+			"path" : "slipperygg/InventoryChanger/StaticData.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/InventoryChanger/ToolUser.cpp",
+			"path" : "slipperygg/InventoryChanger/ToolUser.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Memory.cpp",
+			"path" : "slipperygg/Memory.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Netvars.cpp",
+			"path" : "slipperygg/Netvars.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/SDK/EconItemView.cpp",
+			"path" : "slipperygg/SDK/EconItemView.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/SDK/Entity.cpp",
+			"path" : "slipperygg/SDK/Entity.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/SDK/GlobalVars.cpp",
+			"path" : "slipperygg/SDK/GlobalVars.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/SDK/KeyValues.cpp",
+			"path" : "slipperygg/SDK/KeyValues.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/SDK/Utils.cpp",
+			"path" : "slipperygg/SDK/Utils.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/Texture.cpp",
+			"path" : "slipperygg/Texture.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui.cpp",
+			"path" : "slipperygg/imgui/imgui.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_demo.cpp",
+			"path" : "slipperygg/imgui/imgui_demo.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_draw.cpp",
+			"path" : "slipperygg/imgui/imgui_draw.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_freetype.cpp",
+			"path" : "slipperygg/imgui/imgui_freetype.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_impl_dx9.cpp",
+			"path" : "slipperygg/imgui/imgui_impl_dx9.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_impl_win32.cpp",
+			"path" : "slipperygg/imgui/imgui_impl_win32.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_stdlib.cpp",
+			"path" : "slipperygg/imgui/imgui_stdlib.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_tables.cpp",
+			"path" : "slipperygg/imgui/imgui_tables.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imgui/imgui_widgets.cpp",
+			"path" : "slipperygg/imgui/imgui_widgets.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 2,
-			"path" : "Osiris/imguiCustom.cpp",
+			"path" : "slipperygg/imguiCustom.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 3,
-			"path" : "Osiris/MinHook/buffer.c",
+			"path" : "slipperygg/MinHook/buffer.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 3,
-			"path" : "Osiris/MinHook/hde/hde32.c",
+			"path" : "slipperygg/MinHook/hde/hde32.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 3,
-			"path" : "Osiris/MinHook/hde/hde64.c",
+			"path" : "slipperygg/MinHook/hde/hde64.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 3,
-			"path" : "Osiris/MinHook/hook.c",
+			"path" : "slipperygg/MinHook/hook.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 3,
-			"path" : "Osiris/MinHook/trampoline.c",
+			"path" : "slipperygg/MinHook/trampoline.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.h",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.hxx",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx",
 			"sourceGroupIndex" : 1
 		}
 	],

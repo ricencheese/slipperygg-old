@@ -15,13 +15,13 @@ namespace Misc
     bool shouldFixBoneMatrix() noexcept;
     bool isRadarHackOn() noexcept;
     bool isMenuKeyPressed() noexcept;
+    bool doesFileExist(const std::string& filePath) noexcept;
     float maxAngleDelta() noexcept;
     float aspectRatio() noexcept;
 
     void edgejump(UserCmd* cmd) noexcept;
     void slowwalk(UserCmd* cmd) noexcept;
     void updateClanTag(bool = false) noexcept;
-    void fileClanTag() noexcept;
     void spectatorList() noexcept;
     void noscopeCrosshair(ImDrawList* drawlist) noexcept;
     void recoilCrosshair(ImDrawList* drawList) noexcept;

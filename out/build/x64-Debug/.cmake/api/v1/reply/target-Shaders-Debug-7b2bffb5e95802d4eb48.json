@@ -8,7 +8,7 @@
 		],
 		"files" : 
 		[
-			"Osiris/Resources/Shaders/CMakeLists.txt"
+			"slipperygg/Resources/Shaders/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -23,12 +23,12 @@
 			}
 		]
 	},
-	"id" : "Shaders::@9eb21bcd895a841737d0",
+	"id" : "Shaders::@bf254893378f663de1b2",
 	"name" : "Shaders",
 	"paths" : 
 	{
-		"build" : "Osiris/Resources/Shaders",
-		"source" : "Osiris/Resources/Shaders"
+		"build" : "slipperygg/Resources/Shaders",
+		"source" : "slipperygg/Resources/Shaders"
 	},
 	"sourceGroups" : 
 	[
@@ -53,19 +53,19 @@
 		{
 			"backtrace" : 1,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/Osiris/Resources/Shaders/CMakeFiles/Shaders",
+			"path" : "out/build/x64-Debug/slipperygg/Resources/Shaders/CMakeFiles/Shaders",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/Osiris/Resources/Shaders/CMakeFiles/Shaders.rule",
+			"path" : "out/build/x64-Debug/slipperygg/Resources/Shaders/CMakeFiles/Shaders.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "Osiris/Resources/Shaders/Build/default_vs.h.rule",
+			"path" : "slipperygg/Resources/Shaders/Build/default_vs.h.rule",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -20,38 +20,38 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						1,
-						2
+						2,
+						3
 					]
 				},
 				{
-					"build" : "Osiris/freetype",
-					"jsonFile" : "directory-Osiris.freetype-Debug-e5a5e44efa44e892c0a7.json",
+					"build" : "slipperygg/freetype",
+					"jsonFile" : "directory-slipperygg.freetype-Debug-48555945f5a1089a959f.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
-					"source" : "Osiris/freetype",
+					"source" : "slipperygg/freetype",
 					"targetIndexes" : 
 					[
 						0
 					]
 				},
 				{
-					"build" : "Osiris/Resources/Shaders",
-					"jsonFile" : "directory-Osiris.Resources.Shaders-Debug-7e95169be8ecff89551e.json",
+					"build" : "slipperygg/Resources/Shaders",
+					"jsonFile" : "directory-slipperygg.Resources.Shaders-Debug-94ec616099ef2edf7fe7.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
-					"source" : "Osiris/Resources/Shaders",
+					"source" : "slipperygg/Resources/Shaders",
 					"targetIndexes" : 
 					[
-						3
+						1
 					]
 				}
 			],
@@ -65,7 +65,7 @@
 						1,
 						2
 					],
-					"name" : "Osiris",
+					"name" : "slipperygg",
 					"targetIndexes" : 
 					[
 						0,
@@ -79,30 +79,30 @@
 			[
 				{
 					"directoryIndex" : 1,
-					"id" : "FreeType::@a2f8b0614e08a05cf67c",
-					"jsonFile" : "target-FreeType-Debug-0bc7d6779d6b28da3d90.json",
+					"id" : "FreeType::@80e08a9cfe1f50a3ccc4",
+					"jsonFile" : "target-FreeType-Debug-bf708fe96f4445fc43a3.json",
 					"name" : "FreeType",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 0,
-					"id" : "Osiris::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Osiris-Debug-52cec2fe63dfaef61302.json",
-					"name" : "Osiris",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 0,
-					"id" : "OsirisOBJ::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-OsirisOBJ-Debug-fdbfe3b384358d8f9e75.json",
-					"name" : "OsirisOBJ",
-					"projectIndex" : 0
-				},
-				{
 					"directoryIndex" : 2,
-					"id" : "Shaders::@9eb21bcd895a841737d0",
-					"jsonFile" : "target-Shaders-Debug-b69337bca6ace46f9e2b.json",
+					"id" : "Shaders::@bf254893378f663de1b2",
+					"jsonFile" : "target-Shaders-Debug-7b2bffb5e95802d4eb48.json",
 					"name" : "Shaders",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "slipperygg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-slipperygg-Debug-7a106c22c2cd94355635.json",
+					"name" : "slipperygg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "slipperyggOBJ::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-slipperyggOBJ-Debug-cbb98290a1a8c7612c5f.json",
+					"name" : "slipperyggOBJ",
 					"projectIndex" : 0
 				}
 			]

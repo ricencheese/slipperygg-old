@@ -22,6 +22,8 @@
 #include "EnginePrediction.h"
 #include "Misc.h"
 
+#include <sys/stat.h>
+
 #include "../SDK/ClassId.h"
 #include "../SDK/Client.h"
 #include "../SDK/ClientClass.h"
@@ -136,7 +138,7 @@ struct MiscConfig {
     };
     Watermark watermark;
     float aspectratio{ 0 };
-    std::string killMessageString{ "Gotcha!" };
+    std::string killMessageString{ "slipped right past you there" };
     int banColor{ 6 };
     std::string banText{ "Cheater has been permanently banned from official CS:GO servers." };
     ColorToggle3 bombTimer{ 1.0f, 0.55f, 0.0f };
@@ -194,6 +196,12 @@ bool Misc::isRadarHackOn() noexcept
 bool Misc::isMenuKeyPressed() noexcept
 {
     return miscConfig.menuKey.isPressed();
+}
+
+bool Misc::doesFileExist(const std::string& filePath) noexcept //Check if specified file exists i.e. doesFileExist("C:/Users/ricencheese/Desktop/clantag.txt
+{
+    std::ifstream f(filePath.c_str());
+    return f.good();
 }
 
 float Misc::maxAngleDelta() noexcept
@@ -283,7 +291,7 @@ void Misc::updateClanTag(bool tagChanged) noexcept
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
         }
         if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
-            std::ifstream in("C:/Users/ricencheese/Desktop/clantag.txt");
+            std::ifstream in("C:/slippery/clantag.txt");//
             std::string str;
             std::vector <std::string> vecOfStrs(0);
             while (std::getline(in, str))
@@ -429,9 +437,10 @@ void Misc::watermark() noexcept
     ImGui::Begin("Watermark", nullptr, windowFlags);
 
     static auto frameRate = 1.0f;
+    static std::string localPlayerName;
     frameRate = 0.9f * frameRate + 0.1f * memory->globalVars->absoluteFrameTime;
 
-    ImGui::Text("slippery.gg/[convar name value]/[uid]"/*, frameRate != 0.0f ? static_cast<int>(1 / frameRate) : 0, GameData::getNetOutgoingLatency()*/);
+    ImGui::Text("slippery.gg/[localplayer name]/[uid]"/*, frameRate != 0.0f ? static_cast<int>(1 / frameRate) : 0, GameData::getNetOutgoingLatency()*/);
     //you can add | %d fps | %d ms if you want but idk I think having it just say <<slippery.gg | [username] | UID>> would look better
     //+ doesn't need to be resizeable
     ImGui::End();
@@ -725,7 +734,50 @@ void Misc::killMessage(GameEvent& event) noexcept
     if (const auto localUserId = localPlayer->getUserId(); event.getInt("attacker") != localUserId || event.getInt("userid") == localUserId)
         return;
 
+    if (doesFileExist("C:/slippery/killsay.txt")) {                         //been testing if doesfileexist() works
+        //interfaces->engine->clientCmdUnrestricted("say killsay file exists :)");    //idk if it's gonna be useful later so I'm going to                                  //
+        std::ifstream in("C:/slippery/killsay.txt");    //this code should be moved anywhere where it will execute once on cheat inject but fuck you
+        std::string str;                                //I'm too lazy to find something that executes on inject rn, I'll do it later
+        std::vector <std::string> killsayList(0);
+        
+        while (std::getline(in, str))
+        {
+            if (str.size() > 0)
+                killsayList.push_back(str);
+        }
+        
+        unsigned int killsayCount{ killsayList.size() };
+        killsayList.push_back("");  //quick fix for the killsay saying "random" issue, gonna fix it better a bit later 
+        if (killsayList[0] == "random") {
+            std::string killsaycmd = "say \"";
+                killsaycmd += killsayList[(rand() % killsayCount)+1]; //limiting the killsay picked to -1 in the beginning to exclude the killsay saying "random"
+            killsaycmd += '"';                                       //retarded but what can I do
+            interfaces->engine->clientCmdUnrestricted(killsaycmd.c_str());
+        }
+        int i{ 0 };
+        
+        if (killsayList[0] == "sequential") {               //sequential killsay doesn't work for shit, same issue as sequential clantag
+            std::string killsaycmd = "say \"";              //the only working killsay is the first one
+            killsaycmd += killsayList[i+1];                 //@xxxcept PLEASE help me fix this or I swear ukrainians will regret being born
+            i = i+1;
+            if (i == killsayCount - 1) { i = 0; };
+            killsaycmd += '"';
+            interfaces->engine->clientCmdUnrestricted(killsaycmd.c_str());
+        }
+
+        if (killsayList[0]!="sequential" && killsayList[0] != "random") {
+            memory->clientMode->getHudChat()->printf(0, "[slippery.gg] please put either \"random\" or \"sequential\" as the first line of killsay.txt");
+        }
+        
+    }                                                                               //just leave this here for now
+    else { interfaces->engine->clientCmdUnrestricted("say killsay file wasn't found :o"); }
+    
+
+    /*if (!doesFileExist("%appdata%/slippery/killsay.txt")) {
+
+    }*/
     std::string cmd = "say \"";
+
     cmd += miscConfig.killMessageString;
     cmd += '"';
     interfaces->engine->clientCmdUnrestricted(cmd.c_str());
@@ -862,7 +914,7 @@ void Misc::killSound(GameEvent& event) noexcept
 
     if (const auto localUserId = localPlayer->getUserId(); event.getInt("attacker") != localUserId || event.getInt("userid") == localUserId)
         return;
-
+    
     constexpr std::array killSounds{
         "play physics/metal/metal_solid_impact_bullet2",
         "play buttons/arena_switch_press_02",

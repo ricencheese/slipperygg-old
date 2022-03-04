@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "Osiris/freetype",
-		"source" : "Osiris/freetype"
+		"build" : "slipperygg/freetype",
+		"source" : "slipperygg/freetype"
 	}
 }

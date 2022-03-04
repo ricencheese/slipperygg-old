@@ -2,13 +2,13 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Osiris.dll"
+			"path" : "slipperygg.dll"
 		},
 		{
-			"path" : "Osiris.lib"
+			"path" : "slipperygg.lib"
 		},
 		{
-			"path" : "Osiris.pdb"
+			"path" : "slipperygg.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -64,7 +64,7 @@
 			"defines" : 
 			[
 				{
-					"define" : "Osiris_EXPORTS"
+					"define" : "slipperygg_EXPORTS"
 				}
 			],
 			"language" : "CXX",
@@ -86,14 +86,14 @@
 	[
 		{
 			"backtrace" : 3,
-			"id" : "FreeType::@a2f8b0614e08a05cf67c"
+			"id" : "slipperyggOBJ::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 3,
-			"id" : "OsirisOBJ::@6890427a1f51a3e7e1df"
+			"id" : "FreeType::@80e08a9cfe1f50a3ccc4"
 		}
 	],
-	"id" : "Osiris::@6890427a1f51a3e7e1df",
+	"id" : "slipperygg::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -108,7 +108,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "Osiris\\freetype\\FreeType.lib",
+				"fragment" : "slipperygg\\freetype\\FreeType.lib",
 				"role" : "libraries"
 			},
 			{
@@ -118,8 +118,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "Osiris",
-	"nameOnDisk" : "Osiris.dll",
+	"name" : "slipperygg",
+	"nameOnDisk" : "slipperygg.dll",
 	"paths" : 
 	{
 		"build" : ".",
@@ -199,325 +199,325 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/Osiris.cpp",
+			"path" : "slipperygg/base.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.cxx.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.cxx.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/cmake_pch.c.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.c.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Config.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Config.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/ConfigStructs.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/ConfigStructs.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/EventListener.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/EventListener.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/GUI.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/GUI.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/GameData.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/GameData.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Aimbot.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Aimbot.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/AntiAim.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/AntiAim.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Backtrack.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Backtrack.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Chams.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Chams.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/EnginePrediction.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/EnginePrediction.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Glow.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Glow.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Misc.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Misc.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Sound.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Sound.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/StreamProofESP.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/StreamProofESP.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Triggerbot.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Triggerbot.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hacks/Visuals.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hacks/Visuals.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Helpers.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Helpers.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hooks.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hooks.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hooks/MinHook.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hooks/MinHook.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hooks/VmtHook.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hooks/VmtHook.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Hooks/VmtSwap.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Hooks/VmtSwap.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/InputUtil.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/InputUtil.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/InventoryChanger/Inventory.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/InventoryChanger/Inventory.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/InventoryChanger/InventoryChanger.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/InventoryChanger/InventoryChanger.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/InventoryChanger/InventoryConfig.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/InventoryChanger/InventoryConfig.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/InventoryChanger/ItemGenerator.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/InventoryChanger/ItemGenerator.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/InventoryChanger/StaticData.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/InventoryChanger/StaticData.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/InventoryChanger/ToolUser.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/InventoryChanger/ToolUser.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Memory.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Memory.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Netvars.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Netvars.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/SDK/EconItemView.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/SDK/EconItemView.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/SDK/Entity.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/SDK/Entity.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/SDK/GlobalVars.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/SDK/GlobalVars.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/SDK/KeyValues.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/SDK/KeyValues.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/SDK/Utils.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/SDK/Utils.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/Texture.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/Texture.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_demo.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_demo.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_draw.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_draw.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_freetype.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_freetype.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_impl_dx9.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_impl_dx9.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_impl_win32.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_impl_win32.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_stdlib.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_stdlib.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_tables.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_tables.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imgui/imgui_widgets.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imgui/imgui_widgets.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/imguiCustom.cpp.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/imguiCustom.cpp.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/MinHook/buffer.c.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/MinHook/buffer.c.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/MinHook/hde/hde32.c.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/MinHook/hde/hde32.c.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/MinHook/hde/hde64.c.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/MinHook/hde/hde64.c.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/MinHook/hook.c.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/MinHook/hook.c.obj",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "out/build/x64-Debug/CMakeFiles/OsirisOBJ.dir/Osiris/MinHook/trampoline.c.obj",
+			"path" : "out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/slipperygg/MinHook/trampoline.c.obj",
 			"sourceGroupIndex" : 1
 		}
 	],

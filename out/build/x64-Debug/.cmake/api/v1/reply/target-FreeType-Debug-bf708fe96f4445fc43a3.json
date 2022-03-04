@@ -12,7 +12,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Osiris/freetype/FreeType.lib"
+			"path" : "slipperygg/freetype/FreeType.lib"
 		}
 	],
 	"backtrace" : 1,
@@ -26,7 +26,7 @@
 		],
 		"files" : 
 		[
-			"Osiris/freetype/CMakeLists.txt"
+			"slipperygg/freetype/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -73,7 +73,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/Osiris/freetype/."
+					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype/."
 				}
 			],
 			"language" : "C",
@@ -98,13 +98,13 @@
 			]
 		}
 	],
-	"id" : "FreeType::@a2f8b0614e08a05cf67c",
+	"id" : "FreeType::@80e08a9cfe1f50a3ccc4",
 	"name" : "FreeType",
 	"nameOnDisk" : "FreeType.lib",
 	"paths" : 
 	{
-		"build" : "Osiris/freetype",
-		"source" : "Osiris/freetype"
+		"build" : "slipperygg/freetype",
+		"source" : "slipperygg/freetype"
 	},
 	"sourceGroups" : 
 	[
@@ -136,97 +136,97 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/autofit/autofit.c",
+			"path" : "slipperygg/freetype/src/autofit/autofit.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/cff/cff.c",
+			"path" : "slipperygg/freetype/src/cff/cff.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/base/ftbase.c",
+			"path" : "slipperygg/freetype/src/base/ftbase.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/base/ftbitmap.c",
+			"path" : "slipperygg/freetype/src/base/ftbitmap.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/base/ftdebug.c",
+			"path" : "slipperygg/freetype/src/base/ftdebug.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/base/ftglyph.c",
+			"path" : "slipperygg/freetype/src/base/ftglyph.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/base/ftinit.c",
+			"path" : "slipperygg/freetype/src/base/ftinit.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/base/ftsynth.c",
+			"path" : "slipperygg/freetype/src/base/ftsynth.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/base/ftsystem.c",
+			"path" : "slipperygg/freetype/src/base/ftsystem.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/psaux/psaux.c",
+			"path" : "slipperygg/freetype/src/psaux/psaux.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/pshinter/pshinter.c",
+			"path" : "slipperygg/freetype/src/pshinter/pshinter.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/psnames/psnames.c",
+			"path" : "slipperygg/freetype/src/psnames/psnames.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/raster/raster.c",
+			"path" : "slipperygg/freetype/src/raster/raster.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/sfnt/sfnt.c",
+			"path" : "slipperygg/freetype/src/sfnt/sfnt.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/smooth/smooth.c",
+			"path" : "slipperygg/freetype/src/smooth/smooth.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Osiris/freetype/src/truetype/truetype.c",
+			"path" : "slipperygg/freetype/src/truetype/truetype.c",
 			"sourceGroupIndex" : 0
 		}
 	],
