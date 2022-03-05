@@ -291,7 +291,7 @@ void Misc::updateClanTag(bool tagChanged) noexcept
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
         }
         if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
-            std::ifstream in("C:/slippery/clantag.txt");//
+            std::ifstream in("C:/slippery/clantag.txt");
             std::string str;
             std::vector <std::string> vecOfStrs(0);
             while (std::getline(in, str))
@@ -747,11 +747,11 @@ void Misc::killMessage(GameEvent& event) noexcept
         }
         
         unsigned int killsayCount{ killsayList.size() };
-        killsayList.push_back("");  //quick fix for the killsay saying "random" issue, gonna fix it better a bit later 
+        killsayList.push_back("");                                    //quick fix for the killsay saying "random" issue, gonna fix it better a bit later 
         if (killsayList[0] == "random") {
             std::string killsaycmd = "say \"";
                 killsaycmd += killsayList[(rand() % killsayCount)+1]; //limiting the killsay picked to -1 in the beginning to exclude the killsay saying "random"
-            killsaycmd += '"';                                       //retarded but what can I do
+            killsaycmd += '"';                                        //retarded but what can I do
             interfaces->engine->clientCmdUnrestricted(killsaycmd.c_str());
         }
         int i{ 0 };

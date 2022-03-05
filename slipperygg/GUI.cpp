@@ -673,7 +673,7 @@ void GUI::renderGuiStyle2() noexcept
 //tabs with not enough options look retarded, maybe move tabs with a few options to bigger tabs?
 //i.e. move backtracking to aimbot tab https://thats-crazy-but-i-dont.remember911.bar/b479a901be9743d77d.png
 
-//https://thats-crazy-but-i-dont.remember911.bar/bf0df5f0c78f95ec4c.png sliders are too big :(
+//https://thats-crazy-but-i-dont.remember911.bar/bf0df5f0c78f95ec4c.png sliders are too ugly :(
 
 //ESP on key? why? it just takes up space https://thats-crazy-but-i-dont.remember911.bar/c493984b1f68179321.png
 
