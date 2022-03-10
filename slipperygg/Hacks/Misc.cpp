@@ -121,7 +121,7 @@ struct MiscConfig {
     char clanTag[16];
     int tagAnimationType{ 0 };
     KeyBind edgejumpkey;
-    KeyBind slowwalkKey;
+    KeyBind slowwalkKey {KeyBind::LSHIFT};
     ColorToggleThickness noscopeCrosshair;
     ColorToggleThickness recoilCrosshair;
 
@@ -231,6 +231,7 @@ void Misc::edgejump(UserCmd* cmd) noexcept
 
 void Misc::slowwalk(UserCmd* cmd) noexcept
 {
+    if (!miscConfig.slowwalk) { interfaces->engine->clientCmdUnrestricted("bind shift +speed"); };
     if (!miscConfig.slowwalk || !miscConfig.slowwalkKey.isDown())
         return;
 
@@ -245,8 +246,8 @@ void Misc::slowwalk(UserCmd* cmd) noexcept
     if (!weaponData)
         return;
 
-    const float maxSpeed = (localPlayer->isScoped() ? weaponData->maxSpeedAlt : weaponData->maxSpeed) / 3;
-
+    //const float maxSpeed = (localPlayer->isScoped() ? weaponData->maxSpeedAlt : weaponData->maxSpeed) / 3;
+    const float maxSpeed = 130;
     if (cmd->forwardmove && cmd->sidemove) {
         const float maxSpeedRoot = maxSpeed * static_cast<float>(M_SQRT1_2);
         cmd->forwardmove = cmd->forwardmove < 0.0f ? -maxSpeedRoot : maxSpeedRoot;
@@ -1404,9 +1405,8 @@ void Misc::drawGUI(bool contentOnly) noexcept
         ImGui::Begin("Misc", &windowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize
             | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
-    ImGui::Columns(2, nullptr, false);
-    ImGui::SetColumnOffset(1, 230.0f);
-    ImGui::hotkey("Menu Key", miscConfig.menuKey);
+    ImGui::Columns(3, nullptr, false);
+    ImGui::SetColumnOffset(1, 280.0f);
     ImGui::Checkbox("Anti AFK kick", &miscConfig.antiAfkKick);
     ImGui::Checkbox("Auto strafe", &miscConfig.autoStrafe);
     ImGui::Checkbox("Bunny hop", &miscConfig.bunnyHop);
@@ -1417,10 +1417,8 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::PushID("Edge Jump Key");
     ImGui::hotkey("", miscConfig.edgejumpkey);
     ImGui::PopID();
-    ImGui::Checkbox("Slowwalk", &miscConfig.slowwalk);
-    ImGui::SameLine();
-    ImGui::PushID("Slowwalk Key");
-    ImGui::hotkey("", miscConfig.slowwalkKey);
+    ImGui::Checkbox("Fastwalk", &miscConfig.slowwalk);
+    if (&miscConfig.slowwalk) { interfaces->engine->clientCmdUnrestricted("unbind shift"); };
     ImGui::PopID();
     ImGuiCustom::colorPicker("Noscope crosshair", miscConfig.noscopeCrosshair);
     ImGuiCustom::colorPicker("Recoil crosshair", miscConfig.recoilCrosshair);
@@ -1467,10 +1465,10 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::PopID();
     ImGui::Checkbox("Fix animation LOD", &miscConfig.fixAnimationLOD);
     ImGui::Checkbox("Fix bone matrix", &miscConfig.fixBoneMatrix);
+    ImGui::NextColumn();
     ImGui::Checkbox("Fix movement", &miscConfig.fixMovement);
     ImGui::Checkbox("Disable model occlusion", &miscConfig.disableModelOcclusion);
     ImGui::SliderFloat("Aspect Ratio", &miscConfig.aspectratio, 0.0f, 5.0f, "%.2f");
-    ImGui::NextColumn();
     ImGui::Checkbox("Disable HUD blur", &miscConfig.disablePanoramablur);
     ImGui::Checkbox("Animated clan tag", &miscConfig.animatedClanTag);
     ImGui::Combo("Animation Type: ", &miscConfig.tagAnimationType, "Rotate text\0Input from file\0");
@@ -1490,7 +1488,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::InputText("", &miscConfig.killMessageString);
     ImGui::PopID();
     ImGui::Checkbox("Name stealer", &miscConfig.nameStealer);
-    ImGui::PushID(3);
+    /*ImGui::PushID(3);                             //fuck you this shit works just 25% of the time and takes up a bit of space so it's outta here
     ImGui::SetNextItemWidth(100.0f);
     ImGui::Combo("", &miscConfig.banColor, "White\0Red\0Purple\0Green\0Light green\0Turquoise\0Light red\0Gray\0Yellow\0Gray 2\0Light blue\0Gray/Purple\0Blue\0Pink\0Dark orange\0Orange\0");
     ImGui::PopID();
@@ -1499,8 +1497,8 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::InputText("", &miscConfig.banText);
     ImGui::PopID();
     ImGui::SameLine();
-    if (ImGui::Button("Setup fake ban"))
-        Misc::fakeBan(true);
+    if (ImGui::Button("Setup fake ban"))          
+        Misc::fakeBan(true); */
     ImGui::Checkbox("Fast plant", &miscConfig.fastPlant);
     ImGui::Checkbox("Fast Stop", &miscConfig.fastStop);
     ImGuiCustom::colorPicker("Bomb timer", miscConfig.bombTimer);
@@ -1541,6 +1539,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::SetNextItemWidth(120.0f);
     ImGui::SliderFloat("Max angle delta", &miscConfig.maxAngleDelta, 0.0f, 255.0f, "%.2f");
     ImGui::Checkbox("Opposite Hand Knife", &miscConfig.oppositeHandKnife);
+    ImGui::NextColumn();
     ImGui::Checkbox("Preserve Killfeed", &miscConfig.preserveKillfeed.enabled);
     ImGui::SameLine();
 

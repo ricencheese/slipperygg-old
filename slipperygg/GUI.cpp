@@ -150,7 +150,7 @@ void GUI::renderMenuBar() noexcept
 {
     if (ImGui::BeginMainMenuBar()) {
         menuBarItem("Aimbot", window.aimbot);
-        AntiAim::menuBarItem();
+        //AntiAim::menuBarItem(); //antiaim in a legit cheat?? it's useless and dangerous (animfix doesn't show you aa'ing)
         menuBarItem("Triggerbot", window.triggerbot);
         Backtrack::menuBarItem();
         Glow::menuBarItem();
@@ -159,7 +159,7 @@ void GUI::renderMenuBar() noexcept
         Visuals::menuBarItem();
         InventoryChanger::menuBarItem();
         Sound::menuBarItem();
-        menuBarItem("Style", window.style);
+        menuBarItem("Style", window.style);//probably going to replace it with dark/light mode as soon as I code them :waaaa:
         Misc::menuBarItem();
         menuBarItem("Config", window.config);
         ImGui::EndMainMenuBar();   
@@ -627,16 +627,16 @@ void GUI::renderConfigWindow(bool contentOnly) noexcept
 
 //next code renders the single window menu, we're going to be using this instead of the classic top of the screen menu, right?
 void GUI::renderGuiStyle2() noexcept
-{
-    ImGui::SetNextWindowSize(ImVec2(800,600), ImGuiCond_Once);
-    ImGui::Begin("Osiris", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar/* | ImGuiWindowFlags_AlwaysAutoResize*/);
+{   
+    ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
+    ImGui::Begin("slippery.gg", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar/* | ImGuiWindowFlags_AlwaysAutoResize*/);
 
     if (ImGui::BeginTabBar("TabBar",/* ImGuiTabBarFlags_Reorderable |*/ ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) { 
         if (ImGui::BeginTabItem("Aimbot")) {
             renderAimbotWindow(true);
             ImGui::EndTabItem();
         }
-        AntiAim::tabItem();
+        //AntiAim::tabItem(); //antiaim in a legit cheat?? it's useless and dangerous (animfix doesn't show you aa'ing)
         if (ImGui::BeginTabItem("Triggerbot")) {
             renderTriggerbotWindow(true);
             ImGui::EndTabItem();
@@ -655,7 +655,7 @@ void GUI::renderGuiStyle2() noexcept
             renderStyleWindow(true);
             ImGui::EndTabItem();
         }
-        Misc::tabItem();
+        Misc::tabItem();//WHY THE FUCK DOES IT NOT ALLOW ME TO SWITCH FROM MISC MENU TO CONFIG MENU
         if (ImGui::BeginTabItem("Config")) {
             renderConfigWindow(true);
             ImGui::EndTabItem();
@@ -683,3 +683,5 @@ void GUI::renderGuiStyle2() noexcept
 //putting antiaim, triggerbot and backtrack in aimbot tab would free up a lot of space, perhaps divide the aimbot tab into 4 tabs with diff features?
 //^same for glow, chams, esp, inventory changer, sound and style
 //https://thats-crazy-but-i-dont.remember911.bar/2c4fef225901e35c0b.png something like that 
+
+//^my retarded ass forgot that I autodelete screenshots after 48 hours

@@ -72,6 +72,11 @@ struct VisualsConfig {
     float hitMarkerTime{ 0.6f };
     BulletTracers bulletTracers;
     ColorToggle molotovHull{ 1.0f, 0.27f, 0.0f, 0.3f };
+    bool viewmodelModulation{ false };
+    int viewodelFOV{ 68 };
+    float viewmodelOffsetX{ 0 };
+    float viewmodelOffsetY{ 0 };
+    float viewmodelOffsetZ{ 0 };
 
     struct ColorCorrection {
         bool enabled = false;
@@ -775,7 +780,19 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::SliderInt("", &visualsConfig.thirdpersonDistance, 0, 1000, "Thirdperson distance: %d");
     ImGui::PopID();
     ImGui::PushID(1);
-    ImGui::SliderInt("", &visualsConfig.viewmodelFov, -60, 60, "Viewmodel FOV: %d");
+        ImGui::Checkbox("Viewmodel Modulation", &visualsConfig.viewmodelModulation);
+        ImGui::SameLine;
+        
+        ImGui::PushID("Viewmodel Modulation");
+        if (ImGui::Button("..."))
+            ImGui::OpenPopup("");
+
+            if (ImGui::BeginPopup("")) {
+                ImGui::SliderInt("Viewmodel FOV", &visualsConfig.viewmodelFov, 30, 140);
+                ImGui::SliderFloat("Viewmodel offset X", &visualsConfig.viewmodelOffsetX, -10, 10);
+                ImGui::SliderFloat("Viewmodel offset Y", &visualsConfig.viewmodelOffsetY, -10, 10);
+                ImGui::SliderFloat("Viewmodel offset Z", &visualsConfig.viewmodelOffsetZ, -10, 10);
+        }
     ImGui::PopID();
     ImGui::PushID(2);
     ImGui::SliderInt("", &visualsConfig.fov, -60, 60, "FOV: %d");
