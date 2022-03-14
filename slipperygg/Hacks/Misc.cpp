@@ -438,9 +438,8 @@ void Misc::watermark() noexcept
     ImGui::Begin("Watermark", nullptr, windowFlags);
 
     static auto frameRate = 1.0f;
-    static std::string localPlayerName;
     frameRate = 0.9f * frameRate + 0.1f * memory->globalVars->absoluteFrameTime;
-
+    //localPlayerName = getSteamName();
     ImGui::Text("slippery.gg/[localplayer name]/[uid]"/*, frameRate != 0.0f ? static_cast<int>(1 / frameRate) : 0, GameData::getNetOutgoingLatency()*/);
     //you can add | %d fps | %d ms if you want but idk I think having it just say <<slippery.gg | [username] | UID>> would look better
     //+ doesn't need to be resizeable
@@ -1419,7 +1418,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::PopID();
     ImGui::Checkbox("Fastwalk", &miscConfig.slowwalk);
     if (&miscConfig.slowwalk) { interfaces->engine->clientCmdUnrestricted("unbind shift"); };
-    ImGui::PopID();
+    //ImGui::PopID(); //if i understand correctly that's the issue that causes config menu to be impossible to switch to from misc menu
     ImGuiCustom::colorPicker("Noscope crosshair", miscConfig.noscopeCrosshair);
     ImGuiCustom::colorPicker("Recoil crosshair", miscConfig.recoilCrosshair);
     ImGui::Checkbox("Auto pistol", &miscConfig.autoPistol);

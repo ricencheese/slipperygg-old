@@ -25,6 +25,7 @@ namespace Misc
     void spectatorList() noexcept;
     void noscopeCrosshair(ImDrawList* drawlist) noexcept;
     void recoilCrosshair(ImDrawList* drawList) noexcept;
+    std::string getSteamName() noexcept;
     void watermark() noexcept;
     void prepareRevolver(UserCmd*) noexcept;
     void fastPlant(UserCmd*) noexcept;

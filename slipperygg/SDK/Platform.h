@@ -34,6 +34,7 @@
 
 #endif
 
+constexpr auto MATCHMAKING_DLL = WIN32_LINUX("matchmaking", "csgo/bin/linux64/matchmaking_client.so");
 constexpr auto CLIENT_DLL = WIN32_LINUX("client", "csgo/bin/linux64/client_client.so");
 constexpr auto ENGINE_DLL = WIN32_LINUX("engine", "engine_client.so");
 constexpr auto FILESYSTEM_DLL = WIN32_LINUX("filesystem_stdio", "filesystem_stdio_client.so");

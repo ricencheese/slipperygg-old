@@ -56,7 +56,7 @@ struct VisualsConfig {
     bool thirdperson{ false };
     KeyBindToggle thirdpersonKey;
     int thirdpersonDistance{ 0 };
-    int viewmodelFov{ 0 };
+    int viewmodelFov{ 68 };
     int fov{ 0 };
     int farZ{ 0 };
     int flashReduction{ 0 };
@@ -781,18 +781,36 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::PopID();
     ImGui::PushID(1);
         ImGui::Checkbox("Viewmodel Modulation", &visualsConfig.viewmodelModulation);
-        ImGui::SameLine;
+        ImGui::SameLine();
         
         ImGui::PushID("Viewmodel Modulation");
+        
         if (ImGui::Button("..."))
             ImGui::OpenPopup("");
 
             if (ImGui::BeginPopup("")) {
-                ImGui::SliderInt("Viewmodel FOV", &visualsConfig.viewmodelFov, 30, 140);
-                ImGui::SliderFloat("Viewmodel offset X", &visualsConfig.viewmodelOffsetX, -10, 10);
-                ImGui::SliderFloat("Viewmodel offset Y", &visualsConfig.viewmodelOffsetY, -10, 10);
-                ImGui::SliderFloat("Viewmodel offset Z", &visualsConfig.viewmodelOffsetZ, -10, 10);
+                if (ImGui::SliderInt("Viewmodel FOV", &visualsConfig.viewmodelFov, 0, 100)) {      //viewmodel modulation code, standart value of fov = 68
+                    int viewmodelFov =  visualsConfig.viewmodelFov;
+                    static auto viewmodelfov = interfaces->cvar->findVar("viewmodel_fov");
+                    viewmodelfov->setValue(viewmodelFov);
+                }
+                if (ImGui::SliderFloat("Viewmodel offset X", &visualsConfig.viewmodelOffsetX, -2, 2.5)); {
+                    int viewmodeloffsetX = visualsConfig.viewmodelOffsetX;
+                    static auto viewmodeloffsetx = interfaces->cvar->findVar("viewmodel_offset_x");
+                    viewmodeloffsetx->setValue(viewmodeloffsetX);
+                }
+                if (ImGui::SliderFloat("Viewmodel offset Y", &visualsConfig.viewmodelOffsetY, -2, 2)); {
+                    int viewmodeloffsetY = visualsConfig.viewmodelOffsetY;
+                    static auto viewmodeloffsety = interfaces->cvar->findVar("viewmodel_offset_y");
+                    viewmodeloffsety->setValue(viewmodeloffsetY);
+                }if (ImGui::SliderFloat("Viewmodel offset Z", &visualsConfig.viewmodelOffsetZ, -2, 2)); {
+                    int viewmodeloffsetZ = visualsConfig.viewmodelOffsetZ;
+                    static auto viewmodeloffsetz = interfaces->cvar->findVar("viewmodel_offset_z");
+                    viewmodeloffsetz->setValue(viewmodeloffsetZ);
+                }
+                ImGui::EndPopup();
         }
+            ImGui::PopID();
     ImGui::PopID();
     ImGui::PushID(2);
     ImGui::SliderInt("", &visualsConfig.fov, -60, 60, "FOV: %d");

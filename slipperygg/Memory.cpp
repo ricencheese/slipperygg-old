@@ -20,7 +20,6 @@
 #include "Interfaces.h"
 #include "Memory.h"
 #include "SDK/LocalPlayer.h"
-
 template <typename T>
 static constexpr auto relativeToAbsolute(uintptr_t address) noexcept
 {
