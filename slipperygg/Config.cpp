@@ -61,16 +61,16 @@ int CALLBACK fontCallback(const LOGFONTW* lpelfe, const TEXTMETRICW*, DWORD, LPA
 {
     std::filesystem::path path;
 #ifdef _WIN32
-    if (PWSTR pathToDocuments; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_Documents, 0, nullptr, &pathToDocuments))) {
-        path = pathToDocuments;
-        CoTaskMemFree(pathToDocuments);
+    if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
+        path = pathToRoaming;
+        CoTaskMemFree(pathToRoaming);
     }
 #else
     if (const char* homeDir = getenv("HOME"))
         path = homeDir;
 #endif
 
-    path /= "Osiris";
+    path /= "slippery";
     return path;
 }
 
