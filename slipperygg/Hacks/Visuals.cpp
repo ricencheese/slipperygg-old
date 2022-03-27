@@ -30,6 +30,7 @@
 #include "../SDK/Material.h"
 #include "../SDK/MaterialSystem.h"
 #include "../SDK/ViewRenderBeams.h"
+#include "../SDK/ClientMode.h"
 
 struct BulletTracers : ColorToggle {
     BulletTracers() : ColorToggle{ 0.0f, 0.75f, 1.0f, 1.0f } {}
@@ -56,7 +57,7 @@ struct VisualsConfig {
     bool thirdperson{ false };
     KeyBindToggle thirdpersonKey;
     int thirdpersonDistance{ 0 };
-    int viewmodelFov{ 68 };
+    int viewmodelFov{ 0 };
     int fov{ 0 };
     int farZ{ 0 };
     int flashReduction{ 0 };
@@ -65,10 +66,13 @@ struct VisualsConfig {
     ColorToggle3 world;
     ColorToggle3 sky;
     bool deagleSpinner{ false };
+    bool hitLog{ false };
     int screenEffect{ 0 };
+    int hitlogType{ 0 };
     int hitEffect{ 0 };
     float hitEffectTime{ 0.6f };
     int hitMarker{ 0 };
+    int hitLogTime{ 5 };
     float hitMarkerTime{ 0.6f };
     BulletTracers bulletTracers;
     ColorToggle molotovHull{ 1.0f, 0.27f, 0.0f, 0.3f };
@@ -77,6 +81,7 @@ struct VisualsConfig {
     float viewmodelOffsetX{ 0 };
     float viewmodelOffsetY{ 0 };
     float viewmodelOffsetZ{ 0 };
+    bool useOldWeaponBob{ false };
 
     struct ColorCorrection {
         bool enabled = false;
@@ -131,6 +136,9 @@ static void from_json(const json& j, VisualsConfig& v)
     read(j, "Thirdperson key", v.thirdpersonKey);
     read(j, "Thirdperson distance", v.thirdpersonDistance);
     read(j, "Viewmodel FOV", v.viewmodelFov);
+    read(j, "Viewmodel Offset X", v.viewmodelOffsetX);
+    read(j, "Viewmodel Offset Y", v.viewmodelOffsetY);
+    read(j, "Viewmodel Offset Z", v.viewmodelOffsetZ);
     read(j, "FOV", v.fov);
     read(j, "Far Z", v.farZ);
     read(j, "Flash reduction", v.flashReduction);
@@ -191,6 +199,9 @@ static void to_json(json& j, const VisualsConfig& o)
     WRITE("Thirdperson key", thirdpersonKey);
     WRITE("Thirdperson distance", thirdpersonDistance);
     WRITE("Viewmodel FOV", viewmodelFov);
+    WRITE("Viewmodel Offset X", viewmodelOffsetX);
+    WRITE("Viewmodel Offset Y", viewmodelOffsetY);
+    WRITE("Viewmodel Offset Z", viewmodelOffsetZ);
     WRITE("FOV", fov);
     WRITE("Far Z", farZ);
     WRITE("Flash reduction", flashReduction);
@@ -538,6 +549,38 @@ void Visuals::hitMarker(GameEvent* event, ImDrawList* drawList) noexcept
     }
 }
 
+
+void Visuals::hitLog(GameEvent* event, ImDrawList* drawList) noexcept
+{
+    if (visualsConfig.hitLog == 0) {
+        return;
+    }
+
+    static float lastHitTime = 0.0f;
+
+    if (event) {
+       if (localPlayer && event->getInt("attacker") == localPlayer->getUserId())
+          lastHitTime = memory->globalVars->realtime;
+       return;
+    }
+    
+    if (lastHitTime + visualsConfig.hitLogTime < memory->globalVars->realtime)
+        return;
+    
+    switch (visualsConfig.hitlogType) {
+    /*case 1:
+        const auto & mid = ImGui::GetIO().DisplaySize / 2.0f;
+        constexpr auto color = IM_COL32(255, 255, 255, 255);
+        drawList->AddLine({ mid.x - 10, mid.y - 10 }, { mid.x - 4, mid.y - 4 }, color);
+        drawList->AddLine({ mid.x + 10.5f, mid.y - 10.5f }, { mid.x + 4.5f, mid.y - 4.5f }, color);
+        drawList->AddLine({ mid.x + 10.5f, mid.y + 10.5f }, { mid.x + 4.5f, mid.y + 4.5f }, color);
+        drawList->AddLine({ mid.x - 10, mid.y + 10 }, { mid.x - 4, mid.y + 4 }, color);
+        break;*/
+    case 1:
+        memory->clientMode->getHudChat()->printf(0, "you hit someone yes!!!");
+    }
+
+}
 void Visuals::disablePostProcessing(FrameStage stage) noexcept
 {
     if (stage != FrameStage::RENDER_START && stage != FrameStage::RENDER_END)
@@ -730,6 +773,16 @@ void Visuals::menuBarItem() noexcept
     }
 }
 
+void Visuals::useOldWeaponBob() noexcept
+{
+    if (!visualsConfig.useOldWeaponBob)
+        return;
+
+    static const auto cl_use_new_headbob = interfaces->cvar->findVar("cl_use_new_headbob");
+    
+    cl_use_new_headbob->setValue(0);
+}
+
 void Visuals::tabItem() noexcept
 {
     if (ImGui::BeginTabItem("Visuals")) {
@@ -794,16 +847,16 @@ void Visuals::drawGUI(bool contentOnly) noexcept
                     static auto viewmodelfov = interfaces->cvar->findVar("viewmodel_fov");
                     viewmodelfov->setValue(viewmodelFov);
                 }
-                if (ImGui::SliderFloat("Viewmodel offset X", &visualsConfig.viewmodelOffsetX, -2, 2.5)); {
+                if (ImGui::SliderFloat("Viewmodel offset X", &visualsConfig.viewmodelOffsetX, -2, 2.5)) {
                     int viewmodeloffsetX = visualsConfig.viewmodelOffsetX;
                     static auto viewmodeloffsetx = interfaces->cvar->findVar("viewmodel_offset_x");
                     viewmodeloffsetx->setValue(viewmodeloffsetX);
                 }
-                if (ImGui::SliderFloat("Viewmodel offset Y", &visualsConfig.viewmodelOffsetY, -2, 2)); {
+                if (ImGui::SliderFloat("Viewmodel offset Y", &visualsConfig.viewmodelOffsetY, -2, 2)) {
                     int viewmodeloffsetY = visualsConfig.viewmodelOffsetY;
                     static auto viewmodeloffsety = interfaces->cvar->findVar("viewmodel_offset_y");
                     viewmodeloffsety->setValue(viewmodeloffsetY);
-                }if (ImGui::SliderFloat("Viewmodel offset Z", &visualsConfig.viewmodelOffsetZ, -2, 2)); {
+                }if (ImGui::SliderFloat("Viewmodel offset Z", &visualsConfig.viewmodelOffsetZ, -2, 2)) {
                     int viewmodeloffsetZ = visualsConfig.viewmodelOffsetZ;
                     static auto viewmodeloffsetz = interfaces->cvar->findVar("viewmodel_offset_z");
                     viewmodeloffsetz->setValue(viewmodeloffsetZ);
@@ -819,6 +872,7 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::SliderInt("", &visualsConfig.farZ, 0, 2000, "Far Z: %d");
     ImGui::PopID();
     ImGui::PushID(4);
+    ImGui::Checkbox("Use old weapon bob (cs1.6/cs:s-styled)", &visualsConfig.useOldWeaponBob);
     ImGui::SliderInt("", &visualsConfig.flashReduction, 0, 100, "Flash reduction: %d%%");
     ImGui::PopID();
     ImGui::PushID(5);
@@ -834,6 +888,9 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::SliderFloat("Hit effect time", &visualsConfig.hitEffectTime, 0.1f, 1.5f, "%.2fs");
     ImGui::Combo("Hit marker", &visualsConfig.hitMarker, "None\0Default (Cross)\0");
     ImGui::SliderFloat("Hit marker time", &visualsConfig.hitMarkerTime, 0.1f, 1.5f, "%.2fs");
+    ImGui::Checkbox("Hitlog", &visualsConfig.hitLog);
+        ImGui::Combo("Hitlog Type", &visualsConfig.hitlogType, "None\0Chat\0Console\0Sexy Animation\0");
+        ImGui::SliderInt("Hitlog time", &visualsConfig.hitLogTime, 1.f, 10.f);
     ImGuiCustom::colorPicker("Bullet Tracers", visualsConfig.bulletTracers.asColor4().color.data(), &visualsConfig.bulletTracers.asColor4().color[3], nullptr, nullptr, &visualsConfig.bulletTracers.enabled);
     ImGuiCustom::colorPicker("Molotov Hull", visualsConfig.molotovHull);
 
