@@ -24,6 +24,7 @@
 #include "InventoryChanger/InventoryChanger.h"
 #include "Helpers.h"
 #include "Interfaces.h"
+#include "../SDK/Engine.h"
 #include "SDK/InputSystem.h"
 #include "Hacks/Visuals.h"
 #include "Hacks/Glow.h"
@@ -146,10 +147,11 @@ static void menuBarItem(const char* name, bool& enabled) noexcept
     }
 }
 
-void GUI::renderMenuBar() noexcept
+void GUI::renderMenuBar() noexcept          //THIS IS OLD TOP MENU BAR STYLE MENU!!!!!!! SCROLL DOWN FOR THE NEW STYLE MENU RETARD
 {
     if (ImGui::BeginMainMenuBar()) {
         menuBarItem("Aimbot", window.aimbot);
+        menuBarItem("Home", window.home);
         //AntiAim::menuBarItem(); //antiaim in a legit cheat?? it's useless and dangerous (animfix doesn't show you aa'ing)
         menuBarItem("Triggerbot", window.triggerbot);
         Backtrack::menuBarItem();
@@ -164,6 +166,78 @@ void GUI::renderMenuBar() noexcept
         menuBarItem("Config", window.config);
         ImGui::EndMainMenuBar();   
     }
+}
+
+void GUI::renderHomeWindow(bool contentOnly) noexcept
+{
+    if (!contentOnly) {
+        if (!window.home)
+            return;
+        ImGui::SetNextWindowSize({ 600.0f, 0.0f });
+        ImGui::Begin("Home", &window.home, windowFlags);
+
+    }
+    
+    ImGui::SetNextWindowSize({ 195.0f, 233.0f }); //renders a config window in bottom right corner of the screen
+    int w, h;                                     //when home tab is open
+    interfaces->engine->getScreenSize(w, h);
+    float wi = w;           //without this compiler says that conversion from 'int' to 'float' requires a narrowing conversion!!!!!
+    float he = h;
+    ImGui::SetNextWindowPos({wi-197, he-235}); //leave a 2 pixel gap between config window and screen border so it looks better
+    ImGui::Begin("Config", &window.configPopup, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
+    ImGui::Text("Config");
+
+    static bool incrementalLoad = false; //incremental load means that instead of replacing all data of already loaded config 
+                                         //with data of config that's being loaded it will instead add data from config that's 
+                                         //about to be loaded to the config that's already loaded. i.e.
+                                         //01001011+11010110=11011111 - incremental load
+                                         //01001011+11010110=11011110 - non-incremental load
+
+    auto& configItems = config->getConfigs();
+    static int currentConfig = -1;
+    static std::u8string buffer;
+
+    timeToNextConfigRefresh -= ImGui::GetIO().DeltaTime;
+    if (timeToNextConfigRefresh <= 0.0f) {
+        config->listConfigs();
+        if (const auto it = std::find(configItems.begin(), configItems.end(), buffer); it != configItems.end())
+            currentConfig = std::distance(configItems.begin(), it);
+        timeToNextConfigRefresh = 0.1f;
+    }
+
+    if (static_cast<std::size_t>(currentConfig) >= configItems.size())
+        currentConfig = -1;
+    ImGui::PushItemWidth(180);
+    if (ImGui::ListBox("", &currentConfig, [](void* data, int idx, const char** out_text) {
+        auto& vector = *static_cast<std::vector<std::u8string>*>(data);
+        *out_text = (const char*)vector[idx].c_str();
+        return true;
+        }, &configItems, configItems.size(), 6) && currentConfig != -1)
+        buffer = configItems[currentConfig];
+
+    if (ImGui::InputTextWithHint("", "config name", &buffer, ImGuiInputTextFlags_EnterReturnsTrue)) {
+        if (currentConfig != -1)
+            config->rename(currentConfig, buffer);
+    }
+
+    if (ImGui::Button("Save Config", { 180.0f, 20.0f }))
+        config->save(currentConfig);
+    
+    
+    if (ImGui::Button("Load Config", { 152.f, 20.f })) {
+        config->load(currentConfig, incrementalLoad);
+        updateColors();
+        InventoryChanger::scheduleHudUpdate();
+        Misc::updateClanTag(true);
+    }
+    ImGui::SameLine();
+    if (ImGui::Button(("a"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
+        config->openConfigDir();
+    
+    ImGui::End();
+    
+    if (!contentOnly)
+        ImGui::End();
 }
 
 void GUI::renderAimbotWindow(bool contentOnly) noexcept
@@ -515,7 +589,7 @@ void GUI::renderStyleWindow(bool contentOnly) noexcept
         ImGui::End();
 }
 
-void GUI::renderConfigWindow(bool contentOnly) noexcept
+void GUI::renderConfigWindow(bool contentOnly) noexcept     //config menu
 {
     if (!contentOnly) {
         if (!window.config)
@@ -632,6 +706,10 @@ void GUI::renderGuiStyle2() noexcept
     ImGui::Begin("slippery.gg", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar/* | ImGuiWindowFlags_AlwaysAutoResize*/);
 
     if (ImGui::BeginTabBar("TabBar",/* ImGuiTabBarFlags_Reorderable |*/ ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) { 
+        if (ImGui::BeginTabItem("Home")) {
+            renderHomeWindow(true);
+            ImGui::EndTabItem();
+        }
         if (ImGui::BeginTabItem("Aimbot")) {
             renderAimbotWindow(true);
             ImGui::EndTabItem();
@@ -656,10 +734,10 @@ void GUI::renderGuiStyle2() noexcept
             ImGui::EndTabItem();
         }
         Misc::tabItem();//WHY THE FUCK DOES IT NOT ALLOW ME TO SWITCH FROM MISC MENU TO CONFIG MENU
-        if (ImGui::BeginTabItem("Config")) {
+        /*if (ImGui::BeginTabItem("Config")) {
             renderConfigWindow(true);
             ImGui::EndTabItem();
-        }
+        }*/
         ImGui::EndTabBar();
     }
 

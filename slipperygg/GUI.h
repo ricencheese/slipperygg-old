@@ -15,6 +15,7 @@ private:
 
     void updateColors() const noexcept;
     void renderMenuBar() noexcept;
+    void renderHomeWindow(bool contentOnly = false) noexcept;
     void renderAimbotWindow(bool contentOnly = false) noexcept;
     void renderTriggerbotWindow(bool contentOnly = false) noexcept;
     void renderChamsWindow(bool contentOnly = false) noexcept;
@@ -23,12 +24,14 @@ private:
     void renderGuiStyle2() noexcept;
 
     struct {
+        bool home = false;
         bool aimbot = false;
         bool triggerbot = false;
         bool chams = false;
         bool sound = false;
         bool style = false;
         bool config = false;
+        bool configPopup = false;
     } window;
 
     struct {
