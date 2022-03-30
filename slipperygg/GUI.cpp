@@ -588,7 +588,7 @@ void GUI::renderStyleWindow(bool contentOnly) noexcept
     if (!contentOnly)
         ImGui::End();
 }
-
+/*
 void GUI::renderConfigWindow(bool contentOnly) noexcept     //config menu
 {
     if (!contentOnly) {
@@ -698,13 +698,12 @@ void GUI::renderConfigWindow(bool contentOnly) noexcept     //config menu
         if (!contentOnly)
             ImGui::End();
 }
-
+*/
 //next code renders the single window menu, we're going to be using this instead of the classic top of the screen menu, right?
 void GUI::renderGuiStyle2() noexcept
 {   
     ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
     ImGui::Begin("slippery.gg", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar/* | ImGuiWindowFlags_AlwaysAutoResize*/);
-
     if (ImGui::BeginTabBar("TabBar",/* ImGuiTabBarFlags_Reorderable |*/ ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) { 
         if (ImGui::BeginTabItem("Home")) {
             renderHomeWindow(true);
@@ -733,7 +732,7 @@ void GUI::renderGuiStyle2() noexcept
             renderStyleWindow(true);
             ImGui::EndTabItem();
         }
-        Misc::tabItem();//WHY THE FUCK DOES IT NOT ALLOW ME TO SWITCH FROM MISC MENU TO CONFIG MENU
+        Misc::tabItem();//WHY THE FUCK DOES IT NOT ALLOW ME TO SWITCH FROM MISC MENU TO CONFIG MENU <- fixed
         /*if (ImGui::BeginTabItem("Config")) {
             renderConfigWindow(true);
             ImGui::EndTabItem();
@@ -742,11 +741,29 @@ void GUI::renderGuiStyle2() noexcept
     }
 
     ImGui::End();
+    int w, h;
+    interfaces->engine->getScreenSize(w, h);
+    float wi = w;           //without this compiler says that conversion from 'int' to 'float' requires a narrowing conversion!!!!!
+    float he = h;
+    ImGui::SetNextWindowSize(ImVec2(250, h), ImGuiCond_Once);
+    ImGui::SetNextWindowPos(ImVec2(w - 50, 0), ImGuiCond_Once);
+    ImGui::Begin("Right Sidebar", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    ImVec2 curWindowPos{ ImGui::GetWindowPos() };
+    ImGui::Text(std::to_string(curWindowPos[0]).c_str());
+    ImGui::Text(std::to_string(wi - 250).c_str());
+    if (ImGui::IsWindowHovered()) {
+        ImGui::Text("window is hovered!!!");
+        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250))/30, 0));
+    }
+    if (!ImGui::IsWindowHovered()) {
+        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 50) - curWindowPos[0]+29) / 30, 0));
+    }
+    ImGui::End();
 }
 
 //TODO LIST:
 //scrolling down the menu hides the top menu bar, maybe make menu taller/wider+move the options a bit?
-//https://thats-crazy-but-i-dont.remember911.bar/e8a3e2668f352caf66.png
+//^ignore that, I'm going to make a button-based menu bar
 
 //tabs with not enough options look retarded, maybe move tabs with a few options to bigger tabs?
 //i.e. move backtracking to aimbot tab https://thats-crazy-but-i-dont.remember911.bar/b479a901be9743d77d.png
