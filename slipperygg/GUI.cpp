@@ -6,6 +6,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <stdio.h>
 
 #ifdef _WIN32
 #include <ShlObj.h>
@@ -168,15 +169,18 @@ void GUI::renderMenuBar() noexcept          //THIS IS OLD TOP MENU BAR STYLE MEN
     }
 }
 
+int sidebarSpeed[]{ 30 };
 void GUI::renderHomeWindow(bool contentOnly) noexcept
 {
     if (!contentOnly) {
-        if (!window.home)
+        if (!&window.home)
             return;
-        ImGui::SetNextWindowSize({ 600.0f, 0.0f });
-        ImGui::Begin("Home", &window.home, windowFlags);
-
+        ImGui::SetNextWindowSize({ 0.0f, 0.0f });
+        ImGui::Begin("Home", &window.home, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
+    ImGui::PushItemWidth(220.0f);
+    ImGui::SliderInt("sidebar speed", sidebarSpeed, 1, 200);
+    ImGui::PopItemWidth();
     if (!contentOnly)
         ImGui::End();
 }
@@ -745,20 +749,18 @@ void GUI::renderGuiStyle2() noexcept
         ImGui::SameLine();
         if (ImGui::Button(("a"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
             config->openConfigDir();;   // config menu over
+        ImGui::Separator();
 
         //TODO: Add a prompt when saving/loading a config (i.e. like legendware does it)
-
     if (ImGui::IsWindowHovered() or listHovered) {
-        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250))/30, 0));
+        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250))/sidebarSpeed[0], 0));
     }       //the way code ^ and v works is it makes the position of the sidebar 
             //less/more by ((distance to the desired position)/30) every frame
     if (!ImGui::IsWindowHovered() and !listHovered) {
-        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0]+29) / 30, 0));
+        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0]+sidebarSpeed[0] - 1) / sidebarSpeed[0], 0));
     }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
             //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
-    ImGui::Separator();
     ImGui::End();
-
 }
 
 //TODO LIST:

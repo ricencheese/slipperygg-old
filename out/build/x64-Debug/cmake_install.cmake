@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/ricencheese/Desktop/GitHub
+# Install script for directory: C:/Users/ricencheese/Desktop/slippery/GitHub
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/ricencheese/Desktop/GitHub/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/ricencheese/Desktop/slippery/GitHub/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,12 +34,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/slipperygg/freetype/cmake_install.cmake")
+  include("C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/slipperygg/freetype/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/slipperygg/Resources/Shaders/cmake_install.cmake")
+  include("C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/slipperygg/Resources/Shaders/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

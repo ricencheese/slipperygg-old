@@ -161,11 +161,12 @@
 			"path" : "CMakeFiles/slipperyggOBJ.dir/./slipperygg/MinHook/trampoline.c.obj"
 		}
 	],
-	"backtrace" : 1,
+	"backtrace" : 2,
 	"backtraceGraph" : 
 	{
 		"commands" : 
 		[
+			"_add_library",
 			"add_library",
 			"target_link_libraries",
 			"add_dependencies",
@@ -176,52 +177,59 @@
 		],
 		"files" : 
 		[
+			"C:/Users/ricencheese/Desktop/vcpkg-2022.03.10/scripts/buildsystems/vcpkg.cmake",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
 		[
 			{
-				"file" : 0
+				"file" : 1
 			},
 			{
-				"command" : 0,
-				"file" : 0,
+				"command" : 1,
+				"file" : 1,
 				"line" : 37,
 				"parent" : 0
 			},
 			{
-				"command" : 1,
+				"command" : 0,
 				"file" : 0,
+				"line" : 590,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
 				"line" : 54,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
-				"file" : 0,
+				"command" : 3,
+				"file" : 1,
 				"line" : 56,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
-				"file" : 0,
+				"command" : 4,
+				"file" : 1,
 				"line" : 52,
 				"parent" : 0
 			},
 			{
-				"command" : 4,
-				"file" : 0,
+				"command" : 5,
+				"file" : 1,
 				"line" : 50,
 				"parent" : 0
 			},
 			{
-				"command" : 5,
-				"file" : 0,
+				"command" : 6,
+				"file" : 1,
 				"line" : 51,
 				"parent" : 0
 			},
 			{
-				"command" : 6,
-				"file" : 0,
+				"command" : 7,
+				"file" : 1,
 				"line" : 39,
 				"parent" : 0
 			}
@@ -236,28 +244,28 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "/utf-8"
 				},
 				{
 					"fragment" : "-std:c++20"
 				},
 				{
-					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx"
+					"fragment" : "/YcC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "_USE_MATH_DEFINES"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
+					"backtrace" : 7,
+					"path" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "CXX",
@@ -265,15 +273,15 @@
 			{
 				"backtraces" : 
 				[
-					1
+					2
 				],
 				"standard" : "20"
 			},
 			"precompileHeaders" : 
 			[
 				{
-					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
+					"backtrace" : 8,
+					"header" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -288,33 +296,33 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "/utf-8"
 				},
 				{
-					"fragment" : "/YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h"
+					"fragment" : "/YcC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "_USE_MATH_DEFINES"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
+					"backtrace" : 7,
+					"path" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "C",
 			"precompileHeaders" : 
 			[
 				{
-					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
+					"backtrace" : 8,
+					"header" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -329,28 +337,28 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "/utf-8"
 				},
 				{
 					"fragment" : "-std:c++20"
 				},
 				{
-					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx"
+					"fragment" : "/YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "_USE_MATH_DEFINES"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
+					"backtrace" : 7,
+					"path" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "CXX",
@@ -358,15 +366,15 @@
 			{
 				"backtraces" : 
 				[
-					1
+					2
 				],
 				"standard" : "20"
 			},
 			"precompileHeaders" : 
 			[
 				{
-					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
+					"backtrace" : 8,
+					"header" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -426,33 +434,33 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "/utf-8"
 				},
 				{
-					"fragment" : "/YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h"
+					"fragment" : "/YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "_USE_MATH_DEFINES"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 6,
-					"path" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/freetype"
+					"backtrace" : 7,
+					"path" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/freetype"
 				}
 			],
 			"language" : "C",
 			"precompileHeaders" : 
 			[
 				{
-					"backtrace" : 7,
-					"header" : "C:/Users/ricencheese/Desktop/GitHub/slipperygg/pch.h"
+					"backtrace" : 8,
+					"header" : "C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/pch.h"
 				}
 			],
 			"sourceIndexes" : 
@@ -468,11 +476,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
+			"backtrace" : 3,
 			"id" : "FreeType::@80e08a9cfe1f50a3ccc4"
 		},
 		{
-			"backtrace" : 3,
+			"backtrace" : 4,
 			"id" : "Shaders::@bf254893378f663de1b2"
 		}
 	],
@@ -568,307 +576,307 @@
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Config.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/ConfigStructs.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/EventListener.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/GUI.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/GameData.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Aimbot.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/AntiAim.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Backtrack.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Chams.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/EnginePrediction.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Glow.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Misc.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Sound.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/StreamProofESP.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Triggerbot.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hacks/Visuals.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Helpers.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hooks.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hooks/MinHook.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hooks/VmtHook.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Hooks/VmtSwap.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/InputUtil.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/InventoryChanger/Inventory.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/InventoryChanger/InventoryChanger.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/InventoryChanger/InventoryConfig.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/InventoryChanger/ItemGenerator.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/InventoryChanger/StaticData.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/InventoryChanger/ToolUser.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Memory.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Netvars.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/SDK/EconItemView.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/SDK/Entity.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/SDK/GlobalVars.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/SDK/KeyValues.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/SDK/Utils.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/Texture.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_demo.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_draw.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_freetype.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_impl_dx9.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_impl_win32.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_stdlib.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_tables.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imgui/imgui_widgets.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 2,
 			"path" : "slipperygg/imguiCustom.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 3,
 			"path" : "slipperygg/MinHook/buffer.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 3,
 			"path" : "slipperygg/MinHook/hde/hde32.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 3,
 			"path" : "slipperygg/MinHook/hde/hde64.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 3,
 			"path" : "slipperygg/MinHook/hook.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 1,
+			"backtrace" : 2,
 			"compileGroupIndex" : 3,
 			"path" : "slipperygg/MinHook/trampoline.c",
 			"sourceGroupIndex" : 0

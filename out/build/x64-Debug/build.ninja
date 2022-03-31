@@ -39,7 +39,7 @@ include CMakeFiles\rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\
+cmake_ninja_workdir = C$:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\
 # =============================================================================
 # Object build statements for OBJECT_LIBRARY target slipperyggOBJ
 
@@ -49,10 +49,10 @@ cmake_ninja_workdir = C$:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\
 
 build cmake_object_order_depends_target_slipperyggOBJ: phony || cmake_object_order_depends_target_FreeType slipperygg\Resources\Shaders\Shaders
 
-build CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YcC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
@@ -64,10 +64,10 @@ build CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.obj: CXX_COMPILER__slipperyggOB
 
 build CMakeFiles\slipperyggOBJ.dir\.\cmake_pch.cxx.pch: phony CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.obj
 
-build CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\CMakeFiles\slipperyggOBJ.dir\cmake_pch.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\CMakeFiles\slipperyggOBJ.dir\cmake_pch.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YcC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YcC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
@@ -79,460 +79,460 @@ build CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.obj: C_COMPILER__slipperyggOBJ_De
 
 build CMakeFiles\slipperyggOBJ.dir\.\cmake_pch.c.pch: phony CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.obj
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Config.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Config.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Config.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Config.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\ConfigStructs.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\ConfigStructs.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\ConfigStructs.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\ConfigStructs.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\EventListener.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\EventListener.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\EventListener.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\EventListener.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\GUI.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\GUI.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\GUI.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\GUI.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\GameData.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\GameData.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\GameData.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\GameData.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Aimbot.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Aimbot.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Aimbot.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Aimbot.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\AntiAim.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\AntiAim.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\AntiAim.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\AntiAim.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Backtrack.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Backtrack.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Backtrack.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Backtrack.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Chams.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Chams.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Chams.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Chams.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\EnginePrediction.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\EnginePrediction.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\EnginePrediction.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\EnginePrediction.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Glow.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Glow.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Glow.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Glow.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Misc.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Misc.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Misc.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Misc.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Sound.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Sound.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Sound.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Sound.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\StreamProofESP.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\StreamProofESP.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\StreamProofESP.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\StreamProofESP.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Triggerbot.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Triggerbot.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Triggerbot.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Triggerbot.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Visuals.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hacks\Visuals.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks\Visuals.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hacks\Visuals.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hacks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Helpers.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Helpers.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Helpers.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Helpers.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hooks.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hooks.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks\MinHook.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hooks\MinHook.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks\MinHook.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hooks\MinHook.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks\VmtHook.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hooks\VmtHook.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks\VmtHook.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hooks\VmtHook.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks\VmtSwap.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Hooks\VmtSwap.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks\VmtSwap.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Hooks\VmtSwap.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\Hooks
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\InputUtil.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\InputUtil.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\InputUtil.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\InputUtil.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\Inventory.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\InventoryChanger\Inventory.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\Inventory.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\InventoryChanger\Inventory.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\InventoryChanger.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\InventoryChanger\InventoryChanger.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\InventoryChanger.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\InventoryChanger\InventoryChanger.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\InventoryConfig.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\InventoryChanger\InventoryConfig.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\InventoryConfig.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\InventoryChanger\InventoryConfig.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\ItemGenerator.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\InventoryChanger\ItemGenerator.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\ItemGenerator.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\InventoryChanger\ItemGenerator.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\StaticData.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\InventoryChanger\StaticData.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\StaticData.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\InventoryChanger\StaticData.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\ToolUser.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\InventoryChanger\ToolUser.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger\ToolUser.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\InventoryChanger\ToolUser.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\InventoryChanger
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Memory.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Memory.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Memory.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Memory.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Netvars.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Netvars.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Netvars.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Netvars.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\EconItemView.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\SDK\EconItemView.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\EconItemView.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\SDK\EconItemView.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\Entity.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\SDK\Entity.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\Entity.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\SDK\Entity.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\GlobalVars.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\SDK\GlobalVars.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\GlobalVars.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\SDK\GlobalVars.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\KeyValues.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\SDK\KeyValues.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\KeyValues.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\SDK\KeyValues.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\Utils.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\SDK\Utils.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK\Utils.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\SDK\Utils.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\SDK
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\Texture.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\Texture.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\Texture.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\Texture.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_demo.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_demo.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_demo.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_demo.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_draw.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_draw.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_draw.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_draw.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_freetype.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_freetype.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_freetype.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_freetype.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_impl_dx9.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_impl_dx9.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_impl_dx9.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_impl_dx9.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_impl_win32.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_impl_win32.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_impl_win32.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_impl_win32.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_stdlib.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_stdlib.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_stdlib.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_stdlib.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_tables.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_tables.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_tables.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_tables.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_widgets.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imgui\imgui_widgets.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui\imgui_widgets.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imgui\imgui_widgets.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\imgui
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\imguiCustom.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\imguiCustom.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\imguiCustom.cpp.obj: CXX_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\imguiCustom.cpp | CMakeFiles\slipperyggOBJ.dir\cmake_pch.hxx CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd /utf-8 -std:c++20 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.cxx.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.hxx
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\buffer.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\MinHook\buffer.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\buffer.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\MinHook\buffer.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hde\hde32.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\MinHook\hde\hde32.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hde\hde32.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\MinHook\hde\hde32.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hde
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hde\hde64.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\MinHook\hde\hde64.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hde\hde64.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\MinHook\hde\hde64.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hde
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hook.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\MinHook\hook.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\hook.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\MinHook\hook.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
   TARGET_PDB = ""
 
-build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\trampoline.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\MinHook\trampoline.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
+build CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook\trampoline.c.obj: C_COMPILER__slipperyggOBJ_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\MinHook\trampoline.c | CMakeFiles\slipperyggOBJ.dir\cmake_pch.h CMakeFiles\slipperyggOBJ.dir\cmake_pch.c.pch || cmake_object_order_depends_target_slipperyggOBJ
   DEFINES = -D_USE_MATH_DEFINES
-  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype
+  FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /utf-8 /YuC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h /FpC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/./cmake_pch.c.pch /FIC:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/CMakeFiles/slipperyggOBJ.dir/cmake_pch.h
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype
   OBJECT_DIR = CMakeFiles\slipperyggOBJ.dir
   OBJECT_FILE_DIR = CMakeFiles\slipperyggOBJ.dir\slipperygg\MinHook
   TARGET_COMPILE_PDB = CMakeFiles\slipperyggOBJ.dir\
@@ -554,7 +554,7 @@ build slipperyggOBJ: phony CMakeFiles\slipperyggOBJ.dir\cmake_pch.cxx.obj CMakeF
 
 build cmake_object_order_depends_target_slipperygg: phony || cmake_object_order_depends_target_FreeType cmake_object_order_depends_target_slipperyggOBJ
 
-build CMakeFiles\slipperygg.dir\slipperygg\base.cpp.obj: CXX_COMPILER__slipperygg_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\base.cpp || cmake_object_order_depends_target_slipperygg
+build CMakeFiles\slipperygg.dir\slipperygg\base.cpp.obj: CXX_COMPILER__slipperygg_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\base.cpp || cmake_object_order_depends_target_slipperygg
   DEFINES = -Dslipperygg_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
   OBJECT_DIR = CMakeFiles\slipperygg.dir
@@ -575,7 +575,7 @@ build slipperygg.dll slipperygg.lib: CXX_SHARED_LIBRARY_LINKER__slipperygg_Debug
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL  /ENTRY:DllEntryPoint
   LINK_LIBRARIES = slipperygg\freetype\FreeType.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = CMakeFiles\slipperygg.dir
-  POST_BUILD = cd .
+  POST_BUILD = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/ricencheese/Desktop/vcpkg-2022.03.10/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/slipperygg.dll -installedDir C:/Users/ricencheese/Desktop/vcpkg-2022.03.10/installed/x64-windows/debug/bin -OutVariable out"
   PRE_LINK = cd .
   RESTAT = 1
   TARGET_COMPILE_PDB = CMakeFiles\slipperygg.dir\
@@ -588,7 +588,7 @@ build slipperygg.dll slipperygg.lib: CXX_SHARED_LIBRARY_LINKER__slipperygg_Debug
 # Utility command for edit_cache
 
 build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -599,7 +599,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\ricencheese\Desktop\GitHub -BC:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug"
+  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\ricencheese\Desktop\slippery\GitHub -BC:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -608,7 +608,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/ricencheese/Desktop/GitHub/CMakeLists.txt
+# C:/Users/ricencheese/Desktop/slippery/GitHub/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -620,145 +620,145 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 build cmake_object_order_depends_target_FreeType: phony || slipperygg\freetype\CMakeFiles\FreeType.dir
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\autofit\autofit.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\autofit\autofit.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\autofit\autofit.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\autofit\autofit.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\autofit
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\cff\cff.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\cff\cff.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\cff\cff.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\cff\cff.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\cff
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftbase.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\base\ftbase.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftbase.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\base\ftbase.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\base
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftbitmap.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\base\ftbitmap.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftbitmap.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\base\ftbitmap.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\base
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftdebug.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\base\ftdebug.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftdebug.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\base\ftdebug.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\base
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftglyph.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\base\ftglyph.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftglyph.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\base\ftglyph.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\base
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftinit.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\base\ftinit.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftinit.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\base\ftinit.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\base
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftsynth.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\base\ftsynth.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftsynth.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\base\ftsynth.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\base
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftsystem.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\base\ftsystem.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\base\ftsystem.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\base\ftsystem.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\base
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\psaux\psaux.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\psaux\psaux.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\psaux\psaux.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\psaux\psaux.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\psaux
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\pshinter\pshinter.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\pshinter\pshinter.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\pshinter\pshinter.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\pshinter\pshinter.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\pshinter
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\psnames\psnames.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\psnames\psnames.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\psnames\psnames.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\psnames\psnames.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\psnames
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\raster\raster.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\raster\raster.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\raster\raster.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\raster\raster.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\raster
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\sfnt\sfnt.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\sfnt\sfnt.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\sfnt\sfnt.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\sfnt\sfnt.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\sfnt
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\smooth\smooth.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\smooth\smooth.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\smooth\smooth.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\smooth\smooth.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\smooth
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
   TARGET_PDB = slipperygg\freetype\FreeType.pdb
 
-build slipperygg\freetype\CMakeFiles\FreeType.dir\src\truetype\truetype.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\src\truetype\truetype.c || cmake_object_order_depends_target_FreeType
+build slipperygg\freetype\CMakeFiles\FreeType.dir\src\truetype\truetype.c.obj: C_COMPILER__FreeType_Debug C$:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\src\truetype\truetype.c || cmake_object_order_depends_target_FreeType
   DEFINES = -DFT2_BUILD_LIBRARY
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\ricencheese\Desktop\GitHub\slipperygg\freetype\.
+  INCLUDES = -IC:\Users\ricencheese\Desktop\slippery\GitHub\slipperygg\freetype\.
   OBJECT_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir
   OBJECT_FILE_DIR = slipperygg\freetype\CMakeFiles\FreeType.dir\src\truetype
   TARGET_COMPILE_PDB = slipperygg\freetype\CMakeFiles\FreeType.dir\FreeType.pdb
@@ -787,7 +787,7 @@ build slipperygg\freetype\FreeType.lib: C_STATIC_LIBRARY_LINKER__FreeType_Debug 
 # Utility command for edit_cache
 
 build slipperygg\freetype\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\slipperygg\freetype && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\slipperygg\freetype && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -798,7 +798,7 @@ build slipperygg\freetype\edit_cache: phony slipperygg\freetype\CMakeFiles\edit_
 # Utility command for rebuild_cache
 
 build slipperygg\freetype\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\slipperygg\freetype && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\ricencheese\Desktop\GitHub -BC:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug"
+  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\slipperygg\freetype && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\ricencheese\Desktop\slippery\GitHub -BC:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -807,7 +807,7 @@ build slipperygg\freetype\rebuild_cache: phony slipperygg\freetype\CMakeFiles\re
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/ricencheese/Desktop/GitHub/CMakeLists.txt
+# C:/Users/ricencheese/Desktop/slippery/GitHub/CMakeLists.txt
 # =============================================================================
 
 
@@ -821,7 +821,7 @@ build slipperygg\Resources\Shaders\Shaders: phony slipperygg\Resources\Shaders\C
 # Utility command for edit_cache
 
 build slipperygg\Resources\Shaders\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\slipperygg\Resources\Shaders && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\slipperygg\Resources\Shaders && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -832,7 +832,7 @@ build slipperygg\Resources\Shaders\edit_cache: phony slipperygg\Resources\Shader
 # Utility command for rebuild_cache
 
 build slipperygg\Resources\Shaders\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\slipperygg\Resources\Shaders && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\ricencheese\Desktop\GitHub -BC:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug"
+  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\slipperygg\Resources\Shaders && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\ricencheese\Desktop\slippery\GitHub -BC:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -850,7 +850,7 @@ build slipperygg\Resources\Shaders\CMakeFiles\Shaders | ${cmake_ninja_workdir}sl
 # Custom command for ..\..\..\slipperygg\Resources\Shaders\Build\default_vs.h
 
 build ..\..\..\slipperygg\Resources\Shaders\Build\default_vs.h | ${cmake_ninja_workdir}..\..\..\slipperygg\Resources\Shaders\Build\default_vs.h: CUSTOM_COMMAND ..\..\..\slipperygg\Resources\Shaders\default_vs.hlsl
-  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\GitHub\out\build\x64-Debug\slipperygg\Resources\Shaders && FXC C:/Users/ricencheese/Desktop/GitHub/slipperygg/Resources/Shaders/default_vs.hlsl /Vn default_vs /T vs_2_0 /Fh C:/Users/ricencheese/Desktop/GitHub/slipperygg/Resources/Shaders/Build/default_vs.h"
+  COMMAND = cmd.exe /C "cd /D C:\Users\ricencheese\Desktop\slippery\GitHub\out\build\x64-Debug\slipperygg\Resources\Shaders && FXC C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/Resources/Shaders/default_vs.hlsl /Vn default_vs /T vs_2_0 /Fh C:/Users/ricencheese/Desktop/slippery/GitHub/slipperygg/Resources/Shaders/Build/default_vs.h"
   DESC = Generating ../../../../../../slipperygg/Resources/Shaders/Build/default_vs.h
   restat = 1
 
@@ -871,21 +871,21 @@ build slipperygg: phony slipperygg.dll
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug
+# Folder: C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug
 
 build all: phony slipperyggOBJ slipperygg.dll slipperygg\freetype\all slipperygg\Resources\Shaders\all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/slipperygg/Resources/Shaders
+# Folder: C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/slipperygg/Resources/Shaders
 
 build slipperygg\Resources\Shaders\all: phony
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/ricencheese/Desktop/GitHub/out/build/x64-Debug/slipperygg/freetype
+# Folder: C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/slipperygg/freetype
 
 build slipperygg\freetype\all: phony slipperygg\freetype\FreeType.lib
 
@@ -896,14 +896,14 @@ build slipperygg\freetype\all: phony slipperygg\freetype\FreeType.lib
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\slipperygg\Resources\Shaders\CMakeLists.txt ..\..\..\slipperygg\freetype\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.21.21080301-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\slipperygg\Resources\Shaders\CMakeLists.txt ..\..\..\slipperygg\freetype\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCCompilerABI.c C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXCompilerABI.cpp C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCompilerIdDetection.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompileFeatures.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompilerABI.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompilerId.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeFindBinUtils.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeParseLibraryArchitecture.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeRCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestCompilerCommon.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\HP-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\NVHPC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ROCMClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XL-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Internal\FeatureTesting.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-Determine-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake C$:\Users\ricencheese\Desktop\vcpkg-2022.03.10\scripts\buildsystems\vcpkg.cmake CMakeCache.txt CMakeFiles\3.21.21080301-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\..\..\CMakeLists.txt ..\..\..\slipperygg\Resources\Shaders\CMakeLists.txt ..\..\..\slipperygg\freetype\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.21.21080301-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeSystem.cmake: phony
+build ..\..\..\CMakeLists.txt ..\..\..\slipperygg\Resources\Shaders\CMakeLists.txt ..\..\..\slipperygg\freetype\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCCompilerABI.c C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXCompilerABI.cpp C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeCompilerIdDetection.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompileFeatures.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompilerABI.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineCompilerId.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeFindBinUtils.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeParseLibraryArchitecture.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeRCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestCompilerCommon.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\CMakeTestRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\HP-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\NVHPC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\ROCMClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XL-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Internal\FeatureTesting.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-Determine-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake C$:\Users\ricencheese\Desktop\vcpkg-2022.03.10\scripts\buildsystems\vcpkg.cmake CMakeCache.txt CMakeFiles\3.21.21080301-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.21.21080301-MSVC_2\CMakeSystem.cmake: phony
 
 
 #############################################
