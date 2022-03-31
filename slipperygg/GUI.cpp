@@ -694,8 +694,9 @@ void GUI::renderGuiStyle2() noexcept
     ImGui::Text(std::to_string(curWindowPos[0]).c_str());
     ImGui::Text(std::to_string(wi - 250).c_str());
     ImGui::Separator();
-    ImGui::Text("Config");
 
+    ImGui::Text("Config");  //config menu here
+                            //not using BeginChild() because it makes the config menu way too wide for the sidebar
     static bool incrementalLoad = false; //incremental load means that instead of replacing all data of already loaded config 
                                          //with data of config that's being loaded it will instead add data from config that's 
                                          //about to be loaded to the config that's already loaded. i.e.
