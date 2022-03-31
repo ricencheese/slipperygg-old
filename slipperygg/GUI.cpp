@@ -56,7 +56,7 @@ static ImFont* addFontFromVFONT(const std::string& path, float size, const ImWch
 
 GUI::GUI() noexcept
 {
-    ImGui::StyleColorsDark(); //I am going to change default colors in imgui_draw.cpp because fuck you imgui
+    ImGui::StyleColorsDark();
     ImGuiStyle& style = ImGui::GetStyle();
 
     style.ScrollbarSize = 9.0f;
@@ -69,11 +69,12 @@ GUI::GUI() noexcept
     ImFontConfig cfg;
     cfg.SizePixels = 15.0f;
 
-#ifdef _WIN32
+    ImFontConfig cfgbackground;
+    cfgbackground.SizePixels = 80.0f;
+#ifdef _WIN32           //fontssss
     if (PWSTR pathToFonts; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_Fonts, 0, nullptr, &pathToFonts))) {
         const std::filesystem::path path{ pathToFonts };
         CoTaskMemFree(pathToFonts);
-
         fonts.normal15px = io.Fonts->AddFontFromFileTTF((path / "tahoma.ttf").string().c_str(), 15.0f, &cfg, Helpers::getFontGlyphRanges());
         if (!fonts.normal15px)
             io.Fonts->AddFontDefault(&cfg);
@@ -86,6 +87,11 @@ GUI::GUI() noexcept
         io.Fonts->AddFontFromFileTTF((path / "seguisym.ttf").string().c_str(), 15.0f, &cfg, symbol);
         cfg.MergeMode = false;
     }
+    if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
+        const std::filesystem::path path{ pathToRoaming };
+        CoTaskMemFree(pathToRoaming);
+        fonts.backgroundCubes = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/slippery.ttf").string().c_str(), 80.0f, &cfgbackground, Helpers::getFontGlyphRanges());
+    }
 #else
     fonts.normal15px = addFontFromVFONT("csgo/panorama/fonts/notosans-regular.vfont", 15.0f, Helpers::getFontGlyphRanges(), false);
 #endif
@@ -97,27 +103,69 @@ GUI::GUI() noexcept
 
 void GUI::render() noexcept
 {
-    /*if (!config->style.menuStyle) {                   //commenting this all out makes single window menu the only 
-        renderMenuBar();                                //available window style
-        renderAimbotWindow();
-        AntiAim::drawGUI(false);
-        renderTriggerbotWindow();
-        Backtrack::drawGUI(false);
-        Glow::drawGUI(false);
-        renderChamsWindow();
-        StreamProofESP::drawGUI(false);
-        Visuals::drawGUI(false);
-        InventoryChanger::drawGUI(false);
-        Sound::drawGUI(false);
-        renderStyleWindow();
-        Misc::drawGUI(false);
-        renderConfigWindow();
-    } else {
-        renderGuiStyle2();
-    }*/
     renderGuiStyle2();
 }
+/*
+void GUI::styleColorsDark() noexcept
+{
+    ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
+    ImVec4* colors = style->Colors;
 
+    colors[ImGuiCol_Text] =                 ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+    colors[ImGuiCol_TextDisabled] =         ImVec4(0.50f, 0.50f, 0.50f, 1.00f);
+    colors[ImGuiCol_WindowBg] =             ImVec4(0.12f, 0.12f, 0.12f, 1.00f);
+    colors[ImGuiCol_ChildBg] =              ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+    colors[ImGuiCol_PopupBg] =              ImVec4(0.08f, 0.08f, 0.08f, 0.94f);
+    colors[ImGuiCol_Border] =               ImVec4(0.43f, 0.43f, 0.50f, 0.50f);
+    colors[ImGuiCol_BorderShadow] =         ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+    colors[ImGuiCol_FrameBg] =              ImVec4(0.16f, 0.29f, 0.48f, 0.54f);
+    colors[ImGuiCol_FrameBgHovered] =       ImVec4(0.26f, 0.59f, 0.98f, 0.40f);
+    colors[ImGuiCol_FrameBgActive] =        ImVec4(0.26f, 0.59f, 0.98f, 0.67f);
+    colors[ImGuiCol_TitleBg] =              ImVec4(0.04f, 0.04f, 0.04f, 1.00f);
+    colors[ImGuiCol_TitleBgActive] =        ImVec4(0.16f, 0.29f, 0.48f, 1.00f);
+    colors[ImGuiCol_TitleBgCollapsed] =     ImVec4(0.00f, 0.00f, 0.00f, 0.51f);
+    colors[ImGuiCol_MenuBarBg] =            ImVec4(0.14f, 0.14f, 0.14f, 1.00f);
+    colors[ImGuiCol_ScrollbarBg] =          ImVec4(0.02f, 0.02f, 0.02f, 0.53f);
+    colors[ImGuiCol_ScrollbarGrab] =        ImVec4(0.31f, 0.31f, 0.31f, 1.00f);
+    colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.41f, 0.41f, 0.41f, 1.00f);
+    colors[ImGuiCol_ScrollbarGrabActive] =  ImVec4(0.51f, 0.51f, 0.51f, 1.00f);
+    colors[ImGuiCol_CheckMark] =            ImVec4(0.26f, 0.26f, 0.26f, 1.00f);
+    colors[ImGuiCol_SliderGrab] =           ImVec4(0.24f, 0.52f, 0.88f, 1.00f);
+    colors[ImGuiCol_SliderGrabActive] =     ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+    colors[ImGuiCol_Button] =               ImVec4(0.26f, 0.59f, 0.98f, 0.40f);
+    colors[ImGuiCol_ButtonHovered] =        ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+    colors[ImGuiCol_ButtonActive] =         ImVec4(0.06f, 0.53f, 0.98f, 1.00f);
+    colors[ImGuiCol_Header] =               ImVec4(0.26f, 0.59f, 0.98f, 0.31f);
+    colors[ImGuiCol_HeaderHovered] =        ImVec4(0.26f, 0.59f, 0.98f, 0.80f);
+    colors[ImGuiCol_HeaderActive] =         ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+    colors[ImGuiCol_Separator] =            colors[ImGuiCol_Border];
+    colors[ImGuiCol_SeparatorHovered] =     ImVec4(0.10f, 0.40f, 0.75f, 0.78f);
+    colors[ImGuiCol_SeparatorActive] =      ImVec4(0.10f, 0.40f, 0.75f, 1.00f);
+    colors[ImGuiCol_ResizeGrip] =           ImVec4(0.26f, 0.59f, 0.98f, 0.20f);
+    colors[ImGuiCol_ResizeGripHovered] =    ImVec4(0.26f, 0.59f, 0.98f, 0.67f);
+    colors[ImGuiCol_ResizeGripActive] =     ImVec4(0.26f, 0.59f, 0.98f, 0.95f);
+    colors[ImGuiCol_Tab] =                  ImLerp(colors[ImGuiCol_Header], colors[ImGuiCol_TitleBgActive], 0.80f);
+    colors[ImGuiCol_TabHovered] =           colors[ImGuiCol_HeaderHovered];
+    colors[ImGuiCol_TabActive] =            ImLerp(colors[ImGuiCol_HeaderActive], colors[ImGuiCol_TitleBgActive], 0.60f);
+    colors[ImGuiCol_TabUnfocused] =         ImLerp(colors[ImGuiCol_Tab], colors[ImGuiCol_TitleBg], 0.80f);
+    colors[ImGuiCol_TabUnfocusedActive] =   ImLerp(colors[ImGuiCol_TabActive], colors[ImGuiCol_TitleBg], 0.40f);
+    colors[ImGuiCol_PlotLines] =            ImVec4(0.61f, 0.61f, 0.61f, 1.00f);
+    colors[ImGuiCol_PlotLinesHovered] =     ImVec4(1.00f, 0.43f, 0.35f, 1.00f);
+    colors[ImGuiCol_PlotHistogram] =        ImVec4(0.90f, 0.70f, 0.00f, 1.00f);
+    colors[ImGuiCol_PlotHistogramHovered] = ImVec4(1.00f, 0.60f, 0.00f, 1.00f);
+    colors[ImGuiCol_TableHeaderBg] =        ImVec4(0.19f, 0.19f, 0.20f, 1.00f);
+    colors[ImGuiCol_TableBorderStrong] =    ImVec4(0.31f, 0.31f, 0.35f, 1.00f);   // Prefer using Alpha=1.0 here
+    colors[ImGuiCol_TableBorderLight] =     ImVec4(0.23f, 0.23f, 0.25f, 1.00f);   // Prefer using Alpha=1.0 here
+    colors[ImGuiCol_TableRowBg] =           ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+    colors[ImGuiCol_TableRowBgAlt] =        ImVec4(1.00f, 1.00f, 1.00f, 0.06f);
+    colors[ImGuiCol_TextSelectedBg] =       ImVec4(0.26f, 0.59f, 0.98f, 0.35f);
+    colors[ImGuiCol_DragDropTarget] =       ImVec4(1.00f, 1.00f, 0.00f, 0.90f);
+    colors[ImGuiCol_NavHighlight] =         ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+    colors[ImGuiCol_NavWindowingHighlight]= ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
+    colors[ImGuiCol_NavWindowingDimBg] =    ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
+    colors[ImGuiCol_ModalWindowDimBg] =     ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
+}
+*/
 void GUI::updateColors() const noexcept
 {
     switch (config->style.menuColors) {
@@ -180,7 +228,64 @@ void GUI::renderHomeWindow(bool contentOnly) noexcept
     }
     ImGui::PushItemWidth(220.0f);
     ImGui::SliderInt("sidebar speed", sidebarSpeed, 1, 200);
+    if (ImGui::Combo("Menu colors", &config->style.menuColors, "Dark theme\0Light theme\0"))
+        updateColors();
     ImGui::PopItemWidth();
+    /*switch (idx)
+    {
+    ImGuiCol_Text: return "Text";
+    ImGuiCol_TextDisabled: return "TextDisabled";
+    ImGuiCol_WindowBg: return "WindowBg";
+    ImGuiCol_ChildBg: return "ChildBg";
+    ImGuiCol_PopupBg: return "PopupBg";
+    ImGuiCol_Border: return "Border";
+    ImGuiCol_BorderShadow: return "BorderShadow";
+    ImGuiCol_FrameBg: return "FrameBg";
+    ImGuiCol_FrameBgHovered: return "FrameBgHovered";
+    ImGuiCol_FrameBgActive: return "FrameBgActive";
+    ImGuiCol_TitleBg: return "TitleBg";
+    ImGuiCol_TitleBgActive: return "TitleBgActive";
+    ImGuiCol_TitleBgCollapsed: return "TitleBgCollapsed";
+    ImGuiCol_MenuBarBg: return "MenuBarBg";
+    ImGuiCol_ScrollbarBg: return "ScrollbarBg";
+    ImGuiCol_ScrollbarGrab: return "ScrollbarGrab";
+    ImGuiCol_ScrollbarGrabHovered: return "ScrollbarGrabHovered";
+    ImGuiCol_ScrollbarGrabActive: return "ScrollbarGrabActive";
+    ImGuiCol_CheckMark: return "CheckMark";
+    ImGuiCol_SliderGrab: return "SliderGrab";
+    ImGuiCol_SliderGrabActive: return "SliderGrabActive";
+    ImGuiCol_Button: return "Button";
+    ImGuiCol_ButtonHovered: return "ButtonHovered";
+    ImGuiCol_ButtonActive: return "ButtonActive";
+    ImGuiCol_Header: return "Header";
+    ImGuiCol_HeaderHovered: return "HeaderHovered";
+    ImGuiCol_HeaderActive: return "HeaderActive";
+    ImGuiCol_Separator: return "Separator";
+    ImGuiCol_SeparatorHovered: return "SeparatorHovered";
+    ImGuiCol_SeparatorActive: return "SeparatorActive";
+    ImGuiCol_ResizeGrip: return "ResizeGrip";
+    ImGuiCol_ResizeGripHovered: return "ResizeGripHovered";
+    ImGuiCol_ResizeGripActive: return "ResizeGripActive";
+    ImGuiCol_Tab: return "Tab";
+    ImGuiCol_TabHovered: return "TabHovered";
+    ImGuiCol_TabActive: return "TabActive";
+    ImGuiCol_TabUnfocused: return "TabUnfocused";
+    ImGuiCol_TabUnfocusedActive: return "TabUnfocusedActive";
+    ImGuiCol_PlotLines: return "PlotLines";
+    ImGuiCol_PlotLinesHovered: return "PlotLinesHovered";
+    ImGuiCol_PlotHistogram: return "PlotHistogram";
+    ImGuiCol_PlotHistogramHovered: return "PlotHistogramHovered";
+    ImGuiCol_TableHeaderBg: return "TableHeaderBg";
+    ImGuiCol_TableBorderStrong: return "TableBorderStrong";
+    ImGuiCol_TableBorderLight: return "TableBorderLight";
+    ImGuiCol_TableRowBg: return "TableRowBg";
+    ImGuiCol_TableRowBgAlt: return "TableRowBgAlt";
+    ImGuiCol_TextSelectedBg: return "TextSelectedBg";
+    ImGuiCol_DragDropTarget: return "DragDropTarget";
+    ImGuiCol_NavHighlight: return "NavHighlight";
+    ImGuiCol_NavWindowingHighlight: return "NavWindowingHighlight";
+    ImGuiCol_NavWindowingDimBg: return "NavWindowingDimBg";
+    ImGuiCol_ModalWindowDimBg: return "ModalWindowDimBg";*/
     if (!contentOnly)
         ImGui::End();
 }
@@ -515,8 +620,6 @@ void GUI::renderStyleWindow(bool contentOnly) noexcept
     }
 
     ImGui::PushItemWidth(150.0f);
-    if (ImGui::Combo("Menu style", &config->style.menuStyle, "Classic\0One window\0"))
-        window = { };
     if (ImGui::Combo("Menu colors", &config->style.menuColors, "Dark\0Light\0Classic\0Custom\0"))
         updateColors();
     ImGui::PopItemWidth();
@@ -533,123 +636,27 @@ void GUI::renderStyleWindow(bool contentOnly) noexcept
     if (!contentOnly)
         ImGui::End();
 }
-/*
-void GUI::renderConfigWindow(bool contentOnly) noexcept     //config menu
-{
-    if (!contentOnly) {
-        if (!window.config)
-            return;
-        ImGui::SetNextWindowSize({ 320.0f, 0.0f });
-        if (!ImGui::Begin("Config", &window.config, windowFlags)) {
-            ImGui::End();
-            return;
-        }
-    }
 
-    ImGui::Columns(2, nullptr, false);
-    ImGui::SetColumnOffset(1, 170.0f);
-
-    static bool incrementalLoad = false;
-    ImGui::Checkbox("Incremental Load", &incrementalLoad);
-
-    ImGui::PushItemWidth(160.0f);
-
-    auto& configItems = config->getConfigs();
-    static int currentConfig = -1;
-
-    static std::u8string buffer;
-
-    timeToNextConfigRefresh -= ImGui::GetIO().DeltaTime;
-    if (timeToNextConfigRefresh <= 0.0f) {
-        config->listConfigs();
-        if (const auto it = std::find(configItems.begin(), configItems.end(), buffer); it != configItems.end())
-            currentConfig = std::distance(configItems.begin(), it);
-        timeToNextConfigRefresh = 0.1f;
-    }
-
-    if (static_cast<std::size_t>(currentConfig) >= configItems.size())
-        currentConfig = -1;
-
-    if (ImGui::ListBox("", &currentConfig, [](void* data, int idx, const char** out_text) {
-        auto& vector = *static_cast<std::vector<std::u8string>*>(data);
-        *out_text = (const char*)vector[idx].c_str();
-        return true;
-        }, &configItems, configItems.size(), 5) && currentConfig != -1)
-            buffer = configItems[currentConfig];
-
-        ImGui::PushID(0);
-        if (ImGui::InputTextWithHint("", "config name", &buffer, ImGuiInputTextFlags_EnterReturnsTrue)) {
-            if (currentConfig != -1)
-                config->rename(currentConfig, buffer);
-        }
-        ImGui::PopID();
-        ImGui::NextColumn();
-
-        ImGui::PushItemWidth(100.0f);
-
-        if (ImGui::Button("Open config directory"))
-            config->openConfigDir();
-
-        if (ImGui::Button("Create config", { 100.0f, 25.0f }))
-            config->add(buffer.c_str());
-
-        if (ImGui::Button("Reset config", { 100.0f, 25.0f }))
-            ImGui::OpenPopup("Config to reset");
-
-        if (ImGui::BeginPopup("Config to reset")) {
-            static constexpr const char* names[]{ "Whole", "Aimbot", "Triggerbot", "Backtrack", "Anti aim", "Glow", "Chams", "ESP", "Visuals", "Inventory Changer", "Sound", "Style", "Misc" };
-            for (int i = 0; i < IM_ARRAYSIZE(names); i++) {
-                if (i == 1) ImGui::Separator();
-
-                if (ImGui::Selectable(names[i])) {
-                    switch (i) {
-                    case 0: config->reset(); updateColors(); Misc::updateClanTag(true); InventoryChanger::scheduleHudUpdate(); break;
-                    case 1: config->aimbot = { }; break;
-                    case 2: config->triggerbot = { }; break;
-                    case 3: Backtrack::resetConfig(); break;
-                    case 4: AntiAim::resetConfig(); break;
-                    case 5: Glow::resetConfig(); break;
-                    case 6: config->chams = { }; break;
-                    case 7: config->streamProofESP = { }; break;
-                    case 8: Visuals::resetConfig(); break;
-                    case 9: InventoryChanger::resetConfig(); InventoryChanger::scheduleHudUpdate(); break;
-                    case 10: Sound::resetConfig(); break;
-                    case 11: config->style = { }; updateColors(); break;
-                    case 12: Misc::resetConfig(); Misc::updateClanTag(true); break;
-                    }
-                }
-            }
-            ImGui::EndPopup();
-        }
-        if (currentConfig != -1) {
-            if (ImGui::Button("Load selected", { 100.0f, 25.0f })) {
-                config->load(currentConfig, incrementalLoad);
-                updateColors();
-                InventoryChanger::scheduleHudUpdate();
-                Misc::updateClanTag(true);
-            }
-            if (ImGui::Button("Save selected", { 100.0f, 25.0f }))
-                config->save(currentConfig);
-            if (ImGui::Button("Delete selected", { 100.0f, 25.0f })) {
-                config->remove(currentConfig);
-
-                if (static_cast<std::size_t>(currentConfig) < configItems.size())
-                    buffer = configItems[currentConfig];
-                else
-                    buffer.clear();
-            }
-        }
-        ImGui::Columns(1);
-        if (!contentOnly)
-            ImGui::End();
-}
-*/
+ImVec2 slipperyMenuPos{ ImVec2(0,0) };
 //next code renders the single window menu, we're going to be using this instead of the classic top of the screen menu, right?
 void GUI::renderGuiStyle2() noexcept
 {   
+
+    //honestly this is retarded but it's 1:30am and I can't think of any other way to draw background cubes without
+    //every option in the menu going off-screen. If you have a better solution, please fix it :^)
     ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
-    ImGui::Begin("slippery.gg", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar/* | ImGuiWindowFlags_AlwaysAutoResize*/);
-    if (ImGui::BeginTabBar("TabBar",/* ImGuiTabBarFlags_Reorderable |*/ ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) { 
+    ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar);
+    ImGui::PushFont(fonts.backgroundCubes);
+    ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+    ImGui::PopFont();
+    ImGui::SetWindowPos(slipperyMenuPos);
+    ImGui::End();
+
+    ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
+    ImGui::SetNextWindowBgAlpha(0.6f);
+    ImGui::Begin("slippery.gg", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar);
+    slipperyMenuPos = (ImGui::GetWindowPos());
+    if (ImGui::BeginTabBar("TabBar", ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) { 
         if (ImGui::BeginTabItem("Home")) {
             renderHomeWindow(true);
             ImGui::EndTabItem();

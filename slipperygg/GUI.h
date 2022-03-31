@@ -20,7 +20,7 @@ private:
     void renderTriggerbotWindow(bool contentOnly = false) noexcept;
     void renderChamsWindow(bool contentOnly = false) noexcept;
     void renderStyleWindow(bool contentOnly = false) noexcept;
-    void renderConfigWindow(bool contentOnly = false) noexcept;
+    //void renderConfigWindow(bool contentOnly = false) noexcept;
     void renderGuiStyle2() noexcept;
 
     struct {
@@ -36,6 +36,7 @@ private:
 
     struct {
         ImFont* normal15px = nullptr;
+        ImFont* backgroundCubes = nullptr;
     } fonts;
 
     float timeToNextConfigRefresh = 0.1f;
