@@ -33,6 +33,7 @@
 #include "Hacks/Backtrack.h"
 #include "Hacks/Sound.h"
 #include "Hacks/StreamProofESP.h"
+#include "Hooks.h"
 
 constexpr auto windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize
 | ImGuiWindowFlags_NoScrollbar;
@@ -105,67 +106,7 @@ void GUI::render() noexcept
 {
     renderGuiStyle2();
 }
-/*
-void GUI::styleColorsDark() noexcept
-{
-    ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
-    ImVec4* colors = style->Colors;
 
-    colors[ImGuiCol_Text] =                 ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
-    colors[ImGuiCol_TextDisabled] =         ImVec4(0.50f, 0.50f, 0.50f, 1.00f);
-    colors[ImGuiCol_WindowBg] =             ImVec4(0.12f, 0.12f, 0.12f, 1.00f);
-    colors[ImGuiCol_ChildBg] =              ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-    colors[ImGuiCol_PopupBg] =              ImVec4(0.08f, 0.08f, 0.08f, 0.94f);
-    colors[ImGuiCol_Border] =               ImVec4(0.43f, 0.43f, 0.50f, 0.50f);
-    colors[ImGuiCol_BorderShadow] =         ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-    colors[ImGuiCol_FrameBg] =              ImVec4(0.16f, 0.29f, 0.48f, 0.54f);
-    colors[ImGuiCol_FrameBgHovered] =       ImVec4(0.26f, 0.59f, 0.98f, 0.40f);
-    colors[ImGuiCol_FrameBgActive] =        ImVec4(0.26f, 0.59f, 0.98f, 0.67f);
-    colors[ImGuiCol_TitleBg] =              ImVec4(0.04f, 0.04f, 0.04f, 1.00f);
-    colors[ImGuiCol_TitleBgActive] =        ImVec4(0.16f, 0.29f, 0.48f, 1.00f);
-    colors[ImGuiCol_TitleBgCollapsed] =     ImVec4(0.00f, 0.00f, 0.00f, 0.51f);
-    colors[ImGuiCol_MenuBarBg] =            ImVec4(0.14f, 0.14f, 0.14f, 1.00f);
-    colors[ImGuiCol_ScrollbarBg] =          ImVec4(0.02f, 0.02f, 0.02f, 0.53f);
-    colors[ImGuiCol_ScrollbarGrab] =        ImVec4(0.31f, 0.31f, 0.31f, 1.00f);
-    colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.41f, 0.41f, 0.41f, 1.00f);
-    colors[ImGuiCol_ScrollbarGrabActive] =  ImVec4(0.51f, 0.51f, 0.51f, 1.00f);
-    colors[ImGuiCol_CheckMark] =            ImVec4(0.26f, 0.26f, 0.26f, 1.00f);
-    colors[ImGuiCol_SliderGrab] =           ImVec4(0.24f, 0.52f, 0.88f, 1.00f);
-    colors[ImGuiCol_SliderGrabActive] =     ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
-    colors[ImGuiCol_Button] =               ImVec4(0.26f, 0.59f, 0.98f, 0.40f);
-    colors[ImGuiCol_ButtonHovered] =        ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
-    colors[ImGuiCol_ButtonActive] =         ImVec4(0.06f, 0.53f, 0.98f, 1.00f);
-    colors[ImGuiCol_Header] =               ImVec4(0.26f, 0.59f, 0.98f, 0.31f);
-    colors[ImGuiCol_HeaderHovered] =        ImVec4(0.26f, 0.59f, 0.98f, 0.80f);
-    colors[ImGuiCol_HeaderActive] =         ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
-    colors[ImGuiCol_Separator] =            colors[ImGuiCol_Border];
-    colors[ImGuiCol_SeparatorHovered] =     ImVec4(0.10f, 0.40f, 0.75f, 0.78f);
-    colors[ImGuiCol_SeparatorActive] =      ImVec4(0.10f, 0.40f, 0.75f, 1.00f);
-    colors[ImGuiCol_ResizeGrip] =           ImVec4(0.26f, 0.59f, 0.98f, 0.20f);
-    colors[ImGuiCol_ResizeGripHovered] =    ImVec4(0.26f, 0.59f, 0.98f, 0.67f);
-    colors[ImGuiCol_ResizeGripActive] =     ImVec4(0.26f, 0.59f, 0.98f, 0.95f);
-    colors[ImGuiCol_Tab] =                  ImLerp(colors[ImGuiCol_Header], colors[ImGuiCol_TitleBgActive], 0.80f);
-    colors[ImGuiCol_TabHovered] =           colors[ImGuiCol_HeaderHovered];
-    colors[ImGuiCol_TabActive] =            ImLerp(colors[ImGuiCol_HeaderActive], colors[ImGuiCol_TitleBgActive], 0.60f);
-    colors[ImGuiCol_TabUnfocused] =         ImLerp(colors[ImGuiCol_Tab], colors[ImGuiCol_TitleBg], 0.80f);
-    colors[ImGuiCol_TabUnfocusedActive] =   ImLerp(colors[ImGuiCol_TabActive], colors[ImGuiCol_TitleBg], 0.40f);
-    colors[ImGuiCol_PlotLines] =            ImVec4(0.61f, 0.61f, 0.61f, 1.00f);
-    colors[ImGuiCol_PlotLinesHovered] =     ImVec4(1.00f, 0.43f, 0.35f, 1.00f);
-    colors[ImGuiCol_PlotHistogram] =        ImVec4(0.90f, 0.70f, 0.00f, 1.00f);
-    colors[ImGuiCol_PlotHistogramHovered] = ImVec4(1.00f, 0.60f, 0.00f, 1.00f);
-    colors[ImGuiCol_TableHeaderBg] =        ImVec4(0.19f, 0.19f, 0.20f, 1.00f);
-    colors[ImGuiCol_TableBorderStrong] =    ImVec4(0.31f, 0.31f, 0.35f, 1.00f);   // Prefer using Alpha=1.0 here
-    colors[ImGuiCol_TableBorderLight] =     ImVec4(0.23f, 0.23f, 0.25f, 1.00f);   // Prefer using Alpha=1.0 here
-    colors[ImGuiCol_TableRowBg] =           ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-    colors[ImGuiCol_TableRowBgAlt] =        ImVec4(1.00f, 1.00f, 1.00f, 0.06f);
-    colors[ImGuiCol_TextSelectedBg] =       ImVec4(0.26f, 0.59f, 0.98f, 0.35f);
-    colors[ImGuiCol_DragDropTarget] =       ImVec4(1.00f, 1.00f, 0.00f, 0.90f);
-    colors[ImGuiCol_NavHighlight] =         ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
-    colors[ImGuiCol_NavWindowingHighlight]= ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
-    colors[ImGuiCol_NavWindowingDimBg] =    ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
-    colors[ImGuiCol_ModalWindowDimBg] =     ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
-}
-*/
 void GUI::updateColors() const noexcept
 {
     switch (config->style.menuColors) {
@@ -231,61 +172,6 @@ void GUI::renderHomeWindow(bool contentOnly) noexcept
     if (ImGui::Combo("Menu colors", &config->style.menuColors, "Dark theme\0Light theme\0"))
         updateColors();
     ImGui::PopItemWidth();
-    /*switch (idx)
-    {
-    ImGuiCol_Text: return "Text";
-    ImGuiCol_TextDisabled: return "TextDisabled";
-    ImGuiCol_WindowBg: return "WindowBg";
-    ImGuiCol_ChildBg: return "ChildBg";
-    ImGuiCol_PopupBg: return "PopupBg";
-    ImGuiCol_Border: return "Border";
-    ImGuiCol_BorderShadow: return "BorderShadow";
-    ImGuiCol_FrameBg: return "FrameBg";
-    ImGuiCol_FrameBgHovered: return "FrameBgHovered";
-    ImGuiCol_FrameBgActive: return "FrameBgActive";
-    ImGuiCol_TitleBg: return "TitleBg";
-    ImGuiCol_TitleBgActive: return "TitleBgActive";
-    ImGuiCol_TitleBgCollapsed: return "TitleBgCollapsed";
-    ImGuiCol_MenuBarBg: return "MenuBarBg";
-    ImGuiCol_ScrollbarBg: return "ScrollbarBg";
-    ImGuiCol_ScrollbarGrab: return "ScrollbarGrab";
-    ImGuiCol_ScrollbarGrabHovered: return "ScrollbarGrabHovered";
-    ImGuiCol_ScrollbarGrabActive: return "ScrollbarGrabActive";
-    ImGuiCol_CheckMark: return "CheckMark";
-    ImGuiCol_SliderGrab: return "SliderGrab";
-    ImGuiCol_SliderGrabActive: return "SliderGrabActive";
-    ImGuiCol_Button: return "Button";
-    ImGuiCol_ButtonHovered: return "ButtonHovered";
-    ImGuiCol_ButtonActive: return "ButtonActive";
-    ImGuiCol_Header: return "Header";
-    ImGuiCol_HeaderHovered: return "HeaderHovered";
-    ImGuiCol_HeaderActive: return "HeaderActive";
-    ImGuiCol_Separator: return "Separator";
-    ImGuiCol_SeparatorHovered: return "SeparatorHovered";
-    ImGuiCol_SeparatorActive: return "SeparatorActive";
-    ImGuiCol_ResizeGrip: return "ResizeGrip";
-    ImGuiCol_ResizeGripHovered: return "ResizeGripHovered";
-    ImGuiCol_ResizeGripActive: return "ResizeGripActive";
-    ImGuiCol_Tab: return "Tab";
-    ImGuiCol_TabHovered: return "TabHovered";
-    ImGuiCol_TabActive: return "TabActive";
-    ImGuiCol_TabUnfocused: return "TabUnfocused";
-    ImGuiCol_TabUnfocusedActive: return "TabUnfocusedActive";
-    ImGuiCol_PlotLines: return "PlotLines";
-    ImGuiCol_PlotLinesHovered: return "PlotLinesHovered";
-    ImGuiCol_PlotHistogram: return "PlotHistogram";
-    ImGuiCol_PlotHistogramHovered: return "PlotHistogramHovered";
-    ImGuiCol_TableHeaderBg: return "TableHeaderBg";
-    ImGuiCol_TableBorderStrong: return "TableBorderStrong";
-    ImGuiCol_TableBorderLight: return "TableBorderLight";
-    ImGuiCol_TableRowBg: return "TableRowBg";
-    ImGuiCol_TableRowBgAlt: return "TableRowBgAlt";
-    ImGuiCol_TextSelectedBg: return "TextSelectedBg";
-    ImGuiCol_DragDropTarget: return "DragDropTarget";
-    ImGuiCol_NavHighlight: return "NavHighlight";
-    ImGuiCol_NavWindowingHighlight: return "NavWindowingHighlight";
-    ImGuiCol_NavWindowingDimBg: return "NavWindowingDimBg";
-    ImGuiCol_ModalWindowDimBg: return "ModalWindowDimBg";*/
     if (!contentOnly)
         ImGui::End();
 }
@@ -641,17 +527,12 @@ ImVec2 slipperyMenuPos{ ImVec2(0,0) };
 //next code renders the single window menu, we're going to be using this instead of the classic top of the screen menu, right?
 void GUI::renderGuiStyle2() noexcept
 {   
-
-    //honestly this is retarded but it's 1:30am and I can't think of any other way to draw background cubes without
-    //every option in the menu going off-screen. If you have a better solution, please fix it :^)
-    ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
-    ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar);
-    ImGui::PushFont(fonts.backgroundCubes);
-    ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
-    ImGui::PopFont();
-    ImGui::SetWindowPos(slipperyMenuPos);
+    ImGui::SetNextWindowPos(ImVec2(1000, 40), ImGuiCond_Once);
+    ImGui::SetNextWindowSize(ImVec2(100.f, 55.f), ImGuiCond_Once);
+    ImGui::SetNextWindowBgAlpha(0.2f);
+    ImGui::Begin("unhook button", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
+    if (ImGui::Button("unhook", ImVec2(90.f, 40.f))) hooks->uninstall();
     ImGui::End();
-
     ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
     ImGui::SetNextWindowBgAlpha(0.6f);
     ImGui::Begin("slippery.gg", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar);
@@ -693,6 +574,16 @@ void GUI::renderGuiStyle2() noexcept
     }
 
     ImGui::End();
+    
+    //honestly this is retarded but it's 1:30am and I can't think of any other way to draw background cubes without
+//every option in the menu going off-screen. If you have a better solution, please fix it :^)
+    ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
+    ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
+    ImGui::PushFont(fonts.backgroundCubes);
+    ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+    ImGui::PopFont();
+    ImGui::SetWindowPos(slipperyMenuPos);
+    ImGui::End();
 
     int w, h;           //SLIDY SIDEBAR ON THE RIGHT
     interfaces->engine->getScreenSize(w, h);
@@ -700,6 +591,7 @@ void GUI::renderGuiStyle2() noexcept
     float he = h;
     ImGui::SetNextWindowSize(ImVec2(250, h), ImGuiCond_Once);
     ImGui::SetNextWindowPos(ImVec2(w - 50, 0), ImGuiCond_Once);
+    ImGui::SetNextWindowBgAlpha(0.85f);
     ImGui::Begin("Right Sidebar", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
     ImVec2 curWindowPos{ ImGui::GetWindowPos() };
     ImGui::Text(std::to_string(curWindowPos[0]).c_str());
@@ -768,7 +660,7 @@ void GUI::renderGuiStyle2() noexcept
     }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
             //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
     ImGui::End();
-}
+};
 
 //TODO LIST:
 //scrolling down the menu hides the top menu bar, maybe make menu taller/wider+move the options a bit?
