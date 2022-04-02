@@ -637,7 +637,8 @@ void GUI::renderGuiStyle2() noexcept
 
         if (ImGui::Button("Save Config", { 246.0f, 20.0f }))
             config->save(currentConfig);
-
+	if (ImGui::IsItemActive()) buttonActive = true;
+        else buttonActive = false;
 
         if (ImGui::Button("Load Config", { 210.f, 20.f })) {
             config->load(currentConfig, incrementalLoad);
@@ -645,17 +646,21 @@ void GUI::renderGuiStyle2() noexcept
             InventoryChanger::scheduleHudUpdate();
             Misc::updateClanTag(true);
         }
+	if (ImGui::IsItemActive()) buttonActive = true;
+        else buttonActive = false;
         ImGui::SameLine();
         if (ImGui::Button(("a"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
             config->openConfigDir();;   // config menu over
+	if (ImGui::IsItemActive()) buttonActive = true;
+        else buttonActive = false;
         ImGui::Separator();
 
         //TODO: Add a prompt when saving/loading a config (i.e. like legendware does it)
-    if (ImGui::IsWindowHovered() or listHovered) {
+    if (ImGui::IsWindowHovered() or listHovered or buttonActive) {
         ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250))/sidebarSpeed[0], 0));
     }       //the way code ^ and v works is it makes the position of the sidebar 
             //less/more by ((distance to the desired position)/30) every frame
-    if (!ImGui::IsWindowHovered() and !listHovered) {
+    if (!ImGui::IsWindowHovered() and !listHovered and !buttonActive) {
         ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0]+sidebarSpeed[0] - 1) / sidebarSpeed[0], 0));
     }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
             //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
