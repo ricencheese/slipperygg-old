@@ -7,6 +7,7 @@
 #include <sstream>
 #include <vector>
 #include <fstream>
+#include <iostream>
 
 #include "../imgui/imgui.h"
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -152,6 +153,8 @@ struct MiscConfig {
     std::string customKillSound;
     std::string customHitSound;
     PurchaseList purchaseList;
+    
+    char* steamName{};
 
     struct Reportbot {
         bool enabled = false;
@@ -314,6 +317,48 @@ void Misc::updateClanTag(bool tagChanged) noexcept
     }
 }
 
+
+std::string Misc::getSteamName() noexcept {
+        std::filesystem::path path;
+        if (PWSTR pathToProgramFiles; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_ProgramFilesX86, 0, nullptr, &pathToProgramFiles))) {
+            path = pathToProgramFiles;
+            CoTaskMemFree(pathToProgramFiles);
+        }
+        path /= "Steam\\userdata\\";
+        std::vector <std::string> directories{};
+        int dirCount{ 0 };
+        for (auto const& dir_entry : std::filesystem::directory_iterator{ path })
+        {
+            directories.push_back(dir_entry.path().string());
+        }
+        std::vector <std::string> lastPlayer(0);
+        std::string lineCount2;
+            std::string configDirectory{ directories[0] + "\\config\\localconfig.vdf" };
+            std::ifstream in(configDirectory);
+            std::string str;
+            std::vector <std::string> vecOfStrs(0);
+            int lineCount;
+            lineCount2 = "0";
+            lineCount = 0;
+            while (std::getline(in, str))
+            {
+                if (str.find("name") != std::string::npos) {
+                    lineCount += 1;
+                };
+                if ((str.find("			\"name\"		\"") != std::string::npos) and lineCount > 0) {
+                    lineCount2 = str;
+                    break;
+                }
+            }
+                size_t pos = lineCount2.find("			\"name\"		\"");
+                if (pos != std::string::npos)
+                {
+                    lineCount2.erase(pos, 12);
+                    lineCount2.erase((lineCount2.length() - 1), 1);
+                }
+        return lineCount2;
+}
+
 void Misc::spectatorList() noexcept
 {
     if (!miscConfig.spectatorList.enabled)
@@ -432,17 +477,17 @@ void Misc::watermark() noexcept
     ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize;
     if (!gui->isOpen())
         windowFlags |= ImGuiWindowFlags_NoInputs;
-
+    std::string watermarkText{ "slippery.gg/" };
+    watermarkText += (getSteamName());
+    watermarkText += ("/[uid]");
     ImGui::SetNextWindowBgAlpha(0.4f);
     ImGui::SetNextWindowPos({20, 20}, ImGuiCond_Once);
     ImGui::Begin("Watermark", nullptr, windowFlags);
 
     static auto frameRate = 1.0f;
     frameRate = 0.9f * frameRate + 0.1f * memory->globalVars->absoluteFrameTime;
-    //localPlayerName = getSteamName();
-    ImGui::Text("slippery.gg/[localplayer name]/[uid]"/*, frameRate != 0.0f ? static_cast<int>(1 / frameRate) : 0, GameData::getNetOutgoingLatency()*/);
-    //you can add | %d fps | %d ms if you want but idk I think having it just say <<slippery.gg | [username] | UID>> would look better
-    //+ doesn't need to be resizeable
+
+    ImGui::Text(watermarkText.c_str());
     ImGui::End();
 }
 

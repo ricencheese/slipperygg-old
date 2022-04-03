@@ -137,6 +137,7 @@ static void menuBarItem(const char* name, bool& enabled) noexcept
     }
 }
 
+
 void GUI::renderMenuBar() noexcept          //THIS IS OLD TOP MENU BAR STYLE MENU!!!!!!! SCROLL DOWN FOR THE NEW STYLE MENU RETARD
 {
     if (ImGui::BeginMainMenuBar()) {
@@ -171,6 +172,11 @@ void GUI::renderHomeWindow(bool contentOnly) noexcept
     ImGui::SliderInt("sidebar speed", sidebarSpeed, 1, 200);
     if (ImGui::Combo("Menu colors", &config->style.menuColors, "Dark theme\0Light theme\0"))
         updateColors();
+    if (ImGui::Button("Draw new menu"))
+        window.shouldDrawNewMenu = true;
+    if ((window.shouldDrawNewMenu) = true)
+        renderGuiStyle3();
+    ImGui::Text((steamName).c_str());
     ImGui::PopItemWidth();
     if (!contentOnly)
         ImGui::End();
@@ -637,6 +643,7 @@ void GUI::renderGuiStyle2() noexcept
 
         if (ImGui::Button("Save Config", { 246.0f, 20.0f }))
             config->save(currentConfig);
+        bool buttonActive;
 	if (ImGui::IsItemActive()) buttonActive = true;
         else buttonActive = false;
 
@@ -666,23 +673,36 @@ void GUI::renderGuiStyle2() noexcept
             //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
     ImGui::End();
 };
+void GUI::renderMenuBarStyle3() noexcept {
 
-//TODO LIST:
-//scrolling down the menu hides the top menu bar, maybe make menu taller/wider+move the options a bit?
-//^ignore that, I'm going to make a button-based menu bar
+}
+void GUI::renderGuiStyle3() noexcept{
+    int w,h;
+    interfaces->engine->getScreenSize(w, h);
+    ImGui::SetNextWindowPos(ImVec2(300, h - 100), ImGuiCond_Once);
+    ImGui::SetNextWindowSize(ImVec2(807, 600), ImGuiCond_Once); //The width is 806 and not 807 because fuck you 
+    ImGui::Begin("newslippery.gg");                             //aka the button horizontal padding
+                                                              //makes the buttons look a little uncentered
+    if (ImGui::Button(("Home"), ImVec2(125, 60))) {
+    };
+    ImGui::SameLine();
+    if (ImGui::Button(("Aim Assistance"), ImVec2(125, 60))) {
+    };
+    ImGui::SameLine();
+    if (ImGui::Button(("Visuals"), ImVec2(125, 60))) {
 
-//tabs with not enough options look retarded, maybe move tabs with a few options to bigger tabs?
-//i.e. move backtracking to aimbot tab https://thats-crazy-but-i-dont.remember911.bar/b479a901be9743d77d.png
+    };
+    ImGui::SameLine();
+    if (ImGui::Button(("Inventory Changer"), ImVec2(125, 60))) {
 
-//https://thats-crazy-but-i-dont.remember911.bar/bf0df5f0c78f95ec4c.png sliders are too ugly :(
+    };
+    ImGui::SameLine();
+    if (ImGui::Button(("Sound"), ImVec2(125, 60))) {
 
-//ESP on key? why? it just takes up space https://thats-crazy-but-i-dont.remember911.bar/c493984b1f68179321.png
+    };
+    ImGui::SameLine();
+    if (ImGui::Button(("Misc"), ImVec2(125, 60))) {
 
-
-//options in the wrong place todo list:
-//choked packets is in misc + choked packets is limited to 64 :face_with_raised_eyebrow: 
-//putting antiaim, triggerbot and backtrack in aimbot tab would free up a lot of space, perhaps divide the aimbot tab into 4 tabs with diff features?
-//^same for glow, chams, esp, inventory changer, sound and style
-//https://thats-crazy-but-i-dont.remember911.bar/2c4fef225901e35c0b.png something like that 
-
-//^my retarded ass forgot that I autodelete screenshots after 48 hours
+    };
+    ImGui::End();
+}

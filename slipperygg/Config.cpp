@@ -74,6 +74,7 @@ int CALLBACK fontCallback(const LOGFONTW* lpelfe, const TEXTMETRICW*, DWORD, LPA
     return path;
 }
 
+
 Config::Config() noexcept : path{ buildConfigsFolderPath() }
 {
     listConfigs();

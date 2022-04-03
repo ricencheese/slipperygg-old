@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-
+#include "Hacks/Misc.h"
 struct ImFont;
 
 class GUI {
@@ -22,6 +22,8 @@ private:
     void renderStyleWindow(bool contentOnly = false) noexcept;
     //void renderConfigWindow(bool contentOnly = false) noexcept;
     void renderGuiStyle2() noexcept;
+    void renderMenuBarStyle3() noexcept;
+    void renderGuiStyle3() noexcept;
 
     struct {
         bool home = false;
@@ -32,13 +34,14 @@ private:
         bool style = false;
         bool config = false;
         bool configPopup = false;
+        bool shouldDrawNewMenu = false;
     } window;
 
     struct {
         ImFont* normal15px = nullptr;
         ImFont* backgroundCubes = nullptr;
     } fonts;
-
+    std::string steamName{Misc::getSteamName()};
     float timeToNextConfigRefresh = 0.1f;
 };
 
