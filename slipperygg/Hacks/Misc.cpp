@@ -135,7 +135,7 @@ struct MiscConfig {
 
     SpectatorList spectatorList;
     struct Watermark {
-        std::string watermarkText{ ("slippery.gg/", Misc::getSteamName(), "/[uid]")};
+        std::string watermarkText{ ("slippery.gg/" + Misc::getSteamName() + "/[uid]")};
         bool enabled = true;
     };
     Watermark watermark;
