@@ -135,6 +135,7 @@ struct MiscConfig {
 
     SpectatorList spectatorList;
     struct Watermark {
+        std::string watermarkText{ ("slippery.gg/", Misc::getSteamName(), "/[uid]")};
         bool enabled = true;
     };
     Watermark watermark;
@@ -477,9 +478,6 @@ void Misc::watermark() noexcept
     ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_AlwaysAutoResize;
     if (!gui->isOpen())
         windowFlags |= ImGuiWindowFlags_NoInputs;
-    std::string watermarkText{ "slippery.gg/" };
-    watermarkText += (getSteamName());
-    watermarkText += ("/[uid]");
     ImGui::SetNextWindowBgAlpha(0.4f);
     ImGui::SetNextWindowPos({20, 20}, ImGuiCond_Once);
     ImGui::Begin("Watermark", nullptr, windowFlags);
@@ -487,7 +485,7 @@ void Misc::watermark() noexcept
     static auto frameRate = 1.0f;
     frameRate = 0.9f * frameRate + 0.1f * memory->globalVars->absoluteFrameTime;
 
-    ImGui::Text(watermarkText.c_str());
+    ImGui::Text(miscConfig.watermark.watermarkText.c_str());
     ImGui::End();
 }
 
