@@ -938,12 +938,19 @@ void Misc::playHitSound(GameEvent& event) noexcept
         "play physics/metal/metal_solid_impact_bullet2",
         "play buttons/arena_switch_press_02",
         "play training/timer_bell",
-        "play physics/glass/glass_impact_bullet1"
+        "play physics/glass/glass_impact_bullet1",
+        "play ambient/playonce/weather/thunder4.wav",   //thunderstrike
+        "play player/suit_denydevice.wav",              //hl +use sound
+        "play weapons/smokegrenade/grenade_hit1.wav",   //smoke grenade impact sound
+        "play ui/deathnotice.wav",                      //beep beep overwatch-like
+        "play player/winter/snowball_hit_02.wav",       //snowball impact sound it's so loud damn
+        "play survival/turret_idle_01.wav"              //danger zone sentry beep sound
+        
     };
 
     if (static_cast<std::size_t>(miscConfig.hitSound - 1) < hitSounds.size())
         interfaces->engine->clientCmdUnrestricted(hitSounds[miscConfig.hitSound - 1]);
-    else if (miscConfig.hitSound == 5)
+    else if (miscConfig.hitSound == 11)
         interfaces->engine->clientCmdUnrestricted(("play " + miscConfig.customHitSound).c_str());
 }
 
@@ -962,12 +969,18 @@ void Misc::killSound(GameEvent& event) noexcept
         "play physics/metal/metal_solid_impact_bullet2",
         "play buttons/arena_switch_press_02",
         "play training/timer_bell",
-        "play physics/glass/glass_impact_bullet1"
+        "play physics/glass/glass_impact_bullet1",
+        "play ambient/playonce/weather/thunder4.wav",   //thunderstrike
+        "play player/suit_denydevice.wav",              //hl +use sound
+        "play weapons/smokegrenade/grenade_hit1.wav",   //smoke grenade impact sound
+        "play ui/deathnotice.wav",                      //beep beep overwatch-like
+        "play player/winter/snowball_hit_02.wav",       //snowball impact sound it's so loud damn
+        "play survival/turret_idle_01.wav"              //danger zone sentry beep sound
     };
 
     if (static_cast<std::size_t>(miscConfig.killSound - 1) < killSounds.size())
         interfaces->engine->clientCmdUnrestricted(killSounds[miscConfig.killSound - 1]);
-    else if (miscConfig.killSound == 5)
+    else if (miscConfig.killSound == 11)
         interfaces->engine->clientCmdUnrestricted(("play " + miscConfig.customKillSound).c_str());
 }
 
@@ -1550,18 +1563,18 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::PushID("Prepare revolver Key");
     ImGui::hotkey("", miscConfig.prepareRevolverKey);
     ImGui::PopID();
-    ImGui::Combo("Hit Sound", &miscConfig.hitSound, "None\0Metal\0Gamesense\0Bell\0Glass\0Custom\0");
-    if (miscConfig.hitSound == 5) {
+    ImGui::Combo("Hit Sound", &miscConfig.hitSound, "None\0Metal\0Gamesense\0Bell\0Glass\0Thunder Strike\0+use\0Grenade impact\0Overwatch killsound\0Snowball\0Sentry\0Custom");
+    if (miscConfig.hitSound == 11) {
         ImGui::InputText("Hit Sound filename", &miscConfig.customHitSound);
         if (ImGui::IsItemHovered())
-            ImGui::SetTooltip("audio file must be put in csgo/sound/ directory");
+            ImGui::SetTooltip("https://gatoo.xyz/l/uSgRZVciq/ for sound list");
     }
     ImGui::PushID(5);
-    ImGui::Combo("Kill Sound", &miscConfig.killSound, "None\0Metal\0Gamesense\0Bell\0Glass\0Custom\0");
-    if (miscConfig.killSound == 5) {
+    ImGui::Combo("Kill Sound", &miscConfig.killSound, "None\0Metal\0Gamesense\0Bell\0Glass\0Thunder Strike\0+use\0Grenade impact\0Overwatch killsound\0Snowball\0Sentry\0Custom");
+    if (miscConfig.killSound == 11) {
         ImGui::InputText("Kill Sound filename", &miscConfig.customKillSound);
         if (ImGui::IsItemHovered())
-            ImGui::SetTooltip("audio file must be put in csgo/sound/ directory");
+            ImGui::SetTooltip("https://gatoo.xyz/l/uSgRZVciq/ for sound list");
     }
     ImGui::PopID();
     ImGui::SetNextItemWidth(90.0f);

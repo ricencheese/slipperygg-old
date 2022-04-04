@@ -66,13 +66,10 @@ struct VisualsConfig {
     ColorToggle3 world;
     ColorToggle3 sky;
     bool deagleSpinner{ false };
-    bool hitLog{ false };
     int screenEffect{ 0 };
-    int hitlogType{ 0 };
     int hitEffect{ 0 };
     float hitEffectTime{ 0.6f };
     int hitMarker{ 0 };
-    int hitLogTime{ 5 };
     float hitMarkerTime{ 0.6f };
     BulletTracers bulletTracers;
     ColorToggle molotovHull{ 1.0f, 0.27f, 0.0f, 0.3f };
@@ -525,7 +522,6 @@ void Visuals::hitMarker(GameEvent* event, ImDrawList* drawList) noexcept
 {
     if (visualsConfig.hitMarker == 0)
         return;
-
     static float lastHitTime = 0.0f;
 
     if (event) {
@@ -541,7 +537,7 @@ void Visuals::hitMarker(GameEvent* event, ImDrawList* drawList) noexcept
     case 1:
         const auto& mid = ImGui::GetIO().DisplaySize / 2.0f;
         constexpr auto color = IM_COL32(255, 255, 255, 255);
-        drawList->AddLine({ mid.x - 10, mid.y - 10 }, { mid.x - 4, mid.y - 4 }, color);
+        drawList->AddLine({mid.x - 10, mid.y - 10}, {mid.x - 4, mid.y - 4}, color);
         drawList->AddLine({ mid.x + 10.5f, mid.y - 10.5f }, { mid.x + 4.5f, mid.y - 4.5f }, color);
         drawList->AddLine({ mid.x + 10.5f, mid.y + 10.5f }, { mid.x + 4.5f, mid.y + 4.5f }, color);
         drawList->AddLine({ mid.x - 10, mid.y + 10 }, { mid.x - 4, mid.y + 4 }, color);
@@ -550,37 +546,6 @@ void Visuals::hitMarker(GameEvent* event, ImDrawList* drawList) noexcept
 }
 
 
-void Visuals::hitLog(GameEvent* event, ImDrawList* drawList) noexcept
-{
-    if (visualsConfig.hitLog == 0) {
-        return;
-    }
-
-    static float lastHitTime = 0.0f;
-
-    if (event) {
-       if (localPlayer && event->getInt("attacker") == localPlayer->getUserId())
-          lastHitTime = memory->globalVars->realtime;
-       return;
-    }
-    
-    if (lastHitTime + visualsConfig.hitLogTime < memory->globalVars->realtime)
-        return;
-    
-    switch (visualsConfig.hitlogType) {
-    /*case 1:
-        const auto & mid = ImGui::GetIO().DisplaySize / 2.0f;
-        constexpr auto color = IM_COL32(255, 255, 255, 255);
-        drawList->AddLine({ mid.x - 10, mid.y - 10 }, { mid.x - 4, mid.y - 4 }, color);
-        drawList->AddLine({ mid.x + 10.5f, mid.y - 10.5f }, { mid.x + 4.5f, mid.y - 4.5f }, color);
-        drawList->AddLine({ mid.x + 10.5f, mid.y + 10.5f }, { mid.x + 4.5f, mid.y + 4.5f }, color);
-        drawList->AddLine({ mid.x - 10, mid.y + 10 }, { mid.x - 4, mid.y + 4 }, color);
-        break;*/
-    case 1:
-        memory->clientMode->getHudChat()->printf(0, "you hit someone yes!!!");
-    }
-
-}
 void Visuals::disablePostProcessing(FrameStage stage) noexcept
 {
     if (stage != FrameStage::RENDER_START && stage != FrameStage::RENDER_END)
@@ -888,9 +853,6 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::SliderFloat("Hit effect time", &visualsConfig.hitEffectTime, 0.1f, 1.5f, "%.2fs");
     ImGui::Combo("Hit marker", &visualsConfig.hitMarker, "None\0Default (Cross)\0");
     ImGui::SliderFloat("Hit marker time", &visualsConfig.hitMarkerTime, 0.1f, 1.5f, "%.2fs");
-    ImGui::Checkbox("Hitlog", &visualsConfig.hitLog);
-        ImGui::Combo("Hitlog Type", &visualsConfig.hitlogType, "None\0Chat\0Console\0Sexy Animation\0");
-        ImGui::SliderInt("Hitlog time", &visualsConfig.hitLogTime, 1.f, 10.f);
     ImGuiCustom::colorPicker("Bullet Tracers", visualsConfig.bulletTracers.asColor4().color.data(), &visualsConfig.bulletTracers.asColor4().color[3], nullptr, nullptr, &visualsConfig.bulletTracers.enabled);
     ImGuiCustom::colorPicker("Molotov Hull", visualsConfig.molotovHull);
 

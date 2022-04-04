@@ -27,6 +27,7 @@
 #include "Interfaces.h"
 #include "../SDK/Engine.h"
 #include "SDK/InputSystem.h"
+#include "SDK/LocalPlayer.h"
 #include "Hacks/Visuals.h"
 #include "Hacks/Glow.h"
 #include "Hacks/AntiAim.h"
@@ -158,7 +159,6 @@ void GUI::renderMenuBar() noexcept          //THIS IS OLD TOP MENU BAR STYLE MEN
         ImGui::EndMainMenuBar();   
     }
 }
-
 int sidebarSpeed[]{ 30 };
 void GUI::renderHomeWindow(bool contentOnly) noexcept
 {
