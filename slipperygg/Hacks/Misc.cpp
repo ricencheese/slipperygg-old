@@ -8,6 +8,8 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <math.h>
+
 
 #include "../imgui/imgui.h"
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -96,6 +98,7 @@ struct MiscConfig {
     bool moonwalk{ false };
     bool edgejump{ false };
     bool slowwalk{ false };
+    int walkSpeed{ 125 };
     bool autoPistol{ false };
     bool autoReload{ false };
     bool autoAccept{ false };
@@ -250,8 +253,8 @@ void Misc::slowwalk(UserCmd* cmd) noexcept
     if (!weaponData)
         return;
 
-    //const float maxSpeed = (localPlayer->isScoped() ? weaponData->maxSpeedAlt : weaponData->maxSpeed) / 3;
-    const float maxSpeed = 130;
+
+    const float maxSpeed = miscConfig.walkSpeed;
     if (cmd->forwardmove && cmd->sidemove) {
         const float maxSpeedRoot = maxSpeed * static_cast<float>(M_SQRT1_2);
         cmd->forwardmove = cmd->forwardmove < 0.0f ? -maxSpeedRoot : maxSpeedRoot;
@@ -295,7 +298,7 @@ void Misc::updateClanTag(bool tagChanged) noexcept
             if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length())
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
         }
-        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
+        if (miscConfig.animatedClanTag && !clanTag.empty() && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
             std::ifstream in("C:/slippery/clantag.txt");
             std::string str;
             std::vector <std::string> vecOfStrs(0);
@@ -304,12 +307,15 @@ void Misc::updateClanTag(bool tagChanged) noexcept
                 if (str.size() > 0)
                     vecOfStrs.push_back(str);
             }
-            int i{};
+            int lastTag;
             unsigned int tagsCount{ vecOfStrs.size() };
                 if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length()) {
-                    clanTag = vecOfStrs[i];
-                    if (i == tagsCount) { i = 0; };
-                    if (i != tagsCount) { i = +1; };
+                    if (memory->globalVars->currenttime - lastTime == 1) {
+                        clanTag = vecOfStrs[lastTag];
+                        lastTag = lastTag + 1;
+                        if (lastTag > tagsCount - 1)
+                            lastTag = 0;
+                    }
 
                 }
         }
@@ -1473,8 +1479,10 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::hotkey("", miscConfig.edgejumpkey);
     ImGui::PopID();
     ImGui::Checkbox("Fastwalk", &miscConfig.slowwalk);
-    if (&miscConfig.slowwalk) { interfaces->engine->clientCmdUnrestricted("unbind shift"); };
-    //ImGui::PopID(); //if i understand correctly that's the issue that causes config menu to be impossible to switch to from misc menu
+    if (&miscConfig.slowwalk) {
+        interfaces->engine->clientCmdUnrestricted("unbind shift");
+        ImGui::SliderInt("Walk speed", &miscConfig.walkSpeed, 10, 130);
+    };
     ImGuiCustom::colorPicker("Noscope crosshair", miscConfig.noscopeCrosshair);
     ImGuiCustom::colorPicker("Recoil crosshair", miscConfig.recoilCrosshair);
     ImGui::Checkbox("Auto pistol", &miscConfig.autoPistol);
@@ -1715,6 +1723,7 @@ static void from_json(const json& j, MiscConfig& m)
     read(j, "Edge Jump", m.edgejump);
     read(j, "Edge Jump Key", m.edgejumpkey);
     read(j, "Slowwalk", m.slowwalk);
+    read(j, "Walk Speed", m.walkSpeed);
     read(j, "Slowwalk key", m.slowwalkKey);
     read<value_t::object>(j, "Noscope crosshair", m.noscopeCrosshair);
     read<value_t::object>(j, "Recoil crosshair", m.recoilCrosshair);
@@ -1853,6 +1862,7 @@ static void to_json(json& j, const MiscConfig& o)
     WRITE("Edge Jump", edgejump);
     WRITE("Edge Jump Key", edgejumpkey);
     WRITE("Slowwalk", slowwalk);
+    WRITE("Walk Speed", walkSpeed);
     WRITE("Slowwalk key", slowwalkKey);
     WRITE("Noscope crosshair", noscopeCrosshair);
     WRITE("Recoil crosshair", recoilCrosshair);
