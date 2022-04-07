@@ -1,0 +1,6 @@
+add_subdirectory(config)
+add_subdirectory(inventory)
+add_subdirectory(legitbot)
+add_subdirectory(other)
+add_subdirectory(rage)
+add_subdirectory(visuals)

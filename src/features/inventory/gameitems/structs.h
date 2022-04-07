@@ -2,7 +2,7 @@
 
 #include <string_view>
 
-#include "../../SDK/ItemSchema.h"
+#include "sdk/ItemSchema.h"
 
 namespace game_items
 {
@@ -26,8 +26,8 @@ struct GraffitiKit {
     ItemName name;
 };
 
-struct PatchKit {
-    PatchKit(int id, ItemName name) : id{ id }, name{ name } {}
+struct Patch {
+    Patch(int id, ItemName name) : id{ id }, name{ name } {}
 
     int id;
     ItemName name;

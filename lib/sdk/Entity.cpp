@@ -1,17 +1,18 @@
 #include "Entity.h"
-#include "Engine.h"
-#include "EngineTrace.h"
+
+#include "../Memory.h"
+#include "../Interfaces.h"
 #include "GlobalVars.h"
 #include "Localize.h"
-#include "LocalPlayer.h"
 #include "ModelInfo.h"
+#include "../Hacks/Misc.h"
 
-#include "../../src/utils/memory.h"
-#include "../../src/utils/interfaces.h"
+#include "Engine.h"
+#include "EngineTrace.h"
+#include "LocalPlayer.h"
 
-#include "../../src/features/other/misc.h"
-
-bool Entity::setupBones(matrix3x4* out, int maxBones, int boneMask, float currentTime) noexcept {
+bool Entity::setupBones(matrix3x4* out, int maxBones, int boneMask, float currentTime) noexcept
+{
 #ifdef _WIN32
     if (Misc::shouldFixBoneMatrix()) {
         int* render = reinterpret_cast<int*>(this + 0x274);
@@ -28,14 +29,16 @@ bool Entity::setupBones(matrix3x4* out, int maxBones, int boneMask, float curren
     return VirtualMethod::call<bool, 13>(this + sizeof(uintptr_t), out, maxBones, boneMask, currentTime);
 }
 
-Vector Entity::getBonePosition(int bone) noexcept {
+Vector Entity::getBonePosition(int bone) noexcept
+{
     if (matrix3x4 boneMatrices[256]; setupBones(boneMatrices, 256, 256, 0.0f))
         return boneMatrices[bone].origin();
     else
-        return Vector { };
+        return Vector{ };
 }
 
-bool Entity::isVisible(const Vector& position) noexcept {
+bool Entity::isVisible(const Vector& position) noexcept
+{
     if (!localPlayer)
         return false;
 
@@ -44,11 +47,13 @@ bool Entity::isVisible(const Vector& position) noexcept {
     return trace.entity == this || trace.fraction > 0.97f;
 }
 
-bool Entity::isOtherEnemy(Entity* other) noexcept {
+bool Entity::isOtherEnemy(Entity* other) noexcept
+{
     return memory->isOtherEnemy(this, other);
 }
 
-float Entity::getMaxDesyncAngle() noexcept {
+float Entity::getMaxDesyncAngle() noexcept
+{
     const auto animState = getAnimstate();
 
     if (!animState)
@@ -62,31 +67,37 @@ float Entity::getMaxDesyncAngle() noexcept {
     return animState->velocitySubtractY * yawModifier;
 }
 
-int Entity::getUserId() noexcept {
+int Entity::getUserId() noexcept
+{
     if (PlayerInfo playerInfo; interfaces->engine->getPlayerInfo(index(), playerInfo))
         return playerInfo.userId;
     return -1;
 }
 
-std::uint64_t Entity::getSteamId() noexcept {
+std::uint64_t Entity::getSteamId() noexcept
+{
     if (PlayerInfo playerInfo; interfaces->engine->getPlayerInfo(index(), playerInfo))
         return playerInfo.xuid;
     return 0;
 }
 
-[[nodiscard]] static wchar_t* removeNewlineChars(wchar_t* begin, wchar_t* end) noexcept {
+[[nodiscard]] static wchar_t* removeNewlineChars(wchar_t* begin, wchar_t* end) noexcept
+{
     return std::remove(begin, end, L'\n');
 }
 
-[[nodiscard]] static wchar_t* removeColorMarkup(wchar_t* begin, wchar_t* end) noexcept {
+[[nodiscard]] static wchar_t* removeColorMarkup(wchar_t* begin, wchar_t* end) noexcept
+{
     return std::remove_if(begin, end, [](wchar_t c) { return c > 0 && c < 17; });
 }
 
-[[nodiscard]] static wchar_t* removeConsecutiveSpaces(wchar_t* begin, wchar_t* end) noexcept {
+[[nodiscard]] static wchar_t* removeConsecutiveSpaces(wchar_t* begin, wchar_t* end) noexcept
+{
     return std::unique(begin, end, [](wchar_t a, wchar_t b) { return a == L' ' && a == b; });
 }
 
-void Entity::getPlayerName(char(&out)[128]) noexcept {
+void Entity::getPlayerName(char(&out)[128]) noexcept
+{
     if (!*memory->playerResource) {
         strcpy(out, "unknown");
         return;
@@ -103,7 +114,8 @@ void Entity::getPlayerName(char(&out)[128]) noexcept {
     interfaces->localize->convertUnicodeToAnsi(wide, out, 128);
 }
 
-bool Entity::canSee(Entity* other, const Vector& pos) noexcept {
+bool Entity::canSee(Entity* other, const Vector& pos) noexcept
+{
     const auto eyePos = getEyePosition();
     if (memory->lineGoesThroughSmoke(eyePos, pos, 1))
         return false;
@@ -113,13 +125,14 @@ bool Entity::canSee(Entity* other, const Vector& pos) noexcept {
     return trace.entity == other || trace.fraction > 0.97f;
 }
 
-bool Entity::visibleTo(Entity* other) noexcept {
+bool Entity::visibleTo(Entity* other) noexcept
+{
     assert(isAlive());
 
-    if (other->canSee(this, getAbsOrigin() + Vector { 0.0f, 0.0f, 5.0f }))
+    if (other->canSee(this, getAbsOrigin() + Vector{ 0.0f, 0.0f, 5.0f }))
         return true;
 
-    if (other->canSee(this, getEyePosition() + Vector { 0.0f, 0.0f, 5.0f }))
+    if (other->canSee(this, getEyePosition() + Vector{ 0.0f, 0.0f, 5.0f }))
         return true;
 
     const auto model = getModel();

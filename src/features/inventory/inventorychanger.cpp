@@ -2,8 +2,6 @@
 #include <charconv>
 #include <chrono>
 #include <cstdint>
-#include <fstream>
-#include <stb_image.h>
 #include <string_view>
 #include <type_traits>
 #include <utility>
@@ -12,47 +10,40 @@
 #define STBI_NO_FAILURE_STRINGS
 #define STBI_NO_STDIO
 #define STB_IMAGE_IMPLEMENTATION
-
-#define IMGUI_DEFINE_MATH_OPERATORS
-#include <imgui/imgui.h>
-#include <imgui/imgui_internal.h>
-#include <imgui/imgui_stdlib.h>
+#include <stb_image.h>
 
 #include "inventorychanger.h"
+
 #include "inventory.h"
-#include "staticdata.h"
 #include "tooluser.h"
 
 #include "gameitems/lookup.h"
+#include "inventory/item.h"
+#include "inventory/structs.h"
 
-#include "../../protobuf/protobufreader.h"
+#include "protobuf/protobufreader.h"
+#include "utils/interfaces.h"
+#include "utils/texture.h"
 
-#include "../../utils/helpers.h"
-#include "../../utils/interfaces.h"
-#include "../../utils/texture.h"
+#define IMGUI_DEFINE_MATH_OPERATORS
+#include "imgui/imgui_stdlib.h"
 
-#include "../../../lib/json/json.hpp"
+#include "sdk/Client.h"
+#include "sdk/ClientClass.h"
+#include "sdk/ConVar.h"
+#include "sdk/Cvar.h"
+#include "sdk/EconItemView.h"
+#include "sdk/EntityList.h"
+#include "sdk/FileSystem.h"
+#include "sdk/FrameStage.h"
+#include "sdk/GameEvent.h"
+#include "sdk/GlobalVars.h"
+#include "sdk/LocalPlayer.h"
+#include "sdk/ModelInfo.h"
+#include "sdk/PlayerResource.h"
 
-#include "../../../lib/sdk/ClassId.h"
-#include "../../../lib/sdk/Client.h"
-#include "../../../lib/sdk/ClientClass.h"
-#include "../../../lib/sdk/ConVar.h"
-#include "../../../lib/sdk/Cvar.h"
-#include "../../../lib/sdk/EconItemView.h"
-#include "../../../lib/sdk/Entity.h"
-#include "../../../lib/sdk/EntityList.h"
-#include "../../../lib/sdk/FileSystem.h"
-#include "../../../lib/sdk/FrameStage.h"
-#include "../../../lib/sdk/GameEvent.h"
-#include "../../../lib/sdk/GlobalVars.h"
-#include "../../../lib/sdk/ItemSchema.h"
-#include "../../../lib/sdk/LocalPlayer.h"
-#include "../../../lib/sdk/ModelInfo.h"
-#include "../../../lib/sdk/PlayerResource.h"
-#include "../../../lib/sdk/Platform.h"
-#include "../../../lib/sdk/WeaponId.h"
-
-static void addToInventory(const std::unordered_map<StaticData::ItemIndex2, int>& toAdd, const std::vector<StaticData::ItemIndex2>& order) noexcept {
+static void addToInventory(const std::unordered_map<StaticData::ItemIndex2, int>& toAdd, const std::vector<StaticData::ItemIndex2>& order) noexcept
+{
     for (const auto item : order) {
         if (const auto count = toAdd.find(item); count != toAdd.end()) {
             for (int i = 0; i < count->second; ++i)
@@ -61,8 +52,9 @@ static void addToInventory(const std::unordered_map<StaticData::ItemIndex2, int>
     }
 }
 
-static Entity* createGlove(int entry, int serial) noexcept {
-    static const auto createWearable = [] {
+static Entity* createGlove(int entry, int serial) noexcept
+{
+    static const auto createWearable = []{
         std::add_pointer_t<Entity* CDECL_CONV(int, int)> createWearableFn = nullptr;
         for (auto clientClass = interfaces->client->getAllClasses(); clientClass; clientClass = clientClass->next) {
             if (clientClass->classId == ClassId::EconWearable) {
@@ -81,7 +73,8 @@ static Entity* createGlove(int entry, int serial) noexcept {
     return nullptr;
 }
 
-static void applyGloves(CSPlayerInventory& localInventory, Entity* local) noexcept {
+static void applyGloves(CSPlayerInventory& localInventory, Entity* local) noexcept
+{
     const auto itemView = localInventory.getItemInLoadout(local->getTeamNumber(), 41);
     if (!itemView)
         return;
@@ -143,7 +136,8 @@ static void applyGloves(CSPlayerInventory& localInventory, Entity* local) noexce
     }
 }
 
-static void applyKnife(CSPlayerInventory& localInventory, Entity* local) noexcept {
+static void applyKnife(CSPlayerInventory& localInventory, Entity* local) noexcept
+{
     const auto localXuid = local->getSteamId();
 
     const auto itemView = localInventory.getItemInLoadout(local->getTeamNumber(), 0);
@@ -209,7 +203,8 @@ static void applyKnife(CSPlayerInventory& localInventory, Entity* local) noexcep
     worldModel->modelIndex() = interfaces->modelInfo->getModelIndex(def->getWorldDisplayModel());
 }
 
-static void applyWeapons(CSPlayerInventory& localInventory, Entity* local) noexcept {
+static void applyWeapons(CSPlayerInventory& localInventory, Entity* local) noexcept
+{
     const auto localTeam = local->getTeamNumber();
     const auto localXuid = local->getSteamId();
     const auto itemSchema = memory->itemSystem()->getItemSchema();
@@ -247,7 +242,8 @@ static void applyWeapons(CSPlayerInventory& localInventory, Entity* local) noexc
     }
 }
 
-static void onPostDataUpdateStart(int localHandle) noexcept {
+static void onPostDataUpdateStart(int localHandle) noexcept
+{
     const auto local = interfaces->entityList->getEntityFromHandle(localHandle);
     if (!local)
         return;
@@ -260,9 +256,10 @@ static void onPostDataUpdateStart(int localHandle) noexcept {
     applyWeapons(*localInventory, local);
 }
 
-static bool hudUpdateRequired { false };
+static bool hudUpdateRequired{ false };
 
-static void updateHud() noexcept {
+static void updateHud() noexcept
+{
     if (auto hud_weapons = memory->findHudElement(memory->hud, "CCSGO_HudWeaponSelection") - WIN32_LINUX(0x28, 62)) {
         for (int i = 0; i < *(hud_weapons + WIN32_LINUX(32, 52)); i++)
             i = memory->clearHudWeapon(hud_weapons, i);
@@ -270,12 +267,14 @@ static void updateHud() noexcept {
     hudUpdateRequired = false;
 }
 
-void InventoryChanger::deleteItem(std::uint64_t itemID) noexcept {
+void InventoryChanger::deleteItem(std::uint64_t itemID) noexcept
+{
     if (const auto item = Inventory::getItem(itemID))
         item->markToDelete();
 }
 
-void InventoryChanger::acknowledgeItem(std::uint64_t itemID) noexcept {
+void InventoryChanger::acknowledgeItem(std::uint64_t itemID) noexcept
+{
     if (Inventory::getItem(itemID) == nullptr)
         return;
 
@@ -291,7 +290,8 @@ void InventoryChanger::acknowledgeItem(std::uint64_t itemID) noexcept {
     }
 }
 
-static void applyMusicKit(CSPlayerInventory& localInventory) noexcept {
+static void applyMusicKit(CSPlayerInventory& localInventory) noexcept
+{
     if (!localPlayer)
         return;
 
@@ -314,7 +314,8 @@ static void applyMusicKit(CSPlayerInventory& localInventory) noexcept {
     pr->musicID()[localPlayer->index()] = StaticData::lookup().getStorage().getMusicKit(item->get()).id;
 }
 
-static void applyPlayerAgent(CSPlayerInventory& localInventory) noexcept {
+static void applyPlayerAgent(CSPlayerInventory& localInventory) noexcept
+{
     if (!localPlayer)
         return;
 
@@ -338,7 +339,7 @@ static void applyPlayerAgent(CSPlayerInventory& localInventory) noexcept {
     if (!model)
         return;
 
-    const auto& dynamicData = Inventory::dynamicAgentData(item->getDynamicDataIndex());
+    const auto& dynamicData = Inventory::dynamicAgentData(*item);
     for (std::size_t i = 0; i < dynamicData.patches.size(); ++i) {
         if (const auto& patch = dynamicData.patches[i]; patch.patchID != 0)
             localPlayer->playerPatchIndices()[i] = patch.patchID;
@@ -351,7 +352,8 @@ static void applyPlayerAgent(CSPlayerInventory& localInventory) noexcept {
         ragdoll->setModelIndex(idx);
 }
 
-static void applyMedal(CSPlayerInventory& localInventory) noexcept {
+static void applyMedal(CSPlayerInventory& localInventory) noexcept
+{
     if (!localPlayer)
         return;
 
@@ -374,7 +376,8 @@ static void applyMedal(CSPlayerInventory& localInventory) noexcept {
     pr->activeCoinRank()[localPlayer->index()] = static_cast<int>(item->get().getWeaponID());
 }
 
-void InventoryChanger::run(FrameStage stage) noexcept {
+void InventoryChanger::run(FrameStage stage) noexcept
+{
     static int localPlayerHandle = -1;
 
     if (localPlayer)
@@ -404,19 +407,21 @@ void InventoryChanger::run(FrameStage stage) noexcept {
     Inventory::runFrame();
 }
 
-void InventoryChanger::scheduleHudUpdate() noexcept {
+void InventoryChanger::scheduleHudUpdate() noexcept
+{
     interfaces->cvar->findVar("cl_fullupdate")->changeCallback();
     hudUpdateRequired = true;
 }
 
-void InventoryChanger::overrideHudIcon(GameEvent& event) noexcept {
+void InventoryChanger::overrideHudIcon(GameEvent& event) noexcept
+{
     if (!localPlayer)
         return;
 
     if (event.getInt("attacker") != localPlayer->getUserId())
         return;
 
-    if (const auto weapon = std::string_view { event.getString("weapon") }; weapon != "knife" && weapon != "knife_t")
+    if (const auto weapon = std::string_view{ event.getString("weapon") }; weapon != "knife" && weapon != "knife_t")
         return;
 
     const auto localInventory = memory->inventoryManager->getLocalInventory();
@@ -432,12 +437,13 @@ void InventoryChanger::overrideHudIcon(GameEvent& event) noexcept {
         return;
 
     if (const auto def = memory->itemSystem()->getItemSchema()->getItemDefinitionInterface(soc->weaponId)) {
-        if (const auto defName = def->getDefinitionName(); defName && std::string_view { defName }.starts_with("weapon_"))
+        if (const auto defName = def->getDefinitionName(); defName && std::string_view{ defName }.starts_with("weapon_"))
             event.setString("weapon", defName + 7);
     }
 }
 
-void InventoryChanger::updateStatTrak(GameEvent& event) noexcept {
+void InventoryChanger::updateStatTrak(GameEvent& event) noexcept
+{
     if (!localPlayer)
         return;
 
@@ -465,15 +471,17 @@ void InventoryChanger::updateStatTrak(GameEvent& event) noexcept {
     if (!soc)
         return;
 
-    auto& dynamicData = Inventory::dynamicSkinData(item->getDynamicDataIndex());
+    auto& dynamicData = Inventory::dynamicSkinData(*item);
     if (dynamicData.statTrak > -1) {
         ++dynamicData.statTrak;
-        soc->setStatTrak(dynamicData.statTrak);
+        EconItemAttributeSetter attributeSetter{ *memory->itemSystem()->getItemSchema() };
+        attributeSetter.setStatTrak(*soc, dynamicData.statTrak);
         localInventory->soUpdated(localInventory->getSOID(), (SharedObject*)soc, 4);
     }
 }
 
-void InventoryChanger::onRoundMVP(GameEvent& event) noexcept {
+void InventoryChanger::onRoundMVP(GameEvent& event) noexcept
+{
     if (!localPlayer)
         return;
 
@@ -496,18 +504,39 @@ void InventoryChanger::onRoundMVP(GameEvent& event) noexcept {
     if (!item || !item->isMusic())
         return;
 
-    auto& dynamicData = Inventory::dynamicMusicData(item->getDynamicDataIndex());
+    auto& dynamicData = Inventory::dynamicMusicData(*item);
     if (dynamicData.statTrak > -1) {
         ++dynamicData.statTrak;
         event.setInt("musickitmvps", dynamicData.statTrak);
-        soc->setStatTrak(dynamicData.statTrak);
+        EconItemAttributeSetter attributeSetter{ *memory->itemSystem()->getItemSchema() };
+        attributeSetter.setStatTrak(*soc, dynamicData.statTrak);
         localInventory->soUpdated(localInventory->getSOID(), (SharedObject*)soc, 4);
+    }
+}
+
+static bool windowOpen = false;
+
+void InventoryChanger::menuBarItem() noexcept
+{
+    if (ImGui::MenuItem("Inventory Changer")) {
+        windowOpen = true;
+        ImGui::SetWindowFocus("Inventory Changer");
+        ImGui::SetWindowPos("Inventory Changer", { 100.0f, 100.0f });
+    }
+}
+
+void InventoryChanger::tabItem() noexcept
+{
+    if (ImGui::BeginTabItem("Inventory Changer")) {
+        drawGUI(true);
+        ImGui::EndTabItem();
     }
 }
 
 static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept;
 
-[[nodiscard]] const game_items::ItemName& getItemName(const game_items::Item& item) {
+[[nodiscard]] const game_items::ItemName& getItemName(const game_items::Item& item)
+{
     const auto& storage = StaticData::lookup().getStorage();
 
     if (item.isSkin() || item.isGloves())
@@ -519,14 +548,16 @@ static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept;
     if (item.isGraffiti())
         return storage.getGraffitiKit(item).name;
     if (item.isPatch())
-        return storage.getPatchKit(item).name;
+        return storage.getPatch(item).name;
 
-    static constexpr game_items::ItemName fallback { "", L"" };
+    static constexpr game_items::ItemName fallback{ "", L"" };
     return fallback;
 }
 
-namespace ImGui {
-    static bool SkinSelectable(const game_items::Item& item, const ImVec2& iconSizeSmall, const ImVec2& iconSizeLarge, ImU32 rarityColor, bool selected, int* toAddCount = nullptr) noexcept {
+namespace ImGui
+{
+    static bool SkinSelectable(const game_items::Item& item, const ImVec2& iconSizeSmall, const ImVec2& iconSizeLarge, ImU32 rarityColor, bool selected, int* toAddCount = nullptr) noexcept
+    {
         ImGuiWindow* window = GetCurrentWindow();
         if (window->SkipItems)
             return false;
@@ -548,8 +579,8 @@ namespace ImGui {
 
         const auto height = ImMax(paintKitNameSize.y, ImMax(itemNameSize.y, iconSizeSmall.y));
         const auto rarityBulletRadius = IM_FLOOR(height * 0.2f);
-        const auto size = ImVec2 { iconSizeSmall.x + rarityBulletRadius * 2.0f + itemNameSize.x + paintKitNameSize.x, height };
-
+        const auto size = ImVec2{ iconSizeSmall.x + rarityBulletRadius * 2.0f + itemNameSize.x + paintKitNameSize.x, height };
+        
         ImVec2 pos = window->DC.CursorPos;
         pos.y += window->DC.CurrLineTextBaseOffset;
         ItemSize(size, 0.0f);
@@ -557,20 +588,20 @@ namespace ImGui {
         const auto smallIconMin = pos;
         const auto smallIconMax = smallIconMin + iconSizeSmall;
 
-        const auto rarityBulletPos = ImVec2 { pos.x + iconSizeSmall.x + 5.0f + rarityBulletRadius, pos.y + IM_FLOOR(size.y * 0.5f) };
+        const auto rarityBulletPos = ImVec2{ pos.x + iconSizeSmall.x + 5.0f + rarityBulletRadius, pos.y + IM_FLOOR(size.y * 0.5f) };
 
-        const auto itemNameMin = ImVec2 { rarityBulletPos.x + rarityBulletRadius + 5.0f, pos.y };
-        const auto itemNameMax = itemNameMin + ImVec2 { itemNameSize.x, size.y };
-
+        const auto itemNameMin = ImVec2{ rarityBulletPos.x + rarityBulletRadius + 5.0f, pos.y };
+        const auto itemNameMax = itemNameMin + ImVec2{ itemNameSize.x, size.y };
+        
         const auto separatorHeightInv = IM_FLOOR(height * 0.2f);
-        const auto separatorMin = ImVec2 { itemNameMax.x + 5.0f, pos.y + separatorHeightInv };
-        const auto separatorMax = separatorMin + ImVec2 { 1.0f, height - 2.0f * separatorHeightInv };
+        const auto separatorMin = ImVec2{ itemNameMax.x + 5.0f, pos.y + separatorHeightInv };
+        const auto separatorMax = separatorMin + ImVec2{ 1.0f, height - 2.0f * separatorHeightInv };
 
-        const auto paintKitNameMin = ImVec2 { separatorMax.x + 5.0f, pos.y };
-        const auto paintKitNameMax = paintKitNameMin + ImVec2 { paintKitNameSize.x, size.y };
+        const auto paintKitNameMin = ImVec2{ separatorMax.x + 5.0f, pos.y };
+        const auto paintKitNameMax = paintKitNameMin + ImVec2{ paintKitNameSize.x, size.y };
 
         // Selectables are meant to be tightly packed together with no click-gap, so we extend their box to cover spacing between selectable.
-        ImRect bb(pos, pos + ImVec2 { ImMax(size.x, window->WorkRect.Max.x - pos.x), size.y });
+        ImRect bb(pos, pos + ImVec2{ ImMax(size.x, window->WorkRect.Max.x - pos.x), size.y });
         const float spacingX = style.ItemSpacing.x;
         const float spacingY = style.ItemSpacing.y;
         const float spacingL = IM_FLOOR(spacingX * 0.50f);
@@ -583,7 +614,7 @@ namespace ImGui {
         if (!ItemAdd(bb, id))
             return false;
 
-        const ImRect selectableBB { bb.Min, ImVec2{ bb.Max.x - (selected ? 90.0f : 0.0f), bb.Max.y} };
+        const ImRect selectableBB{ bb.Min, ImVec2{ bb.Max.x - (selected ? 90.0f : 0.0f), bb.Max.y} };
         // We use NoHoldingActiveID on menus so user can click and _hold_ on a menu then drag to browse child entries
         ImGuiButtonFlags buttonFlags = 0;
         bool hovered, held;
@@ -606,7 +637,7 @@ namespace ImGui {
 
         if (const auto icon = getItemIconTexture(item.getIconPath())) {
             window->DrawList->AddImage(icon, smallIconMin, smallIconMax);
-            if (g.HoveredWindow == window && IsMouseHoveringRect(bb.Min, ImVec2 { bb.Min.x + iconSizeSmall.x, bb.Max.y })) {
+            if (g.HoveredWindow == window && IsMouseHoveringRect(bb.Min, ImVec2{ bb.Min.x + iconSizeSmall.x, bb.Max.y })) {
                 BeginTooltip();
                 Image(icon, iconSizeLarge);
                 EndTooltip();
@@ -641,7 +672,8 @@ namespace ImGui {
         return pressed;
     }
 
-    static void SkinItem(const game_items::Item& item, const ImVec2& iconSizeSmall, const ImVec2& iconSizeLarge, ImU32 rarityColor, bool& shouldDelete) noexcept {
+    static void SkinItem(const game_items::Item& item, const ImVec2& iconSizeSmall, const ImVec2& iconSizeLarge, ImU32 rarityColor, bool& shouldDelete) noexcept
+    {
         ImGuiWindow* window = GetCurrentWindow();
         if (window->SkipItems)
             return;
@@ -663,7 +695,7 @@ namespace ImGui {
 
         const auto height = ImMax(paintKitNameSize.y, ImMax(itemNameSize.y, iconSizeSmall.y));
         const auto rarityBulletRadius = IM_FLOOR(height * 0.2f);
-        const auto size = ImVec2 { iconSizeSmall.x + rarityBulletRadius * 2.0f + itemNameSize.x + paintKitNameSize.x, height };
+        const auto size = ImVec2{ iconSizeSmall.x + rarityBulletRadius * 2.0f + itemNameSize.x + paintKitNameSize.x, height };
 
         ImVec2 pos = window->DC.CursorPos;
         pos.y += window->DC.CurrLineTextBaseOffset;
@@ -672,20 +704,20 @@ namespace ImGui {
         const auto smallIconMin = pos;
         const auto smallIconMax = smallIconMin + iconSizeSmall;
 
-        const auto rarityBulletPos = ImVec2 { pos.x + iconSizeSmall.x + 5.0f + rarityBulletRadius, pos.y + IM_FLOOR(size.y * 0.5f) };
+        const auto rarityBulletPos = ImVec2{ pos.x + iconSizeSmall.x + 5.0f + rarityBulletRadius, pos.y + IM_FLOOR(size.y * 0.5f) };
 
-        const auto itemNameMin = ImVec2 { rarityBulletPos.x + rarityBulletRadius + 5.0f, pos.y };
-        const auto itemNameMax = itemNameMin + ImVec2 { itemNameSize.x, size.y };
+        const auto itemNameMin = ImVec2{ rarityBulletPos.x + rarityBulletRadius + 5.0f, pos.y };
+        const auto itemNameMax = itemNameMin + ImVec2{ itemNameSize.x, size.y };
 
         const auto separatorHeightInv = IM_FLOOR(height * 0.2f);
-        const auto separatorMin = ImVec2 { itemNameMax.x + 5.0f, pos.y + separatorHeightInv };
-        const auto separatorMax = separatorMin + ImVec2 { 1.0f, height - 2.0f * separatorHeightInv };
+        const auto separatorMin = ImVec2{ itemNameMax.x + 5.0f, pos.y + separatorHeightInv };
+        const auto separatorMax = separatorMin + ImVec2{ 1.0f, height - 2.0f * separatorHeightInv };
 
-        const auto paintKitNameMin = ImVec2 { separatorMax.x + 5.0f, pos.y };
-        const auto paintKitNameMax = paintKitNameMin + ImVec2 { paintKitNameSize.x, size.y };
+        const auto paintKitNameMin = ImVec2{ separatorMax.x + 5.0f, pos.y };
+        const auto paintKitNameMax = paintKitNameMin + ImVec2{ paintKitNameSize.x, size.y };
 
         // Selectables are meant to be tightly packed together with no click-gap, so we extend their box to cover spacing between selectable.
-        ImRect bb(pos, pos + ImVec2 { ImMax(size.x, window->WorkRect.Max.x - pos.x), size.y });
+        ImRect bb(pos, pos + ImVec2{ ImMax(size.x, window->WorkRect.Max.x - pos.x), size.y });
         const float spacingX = style.ItemSpacing.x;
         const float spacingY = style.ItemSpacing.y;
         const float spacingL = IM_FLOOR(spacingX * 0.50f);
@@ -706,7 +738,7 @@ namespace ImGui {
 
         if (const auto icon = getItemIconTexture(item.getIconPath())) {
             window->DrawList->AddImage(icon, smallIconMin, smallIconMax);
-            if (g.HoveredWindow == window && IsMouseHoveringRect(bb.Min, ImVec2 { bb.Min.x + iconSizeSmall.x, bb.Max.y })) {
+            if (g.HoveredWindow == window && IsMouseHoveringRect(bb.Min, ImVec2{ bb.Min.x + iconSizeSmall.x, bb.Max.y })) {
                 BeginTooltip();
                 Image(icon, iconSizeLarge);
                 EndTooltip();
@@ -735,7 +767,18 @@ namespace ImGui {
     }
 }
 
-void InventoryChanger::renderInventoryChangerWindow() noexcept {
+void InventoryChanger::drawGUI(bool contentOnly) noexcept
+{
+    if (!contentOnly) {
+        if (!windowOpen)
+            return;
+        ImGui::SetNextWindowSize({ 700.0f, 400.0f });
+        if (!ImGui::Begin("Inventory Changer", &windowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse)) {
+            ImGui::End();
+            return;
+        }
+    }
+
     static std::string filter;
 
     static bool isInAddMode = false;
@@ -753,8 +796,8 @@ void InventoryChanger::renderInventoryChangerWindow() noexcept {
         constexpr auto rarityColors = std::to_array<ImU32>({
             IM_COL32(106,  97,  85, 255),
             IM_COL32(176, 195, 217, 255),
-            IM_COL32(94, 152, 217, 255),
-            IM_COL32(75, 105, 255, 255),
+            IM_COL32( 94, 152, 217, 255),
+            IM_COL32( 75, 105, 255, 255),
             IM_COL32(136,  71, 255, 255),
             IM_COL32(211,  44, 230, 255),
             IM_COL32(235,  75,  75, 255),
@@ -804,7 +847,7 @@ void InventoryChanger::renderInventoryChangerWindow() noexcept {
             return true;
         };
 
-        if (ImGui::BeginChild("##scrollarea", ImVec2 { 0.0f, 0.0f })) {
+        if (ImGui::BeginChild("##scrollarea", ImVec2{ 0.0f, contentOnly ? 400.0f : 0.0f })) {
             static auto itemIndices = StaticData::getItemIndices();
             if (static bool sorted = false; !sorted) {
                 std::ranges::sort(itemIndices, [](const auto aIndex, const auto bIndex) {
@@ -820,7 +863,7 @@ void InventoryChanger::renderInventoryChangerWindow() noexcept {
                 sorted = true;
             }
 
-            const std::wstring filterWide { Helpers::ToUpperConverter{}.toUpper(Helpers::toWideString(filter)) };
+            const std::wstring filterWide{ Helpers::ToUpperConverter{}.toUpper(Helpers::toWideString(filter)) };
             for (std::size_t i = 0; i < itemIndices.size(); ++i) {
                 const auto& gameItem = StaticData::getGameItem(itemIndices[i]);
                 if (!filter.empty() && !passesFilter(std::wstring(StaticData::getWeaponNameUpper(gameItem.getWeaponID())), filterWide) && (!passesFilter(std::wstring(getItemName(gameItem).forSearch), filterWide)))
@@ -833,8 +876,7 @@ void InventoryChanger::renderInventoryChangerWindow() noexcept {
                     if (selected) {
                         selectedToAdd.erase(itemIndices[i]);
                         std::erase(toAddOrder, itemIndices[i]);
-                    }
-                    else {
+                    } else {
                         selectedToAdd.emplace(itemIndices[i], 1);
                         toAddOrder.push_back(itemIndices[i]);
                     }
@@ -843,9 +885,8 @@ void InventoryChanger::renderInventoryChangerWindow() noexcept {
             }
         }
         ImGui::EndChild();
-    }
-    else {
-        if (ImGui::BeginChild("##scrollarea2", ImVec2 { 0.0f, 0.0f })) {
+    } else {
+        if (ImGui::BeginChild("##scrollarea2", ImVec2{ 0.0f, contentOnly ? 400.0f : 0.0f })) {
             auto& inventory = Inventory::get();
             for (std::size_t i = inventory.size(); i-- > 0;) {
                 if (inventory[i].isDeleted() || inventory[i].shouldDelete())
@@ -861,14 +902,19 @@ void InventoryChanger::renderInventoryChangerWindow() noexcept {
         }
         ImGui::EndChild();
     }
+
+    if (!contentOnly)
+        ImGui::End();
 }
 
-void InventoryChanger::clearInventory() noexcept {
+void InventoryChanger::clearInventory() noexcept
+{
     resetConfig();
 }
 
 static std::size_t lastEquippedCount = 0;
-void InventoryChanger::onItemEquip(Team team, int slot, std::uint64_t itemID) noexcept {
+void InventoryChanger::onItemEquip(Team team, int slot, std::uint64_t itemID) noexcept
+{
     const auto localInventory = memory->inventoryManager->getLocalInventory();
     if (!localInventory)
         return;
@@ -882,8 +928,7 @@ void InventoryChanger::onItemEquip(Team team, int slot, std::uint64_t itemID) no
             if (const auto econItem = memory->getSOCData(view))
                 localInventory->soUpdated(localInventory->getSOID(), (SharedObject*)econItem, 4);
         }
-    }
-    else if (item->isSkin()) {
+    } else if (item->isSkin()) {
         const auto view = localInventory->getItemInLoadout(team, slot);
         memory->inventoryManager->equipItemInSlot(team, slot, (std::uint64_t(0xF) << 60) | static_cast<short>(item->get().getWeaponID()));
         if (view) {
@@ -894,26 +939,30 @@ void InventoryChanger::onItemEquip(Team team, int slot, std::uint64_t itemID) no
     }
 }
 
-void InventoryChanger::onSoUpdated(SharedObject* object) noexcept {
+void InventoryChanger::onSoUpdated(SharedObject* object) noexcept
+{
     if (lastEquippedCount > 0 && object->getTypeID() == 43 /* = k_EEconTypeDefaultEquippedDefinitionInstanceClient */) {
         *reinterpret_cast<WeaponId*>(std::uintptr_t(object) + WIN32_LINUX(0x10, 0x1C)) = WeaponId::None;
         --lastEquippedCount;
     }
 }
 
-[[nodiscard]] static bool isDefaultKnifeNameLocalizationString(std::string_view string) noexcept {
+[[nodiscard]] static bool isDefaultKnifeNameLocalizationString(std::string_view string) noexcept
+{
     return string == "#SFUI_WPNHUD_Knife" || string == "#SFUI_WPNHUD_Knife_T";
 }
 
-static void appendProtobufString(std::string_view string, std::vector<char>& buffer) noexcept {
+static void appendProtobufString(std::string_view string, std::vector<char>& buffer) noexcept
+{
     assert(string.length() < 128);
     buffer.push_back(0x1A);
     buffer.push_back(static_cast<char>(string.length()));
     std::ranges::copy(string, std::back_inserter(buffer));
 }
 
-[[nodiscard]] static std::vector<char> buildTextUserMessage(int destination, std::string_view string1, std::string_view string2, std::string_view string3 = {}) noexcept {
-    std::vector<char> buffer { 0x8, static_cast<char>(destination) };
+[[nodiscard]] static std::vector<char> buildTextUserMessage(int destination, std::string_view string1, std::string_view string2, std::string_view string3 = {}) noexcept
+{
+    std::vector<char> buffer{ 0x8, static_cast<char>(destination) };
     appendProtobufString(string1, buffer);
     appendProtobufString(string2, buffer);
     appendProtobufString(string3, buffer);
@@ -923,7 +972,8 @@ static void appendProtobufString(std::string_view string, std::vector<char>& buf
     return buffer;
 }
 
-void InventoryChanger::onUserTextMsg(const void*& data, int& size) noexcept {
+void InventoryChanger::onUserTextMsg(const void*& data, int& size) noexcept
+{
     if (!localPlayer)
         return;
 
@@ -946,8 +996,8 @@ void InventoryChanger::onUserTextMsg(const void*& data, int& size) noexcept {
     constexpr auto HUD_PRINTCENTER = 4;
     // https://github.com/SteamDatabase/Protobufs/blob/017f1710737b7026cdd6d7e602f96a66dddb7b2e/csgo/cstrike15_usermessages.proto#L128-L131
 
-    const auto reader = ProtobufReader { static_cast<const std::uint8_t*>(data), size };
-
+    const auto reader = ProtobufReader{ static_cast<const std::uint8_t*>(data), size };
+    
     if (reader.readInt32(1) == HUD_PRINTCENTER) {
         const auto strings = reader.readRepeatedString(3);
         if (strings.size() < 2)
@@ -972,8 +1022,7 @@ void InventoryChanger::onUserTextMsg(const void*& data, int& size) noexcept {
         buffer = buildTextUserMessage(HUD_PRINTCENTER, strings[0], def->getItemBaseName());
         data = buffer.data();
         size = static_cast<int>(buffer.size());
-    }
-    else if (reader.readInt32(1) == HUD_PRINTTALK) {
+    } else if (reader.readInt32(1) == HUD_PRINTTALK) {
         const auto strings = reader.readRepeatedString(3);
         if (strings.size() < 3)
             return;
@@ -1001,43 +1050,38 @@ void InventoryChanger::onUserTextMsg(const void*& data, int& size) noexcept {
     }
 }
 
-static std::uint64_t stringToUint64(const char* str) noexcept {
+static std::uint64_t stringToUint64(const char* str) noexcept
+{
     std::uint64_t result = 0;
     std::from_chars(str, str + std::strlen(str), result);
     return result;
 }
 
-void InventoryChanger::getArgAsStringHook(const char* string, std::uintptr_t returnAddress) noexcept {
+void InventoryChanger::getArgAsStringHook(const char* string, std::uintptr_t returnAddress) noexcept
+{
     if (returnAddress == memory->useToolGetArgAsStringReturnAddress) {
         ToolUser::setTool(stringToUint64(string));
-    }
-    else if (returnAddress == memory->useToolGetArg2AsStringReturnAddress) {
+    } else if (returnAddress == memory->useToolGetArg2AsStringReturnAddress) {
         ToolUser::setItemToApplyTool(stringToUint64(string));
-    }
-    else if (returnAddress == memory->wearItemStickerGetArgAsStringReturnAddress) {
+    } else if (returnAddress == memory->wearItemStickerGetArgAsStringReturnAddress) {
         ToolUser::setItemToWearSticker(stringToUint64(string));
-    }
-    else if (returnAddress == memory->setNameToolStringGetArgAsStringReturnAddress) {
+    } else if (returnAddress == memory->setNameToolStringGetArgAsStringReturnAddress) {
         ToolUser::setNameTag(string);
-    }
-    else if (returnAddress == memory->clearCustomNameGetArgAsStringReturnAddress) {
+    } else if (returnAddress == memory->clearCustomNameGetArgAsStringReturnAddress) {
         ToolUser::setItemToRemoveNameTag(stringToUint64(string));
-    }
-    else if (returnAddress == memory->deleteItemGetArgAsStringReturnAddress) {
+    } else if (returnAddress == memory->deleteItemGetArgAsStringReturnAddress) {
         InventoryChanger::deleteItem(stringToUint64(string));
-    }
-    else if (returnAddress == memory->acknowledgeNewItemByItemIDGetArgAsStringReturnAddress) {
+    } else if (returnAddress == memory->acknowledgeNewItemByItemIDGetArgAsStringReturnAddress) {
         InventoryChanger::acknowledgeItem(stringToUint64(string));
-    }
-    else if (returnAddress == memory->setStatTrakSwapToolItemsGetArgAsStringReturnAddress1) {
+    } else if (returnAddress == memory->setStatTrakSwapToolItemsGetArgAsStringReturnAddress1) {
         ToolUser::setStatTrakSwapItem1(stringToUint64(string));
-    }
-    else if (returnAddress == memory->setStatTrakSwapToolItemsGetArgAsStringReturnAddress2) {
+    } else if (returnAddress == memory->setStatTrakSwapToolItemsGetArgAsStringReturnAddress2) {
         ToolUser::setStatTrakSwapItem2(stringToUint64(string));
     }
 }
 
-void InventoryChanger::getArgAsNumberHook(int number, std::uintptr_t returnAddress) noexcept {
+void InventoryChanger::getArgAsNumberHook(int number, std::uintptr_t returnAddress) noexcept
+{
     if (returnAddress == memory->setStickerToolSlotGetArgAsNumberReturnAddress || returnAddress == memory->wearItemStickerGetArgAsNumberReturnAddress)
         ToolUser::setStickerSlot(number);
 }
@@ -1049,11 +1093,12 @@ struct Icon {
 
 static std::unordered_map<std::string, Icon> iconTextures;
 
-static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept {
+static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept
+{
     if (iconpath.empty())
         return 0;
 
-    auto& icon = iconTextures[std::string { iconpath }];
+    auto& icon = iconTextures[std::string{ iconpath }];
     if (!icon.texture.get()) {
         static int frameCount = 0;
         static float timeSpentThisFrame = 0.0f;
@@ -1073,9 +1118,9 @@ static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept {
 
         const auto start = std::chrono::high_resolution_clock::now();
 
-        auto handle = interfaces->baseFileSystem->open(("resource/flash/" + std::string { iconpath } + (iconpath.find("status_icons") != std::string_view::npos ? "" : "_large") + ".png").c_str(), "r", "GAME");
+        auto handle = interfaces->baseFileSystem->open(("resource/flash/" + std::string{ iconpath } + (iconpath.find("status_icons") != std::string_view::npos ? "" : "_large") + ".png").c_str(), "r", "GAME");
         if (!handle)
-            handle = interfaces->baseFileSystem->open(("resource/flash/" + std::string { iconpath } + ".png").c_str(), "r", "GAME");
+            handle = interfaces->baseFileSystem->open(("resource/flash/" + std::string{ iconpath } + ".png").c_str(), "r", "GAME");
 
         assert(handle);
         if (handle) {
@@ -1088,8 +1133,7 @@ static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept {
                     if (const auto data = stbi_load_from_memory((const stbi_uc*)buffer.get(), size, &width, &height, nullptr, STBI_rgb_alpha)) {
                         icon.texture.init(width, height, data);
                         stbi_image_free(data);
-                    }
-                    else {
+                    } else {
                         assert(false);
                     }
                 }
@@ -1104,11 +1148,13 @@ static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept {
     return icon.texture.get();
 }
 
-void InventoryChanger::clearItemIconTextures() noexcept {
+void InventoryChanger::clearItemIconTextures() noexcept
+{
     iconTextures.clear();
 }
 
-void InventoryChanger::clearUnusedItemIconTextures() noexcept {
+void InventoryChanger::clearUnusedItemIconTextures() noexcept
+{
     constexpr auto maxIcons = 30;
     const auto frameCount = ImGui::GetFrameCount();
     while (iconTextures.size() > maxIcons) {
@@ -1120,8 +1166,10 @@ void InventoryChanger::clearUnusedItemIconTextures() noexcept {
     }
 }
 
-static int remapKnifeAnim(WeaponId weaponID, const int sequence) noexcept {
-    enum Sequence {
+static int remapKnifeAnim(WeaponId weaponID, const int sequence) noexcept
+{
+    enum Sequence
+    {
         SEQUENCE_DEFAULT_DRAW = 0,
         SEQUENCE_DEFAULT_IDLE1 = 1,
         SEQUENCE_DEFAULT_IDLE2 = 2,
@@ -1233,7 +1281,8 @@ static int remapKnifeAnim(WeaponId weaponID, const int sequence) noexcept {
     }
 }
 
-void InventoryChanger::fixKnifeAnimation(Entity* viewModelWeapon, long& sequence) noexcept {
+void InventoryChanger::fixKnifeAnimation(Entity* viewModelWeapon, long& sequence) noexcept
+{
     if (!localPlayer)
         return;
 

@@ -10,8 +10,12 @@ class Entity;
 class GameEvent;
 class SharedObject;
 
-namespace InventoryChanger {
-    void renderInventoryChangerWindow() noexcept;
+namespace InventoryChanger
+{
+    // GUI
+    void menuBarItem() noexcept;
+    void tabItem() noexcept;
+    void drawGUI(bool contentOnly) noexcept;
 
     void run(FrameStage) noexcept;
     void scheduleHudUpdate() noexcept;

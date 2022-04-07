@@ -1,13 +1,14 @@
 #include <algorithm>
 #include <array>
 #include <cassert>
+#include <cstring>
 #include <limits>
 #include <string_view>
 #include <utility>
 
 #ifdef _WIN32
+#include <Windows.h>
 #include <Psapi.h>
-
 #elif __linux__
 #include <fcntl.h>
 #include <link.h>
@@ -16,15 +17,13 @@
 #include <unistd.h>
 #endif
 
-#include "memory.h"
-#include "interfaces.h"
-
-#include "../hooking/hooking.h"
-
-#include "../../lib/sdk/LocalPlayer.h"
+#include "Interfaces.h"
+#include "Memory.h"
+#include "SDK/LocalPlayer.h"
 
 template <typename T>
-static constexpr auto relativeToAbsolute(uintptr_t address) noexcept {
+static constexpr auto relativeToAbsolute(uintptr_t address) noexcept
+{
     return (T)(address + 4 + *reinterpret_cast<std::int32_t*>(address));
 }
 
@@ -33,11 +32,12 @@ struct ModuleInfo {
     std::size_t size;
 };
 
-static ModuleInfo getModuleInformation(const char* name) noexcept {
+static ModuleInfo getModuleInformation(const char* name) noexcept
+{
 #ifdef _WIN32
     if (HMODULE handle = GetModuleHandleA(name)) {
         if (MODULEINFO moduleInfo; GetModuleInformation(GetCurrentProcess(), handle, &moduleInfo, sizeof(moduleInfo)))
-            return ModuleInfo { moduleInfo.lpBaseOfDll, moduleInfo.SizeOfImage };
+            return ModuleInfo{ moduleInfo.lpBaseOfDll, moduleInfo.SizeOfImage };
     }
     return {};
 #elif __linux__
@@ -51,7 +51,7 @@ static ModuleInfo getModuleInformation(const char* name) noexcept {
 
     dl_iterate_phdr([](struct dl_phdr_info* info, std::size_t, void* data) {
         const auto moduleInfo = reinterpret_cast<ModuleInfo_*>(data);
-        if (!std::string_view { info->dlpi_name }.ends_with(moduleInfo->name))
+        if (!std::string_view{ info->dlpi_name }.ends_with(moduleInfo->name))
             return 0;
 
         if (const auto fd = open(info->dlpi_name, O_RDONLY); fd >= 0) {
@@ -84,11 +84,12 @@ static ModuleInfo getModuleInformation(const char* name) noexcept {
         return 1;
     }, &moduleInfo);
 
-    return ModuleInfo { moduleInfo.base, moduleInfo.size };
+    return ModuleInfo{ moduleInfo.base, moduleInfo.size };
 #endif
 }
 
-[[nodiscard]] static auto generateBadCharTable(std::string_view pattern) noexcept {
+[[nodiscard]] static auto generateBadCharTable(std::string_view pattern) noexcept
+{
     assert(!pattern.empty());
 
     std::array<std::size_t, (std::numeric_limits<std::uint8_t>::max)() + 1> table;
@@ -107,7 +108,8 @@ static ModuleInfo getModuleInformation(const char* name) noexcept {
 }
 
 template <bool ReportNotFound = true>
-static std::uintptr_t findPattern(ModuleInfo moduleInfo, std::string_view pattern) noexcept {
+static std::uintptr_t findPattern(ModuleInfo moduleInfo, std::string_view pattern) noexcept
+{
     static auto id = 0;
     ++id;
 
@@ -133,17 +135,19 @@ static std::uintptr_t findPattern(ModuleInfo moduleInfo, std::string_view patter
     assert(false);
 #ifdef _WIN32
     if constexpr (ReportNotFound)
-        MessageBoxA(nullptr, ("Failed to find pattern #" + std::to_string(id) + '!').c_str(), "slipperygg", MB_OK | MB_ICONWARNING);
+        MessageBoxA(nullptr, ("Failed to find pattern #" + std::to_string(id) + '!').c_str(), "Osiris", MB_OK | MB_ICONWARNING);
 #endif
     return 0;
 }
 
 template <bool ReportNotFound = true>
-static std::uintptr_t findPattern(const char* moduleName, std::string_view pattern) noexcept {
+static std::uintptr_t findPattern(const char* moduleName, std::string_view pattern) noexcept
+{
     return findPattern<ReportNotFound>(getModuleInformation(moduleName), pattern);
 }
 
-Memory::Memory() noexcept {
+Memory::Memory() noexcept
+{
 #ifdef _WIN32
     present = findPattern("gameoverlayrenderer", "\xFF\x15????\x8B\xF0\x85\xFF") + 2;
     reset = findPattern("gameoverlayrenderer", "\xC7\x45?????\xFF\x15????\x8B\xD8") + 9;
@@ -184,8 +188,7 @@ Memory::Memory() noexcept {
     keyValuesFindKey = relativeToAbsolute<decltype(keyValuesFindKey)>(findPattern(CLIENT_DLL, "\xE8????\xF7\x45") + 1);
     keyValuesSetString = relativeToAbsolute<decltype(keyValuesSetString)>(findPattern(CLIENT_DLL, "\xE8????\x89\x77\x38") + 1);
     weaponSystem = *reinterpret_cast<WeaponSystem**>(findPattern(CLIENT_DLL, "\x8B\x35????\xFF\x10\x0F\xB7\xC0") + 2);
-    getPlayerViewmodelArmConfigForPlayerModel =
-        relativeToAbsolute<decltype(getPlayerViewmodelArmConfigForPlayerModel)>(findPattern(CLIENT_DLL, "\xE8????\x89\x87????\x6A") + 1);
+    getPlayerViewmodelArmConfigForPlayerModel = relativeToAbsolute<decltype(getPlayerViewmodelArmConfigForPlayerModel)>(findPattern(CLIENT_DLL, "\xE8????\x89\x87????\x6A") + 1);
     getEventDescriptor = relativeToAbsolute<decltype(getEventDescriptor)>(findPattern(ENGINE_DLL, "\xE8????\x8B\xD8\x85\xDB\x75\x27") + 1);
     activeChannels = *reinterpret_cast<ActiveChannels**>(findPattern(ENGINE_DLL, "\x8B\x1D????\x89\x5C\x24\x48") + 2);
     channels = *reinterpret_cast<Channel**>(findPattern(ENGINE_DLL, "\x81\xC2????\x8B\x72\x54") + 2);
@@ -198,17 +201,13 @@ Memory::Memory() noexcept {
     demoFileEndReached = findPattern(CLIENT_DLL, "\x8B\xC8\x85\xC9\x74\x1F\x80\x79\x10");
     plantedC4s = *reinterpret_cast<decltype(plantedC4s)*>(findPattern(CLIENT_DLL, "\x7E\x2C\x8B\x15") + 4);
     gameRules = *reinterpret_cast<Entity***>(findPattern(CLIENT_DLL, "\x8B\xEC\x8B\x0D????\x85\xC9\x74\x07") + 4);
-    registeredPanoramaEvents =
-        reinterpret_cast<decltype(registeredPanoramaEvents)>(*reinterpret_cast<std::uintptr_t*>(findPattern(CLIENT_DLL, "\xE8????\xA1????\xA8\x01\x75\x21") + 6)
-            - 36);
+    registeredPanoramaEvents = reinterpret_cast<decltype(registeredPanoramaEvents)>(*reinterpret_cast<std::uintptr_t*>(findPattern(CLIENT_DLL, "\xE8????\xA1????\xA8\x01\x75\x21") + 6) - 36);
     makePanoramaSymbolFn = relativeToAbsolute<decltype(makePanoramaSymbolFn)>(findPattern(CLIENT_DLL, "\xE8????\x0F\xB7\x45\x0E\x8D\x4D\x0E") + 1);
     inventoryManager = *reinterpret_cast<InventoryManager**>(findPattern(CLIENT_DLL, "\x8D\x44\x24\x28\xB9????\x50") + 5);
-    createEconItemSharedObject =
-        *reinterpret_cast<decltype(createEconItemSharedObject)*>(findPattern(CLIENT_DLL, "\x55\x8B\xEC\x83\xEC\x1C\x8D\x45\xE4\xC7\x45") + 20);
+    createEconItemSharedObject = *reinterpret_cast<decltype(createEconItemSharedObject)*>(findPattern(CLIENT_DLL, "\x55\x8B\xEC\x83\xEC\x1C\x8D\x45\xE4\xC7\x45") + 20);
     addEconItem = relativeToAbsolute<decltype(addEconItem)>(findPattern(CLIENT_DLL, "\xE8????\x84\xC0\x74\xE7") + 1);
     clearInventoryImageRGBA = reinterpret_cast<decltype(clearInventoryImageRGBA)>(findPattern(CLIENT_DLL, "\x55\x8B\xEC\x81\xEC????\x57\x8B\xF9\xC7\x47"));
-    panoramaMarshallHelper = *reinterpret_cast<decltype(panoramaMarshallHelper)*>(
-        findPattern(CLIENT_DLL, "\x68????\x8B\xC8\xE8????\x8D\x4D\xF4\xFF\x15????\x8B\xCF\xFF\x15????\x5F\x5E\x8B\xE5\x5D\xC3") + 1);
+    panoramaMarshallHelper = *reinterpret_cast<decltype(panoramaMarshallHelper)*>(findPattern(CLIENT_DLL, "\x68????\x8B\xC8\xE8????\x8D\x4D\xF4\xFF\x15????\x8B\xCF\xFF\x15????\x5F\x5E\x8B\xE5\x5D\xC3") + 1);
     setStickerToolSlotGetArgAsNumberReturnAddress = findPattern(CLIENT_DLL, "\xFF\xD2\xDD\x5C\x24\x10\xF2\x0F\x2C\x7C\x24") + 2;
     setStickerToolSlotGetArgAsStringReturnAddress = setStickerToolSlotGetArgAsNumberReturnAddress - 49;
     wearItemStickerGetArgAsNumberReturnAddress = findPattern(CLIENT_DLL, "\xDD\x5C\x24\x18\xF2\x0F\x2C\x7C\x24?\x85\xFF");
@@ -220,8 +219,7 @@ Memory::Memory() noexcept {
     setStatTrakSwapToolItemsGetArgAsStringReturnAddress2 = setStatTrakSwapToolItemsGetArgAsStringReturnAddress1 + 44;
     acknowledgeNewItemByItemIDGetArgAsStringReturnAddress = findPattern(CLIENT_DLL, "\x85\xC0\x74\x33\x8B\xC8\xE8????\xB9");
 
-    findOrCreateEconItemViewForItemID =
-        relativeToAbsolute<decltype(findOrCreateEconItemViewForItemID)>(findPattern(CLIENT_DLL, "\xE8????\x8B\xCE\x83\xC4\x08") + 1);
+    findOrCreateEconItemViewForItemID = relativeToAbsolute<decltype(findOrCreateEconItemViewForItemID)>(findPattern(CLIENT_DLL, "\xE8????\x8B\xCE\x83\xC4\x08") + 1);
     getInventoryItemByItemID = relativeToAbsolute<decltype(getInventoryItemByItemID)>(findPattern(CLIENT_DLL, "\xE8????\x8B\x33\x8B\xD0") + 1);
     useToolGetArgAsStringReturnAddress = findPattern(CLIENT_DLL, "\x85\xC0\x0F\x84????\x8B\xC8\xE8????\x8B\x37");
     useToolGetArg2AsStringReturnAddress = useToolGetArgAsStringReturnAddress + 52;
@@ -234,9 +232,11 @@ Memory::Memory() noexcept {
 
     localPlayer.init(*reinterpret_cast<Entity***>(findPattern(CLIENT_DLL, "\xA1????\x89\x45\xBC\x85\xC0") + 1));
 
-    keyValuesSystem = reinterpret_cast<KeyValuesSystem * (STDCALL_CONV*)()>(GetProcAddress(GetModuleHandleW(L"vstdlib"), "KeyValuesSystem"))();
+    keyValuesSystem = reinterpret_cast<KeyValuesSystem* (STDCALL_CONV*)()>(GetProcAddress(GetModuleHandleW(L"vstdlib"), "KeyValuesSystem"))();
     keyValuesAllocEngine = findPattern(ENGINE_DLL, "\xFF\x52\x04\x85\xC0\x74\x0C\x56") + 3;
     keyValuesAllocClient = findPattern(CLIENT_DLL, "\xFF\x52\x04\x85\xC0\x74\x0C\x56") + 3;
+
+    jmpEbxGadgetInClient = findPattern(CLIENT_DLL, "\x1B\xFF\x23\xF8\xF6\x87") + 1;
 #else
     const auto tier0 = dlopen(TIER0_DLL, RTLD_NOLOAD | RTLD_NOW);
     debugMsg = decltype(debugMsg)(dlsym(tier0, "Msg"));

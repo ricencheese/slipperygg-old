@@ -13,6 +13,8 @@
 
 #include "../../utils/inpututil.h"
 
+#include "../../../lib/imgui/imgui.h"
+
 struct ImFont;
 
 class Config {

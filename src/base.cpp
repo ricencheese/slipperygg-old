@@ -1,5 +1,6 @@
-#include <memory>
+#include <assert.h>
 #include <iostream>
+#include <memory>
 
 #ifdef _WIN32
 #include <clocale>

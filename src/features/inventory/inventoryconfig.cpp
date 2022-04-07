@@ -1,7 +1,12 @@
-#include "Inventory.h"
-#include "InventoryConfig.h"
+#include "inventory.h"
+#include "inventoryconfig.h"
 
-#include "GameItems/Lookup.h"
+#include "gameitems/lookup.h"
+#include "inventory/item.h"
+#include "inventory/structs.h"
+#include "inventory/structsfromjson.h"
+
+#include "json/json.hpp"
 
 constexpr auto CONFIG_VERSION = 3;
 
@@ -28,7 +33,7 @@ json InventoryChanger::toJson() noexcept
             itemConfig["Paint Kit"] = staticData.id;
             itemConfig["Paint Kit Name"] = staticData.name.forDisplay;
 
-            const auto& dynamicData = Inventory::dynamicGloveData(item.getDynamicDataIndex());
+            const auto& dynamicData = Inventory::dynamicGloveData(item);
 
             itemConfig["Wear"] = dynamicData.wear;
             itemConfig["Seed"] = dynamicData.seed;
@@ -37,7 +42,7 @@ json InventoryChanger::toJson() noexcept
             itemConfig["Paint Kit"] = staticData.id;
             itemConfig["Paint Kit Name"] = staticData.name.forDisplay;
 
-            const auto& dynamicData = Inventory::dynamicSkinData(item.getDynamicDataIndex());
+            const auto& dynamicData = Inventory::dynamicSkinData(item);
 
             if (dynamicData.tournamentID != 0)
                 itemConfig["Tournament ID"] = dynamicData.tournamentID;
@@ -70,18 +75,18 @@ json InventoryChanger::toJson() noexcept
             }
         } else if (gameItem.isMusic()) {
             itemConfig["Music ID"] = StaticData::lookup().getStorage().getMusicKit(gameItem).id;
-            if (const auto& dynamicData = Inventory::dynamicMusicData(item.getDynamicDataIndex()); dynamicData.statTrak > -1)
+            if (const auto& dynamicData = Inventory::dynamicMusicData(item); dynamicData.statTrak > -1)
                 itemConfig["StatTrak"] = dynamicData.statTrak;
         } else if (gameItem.isPatch()) {
-            itemConfig["Patch ID"] = StaticData::lookup().getStorage().getPatchKit(gameItem).id;
+            itemConfig["Patch ID"] = StaticData::lookup().getStorage().getPatch(gameItem).id;
         } else if (gameItem.isGraffiti()) {
             itemConfig["Graffiti ID"] = StaticData::lookup().getStorage().getGraffitiKit(gameItem).id;
-            if (const auto& dynamicData = Inventory::dynamicGraffitiData(item.getDynamicDataIndex()); dynamicData.usesLeft >= 0) {
+            if (const auto& dynamicData = Inventory::dynamicGraffitiData(item); dynamicData.usesLeft >= 0) {
                 itemConfig["Uses Left"] = dynamicData.usesLeft;
                 itemConfig["Item Name"] = StaticData::getWeaponName(WeaponId::Graffiti);
             }
         } else if (gameItem.isAgent()) {
-            const auto& dynamicData = Inventory::dynamicAgentData(item.getDynamicDataIndex());
+            const auto& dynamicData = Inventory::dynamicAgentData(item);
             auto& stickers = itemConfig["Patches"];
             for (std::size_t i = 0; i < dynamicData.patches.size(); ++i) {
                 const auto& patch = dynamicData.patches[i];
@@ -94,11 +99,11 @@ json InventoryChanger::toJson() noexcept
                 stickers.push_back(std::move(patchConfig));
             }
         } else if (gameItem.isServiceMedal()) {
-            if (const auto& dynamicData = Inventory::dynamicServiceMedalData(item.getDynamicDataIndex()); dynamicData.issueDateTimestamp != 0)
+            if (const auto& dynamicData = Inventory::dynamicServiceMedalData(item); dynamicData.issueDateTimestamp != 0)
                 itemConfig["Issue Date Timestamp"] = dynamicData.issueDateTimestamp;
         } else if (gameItem.isCase()) {
             if (StaticData::isSouvenirPackage(gameItem)) {
-                if (const auto& dynamicData = Inventory::dynamicSouvenirPackageData(item.getDynamicDataIndex()); dynamicData.tournamentStage != TournamentStage{}) {
+                if (const auto& dynamicData = Inventory::dynamicSouvenirPackageData(item); dynamicData.tournamentStage != TournamentStage{}) {
                     itemConfig["Tournament Stage"] = dynamicData.tournamentStage;
                     itemConfig["Tournament Team 1"] = dynamicData.tournamentTeam1;
                     itemConfig["Tournament Team 2"] = dynamicData.tournamentTeam2;
@@ -140,129 +145,9 @@ json InventoryChanger::toJson() noexcept
     return j;
 }
 
-[[nodiscard]] auto loadSkinStickersFromJson(const json& j) noexcept
-{
-    std::array<StickerConfig, 5> skinStickers;
-
-    if (!j.contains("Stickers"))
-        return skinStickers;
-
-    const auto& stickers = j["Stickers"];
-    if (!stickers.is_array())
-        return skinStickers;
-
-    for (const auto& sticker : stickers) {
-        if (!sticker.is_object())
-            continue;
-
-        if (!sticker.contains("Sticker ID") || !sticker["Sticker ID"].is_number_integer())
-            continue;
-
-        if (!sticker.contains("Slot") || !sticker["Slot"].is_number_integer())
-            continue;
-
-        const int stickerID = sticker["Sticker ID"];
-        if (stickerID == 0)
-            continue;
-
-        const std::size_t slot = sticker["Slot"];
-        if (slot >= skinStickers.size())
-            continue;
-
-        skinStickers[slot].stickerID = stickerID;
-
-        if (sticker.contains("Wear") && sticker["Wear"].is_number_float())
-            skinStickers[slot].wear = sticker["Wear"];
-    }
-
-    return skinStickers;
-}
-
-[[nodiscard]] std::size_t loadDynamicSkinDataFromJson(const json& j) noexcept
-{
-    DynamicSkinData dynamicData;
-
-    if (j.contains("Tournament ID")) {
-        if (const auto& tournamentID = j["Tournament ID"]; tournamentID.is_number_unsigned())
-            dynamicData.tournamentID = tournamentID;
-    }
-
-    if (j.contains("Wear")) {
-        if (const auto& wear = j["Wear"]; wear.is_number_float())
-            dynamicData.wear = wear;
-    }
-
-    if (j.contains("Seed")) {
-        if (const auto& seed = j["Seed"]; seed.is_number_integer())
-            dynamicData.seed = seed;
-    }
-
-    if (j.contains("StatTrak")) {
-        if (const auto& statTrak = j["StatTrak"]; statTrak.is_number_integer())
-            dynamicData.statTrak = statTrak;
-    }
-
-    if (j.contains("Name Tag")) {
-        if (const auto& nameTag = j["Name Tag"]; nameTag.is_string())
-            dynamicData.nameTag = nameTag;
-    }
-
-    if (j.contains("Tournament Stage")) {
-        if (const auto& tournamentStage = j["Tournament Stage"]; tournamentStage.is_number_unsigned())
-            dynamicData.tournamentStage = tournamentStage;
-    }
-
-    if (j.contains("Tournament Team 1")) {
-        if (const auto& tournamentTeam1 = j["Tournament Team 1"]; tournamentTeam1.is_number_unsigned())
-            dynamicData.tournamentTeam1 = tournamentTeam1;
-    }
-
-    if (j.contains("Tournament Team 2")) {
-        if (const auto& tournamentTeam2 = j["Tournament Team 2"]; tournamentTeam2.is_number_unsigned())
-            dynamicData.tournamentTeam2 = tournamentTeam2;
-    }
-
-    if (j.contains("Tournament Player")) {
-        if (const auto& tournamentPlayer = j["Tournament Player"]; tournamentPlayer.is_number_unsigned())
-            dynamicData.proPlayer = tournamentPlayer;
-    }
-
-    dynamicData.stickers = loadSkinStickersFromJson(j);
-    return Inventory::emplaceDynamicData(std::move(dynamicData));
-}
-
-[[nodiscard]] std::size_t loadDynamicGloveDataFromJson(const json& j) noexcept
-{
-    DynamicGloveData dynamicData;
-
-    if (j.contains("Wear")) {
-        if (const auto& wear = j["Wear"]; wear.is_number_float())
-            dynamicData.wear = wear;
-    }
-
-    if (j.contains("Seed")) {
-        if (const auto& seed = j["Seed"]; seed.is_number_integer())
-            dynamicData.seed = seed;
-    }
-
-    return Inventory::emplaceDynamicData(std::move(dynamicData));
-}
-
-[[nodiscard]] std::size_t loadDynamicMusicDataFromJson(const json& j) noexcept
-{
-    DynamicMusicData dynamicData;
-
-    if (j.contains("StatTrak")) {
-        if (const auto& statTrak = j["StatTrak"]; statTrak.is_number_integer() && statTrak > -1)
-            dynamicData.statTrak = statTrak;
-    }
-
-    return Inventory::emplaceDynamicData(std::move(dynamicData));
-}
-
 [[nodiscard]] auto loadAgentPatchesFromJson(const json& j) noexcept
 {
-    std::array<PatchConfig, 5> agentPatches;
+    std::array<inventory::Agent::Patch, 5> agentPatches;
 
     if (!j.contains("Patches"))
         return agentPatches;
@@ -291,50 +176,11 @@ json InventoryChanger::toJson() noexcept
     return agentPatches;
 }
 
-[[nodiscard]] std::size_t loadDynamicAgentDataFromJson(const json& j) noexcept
+[[nodiscard]] inventory::Agent loadDynamicAgentDataFromJson(const json& j) noexcept
 {
-    DynamicAgentData dynamicData;
+    inventory::Agent dynamicData;
     dynamicData.patches = loadAgentPatchesFromJson(j);
-    return Inventory::emplaceDynamicData(std::move(dynamicData));
-}
-
-[[nodiscard]] std::size_t loadDynamicServiceMedalDataFromJson(const json& j) noexcept
-{
-    DynamicServiceMedalData dynamicData;
-
-    if (j.contains("Issue Date Timestamp")) {
-        if (const auto& issueDateTimestamp = j["Issue Date Timestamp"]; issueDateTimestamp.is_number_unsigned())
-            dynamicData.issueDateTimestamp = issueDateTimestamp;
-    }
-
-    return Inventory::emplaceDynamicData(std::move(dynamicData));
-}
-
-[[nodiscard]] std::size_t loadDynamicSouvenirPackageDataFromJson(const json& j) noexcept
-{
-    DynamicSouvenirPackageData dynamicData;
-
-    if (j.contains("Tournament Stage")) {
-        if (const auto& tournamentStage = j["Tournament Stage"]; tournamentStage.is_number_unsigned())
-            dynamicData.tournamentStage = tournamentStage;
-    }
-
-    if (j.contains("Tournament Team 1")) {
-        if (const auto& tournamentTeam1 = j["Tournament Team 1"]; tournamentTeam1.is_number_unsigned())
-            dynamicData.tournamentTeam1 = tournamentTeam1;
-    }
-
-    if (j.contains("Tournament Team 2")) {
-        if (const auto& tournamentTeam2 = j["Tournament Team 2"]; tournamentTeam2.is_number_unsigned())
-            dynamicData.tournamentTeam2 = tournamentTeam2;
-    }
-
-    if (j.contains("Tournament Player")) {
-        if (const auto& tournamentPlayer = j["Tournament Player"]; tournamentPlayer.is_number_unsigned())
-            dynamicData.proPlayer = tournamentPlayer;
-    }
-
-    return Inventory::emplaceDynamicData(std::move(dynamicData));
+    return dynamicData;
 }
 
 void loadEquipmentFromJson(const json& j) noexcept
@@ -371,16 +217,6 @@ void loadEquipmentFromJson(const json& j) noexcept
     }
 }
 
-[[nodiscard]] std::size_t loadDynamicGraffitiDataFromJson(const json& j) noexcept
-{
-    DynamicGraffitiData dynamicData;
-    if (j.contains("Uses Left")) {
-        if (const auto& usesLeft = j["Uses Left"]; usesLeft.is_number_integer())
-            dynamicData.usesLeft = usesLeft;
-    }
-    return Inventory::emplaceDynamicData(std::move(dynamicData));
-}
-
 void InventoryChanger::fromJson(const json& j) noexcept
 {
     if (!j.contains("Items"))
@@ -413,7 +249,7 @@ void InventoryChanger::fromJson(const json& j) noexcept
             itemOptional = StaticData::lookup().findGraffiti(jsonItem["Graffiti ID"]);
             if (weaponID == WeaponId::Graffiti) {
                 if (itemOptional.has_value()) {
-                    DynamicGraffitiData dynamicData;
+                    inventory::Graffiti dynamicData;
                     dynamicData.usesLeft = 50;
                     dynamicDataIdx = Inventory::emplaceDynamicData(std::move(dynamicData));
                 }
@@ -427,19 +263,19 @@ void InventoryChanger::fromJson(const json& j) noexcept
         const auto& item = itemOptional->get();
 
         if (item.isSkin()) {
-            dynamicDataIdx = loadDynamicSkinDataFromJson(jsonItem);
+            dynamicDataIdx = Inventory::emplaceDynamicData(inventory::skinFromJson(jsonItem));
         } else if (item.isGloves()) {
-            dynamicDataIdx = loadDynamicGloveDataFromJson(jsonItem);
+            dynamicDataIdx = Inventory::emplaceDynamicData(inventory::gloveFromJson(jsonItem));
         } else if (item.isMusic()) {
-            dynamicDataIdx = loadDynamicMusicDataFromJson(jsonItem);
+            dynamicDataIdx = Inventory::emplaceDynamicData(inventory::musicFromJson(jsonItem));
         } else if (item.isAgent()) {
-            dynamicDataIdx = loadDynamicAgentDataFromJson(jsonItem);
+            dynamicDataIdx = Inventory::emplaceDynamicData(loadDynamicAgentDataFromJson(jsonItem));
         } else if (item.isServiceMedal()) {
-            dynamicDataIdx = loadDynamicServiceMedalDataFromJson(jsonItem);
+            dynamicDataIdx = Inventory::emplaceDynamicData(inventory::serviceMedalFromJson(jsonItem));
         } else if (item.isCase() && StaticData::isSouvenirPackage(item)) {
-            dynamicDataIdx = loadDynamicSouvenirPackageDataFromJson(jsonItem);
+            dynamicDataIdx = Inventory::emplaceDynamicData(inventory::souvenirPackageFromJson(jsonItem));
         } else if (item.isGraffiti() && dynamicDataIdx == Inventory::InvalidDynamicDataIdx) {
-            dynamicDataIdx = loadDynamicGraffitiDataFromJson(jsonItem);
+            dynamicDataIdx = Inventory::emplaceDynamicData(inventory::graffitiFromJson(jsonItem));
         }
 
         Inventory::addItemAcknowledged(item, dynamicDataIdx);

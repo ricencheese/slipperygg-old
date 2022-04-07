@@ -1,6 +1,4 @@
-add_compile_definitions(FT2_BUILD_LIBRARY)
-
-add_library(FreeType STATIC
+target_sources(SlipperyggOBJ PRIVATE
         src/autofit/autofit.c
         src/cff/cff.c
         src/base/ftbase.c
@@ -18,6 +16,5 @@ add_library(FreeType STATIC
         src/smooth/smooth.c
         src/truetype/truetype.c)
 
-set_target_properties(FreeType PROPERTIES POSITION_INDEPENDENT_CODE ON)
-
-include_directories(.)
+target_compile_definitions(SlipperyggOBJ PRIVATE FT2_BUILD_LIBRARY)
+target_include_directories(SlipperyggOBJ PRIVATE .)

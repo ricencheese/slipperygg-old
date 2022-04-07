@@ -1,7 +1,7 @@
 #include "EconItemView.h"
+#include "../Memory.h"
 
-#include "../../src/utils/memory.h"
-
-void EconItemView::clearInventoryImageRGBA() noexcept {
+void EconItemView::clearInventoryImageRGBA() noexcept
+{
     memory->clearInventoryImageRGBA(this);
 }

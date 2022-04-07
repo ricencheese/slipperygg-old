@@ -991,9 +991,6 @@
     <ClInclude Include="src\utils\stb_image.h">
       <Filter>lib\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>src\pch</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">
@@ -1124,9 +1121,6 @@
     </Filter>
     <Filter Include="src\features\config">
       <UniqueIdentifier>{0fbf6a24-9730-4cc9-8b1c-8fa28a0c947d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\pch">
-      <UniqueIdentifier>{b9195292-ecf5-4503-9100-562c8a3ce9bc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1641,12 +1635,6 @@
     </ClCompile>
     <ClCompile Include="lib\imgui\imgui_impl_vulkan.cpp">
       <Filter>lib\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>src\pch</Filter>
-    </ClCompile>
-    <ClCompile Include="pch-c.c">
-      <Filter>src\pch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
