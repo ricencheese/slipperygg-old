@@ -4,7 +4,7 @@
 #include "Convar.hpp"
 
 #include "..\..\utils\csgo.hpp"
-#include "..\..\includes.hpp"
+#include "..\..\pch.h"
 
 #include "characterset.hpp"
 #include "UtlBuffer.hpp"

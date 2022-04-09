@@ -8,7 +8,7 @@
 #include "..\..\cheats\visuals\other_esp.h"
 #include "..\utils\csgo.hpp"
 #include "..\cheats\misc\logs.h"
-#include "..\includes.hpp"
+#include "..\pch.h"
 
 
 void lua_panic(sol::optional <std::string> message)

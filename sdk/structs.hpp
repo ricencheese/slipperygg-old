@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "..\includes.hpp"
+#include "..\pch.h"
 #include "interfaces\IClientEntity.hpp"
 #include "misc\EHandle.hpp"
 #include "misc\UtlVector.hpp"

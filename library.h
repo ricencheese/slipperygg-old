@@ -1,0 +1,6 @@
+#ifndef SLIPPERYGG_LIBRARY_H
+#define SLIPPERYGG_LIBRARY_H
+
+void hello();
+
+#endif //SLIPPERYGG_LIBRARY_H

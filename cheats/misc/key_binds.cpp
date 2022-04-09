@@ -2,7 +2,7 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 
 #include "key_binds.h"
-#include "..\..\includes.hpp"
+#include "..\..\pch.h"
 #include "misc.h"
 
 void key_binds::update_key_bind(key_bind* key_bind, int key_bind_id)

@@ -2,11 +2,11 @@
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 
 #include "utils\protect.h"
-#include "includes.hpp"
+#include "pch.h"
 #include "utils\ctx.hpp"
 #include "utils\recv.h"
 #include "utils\imports.h"
-#include "utils\anti_debug.h"
+#include "utils\antidebug.h"
 #include "nSkinz\SkinChanger.h"
 #include "utils\sha-256.h"
 #include <string>

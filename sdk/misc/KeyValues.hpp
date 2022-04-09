@@ -1,5 +1,5 @@
 #pragma once
-#include "..\..\includes.hpp"
+#include "..\..\pch.h"
 
 using GetSymbolProc_t = bool (*)(const char* pKey);
 
