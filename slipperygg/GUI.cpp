@@ -92,8 +92,13 @@ GUI::GUI() noexcept
     if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
         const std::filesystem::path path{ pathToRoaming };
         CoTaskMemFree(pathToRoaming);
-        fonts.backgroundCubes = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/slippery.ttf").string().c_str(), 80.0f, &cfgbackground, Helpers::getFontGlyphRanges());
+        fonts.backgroundCubes = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/background.ttf").string().c_str(), 80.0f, &cfgbackground, Helpers::getFontGlyphRanges());
     }
+    if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
+        const std::filesystem::path path{ pathToRoaming };
+        CoTaskMemFree(pathToRoaming);
+        fonts.icons = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/icons.ttf").string().c_str(), 47.0f, &cfgbackground, Helpers::getFontGlyphRanges());
+}
 #else
     fonts.normal15px = addFontFromVFONT("csgo/panorama/fonts/notosans-regular.vfont", 15.0f, Helpers::getFontGlyphRanges(), false);
 #endif
@@ -176,7 +181,9 @@ void GUI::renderHomeWindow(bool contentOnly) noexcept
         window.shouldDrawNewMenu = true;
     if ((window.shouldDrawNewMenu) = true)
         renderGuiStyle3();
-    ImGui::Text((steamName).c_str());
+    ImGui::PushFont(fonts.backgroundCubes);
+    ImGui::Text("B\n\nA");
+    ImGui::PopFont();
     ImGui::PopItemWidth();
     if (!contentOnly)
         ImGui::End();
@@ -571,7 +578,7 @@ void GUI::renderGuiStyle2() noexcept
             renderStyleWindow(true);
             ImGui::EndTabItem();
         }
-        Misc::tabItem();//WHY THE FUCK DOES IT NOT ALLOW ME TO SWITCH FROM MISC MENU TO CONFIG MENU <- fixed
+        Misc::tabItem();//WHY DOES IT NOT ALLOW ME TO SWITCH FROM MISC MENU TO CONFIG MENU <- fixed
         /*if (ImGui::BeginTabItem("Config")) {
             renderConfigWindow(true);
             ImGui::EndTabItem();
@@ -656,8 +663,10 @@ void GUI::renderGuiStyle2() noexcept
 	if (ImGui::IsItemActive()) buttonActive = true;
         else buttonActive = false;
         ImGui::SameLine();
-        if (ImGui::Button(("a"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
+        ImGui::PushFont(fonts.icons);
+        if (ImGui::Button(("B"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
             config->openConfigDir();;   // config menu over
+        ImGui::PopFont();
 	if (ImGui::IsItemActive()) buttonActive = true;
         else buttonActive = false;
         ImGui::Separator();
@@ -667,7 +676,7 @@ void GUI::renderGuiStyle2() noexcept
         ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250))/sidebarSpeed[0], 0));
     }       //the way code ^ and v works is it makes the position of the sidebar 
             //less/more by ((distance to the desired position)/30) every frame
-    if (!ImGui::IsWindowHovered() and !listHovered and !buttonActive) {
+    else {
         ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0]+sidebarSpeed[0] - 1) / sidebarSpeed[0], 0));
     }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
             //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(

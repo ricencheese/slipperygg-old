@@ -10,7 +10,6 @@
 #include <iostream>
 #include <math.h>
 
-
 #include "../imgui/imgui.h"
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "../imgui/imgui_internal.h"
@@ -253,7 +252,6 @@ void Misc::slowwalk(UserCmd* cmd) noexcept
     if (!weaponData)
         return;
 
-
     const float maxSpeed = miscConfig.walkSpeed;
     if (cmd->forwardmove && cmd->sidemove) {
         const float maxSpeedRoot = maxSpeed * static_cast<float>(M_SQRT1_2);
@@ -298,7 +296,7 @@ void Misc::updateClanTag(bool tagChanged) noexcept
             if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length())
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
         }
-        if (miscConfig.animatedClanTag && !clanTag.empty() && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
+        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
             std::ifstream in("C:/slippery/clantag.txt");
             std::string str;
             std::vector <std::string> vecOfStrs(0);
@@ -307,15 +305,12 @@ void Misc::updateClanTag(bool tagChanged) noexcept
                 if (str.size() > 0)
                     vecOfStrs.push_back(str);
             }
-            int lastTag;
+            int i{};
             unsigned int tagsCount{ vecOfStrs.size() };
                 if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length()) {
-                    if (memory->globalVars->currenttime - lastTime == 1) {
-                        clanTag = vecOfStrs[lastTag];
-                        lastTag = lastTag + 1;
-                        if (lastTag > tagsCount - 1)
-                            lastTag = 0;
-                    }
+                    clanTag = vecOfStrs[i];
+                    if (i == tagsCount) { i = 0; };
+                    if (i != tagsCount) { i = +1; };
 
                 }
         }
@@ -1481,7 +1476,12 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::Checkbox("Fastwalk", &miscConfig.slowwalk);
     if (&miscConfig.slowwalk) {
         interfaces->engine->clientCmdUnrestricted("unbind shift");
-        ImGui::SliderInt("Walk speed", &miscConfig.walkSpeed, 10, 130);
+        ImGui::SliderInt("Walk speed", &miscConfig.walkSpeed, 1, 130);
+        if (ImGui::IsItemHovered()) {
+            ImGui::BeginTooltip();
+            ImGui::Text("Footsteps become audible at 135 u/s\nStrafing while holding fastwalk key may make speed fluctuate a bit\nPrefered value: 115-120");
+            ImGui::EndTooltip();
+        };
     };
     ImGuiCustom::colorPicker("Noscope crosshair", miscConfig.noscopeCrosshair);
     ImGuiCustom::colorPicker("Recoil crosshair", miscConfig.recoilCrosshair);

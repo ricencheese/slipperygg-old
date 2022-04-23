@@ -40,6 +40,7 @@ private:
     struct {
         ImFont* normal15px = nullptr;
         ImFont* backgroundCubes = nullptr;
+        ImFont* icons = nullptr;
     } fonts;
     std::string steamName{Misc::getSteamName()};
     float timeToNextConfigRefresh = 0.1f;
