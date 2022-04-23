@@ -575,6 +575,14 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
     }
 
     ImGui::hotkey("Toggle Key", config->streamProofESP.toggleKey, 80.0f);
+    ImGui::SameLine();
+    ImGui::TextColored(ImVec4(0.3, 0.3, 0.3, 1), "?");
+    if (ImGui::IsItemHovered())
+    {
+        ImGui::BeginTooltip();
+        ImGui::Text("try drag&drop");
+        ImGui::EndTooltip();
+    };
     ImGui::hotkey("Hold Key", config->streamProofESP.holdKey, 80.0f);
     ImGui::Separator();
 
@@ -599,7 +607,7 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
         }
     };
 
-    if (ImGui::BeginListBox("##list", { 170.0f, 300.0f })) {
+    if (ImGui::BeginListBox("##list", { 170.0f, 460.0f })) {
         constexpr std::array categories{ "Enemies", "Allies", "Weapons", "Projectiles", "Loot Crates", "Other Entities" };
 
         for (std::size_t i = 0; i < categories.size(); ++i) {
@@ -821,7 +829,7 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
 
     ImGui::SameLine();
 
-    if (ImGui::BeginChild("##child", { 400.0f, 0.0f })) {
+    if (ImGui::BeginChild("##child", { 400.0f, 0.0f },true)) {
         auto& sharedConfig = getConfigShared(currentCategory, currentItem);
 
         ImGui::Checkbox("Enabled", &sharedConfig.enabled);
