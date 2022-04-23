@@ -12,7 +12,6 @@ public:
     [[nodiscard]] bool isOpen() const noexcept { return open; }
 private:
     bool open = true;
-
     void updateColors() const noexcept;
     void renderMenuBar() noexcept;
     void renderHomeWindow(bool contentOnly = false) noexcept;
@@ -34,6 +33,7 @@ private:
         bool style = false;
         bool config = false;
         bool configPopup = false;
+        bool deleteConfirmation = false;
         bool shouldDrawNewMenu = false;
     } window;
 

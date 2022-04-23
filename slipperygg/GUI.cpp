@@ -310,6 +310,7 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
     ImGui::Checkbox("Ignore smoke", &config->aimbot[currentWeapon].ignoreSmoke);
     ImGui::Checkbox("Auto shot", &config->aimbot[currentWeapon].autoShot);
     ImGui::Checkbox("Auto scope", &config->aimbot[currentWeapon].autoScope);
+    //ImGui::Checkbox("Auto stop", &config->aimbot[currentWeapon].autoStop);
     ImGui::Combo("Bone", &config->aimbot[currentWeapon].bone, "Nearest\0Best damage\0Head\0Neck\0Sternum\0Chest\0Stomach\0Pelvis\0");
     ImGui::NextColumn();
     ImGui::PushItemWidth(240.0f);
@@ -641,27 +642,41 @@ void GUI::renderGuiStyle2() noexcept
         }, &configItems, configItems.size(), 6) && currentConfig != -1)
         buffer = configItems[currentConfig];
         bool listHovered{ false };
-        if (ImGui::IsItemHovered()) listHovered = true;
+        if (ImGui::IsItemHovered()) {
+            listHovered = true;
+            ImGui::BeginTooltip();
+            ImGui::Text("You can use the delete key to delete configs");
+            ImGui::EndTooltip();
+        }
         else listHovered = false;
         if (ImGui::InputTextWithHint("", "config name", &buffer, ImGuiInputTextFlags_EnterReturnsTrue)) {
             if (currentConfig != -1)
                 config->rename(currentConfig, buffer);
         }
 
-        if (ImGui::Button("Save Config", { 246.0f, 20.0f }))
-            config->save(currentConfig);
-        bool buttonActive;
-	if (ImGui::IsItemActive()) buttonActive = true;
-        else buttonActive = false;
+        if (ImGui::Button("Create Config", { 246.0f, 20.0f })) {
+            config->add(buffer.c_str());
+        }
 
-        if (ImGui::Button("Load Config", { 210.f, 20.f })) {
+        if (ImGui::Button("Load Config", { 246.0f, 20.0f })) {
             config->load(currentConfig, incrementalLoad);
             updateColors();
             InventoryChanger::scheduleHudUpdate();
             Misc::updateClanTag(true);
         }
-	if (ImGui::IsItemActive()) buttonActive = true;
-        else buttonActive = false;
+        bool buttonActive;
+
+        //
+	    if (ImGui::IsItemActive()) buttonActive = true;
+            else buttonActive = false;
+
+        if (ImGui::Button("         Save Config", { 210.f, 20.f }))
+            config->save(currentConfig);
+
+	    if (ImGui::IsItemActive()) buttonActive = true;
+            else buttonActive = false;
+
+
         ImGui::SameLine();
         ImGui::PushFont(fonts.icons);
         if (ImGui::Button(("B"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
@@ -669,14 +684,36 @@ void GUI::renderGuiStyle2() noexcept
         ImGui::PopFont();
 	if (ImGui::IsItemActive()) buttonActive = true;
         else buttonActive = false;
+            if (ImGui::Button("Delete Config", { 246.0f, 20.0f })) {
+            window.deleteConfirmation = true;
+        }
+        if (window.deleteConfirmation) {
+            ImGui::SetNextWindowSize(ImVec2(300, 128), ImGuiCond_Once);
+            ImGui::SetNextWindowPos(ImVec2((w / 2 - 150), (h / 2 - 64)), ImGuiCond_Once);
+            ImGui::Begin("Delete confirmation", &window.deleteConfirmation, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar);
+            ImGui::Text("Are you sure you want to delete config");
+            ImGui::TextColored(ImVec4(255, 0, 0, 1), (char*)buffer.c_str());
+            ImGui::SameLine();
+            ImGui::Text("?");
+            if (ImGui::Button("Yes", ImVec2(140, 40))) {
+                config->remove(currentConfig);
+                window.deleteConfirmation = false;
+            };
+            
+            ImGui::SameLine();
+            if (ImGui::Button("No", ImVec2(140, 40))) {
+                window.deleteConfirmation = false;
+            };
+            ImGui::End();
+        }
         ImGui::Separator();
 
-        //TODO: Add a prompt when saving/loading a config (i.e. like legendware does it)
+        //TODO: Add a promt when saving/loading a config (i.e. like legendware does it)
     if (ImGui::IsWindowHovered() or listHovered or buttonActive) {
         ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250))/sidebarSpeed[0], 0));
     }       //the way code ^ and v works is it makes the position of the sidebar 
             //less/more by ((distance to the desired position)/30) every frame
-    else {
+    if (!ImGui::IsWindowHovered() and !listHovered and !buttonActive and !((GetKeyState(VK_LBUTTON) & 0x8000) != 0)) {
         ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0]+sidebarSpeed[0] - 1) / sidebarSpeed[0], 0));
     }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
             //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
