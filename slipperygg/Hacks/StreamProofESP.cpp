@@ -961,9 +961,11 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
         ImGui::InputFloat("Text Cull Distance", &sharedConfig.textCullDistance, 0.4f, 0.8f, "%.1fm");
         sharedConfig.textCullDistance = std::clamp(sharedConfig.textCullDistance, 0.0f, 999.9f);
     }
-
     ImGui::EndChild();
-
+    ImGui::SameLine();
+    ImGui::BeginChild("ESPpreview", ImVec2(0.f, 0.f), true);
+    ImGui::Text("ESP PREVIEW HERE \n\"\"\"EVENTUALLY\"\"\"");
+    ImGui::EndChild();
     if (!contentOnly)
         ImGui::End();
 }

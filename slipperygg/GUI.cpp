@@ -7,7 +7,6 @@
 #include <unordered_map>
 #include <vector>
 #include <stdio.h>
-
 #ifdef _WIN32
 #include <ShlObj.h>
 #include <Windows.h>
@@ -110,7 +109,7 @@ GUI::GUI() noexcept
 
 void GUI::render() noexcept
 {
-    renderGuiStyle2();
+    renderGuiStyle3();
 }
 
 void GUI::updateColors() const noexcept
@@ -168,34 +167,49 @@ int sidebarSpeed[]{ 30 };
 void GUI::renderHomeWindow(bool contentOnly) noexcept
 {
     if (!contentOnly) {
-        if (!&window.home)
+        if (window3.curWindow!=0)
             return;
         ImGui::SetNextWindowSize({ 0.0f, 0.0f });
-        ImGui::Begin("Home", &window.home, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+        ImGui::Begin("Home", &window3.home, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
-    ImGui::PushItemWidth(220.0f);
     ImGui::SliderInt("sidebar speed", sidebarSpeed, 1, 200);
     if (ImGui::Combo("Menu colors", &config->style.menuColors, "Dark theme\0Light theme\0"))
         updateColors();
-    if (ImGui::Button("Draw new menu"))
-        window.shouldDrawNewMenu = true;
-    if ((window.shouldDrawNewMenu) = true)
-        renderGuiStyle3();
-    ImGui::PushFont(fonts.backgroundCubes);
-    ImGui::Text("B\n\nA");
-    ImGui::PopFont();
-    ImGui::PopItemWidth();
     if (!contentOnly)
         ImGui::End();
 }
+void GUI::renderVisualsWindow(bool contentOnly) noexcept {
+    if (!contentOnly) {
+        if (window3.curWindow != 2)
+            return;
+        ImGui::SetNextWindowSize({ 600.0f, 0.0f });
+        ImGui::Begin("Visual", &window3.visuals, windowFlags);
+    };
+    
+    if (ImGui::Button("Visuаls", ImVec2(258.f, 25.f)))
+        window3.visualsSub = 0;
+    ImGui::SameLine();
+    if (ImGui::Button("Chams", ImVec2(257.f, 25.f)))
+        window3.visualsSub = 1;
+    ImGui::SameLine();
+    if (ImGui::Button("ESP", ImVec2(259.f, 25.f)))
+        window3.visualsSub = 2;
+    ImGui::Separator();
 
+    switch (window3.visualsSub) {
+    case 0: Visuals::drawGUI(true); break;
+    case 1: renderChamsWindow(true); break;
+    case 2: StreamProofESP::drawGUI(true); break;
+    };
+
+}
 void GUI::renderAimbotWindow(bool contentOnly) noexcept
 {
     if (!contentOnly) {
-        if (!window.aimbot)
+        if (window3.curWindow!=1)
             return;
         ImGui::SetNextWindowSize({ 600.0f, 0.0f });
-        ImGui::Begin("Aimbot", &window.aimbot, windowFlags);
+        ImGui::Begin("Aimbot", &window3.aimAssist, windowFlags);
     }
     ImGui::Checkbox("On key", &config->aimbotOnKey);
     ImGui::SameLine();
@@ -642,12 +656,7 @@ void GUI::renderGuiStyle2() noexcept
         }, &configItems, configItems.size(), 6) && currentConfig != -1)
         buffer = configItems[currentConfig];
         bool listHovered{ false };
-        if (ImGui::IsItemHovered()) {
-            listHovered = true;
-            ImGui::BeginTooltip();
-            ImGui::Text("You can use the delete key to delete configs");
-            ImGui::EndTooltip();
-        }
+        if (ImGui::IsItemHovered())listHovered = true;
         else listHovered = false;
         if (ImGui::InputTextWithHint("", "config name", &buffer, ImGuiInputTextFlags_EnterReturnsTrue)) {
             if (currentConfig != -1)
@@ -699,7 +708,6 @@ void GUI::renderGuiStyle2() noexcept
                 config->remove(currentConfig);
                 window.deleteConfirmation = false;
             };
-            
             ImGui::SameLine();
             if (ImGui::Button("No", ImVec2(140, 40))) {
                 window.deleteConfirmation = false;
@@ -723,32 +731,164 @@ void GUI::renderMenuBarStyle3() noexcept {
 
 }
 void GUI::renderGuiStyle3() noexcept{
+    
+    //unhook button
+    ImGui::SetNextWindowPos(ImVec2(1000, 40), ImGuiCond_Once);
+    ImGui::SetNextWindowSize(ImVec2(100.f, 55.f), ImGuiCond_Once);
+    ImGui::SetNextWindowBgAlpha(0.2f);
+    ImGui::Begin("unhook button", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
+    if (ImGui::Button("unhook", ImVec2(90.f, 40.f))) hooks->uninstall();
+    ImGui::End();
+    
+    //main window
     int w,h;
     interfaces->engine->getScreenSize(w, h);
-    ImGui::SetNextWindowPos(ImVec2(300, h - 100), ImGuiCond_Once);
-    ImGui::SetNextWindowSize(ImVec2(807, 600), ImGuiCond_Once); //The width is 806 and not 807 because fuck you 
-    ImGui::Begin("newslippery.gg");                             //aka the button horizontal padding
-                                                              //makes the buttons look a little uncentered
+    ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
+    ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+
     if (ImGui::Button(("Home"), ImVec2(125, 60))) {
+        window3.curWindow = 0;
     };
     ImGui::SameLine();
     if (ImGui::Button(("Aim Assistance"), ImVec2(125, 60))) {
+        window3.curWindow = 1;
     };
     ImGui::SameLine();
     if (ImGui::Button(("Visuals"), ImVec2(125, 60))) {
-
+        window3.curWindow = 2;
     };
     ImGui::SameLine();
     if (ImGui::Button(("Inventory Changer"), ImVec2(125, 60))) {
-
+        window3.curWindow = 3;
     };
     ImGui::SameLine();
     if (ImGui::Button(("Sound"), ImVec2(125, 60))) {
-
+        window3.curWindow = 4;
     };
     ImGui::SameLine();
     if (ImGui::Button(("Misc"), ImVec2(125, 60))) {
-
+        window3.curWindow = 5;
     };
+    ImGui::SeparatorEx(ImGuiSeparatorFlags_Horizontal);
+    switch (window3.curWindow) {
+    case 0: renderHomeWindow(true); break;
+    case 1: renderAimbotWindow(true); break;
+    case 2: renderVisualsWindow(true); break;
+    case 3: InventoryChanger::drawGUI(true); break;
+    case 4: Sound::drawGUI(true); break;
+    case 5: Misc::drawGUI(true); break;
+    }
     ImGui::End();
+
+    //sidebar
+    float wi = w;           //without this compiler says that conversion from 'int' to 'float' requires a narrowing conversion!!!!!
+    float he = h;
+    ImGui::SetNextWindowSize(ImVec2(250, h), ImGuiCond_Once);
+    ImGui::SetNextWindowPos(ImVec2(w - 50, 0), ImGuiCond_Once);
+    ImGui::SetNextWindowBgAlpha(0.85f);
+    ImGui::Begin("Right Sidebar", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    ImVec2 curWindowPos{ ImGui::GetWindowPos() };
+    ImGui::Text(std::to_string(curWindowPos[0]).c_str());
+    ImGui::Text(std::to_string(wi - 250).c_str());
+    ImGui::Separator();
+
+    ImGui::Text("Config");  //config menu here
+                            //not using BeginChild() because it makes the config menu way too wide for the sidebar
+    static bool incrementalLoad = false; //incremental load means that instead of replacing all data of already loaded config 
+                                         //with data of config that's being loaded it will instead add data from config that's 
+                                         //about to be loaded to the config that's already loaded. i.e.
+                                         //01001011+11010110=11011111 - incremental load
+                                         //01001011+11010110=11011110 - non-incremental load
+
+    auto& configItems = config->getConfigs();
+    static int currentConfig = -1;
+    static std::u8string buffer;
+
+    timeToNextConfigRefresh -= ImGui::GetIO().DeltaTime;
+    if (timeToNextConfigRefresh <= 0.0f) {
+        config->listConfigs();
+        if (const auto it = std::find(configItems.begin(), configItems.end(), buffer); it != configItems.end())
+            currentConfig = std::distance(configItems.begin(), it);
+        timeToNextConfigRefresh = 0.1f;
+    }
+
+    if (static_cast<std::size_t>(currentConfig) >= configItems.size())
+        currentConfig = -1;
+    ImGui::PushItemWidth(246);
+    if (ImGui::ListBox("", &currentConfig, [](void* data, int idx, const char** out_text) {
+        auto& vector = *static_cast<std::vector<std::u8string>*>(data);
+        *out_text = (const char*)vector[idx].c_str();
+        return true;
+        }, &configItems, configItems.size(), 6) && currentConfig != -1)
+        buffer = configItems[currentConfig];
+        bool listHovered{ false };
+        if (ImGui::IsItemHovered())listHovered = true;
+        else listHovered = false;
+        if (ImGui::InputTextWithHint("", "config name", &buffer, ImGuiInputTextFlags_EnterReturnsTrue)) {
+            if (currentConfig != -1)
+                config->rename(currentConfig, buffer);
+        }
+
+        if (ImGui::Button("Create Config", { 246.0f, 20.0f })) {
+            config->add(buffer.c_str());
+        }
+
+        if (ImGui::Button("Load Config", { 246.0f, 20.0f })) {
+            config->load(currentConfig, incrementalLoad);
+            updateColors();
+            InventoryChanger::scheduleHudUpdate();
+            Misc::updateClanTag(true);
+        }
+        bool buttonActive;
+
+        //
+        if (ImGui::IsItemActive()) buttonActive = true;
+        else buttonActive = false;
+
+        if (ImGui::Button("         Save Config", { 210.f, 20.f }))
+            config->save(currentConfig);
+
+        if (ImGui::IsItemActive()) buttonActive = true;
+        else buttonActive = false;
+
+
+        ImGui::SameLine();
+        ImGui::PushFont(fonts.icons);
+        if (ImGui::Button(("B"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
+            config->openConfigDir();;   // config menu over
+        ImGui::PopFont();
+        if (ImGui::IsItemActive()) buttonActive = true;
+        else buttonActive = false;
+        if (ImGui::Button("Delete Config", { 246.0f, 20.0f })) {
+            window.deleteConfirmation = true;
+        }
+        if (window.deleteConfirmation) {
+            ImGui::SetNextWindowSize(ImVec2(300, 128), ImGuiCond_Once);
+            ImGui::SetNextWindowPos(ImVec2((w / 2 - 150), (h / 2 - 64)), ImGuiCond_Once);
+            ImGui::Begin("Delete confirmation", &window.deleteConfirmation, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar);
+            ImGui::Text("Are you sure you want to delete config");
+            ImGui::TextColored(ImVec4(255, 0, 0, 1), (char*)buffer.c_str());
+            ImGui::SameLine();
+            ImGui::Text("?");
+            if (ImGui::Button("Yes", ImVec2(140, 40))) {
+                config->remove(currentConfig);
+                window.deleteConfirmation = false;
+            };
+            ImGui::SameLine();
+            if (ImGui::Button("No", ImVec2(140, 40))) {
+                window.deleteConfirmation = false;
+            };
+            ImGui::End();
+        }
+        ImGui::Separator();
+
+        if (ImGui::IsWindowHovered() or listHovered or buttonActive) {
+            ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250)) / sidebarSpeed[0], 0));
+        }       //the way code ^ and v works is it makes the position of the sidebar 
+                //less/more by ((distance to the desired position)/30) every frame
+        if (!ImGui::IsWindowHovered() and !listHovered and !buttonActive and !((GetKeyState(VK_LBUTTON) & 0x8000) != 0)) {
+            ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0] + sidebarSpeed[0] - 1) / sidebarSpeed[0], 0));
+        }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
+                //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
+        ImGui::End();
 }

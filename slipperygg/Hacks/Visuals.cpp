@@ -837,7 +837,6 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::SliderInt("", &visualsConfig.farZ, 0, 2000, "Far Z: %d");
     ImGui::PopID();
     ImGui::PushID(4);
-    ImGui::Checkbox("Use old weapon bob (cs1.6/cs:s-styled)", &visualsConfig.useOldWeaponBob);
     ImGui::SliderInt("", &visualsConfig.flashReduction, 0, 100, "Flash reduction: %d%%");
     ImGui::PopID();
     ImGui::PushID(5);
