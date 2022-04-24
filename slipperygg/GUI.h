@@ -16,6 +16,7 @@ private:
     void renderMenuBar() noexcept;
     void renderHomeWindow(bool contentOnly = false) noexcept;
     void renderAimbotWindow(bool contentOnly = false) noexcept;
+    void renderAimAssistance(bool contentOnly = false) noexcept;
     void renderVisualsWindow(bool contentOnly = false) noexcept;
     void renderTriggerbotWindow(bool contentOnly = false) noexcept;
     void renderChamsWindow(bool contentOnly = false) noexcept;

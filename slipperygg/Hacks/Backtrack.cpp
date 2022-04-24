@@ -209,7 +209,9 @@ void Backtrack::drawGUI(bool contentOnly) noexcept
         ImGui::Begin("Backtrack", &backtrackWindowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
     ImGui::Checkbox("Enabled", &backtrackConfig.enabled);
+    ImGui::SameLine();
     ImGui::Checkbox("Ignore smoke", &backtrackConfig.ignoreSmoke);
+    ImGui::SameLine();
     ImGui::Checkbox("Recoil based fov", &backtrackConfig.recoilBasedFov);
     ImGui::PushItemWidth(220.0f);
     ImGui::SliderInt("Time limit", &backtrackConfig.timeLimit, 1, 200, "%d ms");

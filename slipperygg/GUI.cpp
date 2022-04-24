@@ -203,6 +203,28 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept {
     };
 
 }
+
+void GUI::renderAimAssistance(bool contentOnly) noexcept {
+    if (!contentOnly) {
+        if (window3.curWindow != 2)
+            return;
+        ImGui::SetNextWindowSize({ 600.0f, 0.0f });
+        ImGui::Begin("Visual", &window3.visuals, windowFlags);
+    };
+
+    if (ImGui::Button("Aimbot", ImVec2(391.f, 25.f)))
+        window3.aimbotSub = 0;
+    ImGui::SameLine();
+    if (ImGui::Button("Triggerbot", ImVec2(391.f, 25.f)))
+        window3.aimbotSub = 1;
+    ImGui::Separator();
+
+    switch (window3.aimbotSub) {
+    case 0:renderAimbotWindow(true); break;
+    case 1:renderTriggerbotWindow(true); break;
+    }
+}
+
 void GUI::renderAimbotWindow(bool contentOnly) noexcept
 {
     if (!contentOnly) {
@@ -337,6 +359,9 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
     ImGui::Checkbox("Killshot", &config->aimbot[currentWeapon].killshot);
     ImGui::Checkbox("Between shots", &config->aimbot[currentWeapon].betweenShots);
     ImGui::Columns(1);
+    ImGui::Separator();
+    ImGui::Text("Backtrack");
+    Backtrack::drawGUI(true);
     if (!contentOnly)
         ImGui::End();
 }
@@ -593,11 +618,7 @@ void GUI::renderGuiStyle2() noexcept
             renderStyleWindow(true);
             ImGui::EndTabItem();
         }
-        Misc::tabItem();//WHY DOES IT NOT ALLOW ME TO SWITCH FROM MISC MENU TO CONFIG MENU <- fixed
-        /*if (ImGui::BeginTabItem("Config")) {
-            renderConfigWindow(true);
-            ImGui::EndTabItem();
-        }*/
+        Misc::tabItem();
         ImGui::EndTabBar();
     }
 
@@ -772,7 +793,7 @@ void GUI::renderGuiStyle3() noexcept{
     ImGui::SeparatorEx(ImGuiSeparatorFlags_Horizontal);
     switch (window3.curWindow) {
     case 0: renderHomeWindow(true); break;
-    case 1: renderAimbotWindow(true); break;
+    case 1: renderAimAssistance(true); break;
     case 2: renderVisualsWindow(true); break;
     case 3: InventoryChanger::drawGUI(true); break;
     case 4: Sound::drawGUI(true); break;
