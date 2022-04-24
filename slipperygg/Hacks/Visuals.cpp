@@ -7,7 +7,7 @@
 #include "../imgui/imgui.h"
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "../imgui/imgui_internal.h"
-
+#include "../GUI.h"
 #include "../ConfigStructs.h"
 #include "../fnv.h"
 #include "../GameData.h"
@@ -37,6 +37,7 @@ struct BulletTracers : ColorToggle {
 };
 
 struct VisualsConfig {
+    bool worldModulationWinOpen{ false };
     bool disablePostProcessing{ false };
     bool inverseRagdollGravity{ false };
     bool noFog{ false };
@@ -765,7 +766,38 @@ void Visuals::drawGUI(bool contentOnly) noexcept
         ImGui::Begin("Visuals", &windowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize
             | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
-    ImGui::Columns(2, nullptr, false);
+//    if (ImGui::Button(("World modulation"), ImVec2(150.f, 20.f))) {
+ //       ImGui::OpenPopup("World modulation");
+  //  }
+    if (ImGui::BeginCombo("", std::to_string(visualsConfig.disablePostProcessing).c_str())) {
+        ImGui::Selectable("Disable post-processing", &visualsConfig.disablePostProcessing, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("Inverse ragdoll gravity", &visualsConfig.inverseRagdollGravity, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No fog", &visualsConfig.noFog, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No 3d skybox", &visualsConfig.no3dSky, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No aimpunch", &visualsConfig.noAimPunch, ImGuiSelectableFlags_DontClosePopups);
+        if (ImGui::IsItemHovered()) {
+            ImGui::BeginTooltip();
+            ImGui::Text("head go up when you shoot");
+            ImGui::EndTooltip();
+        }
+        ImGui::Selectable("No viewpunch", &visualsConfig.noViewPunch, ImGuiSelectableFlags_DontClosePopups);
+        if (ImGui::IsItemHovered()) {
+            ImGui::BeginTooltip();
+            ImGui::Text("head go up when you get shot");
+            ImGui::EndTooltip();
+        }
+        ImGui::Selectable("No hands", &visualsConfig.noHands, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No sleeves", &visualsConfig.noSleeves, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No weapon", &visualsConfig.noWeapons, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No smoke", &visualsConfig.noSmoke, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No blur", &visualsConfig.noBlur, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No scope overlay", &visualsConfig.noScopeOverlay, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No grass", &visualsConfig.noGrass, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("No shadows", &visualsConfig.noShadows, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::Selectable("Wireframe smoke", &visualsConfig.wireframeSmoke, ImGuiSelectableFlags_DontClosePopups);
+        ImGui::EndCombo();
+    }
+    /*ImGui::Columns(1, nullptr, false);
     ImGui::SetColumnOffset(1, 280.0f);
     ImGui::Checkbox("Disable post-processing", &visualsConfig.disablePostProcessing);
     ImGui::Checkbox("Inverse ragdoll gravity", &visualsConfig.inverseRagdollGravity);
@@ -872,7 +904,7 @@ void Visuals::drawGUI(bool contentOnly) noexcept
         ImGui::EndPopup();
     }
     ImGui::Columns(1);
-
+    */
     if (!contentOnly)
         ImGui::End();
 }

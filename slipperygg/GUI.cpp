@@ -197,7 +197,7 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept {
     ImGui::Separator();
 
     switch (window3.visualsSub) {
-    case 0: Visuals::drawGUI(true); break;
+    case 0: Visuals::drawGUI(true); ImGui::Separator(); ImGui::Text("Glow"); Glow::drawGUI(true); break;
     case 1: renderChamsWindow(true); break;
     case 2: StreamProofESP::drawGUI(true); break;
     };
