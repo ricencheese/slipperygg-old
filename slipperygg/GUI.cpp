@@ -71,7 +71,11 @@ GUI::GUI() noexcept
     cfg.SizePixels = 15.0f;
 
     ImFontConfig cfgbackground;
-    cfgbackground.SizePixels = 80.0f;
+    cfgbackground.SizePixels = 70.0f;
+
+    ImFontConfig cfgIcons;
+    cfgIcons.SizePixels = 47.0f;
+
 #ifdef _WIN32           //fontssss
     if (PWSTR pathToFonts; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_Fonts, 0, nullptr, &pathToFonts))) {
         const std::filesystem::path path{ pathToFonts };
@@ -91,7 +95,7 @@ GUI::GUI() noexcept
     if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
         const std::filesystem::path path{ pathToRoaming };
         CoTaskMemFree(pathToRoaming);
-        fonts.backgroundCubes = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/background.ttf").string().c_str(), 80.0f, &cfgbackground, Helpers::getFontGlyphRanges());
+        fonts.backgroundCubes = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/background.ttf").string().c_str(), 70.0f, &cfgbackground, Helpers::getFontGlyphRanges());
     }
     if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
         const std::filesystem::path path{ pathToRoaming };
@@ -219,11 +223,10 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept {
     ImGui::Separator();
 
     switch (window3.visualsSub) {
-    case 0: Visuals::drawGUI(true);ImGui::SetNextWindowBgAlpha(0.2);ImGui::BeginChild(3, ImVec2(788, 155), true);ImGui::Text("Glow"); ImGui::Separator(); Glow::drawGUI(true); break;
+    case 0: Visuals::drawGUI(true);ImGui::SetNextWindowBgAlpha(0.4f);ImGui::BeginChild(3, ImVec2(790, 158), true);ImGui::Text("Glow"); ImGui::Separator(); Glow::drawGUI(true); break;
     case 1: renderChamsWindow(true); break;
     case 2: StreamProofESP::drawGUI(true); break;
     };
-
 }
 
 void GUI::renderAimAssistance(bool contentOnly) noexcept {
@@ -794,6 +797,7 @@ void GUI::renderGuiStyle3() noexcept{
     int w,h;
     interfaces->engine->getScreenSize(w, h);
     ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
+    ImGui::SetNextWindowBgAlpha(0.6);
     ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     slipperyMenuPos = (ImGui::GetWindowPos());
     if (window3.curWindow == 0)
@@ -835,7 +839,7 @@ void GUI::renderGuiStyle3() noexcept{
     endHighlight();
 
     ImGui::SameLine();
-    if (window3.curWindow == 0)
+    if (window3.curWindow == 5)
         beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
     if (ImGui::Button(("Misc"), ImVec2(125, 60))) {
         window3.curWindow = 5;
@@ -851,6 +855,14 @@ void GUI::renderGuiStyle3() noexcept{
     case 4: Sound::drawGUI(true); break;
     case 5: Misc::drawGUI(true); break;
     }
+    ImGui::End();
+
+    ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
+    ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
+    ImGui::PushFont(fonts.backgroundCubes);
+    ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+    ImGui::PopFont();
+    ImGui::SetWindowPos(ImVec2(slipperyMenuPos.x, slipperyMenuPos.y));
     ImGui::End();
 
     //sidebar
@@ -965,12 +977,5 @@ void GUI::renderGuiStyle3() noexcept{
                 //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
         ImGui::End();
 
-        ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
-        ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
-        ImGui::PushFont(fonts.backgroundCubes);
-        ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
-        ImGui::PopFont();
-        ImGui::SetWindowPos(slipperyMenuPos);
-        ImGui::End();
 
 }

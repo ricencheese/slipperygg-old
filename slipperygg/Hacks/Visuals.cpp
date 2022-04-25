@@ -769,8 +769,8 @@ void Visuals::drawGUI(bool contentOnly) noexcept
 //    if (ImGui::Button(("World modulation"), ImVec2(150.f, 20.f))) {
  //       ImGui::OpenPopup("World modulation");
   //  }
-    ImGui::SetNextWindowBgAlpha(0.2f);
-    ImGui::BeginChild(1, ImVec2(390, 370), true);
+    ImGui::SetNextWindowBgAlpha(0.4f);
+    ImGui::BeginChild(1, ImVec2(391, 370), true);
     if (ImGui::BeginCombo("", "World Modulation")) {
         ImGui::Selectable("Disable post-processing", &visualsConfig.disablePostProcessing, ImGuiSelectableFlags_DontClosePopups);
         ImGui::Selectable("Inverse ragdoll gravity", &visualsConfig.inverseRagdollGravity, ImGuiSelectableFlags_DontClosePopups);
@@ -876,8 +876,8 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::EndChild();
 
     ImGui::SameLine();
-    ImGui::SetNextWindowBgAlpha(0.2f);
-    ImGui::BeginChild(2, ImVec2(390, 370), true);
+    ImGui::SetNextWindowBgAlpha(0.4f);
+    ImGui::BeginChild(2, ImVec2(391, 370), true);
     ImGuiCustom::colorPicker("World color", visualsConfig.world);
     ImGuiCustom::colorPicker("Sky color", visualsConfig.sky);
     ImGui::Checkbox("Deagle spinner", &visualsConfig.deagleSpinner);

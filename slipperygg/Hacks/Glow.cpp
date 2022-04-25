@@ -209,8 +209,6 @@ void Glow::drawGUI(bool contentOnly) noexcept
     }
     ImGui::hotkey("Toggle Key", glowToggleKey, 80.0f);
     ImGui::SameLine();
-    ImGui::hotkey("Hold Key", glowHoldKey, 80.0f);
-    ImGui::Separator();
 
     static int currentCategory{ 0 };
     ImGui::PushItemWidth(110.0f);
