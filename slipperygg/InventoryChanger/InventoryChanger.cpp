@@ -832,7 +832,7 @@ void InventoryChanger::drawGUI(bool contentOnly) noexcept
             }
             return true;
         };
-
+        ImGui::SetNextWindowBgAlpha(0.2);
         if (ImGui::BeginChild("##scrollarea", ImVec2{ 0.0f, contentOnly ? 520.0f : 0.0f }), true) {
             static auto itemIndices = StaticData::getItemIndices();
             if (static bool sorted = false; !sorted) {
@@ -872,6 +872,7 @@ void InventoryChanger::drawGUI(bool contentOnly) noexcept
         }
         ImGui::EndChild();
     } else {
+        ImGui::SetNextWindowBgAlpha(0.2);
         if (ImGui::BeginChild("##scrollarea2", ImVec2{ 0.0f, contentOnly ? 520.0f : 0.0f }), true) {
             auto& inventory = Inventory::get();
             for (std::size_t i = inventory.size(); i-- > 0;) {

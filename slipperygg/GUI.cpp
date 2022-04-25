@@ -178,6 +178,16 @@ void GUI::renderHomeWindow(bool contentOnly) noexcept
     if (!contentOnly)
         ImGui::End();
 }
+
+void GUI::beginHighlight(ImVec4 col) noexcept {
+    ImGui::PushStyleColor(ImGuiCol_Button, col);
+    window3.isHighlighted = true;
+};
+void GUI::endHighlight() noexcept {
+    if(window3.isHighlighted)
+    ImGui::PopStyleColor();
+    window3.isHighlighted = false;
+}
 void GUI::renderVisualsWindow(bool contentOnly) noexcept {
     if (!contentOnly) {
         if (window3.curWindow != 2)
@@ -185,19 +195,31 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept {
         ImGui::SetNextWindowSize({ 600.0f, 0.0f });
         ImGui::Begin("Visual", &window3.visuals, windowFlags);
     };
-    
-    if (ImGui::Button("Visuаls", ImVec2(258.f, 25.f)))
+    if (window3.visualsSub == 0)
+        beginHighlight(ImVec4(0.15,0.15,0.15,1));
+    if (ImGui::Button("Visuаls", ImVec2(258.f, 25.f))) {
         window3.visualsSub = 0;
+    }
+    endHighlight();
+
     ImGui::SameLine();
+    if (window3.visualsSub == 1)
+        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
     if (ImGui::Button("Chams", ImVec2(257.f, 25.f)))
         window3.visualsSub = 1;
+    endHighlight();
+
     ImGui::SameLine();
+    if (window3.visualsSub == 2)
+        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
     if (ImGui::Button("ESP", ImVec2(259.f, 25.f)))
         window3.visualsSub = 2;
+    endHighlight();
+
     ImGui::Separator();
 
     switch (window3.visualsSub) {
-    case 0: Visuals::drawGUI(true); ImGui::Separator(); ImGui::Text("Glow"); Glow::drawGUI(true); break;
+    case 0: Visuals::drawGUI(true);ImGui::SetNextWindowBgAlpha(0.2);ImGui::BeginChild(3, ImVec2(788, 155), true);ImGui::Text("Glow"); ImGui::Separator(); Glow::drawGUI(true); break;
     case 1: renderChamsWindow(true); break;
     case 2: StreamProofESP::drawGUI(true); break;
     };
@@ -211,12 +233,18 @@ void GUI::renderAimAssistance(bool contentOnly) noexcept {
         ImGui::SetNextWindowSize({ 600.0f, 0.0f });
         ImGui::Begin("Visual", &window3.visuals, windowFlags);
     };
-
+    if (window3.aimbotSub == 0)
+        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
     if (ImGui::Button("Aimbot", ImVec2(391.f, 25.f)))
         window3.aimbotSub = 0;
+        endHighlight();
+
     ImGui::SameLine();
+    if (window3.aimbotSub == 1)
+        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
     if (ImGui::Button("Triggerbot", ImVec2(391.f, 25.f)))
         window3.aimbotSub = 1;
+    endHighlight();
     ImGui::Separator();
 
     switch (window3.aimbotSub) {
@@ -752,7 +780,8 @@ void GUI::renderMenuBarStyle3() noexcept {
 
 }
 void GUI::renderGuiStyle3() noexcept{
-    
+
+
     //unhook button
     ImGui::SetNextWindowPos(ImVec2(1000, 40), ImGuiCond_Once);
     ImGui::SetNextWindowSize(ImVec2(100.f, 55.f), ImGuiCond_Once);
@@ -766,30 +795,53 @@ void GUI::renderGuiStyle3() noexcept{
     interfaces->engine->getScreenSize(w, h);
     ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
     ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
-
+    slipperyMenuPos = (ImGui::GetWindowPos());
+    if (window3.curWindow == 0)
+        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
     if (ImGui::Button(("Home"), ImVec2(125, 60))) {
         window3.curWindow = 0;
     };
+    endHighlight();
     ImGui::SameLine();
+
+    if (window3.curWindow == 1)
+        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
     if (ImGui::Button(("Aim Assistance"), ImVec2(125, 60))) {
         window3.curWindow = 1;
     };
+    endHighlight();
     ImGui::SameLine();
+    if (window3.curWindow == 2)
+        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
     if (ImGui::Button(("Visuals"), ImVec2(125, 60))) {
         window3.curWindow = 2;
     };
+    endHighlight();
+
     ImGui::SameLine();
+    if (window3.curWindow == 3)
+        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
     if (ImGui::Button(("Inventory Changer"), ImVec2(125, 60))) {
         window3.curWindow = 3;
     };
+    endHighlight();
+
     ImGui::SameLine();
+    if (window3.curWindow == 4)
+        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
     if (ImGui::Button(("Sound"), ImVec2(125, 60))) {
         window3.curWindow = 4;
     };
+    endHighlight();
+
     ImGui::SameLine();
+    if (window3.curWindow == 0)
+        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
     if (ImGui::Button(("Misc"), ImVec2(125, 60))) {
         window3.curWindow = 5;
     };
+    endHighlight();
+
     ImGui::SeparatorEx(ImGuiSeparatorFlags_Horizontal);
     switch (window3.curWindow) {
     case 0: renderHomeWindow(true); break;
@@ -912,4 +964,13 @@ void GUI::renderGuiStyle3() noexcept{
         }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
                 //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
         ImGui::End();
+
+        ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiCond_Once);
+        ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
+        ImGui::PushFont(fonts.backgroundCubes);
+        ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+        ImGui::PopFont();
+        ImGui::SetWindowPos(slipperyMenuPos);
+        ImGui::End();
+
 }

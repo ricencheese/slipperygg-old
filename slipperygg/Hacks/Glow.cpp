@@ -207,8 +207,8 @@ void Glow::drawGUI(bool contentOnly) noexcept
         ImGui::SetNextWindowSize({ 450.0f, 0.0f });
         ImGui::Begin("Glow", &glowWindowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
-
     ImGui::hotkey("Toggle Key", glowToggleKey, 80.0f);
+    ImGui::SameLine();
     ImGui::hotkey("Hold Key", glowHoldKey, 80.0f);
     ImGui::Separator();
 
@@ -249,6 +249,7 @@ void Glow::drawGUI(bool contentOnly) noexcept
     ImGui::Combo("Style", &currentItem->style, "Default\0Rim3d\0Edge\0Edge Pulse\0");
 
     ImGui::Columns(1);
+    ImGui::EndChild();
     if (!contentOnly)
         ImGui::End();
 }

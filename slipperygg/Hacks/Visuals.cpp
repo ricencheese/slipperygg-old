@@ -762,14 +762,16 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     if (!contentOnly) {
         if (!windowOpen)
             return;
-        ImGui::SetNextWindowSize({ 680.0f, 0.0f });
+        ImGui::SetNextWindowSize({ 680.0f, 450.0f });
         ImGui::Begin("Visuals", &windowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize
             | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
 //    if (ImGui::Button(("World modulation"), ImVec2(150.f, 20.f))) {
  //       ImGui::OpenPopup("World modulation");
   //  }
-    if (ImGui::BeginCombo("", std::to_string(visualsConfig.disablePostProcessing).c_str())) {
+    ImGui::SetNextWindowBgAlpha(0.2f);
+    ImGui::BeginChild(1, ImVec2(390, 370), true);
+    if (ImGui::BeginCombo("", "World Modulation")) {
         ImGui::Selectable("Disable post-processing", &visualsConfig.disablePostProcessing, ImGuiSelectableFlags_DontClosePopups);
         ImGui::Selectable("Inverse ragdoll gravity", &visualsConfig.inverseRagdollGravity, ImGuiSelectableFlags_DontClosePopups);
         ImGui::Selectable("No fog", &visualsConfig.noFog, ImGuiSelectableFlags_DontClosePopups);
@@ -797,24 +799,6 @@ void Visuals::drawGUI(bool contentOnly) noexcept
         ImGui::Selectable("Wireframe smoke", &visualsConfig.wireframeSmoke, ImGuiSelectableFlags_DontClosePopups);
         ImGui::EndCombo();
     }
-    /*ImGui::Columns(1, nullptr, false);
-    ImGui::SetColumnOffset(1, 280.0f);
-    ImGui::Checkbox("Disable post-processing", &visualsConfig.disablePostProcessing);
-    ImGui::Checkbox("Inverse ragdoll gravity", &visualsConfig.inverseRagdollGravity);
-    ImGui::Checkbox("No fog", &visualsConfig.noFog);
-    ImGui::Checkbox("No 3d sky", &visualsConfig.no3dSky);
-    ImGui::Checkbox("No aim punch", &visualsConfig.noAimPunch);
-    ImGui::Checkbox("No view punch", &visualsConfig.noViewPunch);
-    ImGui::Checkbox("No hands", &visualsConfig.noHands);
-    ImGui::Checkbox("No sleeves", &visualsConfig.noSleeves);
-    ImGui::Checkbox("No weapons", &visualsConfig.noWeapons);
-    ImGui::Checkbox("No smoke", &visualsConfig.noSmoke);
-    ImGui::Checkbox("No blur", &visualsConfig.noBlur);
-    ImGui::Checkbox("No scope overlay", &visualsConfig.noScopeOverlay);
-    ImGui::Checkbox("No grass", &visualsConfig.noGrass);
-    ImGui::Checkbox("No shadows", &visualsConfig.noShadows);
-    ImGui::Checkbox("Wireframe smoke", &visualsConfig.wireframeSmoke);
-    ImGui::NextColumn();
     ImGui::Checkbox("Zoom", &visualsConfig.zoom);
     ImGui::SameLine();
     ImGui::PushID("Zoom Key");
@@ -830,37 +814,34 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::SliderInt("", &visualsConfig.thirdpersonDistance, 0, 1000, "Thirdperson distance: %d");
     ImGui::PopID();
     ImGui::PushID(1);
-        ImGui::Checkbox("Viewmodel Modulation", &visualsConfig.viewmodelModulation);
-        ImGui::SameLine();
-        
-        ImGui::PushID("Viewmodel Modulation");
-        
-        if (ImGui::Button("..."))
-            ImGui::OpenPopup("");
-
-            if (ImGui::BeginPopup("")) {
-                if (ImGui::SliderInt("Viewmodel FOV", &visualsConfig.viewmodelFov, 0, 100)) {      //viewmodel modulation code, standart value of fov = 68
-                    int viewmodelFov =  visualsConfig.viewmodelFov;
-                    static auto viewmodelfov = interfaces->cvar->findVar("viewmodel_fov");
-                    viewmodelfov->setValue(viewmodelFov);
-                }
-                if (ImGui::SliderFloat("Viewmodel offset X", &visualsConfig.viewmodelOffsetX, -2, 2.5)) {
-                    int viewmodeloffsetX = visualsConfig.viewmodelOffsetX;
-                    static auto viewmodeloffsetx = interfaces->cvar->findVar("viewmodel_offset_x");
-                    viewmodeloffsetx->setValue(viewmodeloffsetX);
-                }
-                if (ImGui::SliderFloat("Viewmodel offset Y", &visualsConfig.viewmodelOffsetY, -2, 2)) {
-                    int viewmodeloffsetY = visualsConfig.viewmodelOffsetY;
-                    static auto viewmodeloffsety = interfaces->cvar->findVar("viewmodel_offset_y");
-                    viewmodeloffsety->setValue(viewmodeloffsetY);
-                }if (ImGui::SliderFloat("Viewmodel offset Z", &visualsConfig.viewmodelOffsetZ, -2, 2)) {
-                    int viewmodeloffsetZ = visualsConfig.viewmodelOffsetZ;
-                    static auto viewmodeloffsetz = interfaces->cvar->findVar("viewmodel_offset_z");
-                    viewmodeloffsetz->setValue(viewmodeloffsetZ);
-                }
-                ImGui::EndPopup();
+    ImGui::Checkbox("Viewmodel Modulation", &visualsConfig.viewmodelModulation);
+    ImGui::SameLine();
+    ImGui::PushID("Viewmodel Modulation");
+    if (ImGui::Button("..."))
+        ImGui::OpenPopup("");
+    if (ImGui::BeginPopup("")) {
+        if (ImGui::SliderInt("Viewmodel FOV", &visualsConfig.viewmodelFov, 0, 100)) {      //viewmodel modulation code, standart value of fov = 68
+            int viewmodelFov = visualsConfig.viewmodelFov;
+            static auto viewmodelfov = interfaces->cvar->findVar("viewmodel_fov");
+            viewmodelfov->setValue(viewmodelFov);
         }
-            ImGui::PopID();
+        if (ImGui::SliderFloat("Viewmodel offset X", &visualsConfig.viewmodelOffsetX, -2, 2.5)) {
+            int viewmodeloffsetX = visualsConfig.viewmodelOffsetX;
+            static auto viewmodeloffsetx = interfaces->cvar->findVar("viewmodel_offset_x");
+            viewmodeloffsetx->setValue(viewmodeloffsetX);
+        }
+        if (ImGui::SliderFloat("Viewmodel offset Y", &visualsConfig.viewmodelOffsetY, -2, 2)) {
+            int viewmodeloffsetY = visualsConfig.viewmodelOffsetY;
+            static auto viewmodeloffsety = interfaces->cvar->findVar("viewmodel_offset_y");
+            viewmodeloffsety->setValue(viewmodeloffsetY);
+        }if (ImGui::SliderFloat("Viewmodel offset Z", &visualsConfig.viewmodelOffsetZ, -2, 2)) {
+            int viewmodeloffsetZ = visualsConfig.viewmodelOffsetZ;
+            static auto viewmodeloffsetz = interfaces->cvar->findVar("viewmodel_offset_z");
+            viewmodeloffsetz->setValue(viewmodeloffsetZ);
+        }
+        ImGui::EndPopup();
+    }
+    ImGui::PopID();
     ImGui::PopID();
     ImGui::PushID(2);
     ImGui::SliderInt("", &visualsConfig.fov, -60, 60, "FOV: %d");
@@ -876,17 +857,6 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::PopID();
     ImGui::PopItemWidth();
     ImGui::Combo("Skybox", &visualsConfig.skybox, Visuals::skyboxList.data(), Visuals::skyboxList.size());
-    ImGuiCustom::colorPicker("World color", visualsConfig.world);
-    ImGuiCustom::colorPicker("Sky color", visualsConfig.sky);
-    ImGui::Checkbox("Deagle spinner", &visualsConfig.deagleSpinner);
-    ImGui::Combo("Screen effect", &visualsConfig.screenEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
-    ImGui::Combo("Hit effect", &visualsConfig.hitEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
-    ImGui::SliderFloat("Hit effect time", &visualsConfig.hitEffectTime, 0.1f, 1.5f, "%.2fs");
-    ImGui::Combo("Hit marker", &visualsConfig.hitMarker, "None\0Default (Cross)\0");
-    ImGui::SliderFloat("Hit marker time", &visualsConfig.hitMarkerTime, 0.1f, 1.5f, "%.2fs");
-    ImGuiCustom::colorPicker("Bullet Tracers", visualsConfig.bulletTracers.asColor4().color.data(), &visualsConfig.bulletTracers.asColor4().color[3], nullptr, nullptr, &visualsConfig.bulletTracers.enabled);
-    ImGuiCustom::colorPicker("Molotov Hull", visualsConfig.molotovHull);
-
     ImGui::Checkbox("Color correction", &visualsConfig.colorCorrection.enabled);
     ImGui::SameLine();
 
@@ -903,8 +873,23 @@ void Visuals::drawGUI(bool contentOnly) noexcept
         ImGui::VSliderFloat("##7", { 40.0f, 160.0f }, &visualsConfig.colorCorrection.yellow, 0.0f, 1.0f, "Yellow\n%.3f"); ImGui::SameLine();
         ImGui::EndPopup();
     }
-    ImGui::Columns(1);
-    */
+    ImGui::EndChild();
+
+    ImGui::SameLine();
+    ImGui::SetNextWindowBgAlpha(0.2f);
+    ImGui::BeginChild(2, ImVec2(390, 370), true);
+    ImGuiCustom::colorPicker("World color", visualsConfig.world);
+    ImGuiCustom::colorPicker("Sky color", visualsConfig.sky);
+    ImGui::Checkbox("Deagle spinner", &visualsConfig.deagleSpinner);
+    ImGui::Combo("Screen effect", &visualsConfig.screenEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
+    ImGui::Combo("Hit effect", &visualsConfig.hitEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
+    ImGui::SliderFloat("Hit effect time", &visualsConfig.hitEffectTime, 0.1f, 1.5f, "%.2fs");
+    ImGui::Combo("Hit marker", &visualsConfig.hitMarker, "None\0Default (Cross)\0");
+    ImGui::SliderFloat("Hit marker time", &visualsConfig.hitMarkerTime, 0.1f, 1.5f, "%.2fs");
+    ImGuiCustom::colorPicker("Bullet Tracers", visualsConfig.bulletTracers.asColor4().color.data(), &visualsConfig.bulletTracers.asColor4().color[3], nullptr, nullptr, &visualsConfig.bulletTracers.enabled);
+    ImGuiCustom::colorPicker("Molotov Hull", visualsConfig.molotovHull);
+    ImGui::EndChild();
+
     if (!contentOnly)
         ImGui::End();
 }

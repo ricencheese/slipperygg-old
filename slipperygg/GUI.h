@@ -18,6 +18,8 @@ private:
     void renderAimbotWindow(bool contentOnly = false) noexcept;
     void renderAimAssistance(bool contentOnly = false) noexcept;
     void renderVisualsWindow(bool contentOnly = false) noexcept;
+    void beginHighlight(ImVec4 col) noexcept;
+    void endHighlight() noexcept;
     void renderTriggerbotWindow(bool contentOnly = false) noexcept;
     void renderChamsWindow(bool contentOnly = false) noexcept;
     void renderStyleWindow(bool contentOnly = false) noexcept;
@@ -58,6 +60,7 @@ private:
         //0=visuals
         //1=chams
         //2=esp
+        bool isHighlighted{ false };
     } window3;
     struct {
         ImFont* normal15px = nullptr;
