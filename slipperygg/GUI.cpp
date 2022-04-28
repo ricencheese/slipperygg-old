@@ -978,4 +978,10 @@ void GUI::renderGuiStyle3() noexcept{
         ImGui::End();
 
 
+        ImGui::SetNextWindowSize(ImVec2(450, 50), ImGuiCond_Once);
+        ImGui::SetNextWindowPos(ImVec2(slipperyMenuPos.x, slipperyMenuPos.y-55));
+        ImGui::Begin("User info", &window.userInfo, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+        ImGui::Text(Misc::getSteamName().c_str());
+        ImGui::End();
+
 }
