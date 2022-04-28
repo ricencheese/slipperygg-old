@@ -14,7 +14,7 @@ public:
     bool isMouseInitialized;
     bool isMouseActive;
 #ifdef _WIN32
-    PAD(158)
+    PAD(154)
 #else
     PAD(162)
 #endif
