@@ -38,6 +38,7 @@ private:
         bool config = false;
         bool configPopup = false;
         bool deleteConfirmation = false;
+        int backgroundGraphics{0};
     } window;
     struct {
         int curWindow{ 0 };
@@ -65,6 +66,7 @@ private:
     struct {
         ImFont* normal15px = nullptr;
         ImFont* backgroundCubes = nullptr;
+        ImFont* arial30px = nullptr;
         ImFont* icons = nullptr;
     } fonts;
     std::string steamName{Misc::getSteamName()};

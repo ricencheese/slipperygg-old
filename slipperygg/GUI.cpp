@@ -179,6 +179,7 @@ void GUI::renderHomeWindow(bool contentOnly) noexcept
     ImGui::SliderInt("sidebar speed", sidebarSpeed, 1, 200);
     if (ImGui::Combo("Menu colors", &config->style.menuColors, "Dark theme\0Light theme\0"))
         updateColors();
+    ImGui::Combo("Menu background", &window.backgroundGraphics, "Cubes\0Dots\0");
     if (!contentOnly)
         ImGui::End();
 }
@@ -608,7 +609,7 @@ void GUI::renderStyleWindow(bool contentOnly) noexcept
 }
 
 ImVec2 slipperyMenuPos{ ImVec2(0,0) };
-void GUI::renderGuiStyle3() noexcept{
+void GUI::renderGuiStyle3() noexcept {
 
 
     //unhook button
@@ -618,9 +619,9 @@ void GUI::renderGuiStyle3() noexcept{
     ImGui::Begin("unhook button", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
     if (ImGui::Button("unhook", ImVec2(90.f, 40.f))) hooks->uninstall();
     ImGui::End();
-    
+
     //main window
-    int w,h;
+    int w, h;
     interfaces->engine->getScreenSize(w, h);
     ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
     ImGui::SetNextWindowBgAlpha(0.6);
@@ -685,9 +686,10 @@ void GUI::renderGuiStyle3() noexcept{
 
     ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
     ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
-    ImGui::PushFont(fonts.backgroundCubes);
-    ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
-    ImGui::PopFont();
+    switch (window.backgroundGraphics) {
+    case 0:         ImGui::PushFont(fonts.backgroundCubes);ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");ImGui::PopFont(); break;
+    case 1:         ImGui::PushFont(fonts.arial30px); ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), ""); ImGui::PopFont(); break;
+    }
     ImGui::SetWindowPos(ImVec2(slipperyMenuPos.x, slipperyMenuPos.y));
     ImGui::End();
 

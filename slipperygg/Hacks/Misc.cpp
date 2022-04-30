@@ -810,7 +810,7 @@ void Misc::killMessage(GameEvent& event) noexcept
         }
 
         if (killsayList[0]!="sequential" && killsayList[0] != "random") {
-            memory->clientMode->getHudChat()->printf(0, "[slippery.gg] please put either \"random\" or \"sequential\" as the first line of killsay.txt");
+            memory->clientMode->getHudChat()->printf(0, "\x0A[\x08slippery\x0D.gg\x0A]\x03 please put either \"random\" or \"sequential\" as the first line of killsay.txt");
         }
         
     }                                                                               //just leave this here for now
@@ -1237,9 +1237,26 @@ void Misc::voteRevealer(GameEvent& event) noexcept
     const auto isLocal = localPlayer && entity == localPlayer.get();
     const char color = votedYes ? '\x06' : '\x07';
 
-    memory->clientMode->getHudChat()->printf(0, " \x0C\u2022Osiris\u2022 %c%s\x01 voted %c%s\x01", isLocal ? '\x01' : color, isLocal ? "You" : entity->getPlayerName().c_str(), color, votedYes ? "Yes" : "No");
+    memory->clientMode->getHudChat()->printf(0, "\x0A[\x08slippery\x0D.gg\x0A]\x0D %c%s\x01 voted %c%s\x01", isLocal ? '\x01' : color, isLocal ? "You" : entity->getPlayerName().c_str(), color, votedYes ? "Yes" : "No");
 }
-
+/*
+default (white): \x01
+teamcolour (will be purple if message from server): \x03
+red: \x07
+lightred: \x0F
+darkred: \x02
+bluegrey: \x0A
+blue: \x0B
+darkblue: \x0C
+purple: \x03
+orchid: \x0E
+yellow: \x09
+gold: \x10
+lightgreen: \x05
+green: \x04
+lime: \x06
+grey: \x08
+grey2: \x0D */
 void Misc::onVoteStart(const void* data, int size) noexcept
 {
     if (!miscConfig.revealVotes)
@@ -1265,19 +1282,19 @@ void Misc::onVoteStart(const void* data, int size) noexcept
     const auto isLocal = localPlayer && entity == localPlayer.get();
 
     const auto voteType = reader.readInt32(3);
-    memory->clientMode->getHudChat()->printf(0, " \x0C\u2022Osiris\u2022 %c%s\x01 call vote (\x06%s\x01)", isLocal ? '\x01' : '\x06', isLocal ? "You" : entity->getPlayerName().c_str(), voteName(voteType));
+    memory->clientMode->getHudChat()->printf(0, " \x0A[\x08slippery\x0D.gg\x0A]\x0D %c%s\x01 call vote (\x06%s\x01)", isLocal ? '\x01' : '\x06', isLocal ? "You" : entity->getPlayerName().c_str(), voteName(voteType));
 }
 
 void Misc::onVotePass() noexcept
 {
     if (miscConfig.revealVotes)
-        memory->clientMode->getHudChat()->printf(0, " \x0C\u2022Osiris\u2022\x01 Vote\x06 PASSED");
+        memory->clientMode->getHudChat()->printf(0, " \x0A[\x08slippery\x0D.gg\x0A]\x0D\x01 Vote\x06 PASSED");
 }
 
 void Misc::onVoteFailed() noexcept
 {
     if (miscConfig.revealVotes)
-        memory->clientMode->getHudChat()->printf(0, " \x0C\u2022Osiris\u2022\x01 Vote\x07 FAILED");
+        memory->clientMode->getHudChat()->printf(0, " \x0A[\x08slippery\x0D.gg\x0A]\x0D\x01 Vote\x07 FAILED");
 }
 
 // ImGui::ShadeVertsLinearColorGradientKeepAlpha() modified to do interpolation in HSV
