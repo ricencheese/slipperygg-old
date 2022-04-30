@@ -88,7 +88,7 @@ void Sound::drawGUI(bool contentOnly) noexcept
 
     static int currentCategory{ 0 };
     ImGui::PushItemWidth(110.0f);
-    ImGui::Combo("", &currentCategory, "Local player\0Allies\0Enemies\0");
+    ImGui::Combo("##whose", &currentCategory, "Local player\0Allies\0Enemies\0");
     ImGui::PopItemWidth();
     ImGui::SliderInt("Master volume", &soundConfig.players[currentCategory].masterVolume, 0, 200, "%d%%");
     ImGui::SliderInt("Headshot volume", &soundConfig.players[currentCategory].headshotVolume, 0, 200, "%d%%");
