@@ -1,4 +1,4 @@
-#include <algorithm>
+﻿#include <algorithm>
 #include <array>
 #include <iomanip>
 #include <mutex>
@@ -87,6 +87,8 @@ struct MiscConfig {
     MiscConfig() { clanTag[0] = '\0'; }
 
     KeyBind menuKey{ KeyBind::INSERT };
+    bool isHighlighted{ false };
+    int miscSub{ 0 };
     bool antiAfkKick{ false };
     bool autoStrafe{ false };
     bool bunnyHop{ false };
@@ -1464,12 +1466,56 @@ void Misc::menuBarItem() noexcept
 void Misc::tabItem() noexcept
 {
     if (ImGui::BeginTabItem("Misc")) {
-        drawGUI(true);
+        drawGUIMisc(true);
         ImGui::EndTabItem();
     }
 }
-
+void beginHighlight(ImVec4 col) noexcept {
+    ImGui::PushStyleColor(ImGuiCol_Button, col);
+    miscConfig.isHighlighted = true;
+};
+void endHighlight() noexcept {
+    if (miscConfig.isHighlighted)
+        ImGui::PopStyleColor();
+    miscConfig.isHighlighted = false;
+}
 void Misc::drawGUI(bool contentOnly) noexcept
+{
+    if (miscConfig.miscSub == 0)
+        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
+    if (ImGui::Button("Movement", ImVec2(258.f, 25.f))) {
+        miscConfig.miscSub = 0;
+    }
+    endHighlight();
+
+    ImGui::SameLine();
+    if (miscConfig.miscSub == 1)
+        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
+    if (ImGui::Button("Chams", ImVec2(257.f, 25.f)))
+        miscConfig.miscSub = 1;
+    endHighlight();
+
+    ImGui::SameLine();
+    if (miscConfig.miscSub == 2)
+        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
+    if (ImGui::Button("ESP", ImVec2(259.f, 25.f)))
+        miscConfig.miscSub = 2;
+    endHighlight();
+
+    ImGui::Separator();
+    switch (miscConfig.miscSub) {
+    case 0: Misc::drawGUIMovement(true); break;
+    case 1: ImGui::Text("there should be something here");  break;
+    case 2: ImGui::Text("wow this tab is empty"); break;
+    }
+}
+void Misc::drawGUIMisc(bool contentOnly) noexcept
+{
+    ImGui::SetNextWindowBgAlpha(0.4);
+    ImGui::BeginChild("MiscMenuChild", ImVec2(391, 370), true);
+    ImGui::EndChild();
+}
+void Misc::drawGUIMovement(bool contentOnly) noexcept
 {
     if (!contentOnly) {
         if (!windowOpen)
@@ -1478,11 +1524,10 @@ void Misc::drawGUI(bool contentOnly) noexcept
         ImGui::Begin("Misc", &windowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize
             | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
-    ImGui::Columns(3, nullptr, false);
-    ImGui::SetColumnOffset(1, 280.0f);
-    ImGui::Checkbox("Anti AFK kick", &miscConfig.antiAfkKick);
-    ImGui::Checkbox("Auto strafe", &miscConfig.autoStrafe);
+    ImGui::SetNextWindowBgAlpha(0.4);
+    ImGui::BeginChild("MovementChild", ImVec2(391, 370), true);
     ImGui::Checkbox("Bunny hop", &miscConfig.bunnyHop);
+    ImGui::Checkbox("Auto strafe", &miscConfig.autoStrafe);
     ImGui::Checkbox("Fast duck", &miscConfig.fastDuck);
     ImGui::Checkbox("Moonwalk", &miscConfig.moonwalk);
     ImGui::Checkbox("Edge Jump", &miscConfig.edgejump);
@@ -1500,6 +1545,10 @@ void Misc::drawGUI(bool contentOnly) noexcept
             ImGui::EndTooltip();
         };
     };
+    ImGui::EndChild();
+    /*
+    ImGui::SetColumnOffset(1, 280.0f);
+    ImGui::Checkbox("Anti AFK kick", &miscConfig.antiAfkKick);
     ImGuiCustom::colorPicker("Noscope crosshair", miscConfig.noscopeCrosshair);
     ImGuiCustom::colorPicker("Recoil crosshair", miscConfig.recoilCrosshair);
     ImGui::Checkbox("Auto pistol", &miscConfig.autoPistol);
@@ -1568,7 +1617,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::InputText("", &miscConfig.killMessageString);
     ImGui::PopID();
     ImGui::Checkbox("Name stealer", &miscConfig.nameStealer);
-    /*ImGui::PushID(3);                             //fuck you this shit works just 25% of the time and takes up a bit of space so it's outta here
+    ImGui::PushID(3);                             //fuck you this shit works just 25% of the time and takes up a bit of space so it's outta here
     ImGui::SetNextItemWidth(100.0f);
     ImGui::Combo("", &miscConfig.banColor, "White\0Red\0Purple\0Green\0Light green\0Turquoise\0Light red\0Gray\0Yellow\0Gray 2\0Light blue\0Gray/Purple\0Blue\0Pink\0Dark orange\0Orange\0");
     ImGui::PopID();
@@ -1578,7 +1627,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::PopID();
     ImGui::SameLine();
     if (ImGui::Button("Setup fake ban"))          
-        Misc::fakeBan(true); */
+        Misc::fakeBan(true); 
     ImGui::Checkbox("Fast plant", &miscConfig.fastPlant);
     ImGui::Checkbox("Fast Stop", &miscConfig.fastStop);
     ImGuiCustom::colorPicker("Bomb timer", miscConfig.bombTimer);
@@ -1609,11 +1658,9 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::PushID("Choked packets Key");
     ImGui::hotkey("", miscConfig.chokedPacketsKey);
     ImGui::PopID();
-    /*
     ImGui::Text("Quick healthshot");
     ImGui::SameLine();
-    hotkey(miscConfig.quickHealthshotKey);
-    */
+    ImGui::hotkey("asd",miscConfig.quickHealthshotKey);
     ImGui::Checkbox("Grenade Prediction", &miscConfig.nadePredict);
     ImGui::Checkbox("Fix tablet signal", &miscConfig.fixTabletSignal);
     ImGui::SetNextItemWidth(120.0f);
@@ -1679,7 +1726,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     if (ImGui::Button("Unhook"))
         hooks->uninstall();
 
-    ImGui::Columns(1);
+    ImGui::Columns(1);*/
     if (!contentOnly)
         ImGui::End();
 }

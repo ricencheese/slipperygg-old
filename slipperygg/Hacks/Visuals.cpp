@@ -770,6 +770,7 @@ void Visuals::drawGUI(bool contentOnly) noexcept
 //    if (ImGui::Button(("World modulation"), ImVec2(150.f, 20.f))) {
  //       ImGui::OpenPopup("World modulation");
   //  }
+
     ImGui::SetNextWindowBgAlpha(0.4f);
     ImGui::BeginChild(1, ImVec2(visualsConfig.visualsChildSize, 370), true);
     if (ImGui::IsWindowHovered())

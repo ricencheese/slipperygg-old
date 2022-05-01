@@ -71,6 +71,8 @@ namespace Misc
     void menuBarItem() noexcept;
     void tabItem() noexcept;
     void drawGUI(bool contentOnly) noexcept;
+    void drawGUIMovement(bool contentOnly) noexcept;
+    void drawGUIMisc(bool contentOnly) noexcept;
 
     // Config
     json toJson() noexcept;
