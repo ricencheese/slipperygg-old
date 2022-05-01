@@ -194,7 +194,7 @@ void Backtrack::menuBarItem() noexcept
 
 void Backtrack::tabItem() noexcept
 {
-    if (ImGui::BeginTabItem("Backtrack")) {
+    if (ImGui::BeginTabItem("Backtracc")) {
         drawGUI(true);
         ImGui::EndTabItem();
     }
@@ -208,9 +208,9 @@ void Backtrack::drawGUI(bool contentOnly) noexcept
         ImGui::SetNextWindowSize({ 0.0f, 0.0f });
         ImGui::Begin("Backtrack", &backtrackWindowOpen, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
-    ImGui::Checkbox("Enabled", &backtrackConfig.enabled);
+    ImGui::Checkbox("Enabled ", &backtrackConfig.enabled);
     ImGui::SameLine();
-    ImGui::Checkbox("Ignore smoke", &backtrackConfig.ignoreSmoke);
+    ImGui::Checkbox("Ignore smoke ", &backtrackConfig.ignoreSmoke);
     ImGui::SameLine();
     ImGui::Checkbox("Recoil based fov", &backtrackConfig.recoilBasedFov);
     ImGui::PushItemWidth(220.0f);

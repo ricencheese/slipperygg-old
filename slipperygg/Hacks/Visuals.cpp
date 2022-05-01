@@ -16,6 +16,7 @@
 #include "../Memory.h"
 #include "../imguiCustom.h"
 #include "Visuals.h"
+#include "Glow.h"
 
 #include "../SDK/ConVar.h"
 #include "../SDK/Cvar.h"
@@ -80,7 +81,7 @@ struct VisualsConfig {
     float viewmodelOffsetY{ 0 };
     float viewmodelOffsetZ{ 0 };
     bool useOldWeaponBob{ false };
-
+    int visualsChildSize{ 391 };
     struct ColorCorrection {
         bool enabled = false;
         float blue = 0.0f;
@@ -770,7 +771,11 @@ void Visuals::drawGUI(bool contentOnly) noexcept
  //       ImGui::OpenPopup("World modulation");
   //  }
     ImGui::SetNextWindowBgAlpha(0.4f);
-    ImGui::BeginChild(1, ImVec2(391, 370), true);
+    ImGui::BeginChild(1, ImVec2(visualsConfig.visualsChildSize, 370), true);
+    if (ImGui::IsWindowHovered())
+        visualsConfig.visualsChildSize = 790;
+    else visualsConfig.visualsChildSize = 391;
+    ImGui::PushItemWidth(290.0f);
     if (ImGui::BeginCombo("", "World Modulation")) {
         ImGui::Selectable("Disable post-processing", &visualsConfig.disablePostProcessing, ImGuiSelectableFlags_DontClosePopups);
         ImGui::Selectable("Inverse ragdoll gravity", &visualsConfig.inverseRagdollGravity, ImGuiSelectableFlags_DontClosePopups);
@@ -799,6 +804,9 @@ void Visuals::drawGUI(bool contentOnly) noexcept
         ImGui::Selectable("Wireframe smoke", &visualsConfig.wireframeSmoke, ImGuiSelectableFlags_DontClosePopups);
         ImGui::EndCombo();
     }
+    ImGui::PopItemWidth();
+    ImGui::SameLine();
+    ImGui::SetCursorPosX(407);
     ImGui::Checkbox("Zoom", &visualsConfig.zoom);
     ImGui::SameLine();
     ImGui::PushID("Zoom Key");
@@ -811,6 +819,8 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     ImGui::PopID();
     ImGui::PushItemWidth(290.0f);
     ImGui::PushID(0);
+    ImGui::SameLine();
+    ImGui::SetCursorPosX(407);
     ImGui::SliderInt("", &visualsConfig.thirdpersonDistance, 0, 1000, "Thirdperson distance: %d");
     ImGui::PopID();
     ImGui::PushID(1);
@@ -843,20 +853,28 @@ void Visuals::drawGUI(bool contentOnly) noexcept
     }
     ImGui::PopID();
     ImGui::PopID();
+    ImGui::SameLine();
+    ImGui::SetCursorPosX(407);
     ImGui::PushID(2);
     ImGui::SliderInt("", &visualsConfig.fov, -60, 60, "FOV: %d");
     ImGui::PopID();
     ImGui::PushID(3);
     ImGui::SliderInt("", &visualsConfig.farZ, 0, 2000, "Far Z: %d");
     ImGui::PopID();
+    ImGui::SameLine();
+    ImGui::SetCursorPosX(407);
     ImGui::PushID(4);
     ImGui::SliderInt("", &visualsConfig.flashReduction, 0, 100, "Flash reduction: %d%%");
     ImGui::PopID();
     ImGui::PushID(5);
     ImGui::SliderFloat("", &visualsConfig.brightness, 0.0f, 1.0f, "Brightness: %.2f");
     ImGui::PopID();
+    ImGui::SameLine();
+    ImGui::SetCursorPosX(407);
     ImGui::PopItemWidth();
+    ImGui::PushItemWidth(290);
     ImGui::Combo("Skybox", &visualsConfig.skybox, Visuals::skyboxList.data(), Visuals::skyboxList.size());
+    ImGui::PopItemWidth();
     ImGui::Checkbox("Color correction", &visualsConfig.colorCorrection.enabled);
     ImGui::SameLine();
 
@@ -873,23 +891,36 @@ void Visuals::drawGUI(bool contentOnly) noexcept
         ImGui::VSliderFloat("##7", { 40.0f, 160.0f }, &visualsConfig.colorCorrection.yellow, 0.0f, 1.0f, "Yellow\n%.3f"); ImGui::SameLine();
         ImGui::EndPopup();
     }
-    ImGui::EndChild();
-
-    ImGui::SameLine();
-    ImGui::SetNextWindowBgAlpha(0.4f);
-    ImGui::BeginChild(2, ImVec2(391, 370), true);
-    ImGuiCustom::colorPicker("World color", visualsConfig.world);
-    ImGuiCustom::colorPicker("Sky color", visualsConfig.sky);
-    ImGui::Checkbox("Deagle spinner", &visualsConfig.deagleSpinner);
-    ImGui::Combo("Screen effect", &visualsConfig.screenEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
-    ImGui::Combo("Hit effect", &visualsConfig.hitEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
-    ImGui::SliderFloat("Hit effect time", &visualsConfig.hitEffectTime, 0.1f, 1.5f, "%.2fs");
-    ImGui::Combo("Hit marker", &visualsConfig.hitMarker, "None\0Default (Cross)\0");
-    ImGui::SliderFloat("Hit marker time", &visualsConfig.hitMarkerTime, 0.1f, 1.5f, "%.2fs");
-    ImGuiCustom::colorPicker("Bullet Tracers", visualsConfig.bulletTracers.asColor4().color.data(), &visualsConfig.bulletTracers.asColor4().color[3], nullptr, nullptr, &visualsConfig.bulletTracers.enabled);
-    ImGuiCustom::colorPicker("Molotov Hull", visualsConfig.molotovHull);
-    ImGui::EndChild();
-
+        ImGui::SameLine();
+        ImGui::SetCursorPosX(407);
+        ImGuiCustom::colorPicker("World color", visualsConfig.world);
+        ImGuiCustom::colorPicker("Sky color", visualsConfig.sky);
+        ImGui::Checkbox("Deagle spinner", &visualsConfig.deagleSpinner);
+        ImGui::SameLine();
+        ImGui::SetCursorPosX(407);
+        ImGui::PushItemWidth(290);
+        ImGui::Combo("Screen effect", &visualsConfig.screenEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
+        ImGui::Combo("Hit effect", &visualsConfig.hitEffect, "None\0Drone cam\0Drone cam with noise\0Underwater\0Healthboost\0Dangerzone\0");
+        ImGui::SameLine();
+        ImGui::SetCursorPosX(407);
+        ImGui::SliderFloat("Hit effect time", &visualsConfig.hitEffectTime, 0.1f, 1.5f, "%.2fs");
+        ImGui::Combo("Hit marker", &visualsConfig.hitMarker, "None\0Default (Cross)\0");
+        ImGui::SameLine();
+        ImGui::SetCursorPosX(407);
+        ImGui::SliderFloat("Hit marker time", &visualsConfig.hitMarkerTime, 0.1f, 1.5f, "%.2fs");
+        ImGui::PopItemWidth();
+        ImGuiCustom::colorPicker("Bullet Tracers", visualsConfig.bulletTracers.asColor4().color.data(), &visualsConfig.bulletTracers.asColor4().color[3], nullptr, nullptr, &visualsConfig.bulletTracers.enabled);
+        ImGui::SameLine();
+        ImGui::SetCursorPosX(407);
+        ImGuiCustom::colorPicker("Molotov Hull", visualsConfig.molotovHull);
+        ImGui::EndChild();
+        if (visualsConfig.visualsChildSize < 400) {
+            ImGui::SameLine();
+            ImGui::SetNextWindowBgAlpha(0.4f);
+            ImGui::BeginChild(3, ImVec2(391, 370), true);
+            ImGui::Text("Glow"); ImGui::Separator();
+            Glow::drawGUI(true);
+        }
     if (!contentOnly)
         ImGui::End();
 }

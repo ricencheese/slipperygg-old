@@ -38,6 +38,7 @@ private:
         bool config = false;
         bool configPopup = false;
         bool deleteConfirmation = false;
+        bool userInfo = true;
         int backgroundGraphics{0};
     } window;
     struct {

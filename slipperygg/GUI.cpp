@@ -224,7 +224,7 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept {
     ImGui::Separator();
 
     switch (window3.visualsSub) {
-    case 0: Visuals::drawGUI(true);ImGui::SetNextWindowBgAlpha(0.4f);ImGui::BeginChild(3, ImVec2(790, 158), true);ImGui::Text("Glow"); ImGui::Separator(); Glow::drawGUI(true); break;
+    case 0: Visuals::drawGUI(true); break;
     case 1: renderChamsWindow(true); break;
     case 2: StreamProofESP::drawGUI(true); break;
     };
@@ -613,7 +613,7 @@ void GUI::renderGuiStyle3() noexcept {
 
 
     //unhook button
-    ImGui::SetNextWindowPos(ImVec2(1000, 40), ImGuiCond_Once);
+    ImGui::SetNextWindowPos(ImVec2(300, 40), ImGuiCond_Once);
     ImGui::SetNextWindowSize(ImVec2(100.f, 55.f), ImGuiCond_Once);
     ImGui::SetNextWindowBgAlpha(0.2f);
     ImGui::Begin("unhook button", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
@@ -623,7 +623,7 @@ void GUI::renderGuiStyle3() noexcept {
     //main window
     int w, h;
     interfaces->engine->getScreenSize(w, h);
-    ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
+    ImGui::SetNextWindowSize(ImVec2(807, 500), ImGuiCond_Once);
     ImGui::SetNextWindowBgAlpha(0.6);
     ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     slipperyMenuPos = (ImGui::GetWindowPos());
@@ -682,14 +682,18 @@ void GUI::renderGuiStyle3() noexcept {
     case 4: Sound::drawGUI(true); break;
     case 5: Misc::drawGUI(true); break;
     }
-    ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(807, 650), ImGuiCond_Once);
-    ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
+    ImGui::SetNextWindowSize(ImVec2(807, 500), ImGuiCond_Once);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
+    ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollWithMouse);
+
     switch (window.backgroundGraphics) {
     case 0:         ImGui::PushFont(fonts.backgroundCubes);ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");ImGui::PopFont(); break;
     case 1:         ImGui::PushFont(fonts.arial30px); ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), ""); ImGui::PopFont(); break;
     }
+    ImGui::PopStyleVar();
+    ImGui::PopStyleVar();
     ImGui::SetWindowPos(ImVec2(slipperyMenuPos.x, slipperyMenuPos.y));
     ImGui::End();
 
@@ -790,6 +794,7 @@ void GUI::renderGuiStyle3() noexcept {
         }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
                 //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
         ImGui::End();
+
 
 
 }
