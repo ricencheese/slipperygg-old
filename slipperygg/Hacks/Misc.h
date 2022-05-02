@@ -71,7 +71,8 @@ namespace Misc
     void menuBarItem() noexcept;
     void tabItem() noexcept;
     void drawGUI(bool contentOnly) noexcept;
-    void drawGUIMovement(bool contentOnly) noexcept;
+    void drawGUIGeneral (bool contentOnly) noexcept;
+    void drawGUIClantag(bool contentOnly) noexcept;
     void drawGUIMisc(bool contentOnly) noexcept;
 
     // Config

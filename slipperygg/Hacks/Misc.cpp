@@ -89,6 +89,7 @@ struct MiscConfig {
     KeyBind menuKey{ KeyBind::INSERT };
     bool isHighlighted{ false };
     int miscSub{ 0 };
+    bool customClantagChild{ false };
     bool antiAfkKick{ false };
     bool autoStrafe{ false };
     bool bunnyHop{ false };
@@ -110,7 +111,7 @@ struct MiscConfig {
     bool revealVotes{ false };
     bool fixAnimationLOD{ false };
     bool fixBoneMatrix{ false };
-    bool fixMovement{ false };
+    bool fixMovement{ true };
     bool disableModelOcclusion{ false };
     bool nameStealer{ false };
     bool disablePanoramablur{ false };
@@ -124,6 +125,7 @@ struct MiscConfig {
     bool oppositeHandKnife = false;
     PreserveKillfeed preserveKillfeed;
     char clanTag[16];
+    char clanTagCustom[16];
     int tagAnimationType{ 0 };
     KeyBind edgejumpkey;
     KeyBind slowwalkKey {KeyBind::LSHIFT};
@@ -1483,7 +1485,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
 {
     if (miscConfig.miscSub == 0)
         beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
-    if (ImGui::Button("Movement", ImVec2(258.f, 25.f))) {
+    if (ImGui::Button("General", ImVec2(258.f, 25.f))) {
         miscConfig.miscSub = 0;
     }
     endHighlight();
@@ -1491,7 +1493,7 @@ void Misc::drawGUI(bool contentOnly) noexcept
     ImGui::SameLine();
     if (miscConfig.miscSub == 1)
         beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
-    if (ImGui::Button("Chams", ImVec2(257.f, 25.f)))
+    if (ImGui::Button("Clantag", ImVec2(257.f, 25.f)))
         miscConfig.miscSub = 1;
     endHighlight();
 
@@ -1504,18 +1506,40 @@ void Misc::drawGUI(bool contentOnly) noexcept
 
     ImGui::Separator();
     switch (miscConfig.miscSub) {
-    case 0: Misc::drawGUIMovement(true); break;
-    case 1: ImGui::Text("there should be something here");  break;
+    case 0: Misc::drawGUIGeneral(true); break;
+    case 1: Misc::drawGUIClantag(true); break;
     case 2: ImGui::Text("wow this tab is empty"); break;
     }
 }
 void Misc::drawGUIMisc(bool contentOnly) noexcept
 {
     ImGui::SetNextWindowBgAlpha(0.4);
-    ImGui::BeginChild("MiscMenuChild", ImVec2(391, 370), true);
+    ImGui::BeginChild("MiscMenuChild", ImVec2(391, 378), true);
     ImGui::EndChild();
 }
-void Misc::drawGUIMovement(bool contentOnly) noexcept
+
+void Misc::drawGUIClantag(bool contentOnly) noexcept
+{
+    ImGui::SetNextWindowBgAlpha(0.4);
+    ImGui::BeginChild("Clantag options", ImVec2(391, 378), true);
+    ImGui::Checkbox("Animated clan tag", &miscConfig.animatedClanTag);
+    ImGui::Combo("Animation Type: ", &miscConfig.tagAnimationType, "Rotate text\0Input from file\0");
+    ImGui::Checkbox("Clock tag", &miscConfig.clocktag);
+    ImGui::Checkbox("Custom clantag", &miscConfig.customClanTag);
+    ImGui::SameLine();
+    ImGui::PushItemWidth(120.0f);
+    ImGui::PushID(0);
+    if (ImGui::InputText("", miscConfig.clanTag, sizeof(miscConfig.clanTag)))
+        Misc::updateClanTag(true);
+    ImGui::PopID();
+    ImGui::EndChild();
+    ImGui::SameLine();
+    ImGui::BeginChild("Custom Clantag Configuration", ImVec2(391, 378), true);
+    ImGui::SetCursorPosY(350);
+    //ImGui::InputText("Clantag", miscConfig.clanTagCustom);
+    ImGui::EndChild();
+}
+void Misc::drawGUIGeneral(bool contentOnly) noexcept
 {
     if (!contentOnly) {
         if (!windowOpen)
@@ -1525,7 +1549,9 @@ void Misc::drawGUIMovement(bool contentOnly) noexcept
             | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
     ImGui::SetNextWindowBgAlpha(0.4);
-    ImGui::BeginChild("MovementChild", ImVec2(391, 370), true);
+    ImGui::BeginChild("MovementChild", ImVec2(391, 378), true);
+    ImGui::Text("Movement");
+    ImGui::Separator();
     ImGui::Checkbox("Bunny hop", &miscConfig.bunnyHop);
     ImGui::Checkbox("Auto strafe", &miscConfig.autoStrafe);
     ImGui::Checkbox("Fast duck", &miscConfig.fastDuck);
@@ -1538,7 +1564,7 @@ void Misc::drawGUIMovement(bool contentOnly) noexcept
     ImGui::Checkbox("Fastwalk", &miscConfig.slowwalk);
     if (&miscConfig.slowwalk) {
         interfaces->engine->clientCmdUnrestricted("unbind shift");
-        ImGui::SliderInt("Walk speed", &miscConfig.walkSpeed, 1, 130);
+        ImGui::SliderInt("Walk speed", &miscConfig.walkSpeed, 1, 134);
         if (ImGui::IsItemHovered()) {
             ImGui::BeginTooltip();
             ImGui::Text("Footsteps become audible at 135 u/s\nStrafing while holding fastwalk key may make speed fluctuate a bit\nPrefered value: 115-120");
@@ -1546,12 +1572,55 @@ void Misc::drawGUIMovement(bool contentOnly) noexcept
         };
     };
     ImGui::EndChild();
+
+    ImGui::SameLine();
+    ImGui::SetNextWindowBgAlpha(0.4);
+
+    ImGui::BeginChild("Ingame", ImVec2(391, 378), true);
+    ImGui::Text("In-game");
+    ImGui::Separator();
+    ImGui::Checkbox("Reveal money", &miscConfig.revealMoney);
+    ImGui::Checkbox("Reveal suspect", &miscConfig.revealSuspect);
+    ImGui::Checkbox("Reveal votes", &miscConfig.revealVotes);
+    ImGui::Checkbox("Spectator list", &miscConfig.spectatorList.enabled);
+    ImGui::SameLine();
+
+    ImGui::PushID("Spectator list");
+    if (ImGui::Button("..."))
+        ImGui::OpenPopup("");
+
+    if (ImGui::BeginPopup("")) {
+        ImGui::Checkbox("No Title Bar", &miscConfig.spectatorList.noTitleBar);
+        ImGui::EndPopup();
+    }
+    ImGui::PopID();
+    ImGuiCustom::colorPicker("Offscreen Enemies", miscConfig.offscreenEnemies.asColor4(), &miscConfig.offscreenEnemies.enabled);
+    ImGui::SameLine();
+    ImGui::PushID("Offscreen Enemies");
+    if (ImGui::Button("..."))
+        ImGui::OpenPopup("");
+
+    if (ImGui::BeginPopup("")) {
+        ImGui::Checkbox("Health Bar", &miscConfig.offscreenEnemies.healthBar.enabled);
+        ImGui::SameLine();
+        ImGui::SetNextItemWidth(95.0f);
+        ImGui::Combo("Type", &miscConfig.offscreenEnemies.healthBar.type, "Gradient\0Solid\0Health-based\0");
+        if (miscConfig.offscreenEnemies.healthBar.type == HealthBar::Solid) {
+            ImGui::SameLine();
+            ImGuiCustom::colorPicker("", miscConfig.offscreenEnemies.healthBar.asColor4());
+        }
+        ImGui::EndPopup();
+    }
+    ImGui::PopID();
+    ImGui::Checkbox("Auto pistol", &miscConfig.autoPistol);
+    ImGui::EndChild();
+
+
     /*
     ImGui::SetColumnOffset(1, 280.0f);
     ImGui::Checkbox("Anti AFK kick", &miscConfig.antiAfkKick);
     ImGuiCustom::colorPicker("Noscope crosshair", miscConfig.noscopeCrosshair);
     ImGuiCustom::colorPicker("Recoil crosshair", miscConfig.recoilCrosshair);
-    ImGui::Checkbox("Auto pistol", &miscConfig.autoPistol);
     ImGui::Checkbox("Auto reload", &miscConfig.autoReload);
     ImGui::Checkbox("Auto accept", &miscConfig.autoAccept);
     ImGui::Checkbox("Radar hack", &miscConfig.radarHack);
@@ -1574,28 +1643,12 @@ void Misc::drawGUIMovement(bool contentOnly) noexcept
     ImGui::PopID();
 
     ImGui::Checkbox("Watermark", &miscConfig.watermark.enabled);
-    ImGuiCustom::colorPicker("Offscreen Enemies", miscConfig.offscreenEnemies.asColor4(), &miscConfig.offscreenEnemies.enabled);
-    ImGui::SameLine();
-    ImGui::PushID("Offscreen Enemies");
-    if (ImGui::Button("..."))
-        ImGui::OpenPopup("");
-
-    if (ImGui::BeginPopup("")) {
-        ImGui::Checkbox("Health Bar", &miscConfig.offscreenEnemies.healthBar.enabled);
-        ImGui::SameLine();
-        ImGui::SetNextItemWidth(95.0f);
-        ImGui::Combo("Type", &miscConfig.offscreenEnemies.healthBar.type, "Gradient\0Solid\0Health-based\0");
-        if (miscConfig.offscreenEnemies.healthBar.type == HealthBar::Solid) {
-            ImGui::SameLine();
-            ImGuiCustom::colorPicker("", miscConfig.offscreenEnemies.healthBar.asColor4());
-        }
-        ImGui::EndPopup();
-    }
-    ImGui::PopID();
+    
     ImGui::Checkbox("Fix animation LOD", &miscConfig.fixAnimationLOD);
     ImGui::Checkbox("Fix bone matrix", &miscConfig.fixBoneMatrix);
-    ImGui::NextColumn();
-    ImGui::Checkbox("Fix movement", &miscConfig.fixMovement);
+    ImGui::NextColumn();*/
+    //ImGui::Checkbox("Fix movement", &miscConfig.fixMovement);
+    /*
     ImGui::Checkbox("Disable model occlusion", &miscConfig.disableModelOcclusion);
     ImGui::SliderFloat("Aspect Ratio", &miscConfig.aspectratio, 0.0f, 5.0f, "%.2f");
     ImGui::Checkbox("Disable HUD blur", &miscConfig.disablePanoramablur);

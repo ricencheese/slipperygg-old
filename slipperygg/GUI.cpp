@@ -206,18 +206,16 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept {
         window3.visualsSub = 0;
     }
     endHighlight();
-
     ImGui::SameLine();
     if (window3.visualsSub == 1)
         beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
-    if (ImGui::Button("Chams", ImVec2(257.f, 25.f)))
+    if (ImGui::Button("Chams", ImVec2(258.f, 25.f)))
         window3.visualsSub = 1;
     endHighlight();
-
     ImGui::SameLine();
     if (window3.visualsSub == 2)
         beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
-    if (ImGui::Button("ESP", ImVec2(259.f, 25.f)))
+    if (ImGui::Button("ESP", ImVec2(258.f, 25.f)))
         window3.visualsSub = 2;
     endHighlight();
 
@@ -624,8 +622,16 @@ void GUI::renderGuiStyle3() noexcept {
     int w, h;
     interfaces->engine->getScreenSize(w, h);
     ImGui::SetNextWindowSize(ImVec2(807, 500), ImGuiCond_Once);
-    ImGui::SetNextWindowBgAlpha(0.6);
+    ImGui::SetNextWindowBgAlpha(1.0);
     ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+    
+    ImGui::PushFont(fonts.backgroundCubes);
+    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0, 0, 0, 1));
+    ImGui::SetCursorPos(ImVec2(0, 0));
+    ImGui::Text(window3.backgroundString);
+    ImGui::SetCursorPos(ImVec2(8, 8));
+    ImGui::PopStyleColor();
+    ImGui::PopFont();
     slipperyMenuPos = (ImGui::GetWindowPos());
     if (window3.curWindow == 0)
         beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
@@ -672,8 +678,11 @@ void GUI::renderGuiStyle3() noexcept {
         window3.curWindow = 5;
     };
     endHighlight();
-
-    ImGui::SeparatorEx(ImGuiSeparatorFlags_Horizontal);
+    ImGui::SetCursorPos(ImVec2(0, 72));
+    ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1,0.1,0.1,0.7));
+    ImGui::BeginChild("##contentMenu", ImVec2(807,500), true);
+    ImGui::PopStyleColor();
+    ImGui::SetCursorPos(ImVec2(8, 5));
     switch (window3.curWindow) {
     case 0: renderHomeWindow(true); break;
     case 1: renderAimAssistance(true); break;
@@ -682,21 +691,7 @@ void GUI::renderGuiStyle3() noexcept {
     case 4: Sound::drawGUI(true); break;
     case 5: Misc::drawGUI(true); break;
     }
-
-    ImGui::SetNextWindowSize(ImVec2(807, 500), ImGuiCond_Once);
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
-    ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
-    ImGui::Begin("background", nullptr, windowFlags | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollWithMouse);
-
-    switch (window.backgroundGraphics) {
-    case 0:         ImGui::PushFont(fonts.backgroundCubes);ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");ImGui::PopFont(); break;
-    case 1:         ImGui::PushFont(fonts.arial30px); ImGui::TextColored(ImVec4(0.f, 0.f, 0.f, 1.f), ""); ImGui::PopFont(); break;
-    }
-    ImGui::PopStyleVar();
-    ImGui::PopStyleVar();
-    ImGui::SetWindowPos(ImVec2(slipperyMenuPos.x, slipperyMenuPos.y));
-    ImGui::End();
-
+    ImGui::EndChild();
     //sidebar
     float wi = w;           //without this compiler says that conversion from 'int' to 'float' requires a narrowing conversion!!!!!
     float he = h;

@@ -833,7 +833,7 @@ void InventoryChanger::drawGUI(bool contentOnly) noexcept
             return true;
         };
         ImGui::SetNextWindowBgAlpha(0.4);
-        if (ImGui::BeginChild("##scrollarea", ImVec2{ 0.0f, contentOnly ? 520.0f : 0.0f }), true) {
+        if (ImGui::BeginChild("##scrollarea", ImVec2{ 0.0f, contentOnly ? 520.0f : 0.0f }), true, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse) {
             static auto itemIndices = StaticData::getItemIndices();
             if (static bool sorted = false; !sorted) {
                 std::ranges::sort(itemIndices, [](const auto aIndex, const auto bIndex) {
@@ -873,7 +873,7 @@ void InventoryChanger::drawGUI(bool contentOnly) noexcept
         ImGui::EndChild();
     } else {
         ImGui::SetNextWindowBgAlpha(0.4);
-        if (ImGui::BeginChild("##scrollarea2", ImVec2{ 0.0f, contentOnly ? 520.0f : 0.0f }), true) {
+        if (ImGui::BeginChild("##scrollarea2", ImVec2{ 0.0f, contentOnly ? 520.0f : 0.0f }), true, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse) {
             auto& inventory = Inventory::get();
             for (std::size_t i = inventory.size(); i-- > 0;) {
                 if (inventory[i].isDeleted() || inventory[i].shouldDelete())

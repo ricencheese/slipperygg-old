@@ -576,7 +576,7 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
 
     ImGui::hotkey("Toggle Key", config->streamProofESP.toggleKey, 80.0f);
     ImGui::SameLine();
-    ImGui::TextColored(ImVec4(0.3, 0.3, 0.3, 1), "?");
+    ImGui::TextColored(ImVec4(0.45, 0.45, 0.45, 1), "?");
     if (ImGui::IsItemHovered())
     {
         ImGui::BeginTooltip();
@@ -606,8 +606,8 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
         case 1: return config->streamProofESP.allies[item];
         }
     };
-
-    if (ImGui::BeginListBox("##list", { 170.0f, 460.0f })) {
+    ImGui::PushStyleVar(ImGuiStyleVar_ScrollbarSize, 15.0f);
+    if (ImGui::BeginListBox("##list", { 170.0f, 325.0f })) {
         constexpr std::array categories{ "Enemies", "Allies", "Weapons", "Projectiles", "Loot Crates", "Other Entities" };
 
         for (std::size_t i = 0; i < categories.size(); ++i) {
@@ -829,7 +829,7 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
 
     ImGui::SameLine();
 
-    if (ImGui::BeginChild("##child", { 400.0f, 0.0f },true)) {
+    if (ImGui::BeginChild("##child", { 400.0f, 325.0f },true)) {
         auto& sharedConfig = getConfigShared(currentCategory, currentItem);
 
         ImGui::Checkbox("Enabled", &sharedConfig.enabled);
@@ -971,7 +971,7 @@ void StreamProofESP::drawGUI(bool contentOnly) noexcept
     }
     ImGui::EndChild();
     ImGui::SameLine();
-    ImGui::BeginChild("ESPpreview", ImVec2(0.f, 0.f), true);
+    ImGui::BeginChild("ESPpreview", ImVec2(0.f, 325.f), true);
     ImGui::Text("ESP PREVIEW HERE \n\"\"\"EVENTUALLY\"\"\"");
     ImGui::EndChild();
     if (!contentOnly)
