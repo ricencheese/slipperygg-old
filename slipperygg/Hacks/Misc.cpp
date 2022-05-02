@@ -60,6 +60,7 @@
 
 #include "../imguiCustom.h"
 
+
 struct PreserveKillfeed {
     bool enabled = false;
     bool onlyHeadshots = false;
@@ -126,7 +127,10 @@ struct MiscConfig {
     PreserveKillfeed preserveKillfeed;
     char clanTag[16];
     char clanTagCustom[16];
+    std::vector<std::string> customClantags;
     int tagAnimationType{ 0 };
+    int currentTag{};
+    int currentKillsay{};
     KeyBind edgejumpkey;
     KeyBind slowwalkKey {KeyBind::LSHIFT};
     ColorToggleThickness noscopeCrosshair;
@@ -270,6 +274,15 @@ void Misc::slowwalk(UserCmd* cmd) noexcept
 
 void Misc::updateClanTag(bool tagChanged) noexcept
 {
+    std::filesystem::path path;
+    if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
+        path = pathToRoaming;
+        CoTaskMemFree(pathToRoaming);
+    }
+
+    std::string strPath;
+    strPath = (path.string() + "/slippery");
+
     static std::string clanTag;
 
     if (tagChanged) {
@@ -301,7 +314,7 @@ void Misc::updateClanTag(bool tagChanged) noexcept
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
         }
         if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
-            std::ifstream in("C:/slippery/clantag.txt");
+            std::ifstream in(strPath + "/clantag.txt");
             std::string str;
             std::vector <std::string> vecOfStrs(0);
             while (std::getline(in, str))
@@ -309,15 +322,13 @@ void Misc::updateClanTag(bool tagChanged) noexcept
                 if (str.size() > 0)
                     vecOfStrs.push_back(str);
             }
-            int i{};
-            unsigned int tagsCount{ vecOfStrs.size() };
-                if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length()) {
-                    clanTag = vecOfStrs[i];
-                    if (i == tagsCount) { i = 0; };
-                    if (i != tagsCount) { i = +1; };
+                    clanTag = vecOfStrs[miscConfig.currentTag];
+                    if (miscConfig.currentTag != (vecOfStrs.size())-1) { miscConfig.currentTag += 1; }
+                    else (miscConfig.currentTag = 0);
 
-                }
         }
+        if(!doesFileExist(strPath+"/clantag.txt"))
+            memory->clientMode->getHudChat()->printf(0, "\x0A[\x08slippery\x0D.gg\x0A] \x03clantag.txt does not exist");
         lastTime = memory->globalVars->realtime;
         memory->setClanTag(clanTag.c_str(), clanTag.c_str());
     }
@@ -782,10 +793,16 @@ void Misc::killMessage(GameEvent& event) noexcept
     if (const auto localUserId = localPlayer->getUserId(); event.getInt("attacker") != localUserId || event.getInt("userid") == localUserId)
         return;
 
-    if (doesFileExist("C:/slippery/killsay.txt")) {                         //been testing if doesfileexist() works
-        //interfaces->engine->clientCmdUnrestricted("say killsay file exists :)");    //idk if it's gonna be useful later so I'm going to                                  //
-        std::ifstream in("C:/slippery/killsay.txt");    //this code should be moved anywhere where it will execute once on cheat inject but fuck you
-        std::string str;                                //I'm too lazy to find something that executes on inject rn, I'll do it later
+    std::filesystem::path path;
+    if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
+        path = pathToRoaming;
+        CoTaskMemFree(pathToRoaming);
+    }
+    std::string strPath;
+    strPath = (path.string() + "/slippery");
+    if (doesFileExist(strPath+"/killsay.txt")) {
+        std::ifstream in(strPath + "/killsay.txt");
+        std::string str;                                
         std::vector <std::string> killsayList(0);
         
         while (std::getline(in, str))
@@ -795,20 +812,19 @@ void Misc::killMessage(GameEvent& event) noexcept
         }
         
         unsigned int killsayCount{ killsayList.size() };
-        killsayList.push_back("");                                    //quick fix for the killsay saying "random" issue, gonna fix it better a bit later 
+        killsayList.push_back("");                                    
         if (killsayList[0] == "random") {
             std::string killsaycmd = "say \"";
                 killsaycmd += killsayList[(rand() % killsayCount)+1]; //limiting the killsay picked to -1 in the beginning to exclude the killsay saying "random"
-            killsaycmd += '"';                                        //retarded but what can I do
+            killsaycmd += '"';                                        //a retarded fix but what can I do
             interfaces->engine->clientCmdUnrestricted(killsaycmd.c_str());
         }
-        int i{ 0 };
         
-        if (killsayList[0] == "sequential") {               //sequential killsay doesn't work for shit, same issue as sequential clantag
-            std::string killsaycmd = "say \"";              //the only working killsay is the first one
-            killsaycmd += killsayList[i+1];                 //@xxxcept PLEASE help me fix this or I swear ukrainians will regret being born
-            i = i+1;
-            if (i == killsayCount - 1) { i = 0; };
+        if (killsayList[0] == "sequential") {
+            std::string killsaycmd = "say \"";
+            killsaycmd += killsayList[miscConfig.currentKillsay+1];
+            miscConfig.currentKillsay += 1;
+            if (miscConfig.currentKillsay == killsayCount - 1) { miscConfig.currentKillsay = 0; };
             killsaycmd += '"';
             interfaces->engine->clientCmdUnrestricted(killsaycmd.c_str());
         }
@@ -817,13 +833,9 @@ void Misc::killMessage(GameEvent& event) noexcept
             memory->clientMode->getHudChat()->printf(0, "\x0A[\x08slippery\x0D.gg\x0A]\x03 please put either \"random\" or \"sequential\" as the first line of killsay.txt");
         }
         
-    }                                                                               //just leave this here for now
+    }
     else { interfaces->engine->clientCmdUnrestricted("say killsay file wasn't found :o"); }
-    
 
-    /*if (!doesFileExist("%appdata%/slippery/killsay.txt")) {
-
-    }*/
     std::string cmd = "say \"";
 
     cmd += miscConfig.killMessageString;
@@ -1523,7 +1535,8 @@ void Misc::drawGUIClantag(bool contentOnly) noexcept
     ImGui::SetNextWindowBgAlpha(0.4);
     ImGui::BeginChild("Clantag options", ImVec2(391, 378), true);
     ImGui::Checkbox("Animated clan tag", &miscConfig.animatedClanTag);
-    ImGui::Combo("Animation Type: ", &miscConfig.tagAnimationType, "Rotate text\0Input from file\0");
+    ImGui::Text("Animation type");
+    ImGui::Combo("", &miscConfig.tagAnimationType, "Rotate text\0Input from file\0");
     ImGui::Checkbox("Clock tag", &miscConfig.clocktag);
     ImGui::Checkbox("Custom clantag", &miscConfig.customClanTag);
     ImGui::SameLine();
@@ -1534,9 +1547,22 @@ void Misc::drawGUIClantag(bool contentOnly) noexcept
     ImGui::PopID();
     ImGui::EndChild();
     ImGui::SameLine();
+
     ImGui::BeginChild("Custom Clantag Configuration", ImVec2(391, 378), true);
-    ImGui::SetCursorPosY(350);
-    //ImGui::InputText("Clantag", miscConfig.clanTagCustom);
+    //ImGui::SetCursorPosY(348);
+    ImGui::PushItemWidth(375.f);
+    if (ImGui::InputText("", miscConfig.clanTagCustom, sizeof(miscConfig.clanTagCustom), ImGuiInputTextFlags_EnterReturnsTrue))
+    {
+        miscConfig.customClantags.push_back(miscConfig.clanTagCustom);
+    }
+    ImGui::PopItemWidth();
+    ImGui::Text(std::to_string(miscConfig.customClantags.size()).c_str());
+    if (miscConfig.customClantags.size() > 0)
+    {
+        for (unsigned i = 0; i < (miscConfig.customClantags).size(); i++) {
+            ImGui::Text(miscConfig.customClantags[i].c_str());
+        }
+    }
     ImGui::EndChild();
 }
 void Misc::drawGUIGeneral(bool contentOnly) noexcept

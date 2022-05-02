@@ -96,10 +96,6 @@ GUI::GUI() noexcept
         const std::filesystem::path path{ pathToRoaming };
         CoTaskMemFree(pathToRoaming);
         fonts.backgroundCubes = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/background.ttf").string().c_str(), 70.0f, &cfgbackground, Helpers::getFontGlyphRanges());
-    }
-    if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
-        const std::filesystem::path path{ pathToRoaming };
-        CoTaskMemFree(pathToRoaming);
         fonts.icons = io.Fonts->AddFontFromFileTTF((path / "slippery/dependencies/icons.ttf").string().c_str(), 47.0f, &cfgbackground, Helpers::getFontGlyphRanges());
 }
 #else
