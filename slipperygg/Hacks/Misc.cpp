@@ -9,6 +9,7 @@
 #include <fstream>
 #include <iostream>
 #include <math.h>
+#include <shellapi.h>
 
 #include "../imgui/imgui.h"
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -96,7 +97,7 @@ struct MiscConfig {
     bool bunnyHop{ false };
     bool customClanTag{ false };
     bool clocktag{ false };
-    bool animatedClanTag{ false };
+    bool animatedClanTag{ true };
     bool fastDuck{ false };
     bool moonwalk{ false };
     bool edgejump{ false };
@@ -110,8 +111,8 @@ struct MiscConfig {
     bool revealMoney{ false };
     bool revealSuspect{ false };
     bool revealVotes{ false };
-    bool fixAnimationLOD{ false };
-    bool fixBoneMatrix{ false };
+    bool fixAnimationLOD{ true };
+    bool fixBoneMatrix{ true };
     bool fixMovement{ true };
     bool disableModelOcclusion{ false };
     bool nameStealer{ false };
@@ -119,7 +120,7 @@ struct MiscConfig {
     bool killMessage{ false };
     bool nadePredict{ false };
     bool fixTabletSignal{ false };
-    bool fastPlant{ false };
+    bool fastPlant{ true };
     bool fastStop{ false };
     bool quickReload{ false };
     bool prepareRevolver{ false };
@@ -308,12 +309,14 @@ void Misc::updateClanTag(bool tagChanged) noexcept
     } else if (miscConfig.customClanTag) {
         if (memory->globalVars->realtime - lastTime < 0.6f)
             return;
-
-        if (miscConfig.animatedClanTag && !clanTag.empty() && miscConfig.tagAnimationType==0) { //basic rotation animation
+        if (miscConfig.animatedClanTag && !clanTag.empty() && miscConfig.tagAnimationType == 0) { //no animation
+            clanTag = miscConfig.clanTag;
+        }
+        if (miscConfig.animatedClanTag && !clanTag.empty() && miscConfig.tagAnimationType==1) { //basic rotation animation
             if (const auto offset = Helpers::utf8SeqLen(clanTag[0]); offset <= clanTag.length())
                 std::rotate(clanTag.begin(), clanTag.begin() + offset, clanTag.end());
         }
-        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 1) { //less basic txt file based animation
+        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 2) { //less basic txt file based animation
             std::ifstream in(strPath + "/clantag.txt");
             std::string str;
             std::vector <std::string> vecOfStrs(0);
@@ -325,12 +328,46 @@ void Misc::updateClanTag(bool tagChanged) noexcept
                     clanTag = vecOfStrs[miscConfig.currentTag];
                     if (miscConfig.currentTag != (vecOfStrs.size())-1) { miscConfig.currentTag += 1; }
                     else (miscConfig.currentTag = 0);
-
+            
+            if(!doesFileExist(strPath+"/clantag.txt"))
+                memory->clientMode->getHudChat()->printf(0, "\x0A[\x08slippery\x0D.gg\x0A] \x03clantag.txt does not exist");
         }
-        if(!doesFileExist(strPath+"/clantag.txt"))
-            memory->clientMode->getHudChat()->printf(0, "\x0A[\x08slippery\x0D.gg\x0A] \x03clantag.txt does not exist");
+        if (miscConfig.animatedClanTag && miscConfig.tagAnimationType == 3) {
+            switch ((int(memory->globalVars->realtime)%27)) {
+            case 0: clanTag = "|"; break;
+            case 1: clanTag = "  "; break;
+            case 2: clanTag = "|"; break;
+            case 3: clanTag = "  "; break;
+            case 4: clanTag = "|"; break;
+            case 5: clanTag = "s"; break;
+            case 6: clanTag = "sl|"; break;
+            case 7: clanTag = "sli"; break;
+            case 8: clanTag = "slip|"; break;
+            case 9: clanTag = "slipp"; break;
+            case 10: clanTag = "slippe|"; break;
+            case 11: clanTag = "slipper"; break;
+            case 12: clanTag = "slippery|"; break;
+            case 13: clanTag = "slippery."; break;
+            case 14: clanTag = "slippery.g|"; break;
+            case 15: clanTag = "slippery.gg"; break;
+            case 16: clanTag = "slippery.gg|"; break;
+            case 17: clanTag = "slippery.gg"; break;
+            case 18: clanTag = "slippery.gg|"; break;
+            case 19: clanTag = "slippery.|"; break;
+            case 20: clanTag = "slipper|"; break;
+            case 21: clanTag = "slipp|"; break;
+            case 22: clanTag = "sli|"; break;
+            case 23: clanTag = "s|"; break;
+            case 24: clanTag = "|"; break;
+            case 25: clanTag = "  "; break;
+            case 26: clanTag = "|"; break;
+            case 27: clanTag = "  "; break;
+            }
+        }
         lastTime = memory->globalVars->realtime;
-        memory->setClanTag(clanTag.c_str(), clanTag.c_str());
+        if (clanTag.c_str() != nullptr) {
+            memory->setClanTag(clanTag.c_str(), clanTag.c_str());
+        }
     }
 }
 
@@ -1534,10 +1571,8 @@ void Misc::drawGUIClantag(bool contentOnly) noexcept
 {
     ImGui::SetNextWindowBgAlpha(0.4);
     ImGui::BeginChild("Clantag options", ImVec2(391, 378), true);
-    ImGui::Checkbox("Animated clan tag", &miscConfig.animatedClanTag);
-    ImGui::Text("Animation type");
-    ImGui::Combo("", &miscConfig.tagAnimationType, "Rotate text\0Input from file\0");
-    ImGui::Checkbox("Clock tag", &miscConfig.clocktag);
+    //ImGui::Checkbox("Animated clan tag", &miscConfig.animatedClanTag); //<-set to true by default
+    //ImGui::Checkbox("Clock tag", &miscConfig.clocktag); //<- cringe
     ImGui::Checkbox("Custom clantag", &miscConfig.customClanTag);
     ImGui::SameLine();
     ImGui::PushItemWidth(120.0f);
@@ -1545,24 +1580,13 @@ void Misc::drawGUIClantag(bool contentOnly) noexcept
     if (ImGui::InputText("", miscConfig.clanTag, sizeof(miscConfig.clanTag)))
         Misc::updateClanTag(true);
     ImGui::PopID();
+    ImGui::Text("Animation type");
+    ImGui::Combo("", &miscConfig.tagAnimationType, "None\0Rotate text\0Input from file\0slippery.gg\0");
     ImGui::EndChild();
     ImGui::SameLine();
 
-    ImGui::BeginChild("Custom Clantag Configuration", ImVec2(391, 378), true);
-    //ImGui::SetCursorPosY(348);
-    ImGui::PushItemWidth(375.f);
-    if (ImGui::InputText("", miscConfig.clanTagCustom, sizeof(miscConfig.clanTagCustom), ImGuiInputTextFlags_EnterReturnsTrue))
-    {
-        miscConfig.customClantags.push_back(miscConfig.clanTagCustom);
-    }
-    ImGui::PopItemWidth();
-    ImGui::Text(std::to_string(miscConfig.customClantags.size()).c_str());
-    if (miscConfig.customClantags.size() > 0)
-    {
-        for (unsigned i = 0; i < (miscConfig.customClantags).size(); i++) {
-            ImGui::Text(miscConfig.customClantags[i].c_str());
-        }
-    }
+    ImGui::BeginChild("Killsay Options", ImVec2(391, 378), true);
+
     ImGui::EndChild();
 }
 void Misc::drawGUIGeneral(bool contentOnly) noexcept
@@ -1605,6 +1629,7 @@ void Misc::drawGUIGeneral(bool contentOnly) noexcept
     ImGui::BeginChild("Ingame", ImVec2(391, 378), true);
     ImGui::Text("In-game");
     ImGui::Separator();
+    ImGui::Checkbox("Watermark", &miscConfig.watermark.enabled);
     ImGui::Checkbox("Reveal money", &miscConfig.revealMoney);
     ImGui::Checkbox("Reveal suspect", &miscConfig.revealSuspect);
     ImGui::Checkbox("Reveal votes", &miscConfig.revealVotes);
@@ -1639,83 +1664,135 @@ void Misc::drawGUIGeneral(bool contentOnly) noexcept
     }
     ImGui::PopID();
     ImGui::Checkbox("Auto pistol", &miscConfig.autoPistol);
-    ImGui::EndChild();
-
-
-    /*
-    ImGui::SetColumnOffset(1, 280.0f);
+    ImGui::Checkbox("Auto reload", &miscConfig.autoReload);
     ImGui::Checkbox("Anti AFK kick", &miscConfig.antiAfkKick);
+    ImGui::Checkbox("Radar hack", &miscConfig.radarHack);
+    ImGui::Checkbox("Auto accept", &miscConfig.autoAccept);
     ImGuiCustom::colorPicker("Noscope crosshair", miscConfig.noscopeCrosshair);
     ImGuiCustom::colorPicker("Recoil crosshair", miscConfig.recoilCrosshair);
-    ImGui::Checkbox("Auto reload", &miscConfig.autoReload);
-    ImGui::Checkbox("Auto accept", &miscConfig.autoAccept);
-    ImGui::Checkbox("Radar hack", &miscConfig.radarHack);
-    ImGui::Checkbox("Reveal ranks", &miscConfig.revealRanks);
-    ImGui::Checkbox("Reveal money", &miscConfig.revealMoney);
-    ImGui::Checkbox("Reveal suspect", &miscConfig.revealSuspect);
-    ImGui::Checkbox("Reveal votes", &miscConfig.revealVotes);
-
-    ImGui::Checkbox("Spectator list", &miscConfig.spectatorList.enabled);
-    ImGui::SameLine();
-
-    ImGui::PushID("Spectator list");
-    if (ImGui::Button("..."))
-        ImGui::OpenPopup("");
-
-    if (ImGui::BeginPopup("")) {
-        ImGui::Checkbox("No Title Bar", &miscConfig.spectatorList.noTitleBar);
-        ImGui::EndPopup();
-    }
-    ImGui::PopID();
-
-    ImGui::Checkbox("Watermark", &miscConfig.watermark.enabled);
-    
-    ImGui::Checkbox("Fix animation LOD", &miscConfig.fixAnimationLOD);
-    ImGui::Checkbox("Fix bone matrix", &miscConfig.fixBoneMatrix);
-    ImGui::NextColumn();*/
-    //ImGui::Checkbox("Fix movement", &miscConfig.fixMovement);
-    /*
     ImGui::Checkbox("Disable model occlusion", &miscConfig.disableModelOcclusion);
+    if (ImGui::IsItemHovered())
+    {
+        ImGui::BeginTooltip();
+        ImGui::Text("Prevents models from unloading when they are hidden behind walls, may improve esp range in some cases");
+        ImGui::EndTooltip();
+    }
+    ImGui::Checkbox("Fix tablet signal", &miscConfig.fixTabletSignal);
+    ImGui::Checkbox("Killsay", &miscConfig.killMessage);
+    if (ImGui::IsItemHovered())
+    {
+        ImGui::BeginTooltip();
+        ImGui::Text("Create a killsay.txt file in the specified folder on the right,\n first line should be either 'random' or 'sequential'\neach next line will signify a killsay line. \n\n{maybe include a youtube tutorial link here instead}");
+        ImGui::EndTooltip();
+        ImGui::SameLine();
+        if (ImGui::Button("Open killsay dir")) {
+            std::filesystem::path path;
+            if (PWSTR pathToRoaming; SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, nullptr, &pathToRoaming))) {
+                path = pathToRoaming;
+                CoTaskMemFree(pathToRoaming);
+            }
+            path /= "slippery/";
+#ifdef _WIN32
+            ShellExecuteW(nullptr, L"open", path.wstring().c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+#else
+            int ret = std::system(("xdg-open " + path.string()).c_str());
+#endif
+        }
+        ImGui::Checkbox("Name stealer", &miscConfig.nameStealer);
+        ImGuiCustom::colorPicker("Bomb timer", miscConfig.bombTimer);
+        ImGui::Checkbox("Fast Stop", &miscConfig.fastStop);
+        ImGui::Checkbox("Quick reload", &miscConfig.quickReload);
+        ImGui::Checkbox("Prepare revolver", &miscConfig.prepareRevolver);
+        ImGui::SameLine();
+        ImGui::PushID("Prepare revolver Key");
+        ImGui::hotkey("", miscConfig.prepareRevolverKey);
+        ImGui::PopID();
+
+        ImGui::SetNextItemWidth(90.0f);
+        ImGui::InputInt("Choked packets", &miscConfig.chokedPackets, 1, 5);
+        miscConfig.chokedPackets = std::clamp(miscConfig.chokedPackets, 0, 64);
+        ImGui::SameLine();
+        ImGui::PushID("Choked packets Key");
+        ImGui::hotkey("", miscConfig.chokedPacketsKey);
+        ImGui::PopID();
+
+
+        ImGui::Checkbox("Preserve Killfeed", &miscConfig.preserveKillfeed.enabled);
+        ImGui::SameLine();
+
+        ImGui::PushID("Preserve Killfeed");
+        if (ImGui::Button("..."))
+            ImGui::OpenPopup("");
+
+        if (ImGui::BeginPopup("")) {
+            ImGui::Checkbox("Only Headshots", &miscConfig.preserveKillfeed.onlyHeadshots);
+            ImGui::EndPopup();
+        }
+        ImGui::PopID();
+
+        ImGui::Checkbox("Purchase List", &miscConfig.purchaseList.enabled);
+        ImGui::SameLine();
+
+        ImGui::PushID("Purchase List");
+        if (ImGui::Button("..."))
+            ImGui::OpenPopup("");
+
+        if (ImGui::BeginPopup("")) {
+            ImGui::SetNextItemWidth(75.0f);
+            ImGui::Combo("Mode", &miscConfig.purchaseList.mode, "Details\0Summary\0");
+            ImGui::Checkbox("Only During Freeze Time", &miscConfig.purchaseList.onlyDuringFreezeTime);
+            ImGui::Checkbox("Show Prices", &miscConfig.purchaseList.showPrices);
+            ImGui::Checkbox("No Title Bar", &miscConfig.purchaseList.noTitleBar);
+            ImGui::EndPopup();
+        }
+        ImGui::Checkbox("Reportbot", &miscConfig.reportbot.enabled);
+        ImGui::SameLine();
+        ImGui::PushID("Reportbot");
+
+        if (ImGui::Button("..."))
+            ImGui::OpenPopup("");
+
+        if (ImGui::BeginPopup("")) {
+            ImGui::PushItemWidth(80.0f);
+            ImGui::Combo("Target", &miscConfig.reportbot.target, "Enemies\0Allies\0All\0");
+            ImGui::InputInt("Delay (s)", &miscConfig.reportbot.delay);
+            miscConfig.reportbot.delay = (std::max)(miscConfig.reportbot.delay, 1);
+            ImGui::InputInt("Rounds", &miscConfig.reportbot.rounds);
+            miscConfig.reportbot.rounds = (std::max)(miscConfig.reportbot.rounds, 1);
+            ImGui::PopItemWidth();
+            ImGui::Checkbox("Abusive Communications", &miscConfig.reportbot.textAbuse);
+            ImGui::Checkbox("Griefing", &miscConfig.reportbot.griefing);
+            ImGui::Checkbox("Wall Hacking", &miscConfig.reportbot.wallhack);
+            ImGui::Checkbox("Aim Hacking", &miscConfig.reportbot.aimbot);
+            ImGui::Checkbox("Other Hacking", &miscConfig.reportbot.other);
+            if (ImGui::Button("Reset"))
+                Misc::resetReportbot();
+            ImGui::EndPopup();
+        }
+        ImGui::PopID();
+
+        ImGui::EndChild();
+        if (!contentOnly)
+            ImGui::End();
+    }
+}
+
+void drawMiscVisuals() noexcept {
     ImGui::SliderFloat("Aspect Ratio", &miscConfig.aspectratio, 0.0f, 5.0f, "%.2f");
     ImGui::Checkbox("Disable HUD blur", &miscConfig.disablePanoramablur);
-    ImGui::Checkbox("Animated clan tag", &miscConfig.animatedClanTag);
-    ImGui::Combo("Animation Type: ", &miscConfig.tagAnimationType, "Rotate text\0Input from file\0");
-    ImGui::Checkbox("Clock tag", &miscConfig.clocktag);
-    ImGui::Checkbox("Custom clantag", &miscConfig.customClanTag);
-    ImGui::SameLine();
-    ImGui::PushItemWidth(120.0f);
-    ImGui::PushID(0);
+    ImGui::Checkbox("Grenade Prediction", &miscConfig.nadePredict);
+    ImGui::Checkbox("Opposite Hand Knife", &miscConfig.oppositeHandKnife);
 
-    if (ImGui::InputText("", miscConfig.clanTag, sizeof(miscConfig.clanTag)))
-        Misc::updateClanTag(true);
-    ImGui::PopID();
-    ImGui::Checkbox("Kill message", &miscConfig.killMessage);
-    ImGui::SameLine();
-    ImGui::PushItemWidth(120.0f);
-    ImGui::PushID(1);
-    ImGui::InputText("", &miscConfig.killMessageString);
-    ImGui::PopID();
-    ImGui::Checkbox("Name stealer", &miscConfig.nameStealer);
-    ImGui::PushID(3);                             //fuck you this shit works just 25% of the time and takes up a bit of space so it's outta here
-    ImGui::SetNextItemWidth(100.0f);
-    ImGui::Combo("", &miscConfig.banColor, "White\0Red\0Purple\0Green\0Light green\0Turquoise\0Light red\0Gray\0Yellow\0Gray 2\0Light blue\0Gray/Purple\0Blue\0Pink\0Dark orange\0Orange\0");
-    ImGui::PopID();
-    ImGui::SameLine();
-    ImGui::PushID(4);
-    ImGui::InputText("", &miscConfig.banText);
-    ImGui::PopID();
-    ImGui::SameLine();
-    if (ImGui::Button("Setup fake ban"))          
-        Misc::fakeBan(true); 
-    ImGui::Checkbox("Fast plant", &miscConfig.fastPlant);
-    ImGui::Checkbox("Fast Stop", &miscConfig.fastStop);
-    ImGuiCustom::colorPicker("Bomb timer", miscConfig.bombTimer);
-    ImGui::Checkbox("Quick reload", &miscConfig.quickReload);
-    ImGui::Checkbox("Prepare revolver", &miscConfig.prepareRevolver);
-    ImGui::SameLine();
-    ImGui::PushID("Prepare revolver Key");
-    ImGui::hotkey("", miscConfig.prepareRevolverKey);
-    ImGui::PopID();
+}
+void drawMiscAimbot() noexcept {
+    ImGui::SetNextWindowBgAlpha(0.0f);
+    ImGui::SetCursorPos(ImVec2(600, 420));
+    ImGui::BeginChild("angle delta", ImVec2(200, 80), true);
+    ImGui::SliderFloat("Max angle delta", &miscConfig.maxAngleDelta, 0.0f, 255.0f, "%.2f");
+    ImGui::EndChild();
+}
+void drawMiscSound() noexcept {
+    ImGui::Separator();
     ImGui::Combo("Hit Sound", &miscConfig.hitSound, "None\0Metal\0Gamesense\0Bell\0Glass\0Thunder Strike\0+use\0Grenade impact\0Overwatch killsound\0Snowball\0Sentry\0Custom");
     if (miscConfig.hitSound == 11) {
         ImGui::InputText("Hit Sound filename", &miscConfig.customHitSound);
@@ -1729,85 +1806,7 @@ void Misc::drawGUIGeneral(bool contentOnly) noexcept
         if (ImGui::IsItemHovered())
             ImGui::SetTooltip("https://gatoo.xyz/l/uSgRZVciq/ for sound list");
     }
-    ImGui::PopID();
-    ImGui::SetNextItemWidth(90.0f);
-    ImGui::InputInt("Choked packets", &miscConfig.chokedPackets, 1, 5);
-    miscConfig.chokedPackets = std::clamp(miscConfig.chokedPackets, 0, 64);
-    ImGui::SameLine();
-    ImGui::PushID("Choked packets Key");
-    ImGui::hotkey("", miscConfig.chokedPacketsKey);
-    ImGui::PopID();
-    ImGui::Text("Quick healthshot");
-    ImGui::SameLine();
-    ImGui::hotkey("asd",miscConfig.quickHealthshotKey);
-    ImGui::Checkbox("Grenade Prediction", &miscConfig.nadePredict);
-    ImGui::Checkbox("Fix tablet signal", &miscConfig.fixTabletSignal);
-    ImGui::SetNextItemWidth(120.0f);
-    ImGui::SliderFloat("Max angle delta", &miscConfig.maxAngleDelta, 0.0f, 255.0f, "%.2f");
-    ImGui::Checkbox("Opposite Hand Knife", &miscConfig.oppositeHandKnife);
-    ImGui::NextColumn();
-    ImGui::Checkbox("Preserve Killfeed", &miscConfig.preserveKillfeed.enabled);
-    ImGui::SameLine();
 
-    ImGui::PushID("Preserve Killfeed");
-    if (ImGui::Button("..."))
-        ImGui::OpenPopup("");
-
-    if (ImGui::BeginPopup("")) {
-        ImGui::Checkbox("Only Headshots", &miscConfig.preserveKillfeed.onlyHeadshots);
-        ImGui::EndPopup();
-    }
-    ImGui::PopID();
-
-    ImGui::Checkbox("Purchase List", &miscConfig.purchaseList.enabled);
-    ImGui::SameLine();
-
-    ImGui::PushID("Purchase List");
-    if (ImGui::Button("..."))
-        ImGui::OpenPopup("");
-
-    if (ImGui::BeginPopup("")) {
-        ImGui::SetNextItemWidth(75.0f);
-        ImGui::Combo("Mode", &miscConfig.purchaseList.mode, "Details\0Summary\0");
-        ImGui::Checkbox("Only During Freeze Time", &miscConfig.purchaseList.onlyDuringFreezeTime);
-        ImGui::Checkbox("Show Prices", &miscConfig.purchaseList.showPrices);
-        ImGui::Checkbox("No Title Bar", &miscConfig.purchaseList.noTitleBar);
-        ImGui::EndPopup();
-    }
-    ImGui::PopID();
-
-    ImGui::Checkbox("Reportbot", &miscConfig.reportbot.enabled);
-    ImGui::SameLine();
-    ImGui::PushID("Reportbot");
-
-    if (ImGui::Button("..."))
-        ImGui::OpenPopup("");
-
-    if (ImGui::BeginPopup("")) {
-        ImGui::PushItemWidth(80.0f);
-        ImGui::Combo("Target", &miscConfig.reportbot.target, "Enemies\0Allies\0All\0");
-        ImGui::InputInt("Delay (s)", &miscConfig.reportbot.delay);
-        miscConfig.reportbot.delay = (std::max)(miscConfig.reportbot.delay, 1);
-        ImGui::InputInt("Rounds", &miscConfig.reportbot.rounds);
-        miscConfig.reportbot.rounds = (std::max)(miscConfig.reportbot.rounds, 1);
-        ImGui::PopItemWidth();
-        ImGui::Checkbox("Abusive Communications", &miscConfig.reportbot.textAbuse);
-        ImGui::Checkbox("Griefing", &miscConfig.reportbot.griefing);
-        ImGui::Checkbox("Wall Hacking", &miscConfig.reportbot.wallhack);
-        ImGui::Checkbox("Aim Hacking", &miscConfig.reportbot.aimbot);
-        ImGui::Checkbox("Other Hacking", &miscConfig.reportbot.other);
-        if (ImGui::Button("Reset"))
-            Misc::resetReportbot();
-        ImGui::EndPopup();
-    }
-    ImGui::PopID();
-
-    if (ImGui::Button("Unhook"))
-        hooks->uninstall();
-
-    ImGui::Columns(1);*/
-    if (!contentOnly)
-        ImGui::End();
 }
 
 static void from_json(const json& j, ImVec2& v)

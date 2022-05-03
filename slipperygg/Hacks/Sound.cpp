@@ -10,7 +10,7 @@
 #include "../SDK/Entity.h"
 #include "../SDK/EntityList.h"
 #include "../SDK/LocalPlayer.h"
-
+#include "Misc.h"
 #include "Sound.h"
 
 #if OSIRIS_SOUND()
@@ -95,7 +95,6 @@ void Sound::drawGUI(bool contentOnly) noexcept
     ImGui::SliderInt("Weapon volume", &soundConfig.players[currentCategory].weaponVolume, 0, 200, "%d%%");
     ImGui::SliderInt("Footstep volume", &soundConfig.players[currentCategory].footstepVolume, 0, 200, "%d%%");
     ImGui::PopID();
-
     if (!contentOnly)
         ImGui::End();
 }

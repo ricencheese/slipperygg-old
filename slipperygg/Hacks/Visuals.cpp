@@ -896,6 +896,7 @@ void Visuals::drawGUI(bool contentOnly) noexcept
         ImGui::hotkey("", visualsConfig.zoomKey);
         ImGui::PopID();
         ImGui::SliderInt("", &visualsConfig.thirdpersonDistance, 0, 1000, "Thirdperson distance: %d");
+       // Misc::drawMiscVisuals();
     }
     ImGui::SetCursorPos(ImVec2(0, 336));
     if (ImGui::Button("Next page", ImVec2(391, 30))) {

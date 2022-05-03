@@ -254,7 +254,7 @@ void GUI::renderAimAssistance(bool contentOnly) noexcept {
 void GUI::renderAimbotWindow(bool contentOnly) noexcept
 {
     if (!contentOnly) {
-        if (window3.curWindow!=1)
+        if (window3.curWindow != 1)
             return;
         ImGui::SetNextWindowSize({ 600.0f, 0.0f });
         ImGui::Begin("Aimbot", &window3.aimAssist, windowFlags);
@@ -294,7 +294,8 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
                 static std::string name;
                 name = pistols[idx];
                 *out_text = name.append(" *").c_str();
-            } else {
+            }
+            else {
                 *out_text = pistols[idx];
             }
             return true;
@@ -312,7 +313,8 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
                 static std::string name;
                 name = heavies[idx];
                 *out_text = name.append(" *").c_str();
-            } else {
+            }
+            else {
                 *out_text = heavies[idx];
             }
             return true;
@@ -330,7 +332,8 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
                 static std::string name;
                 name = smgs[idx];
                 *out_text = name.append(" *").c_str();
-            } else {
+            }
+            else {
                 *out_text = smgs[idx];
             }
             return true;
@@ -348,7 +351,8 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
                 static std::string name;
                 name = rifles[idx];
                 *out_text = name.append(" *").c_str();
-            } else {
+            }
+            else {
                 *out_text = rifles[idx];
             }
             return true;
@@ -388,6 +392,7 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
     ImGui::Separator();
     ImGui::Text("Backtrack");
     Backtrack::drawGUI(true);
+    Misc::drawMiscAimbot();
     if (!contentOnly)
         ImGui::End();
 }
@@ -681,10 +686,10 @@ void GUI::renderGuiStyle3() noexcept {
     ImGui::SetCursorPos(ImVec2(8, 5));
     switch (window3.curWindow) {
     case 0: renderHomeWindow(true); break;
-    case 1: renderAimAssistance(true); break;
-    case 2: renderVisualsWindow(true); break;
+    case 1: renderAimAssistance(true); Misc::drawMiscAimbot(); break;
+    case 2: renderVisualsWindow(true); Misc::drawMiscVisuals(); break;
     case 3: InventoryChanger::drawGUI(true); break;
-    case 4: Sound::drawGUI(true); break;
+    case 4: Sound::drawGUI(true); Misc::drawMiscSound(); break;
     case 5: Misc::drawGUI(true); break;
     }
     ImGui::EndChild();

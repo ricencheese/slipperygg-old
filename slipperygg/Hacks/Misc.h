@@ -72,6 +72,9 @@ namespace Misc
     void tabItem() noexcept;
     void drawGUI(bool contentOnly) noexcept;
     void drawGUIGeneral (bool contentOnly) noexcept;
+    void drawMiscAimbot() noexcept;
+    void drawMiscVisuals() noexcept;
+    void drawMiscSound() noexcept;
     void drawGUIClantag(bool contentOnly) noexcept;
     void drawGUIMisc(bool contentOnly) noexcept;
 
