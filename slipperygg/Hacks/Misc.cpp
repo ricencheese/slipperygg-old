@@ -1776,7 +1776,7 @@ void Misc::drawGUIGeneral(bool contentOnly) noexcept
             ImGui::End();
     }
 }
-
+/*
 void drawMiscVisuals() noexcept {
     ImGui::SliderFloat("Aspect Ratio", &miscConfig.aspectratio, 0.0f, 5.0f, "%.2f");
     ImGui::Checkbox("Disable HUD blur", &miscConfig.disablePanoramablur);
@@ -1807,7 +1807,7 @@ void drawMiscSound() noexcept {
             ImGui::SetTooltip("https://gatoo.xyz/l/uSgRZVciq/ for sound list");
     }
 
-}
+}*/
 
 static void from_json(const json& j, ImVec2& v)
 {

@@ -392,7 +392,7 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
     ImGui::Separator();
     ImGui::Text("Backtrack");
     Backtrack::drawGUI(true);
-    Misc::drawMiscAimbot();
+    //Misc::drawMiscAimbot();
     if (!contentOnly)
         ImGui::End();
 }
@@ -625,7 +625,7 @@ void GUI::renderGuiStyle3() noexcept {
     ImGui::SetNextWindowSize(ImVec2(807, 500), ImGuiCond_Once);
     ImGui::SetNextWindowBgAlpha(1.0);
     ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
-    
+
     ImGui::PushFont(fonts.backgroundCubes);
     ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0, 0, 0, 1));
     ImGui::SetCursorPos(ImVec2(0, 0));
@@ -680,16 +680,16 @@ void GUI::renderGuiStyle3() noexcept {
     };
     endHighlight();
     ImGui::SetCursorPos(ImVec2(0, 72));
-    ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1,0.1,0.1,0.7));
-    ImGui::BeginChild("##contentMenu", ImVec2(807,500), true);
+    ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1, 0.1, 0.1, 0.7));
+    ImGui::BeginChild("##contentMenu", ImVec2(807, 500), true);
     ImGui::PopStyleColor();
     ImGui::SetCursorPos(ImVec2(8, 5));
     switch (window3.curWindow) {
     case 0: renderHomeWindow(true); break;
-    case 1: renderAimAssistance(true); Misc::drawMiscAimbot(); break;
-    case 2: renderVisualsWindow(true); Misc::drawMiscVisuals(); break;
+    case 1: renderAimAssistance(true); /*Misc::drawMiscAimbot()*/; break;
+    case 2: renderVisualsWindow(true); /*Misc::drawMiscVisuals();*/ break;
     case 3: InventoryChanger::drawGUI(true); break;
-    case 4: Sound::drawGUI(true); Misc::drawMiscSound(); break;
+    case 4: Sound::drawGUI(true); /*Misc::drawMiscSound(); */ break;
     case 5: Misc::drawGUI(true); break;
     }
     ImGui::EndChild();
