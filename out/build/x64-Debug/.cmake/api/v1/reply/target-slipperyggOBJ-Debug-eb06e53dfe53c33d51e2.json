@@ -167,8 +167,8 @@
 		"commands" : 
 		[
 			"add_library",
-			"target_link_libraries",
 			"add_dependencies",
+			"target_link_libraries",
 			"target_compile_options",
 			"target_compile_definitions",
 			"target_include_directories",
@@ -192,13 +192,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 54,
+				"line" : 56,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 56,
+				"line" : 54,
 				"parent" : 0
 			},
 			{
@@ -233,7 +233,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "-MDd"
 				},
 				{
 					"backtrace" : 4,
@@ -285,7 +285,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "-MDd"
 				},
 				{
 					"backtrace" : 4,
@@ -326,7 +326,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "-MDd"
 				},
 				{
 					"backtrace" : 4,
@@ -423,7 +423,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "-MDd"
 				},
 				{
 					"backtrace" : 4,
@@ -469,11 +469,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "FreeType::@80e08a9cfe1f50a3ccc4"
+			"id" : "Shaders::@bf254893378f663de1b2"
 		},
 		{
 			"backtrace" : 3,
-			"id" : "Shaders::@bf254893378f663de1b2"
+			"id" : "FreeType::@80e08a9cfe1f50a3ccc4"
 		}
 	],
 	"id" : "slipperyggOBJ::@6890427a1f51a3e7e1df",

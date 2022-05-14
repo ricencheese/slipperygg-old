@@ -23,9 +23,6 @@ private:
     void renderTriggerbotWindow(bool contentOnly = false) noexcept;
     void renderChamsWindow(bool contentOnly = false) noexcept;
     void renderStyleWindow(bool contentOnly = false) noexcept;
-    //void renderConfigWindow(bool contentOnly = false) noexcept;
-    void renderGuiStyle2() noexcept;
-    void renderMenuBarStyle3() noexcept;
     void renderGuiStyle3() noexcept;
 
     struct {

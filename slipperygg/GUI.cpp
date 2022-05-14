@@ -133,6 +133,63 @@ void GUI::handleToggle() noexcept
     }
 }
 
+                                                //TODO: fix this
+//static ImTextureID getItemIconTexture(std::string_view iconpath) noexcept           
+//{
+//    if (iconpath.empty())
+//        return 0;
+//
+//    auto& icon = iconTextures[std::string{ iconpath }];
+//    if (!icon.texture.get()) {
+//        static int frameCount = 0;
+//        static float timeSpentThisFrame = 0.0f;
+//        static int loadedThisFrame = 0;
+//
+//        if (frameCount != ImGui::GetFrameCount()) {
+//            frameCount = ImGui::GetFrameCount();
+//            timeSpentThisFrame = 0.0f;
+//            // memory->debugMsg("LOADED %d ICONS\n", loadedThisFrame);
+//            loadedThisFrame = 0;
+//        }
+//
+//        if (timeSpentThisFrame > 0.01f)
+//            return 0;
+//
+//        ++loadedThisFrame;
+//
+//        const auto start = std::chrono::high_resolution_clock::now();
+//
+//        auto handle = interfaces->baseFileSystem->open(("resource/flash/" + std::string{ iconpath } + (iconpath.find("status_icons") != std::string_view::npos ? "" : "_large") + ".png").c_str(), "r", "GAME");
+//        if (!handle)
+//            handle = interfaces->baseFileSystem->open(("resource/flash/" + std::string{ iconpath } + ".png").c_str(), "r", "GAME");
+//
+//        assert(handle);
+//        if (handle) {
+//            if (const auto size = interfaces->baseFileSystem->size(handle); size > 0) {
+//                const auto buffer = std::make_unique<std::uint8_t[]>(size);
+//                if (interfaces->baseFileSystem->read(buffer.get(), size, handle) > 0) {
+//                    int width, height;
+//                    stbi_set_flip_vertically_on_load_thread(false);
+//
+//                    if (const auto data = stbi_load_from_memory((const stbi_uc*)buffer.get(), size, &width, &height, nullptr, STBI_rgb_alpha)) {
+//                        icon.texture.init(width, height, data);
+//                        stbi_image_free(data);
+//                    }
+//                    else {
+//                        assert(false);
+//                    }
+//                }
+//            }
+//            interfaces->baseFileSystem->close(handle);
+//        }
+//
+//        const auto end = std::chrono::high_resolution_clock::now();
+//        timeSpentThisFrame += std::chrono::duration<float>(end - start).count();
+//    }
+//    icon.lastReferencedFrame = ImGui::GetFrameCount();
+//    return icon.texture.get();
+//}
+
 static void menuBarItem(const char* name, bool& enabled) noexcept
 {
     if (ImGui::MenuItem(name)) {
@@ -172,10 +229,22 @@ void GUI::renderHomeWindow(bool contentOnly) noexcept
         ImGui::SetNextWindowSize({ 0.0f, 0.0f });
         ImGui::Begin("Home", &window3.home, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
     }
+
+    ImGui::SetCursorPos(ImVec2(19, 8));
+    ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(0.5, 0.5, 0.5, 1));
+    ImGui::BeginChild("HomeContent1", ImVec2(258, 416), true);
     ImGui::SliderInt("sidebar speed", sidebarSpeed, 1, 200);
     if (ImGui::Combo("Menu colors", &config->style.menuColors, "Dark theme\0Light theme\0"))
         updateColors();
     ImGui::Combo("Menu background", &window.backgroundGraphics, "Cubes\0Dots\0");
+    ImGui::EndChild();
+    ImGui::SetCursorPos(ImVec2(286, 8));
+    ImGui::BeginChild("HomeContent2", ImVec2(258, 416),true);
+    ImGui::EndChild();
+    ImGui::SetCursorPos(ImVec2(554, 8));
+    ImGui::BeginChild("HomeContent3", ImVec2(258, 416),true);
+    ImGui::EndChild();
+    ImGui::PopStyleColor();
     if (!contentOnly)
         ImGui::End();
 }
@@ -231,24 +300,16 @@ void GUI::renderAimAssistance(bool contentOnly) noexcept {
         ImGui::SetNextWindowSize({ 600.0f, 0.0f });
         ImGui::Begin("Visual", &window3.visuals, windowFlags);
     };
-    if (window3.aimbotSub == 0)
-        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
-    if (ImGui::Button("Aimbot", ImVec2(391.f, 25.f)))
-        window3.aimbotSub = 0;
-        endHighlight();
-
-    ImGui::SameLine();
-    if (window3.aimbotSub == 1)
-        beginHighlight(ImVec4(0.15, 0.15, 0.15, 1));
-    if (ImGui::Button("Triggerbot", ImVec2(391.f, 25.f)))
-        window3.aimbotSub = 1;
-    endHighlight();
-    ImGui::Separator();
-
-    switch (window3.aimbotSub) {
-    case 0:renderAimbotWindow(true); break;
-    case 1:renderTriggerbotWindow(true); break;
-    }
+    ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(1, 1, 1, 1));
+    ImGui::SetCursorPos(ImVec2(15, 8));
+    ImGui::BeginChild("AimbotSubwindow", ImVec2(395, 424), true);
+    renderAimbotWindow(true);
+    ImGui::EndChild();
+    ImGui::SetCursorPos(ImVec2(419, 8));
+    ImGui::BeginChild("TriggerbotSubwindow", ImVec2(395, 424), true);
+    renderTriggerbotWindow(true);
+    ImGui::EndChild();
+    ImGui::PopStyleColor();
 }
 
 void GUI::renderAimbotWindow(bool contentOnly) noexcept
@@ -379,11 +440,11 @@ void GUI::renderAimbotWindow(bool contentOnly) noexcept
     //ImGui::Checkbox("Auto stop", &config->aimbot[currentWeapon].autoStop);
     ImGui::Combo("Bone", &config->aimbot[currentWeapon].bone, "Nearest\0Best damage\0Head\0Neck\0Sternum\0Chest\0Stomach\0Pelvis\0");
     ImGui::NextColumn();
-    ImGui::PushItemWidth(240.0f);
+    ImGui::PushItemWidth(60.0f);
     ImGui::SliderFloat("Fov", &config->aimbot[currentWeapon].fov, 0.0f, 255.0f, "%.2f", ImGuiSliderFlags_Logarithmic);
     ImGui::SliderFloat("Smooth", &config->aimbot[currentWeapon].smooth, 1.0f, 100.0f, "%.2f");
-    ImGui::SliderFloat("Max aim inaccuracy", &config->aimbot[currentWeapon].maxAimInaccuracy, 0.0f, 1.0f, "%.5f", ImGuiSliderFlags_Logarithmic);
-    ImGui::SliderFloat("Max shot inaccuracy", &config->aimbot[currentWeapon].maxShotInaccuracy, 0.0f, 1.0f, "%.5f", ImGuiSliderFlags_Logarithmic);
+    ImGui::SliderFloat("Aim hitchance", &config->aimbot[currentWeapon].maxAimInaccuracy, 0.0f, 1.0f, "%.2f");
+    ImGui::SliderFloat("Shot hitchance", &config->aimbot[currentWeapon].maxShotInaccuracy, 0.0f, 1.0f, "%.2f");
     ImGui::InputInt("Min damage", &config->aimbot[currentWeapon].minDamage);
     config->aimbot[currentWeapon].minDamage = std::clamp(config->aimbot[currentWeapon].minDamage, 0, 250);
     ImGui::Checkbox("Killshot", &config->aimbot[currentWeapon].killshot);
@@ -609,8 +670,11 @@ void GUI::renderStyleWindow(bool contentOnly) noexcept
 
 ImVec2 slipperyMenuPos{ ImVec2(0,0) };
 void GUI::renderGuiStyle3() noexcept {
-
-
+    int w, h;
+    ImDrawList* draw_list = ImGui::GetForegroundDrawList();
+    static ImVec4 col = ImVec4(0.574f, 0.574f, 0.785f, 1.0f);
+    const ImU32 col32 = ImColor(col);
+    interfaces->engine->getScreenSize(w, h);
     //unhook button
     ImGui::SetNextWindowPos(ImVec2(300, 40), ImGuiCond_Once);
     ImGui::SetNextWindowSize(ImVec2(100.f, 55.f), ImGuiCond_Once);
@@ -619,177 +683,233 @@ void GUI::renderGuiStyle3() noexcept {
     if (ImGui::Button("unhook", ImVec2(90.f, 40.f))) hooks->uninstall();
     ImGui::End();
 
-    //main window
-    int w, h;
-    interfaces->engine->getScreenSize(w, h);
-    ImGui::SetNextWindowSize(ImVec2(807, 500), ImGuiCond_Once);
-    ImGui::SetNextWindowBgAlpha(1.0);
-    ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+    ImGuiWindowFlags flags = ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoDecoration;
+    ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(0, 0, 0, 0));
+    ImGui::SetNextWindowPos(ImVec2(w/2-440, h/2-270), ImGuiCond_Once);
+    ImGui::SetNextWindowSize(ImVec2(880.f, 540.f), ImGuiCond_Once);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+    ImGui::Begin("Main Window", nullptr, ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
 
-    ImGui::PushFont(fonts.backgroundCubes);
-    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0, 0, 0, 1));
+
     ImGui::SetCursorPos(ImVec2(0, 0));
-    ImGui::Text(window3.backgroundString);
-    ImGui::SetCursorPos(ImVec2(8, 8));
-    ImGui::PopStyleColor();
-    ImGui::PopFont();
-    slipperyMenuPos = (ImGui::GetWindowPos());
-    if (window3.curWindow == 0)
-        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
-    if (ImGui::Button(("Home"), ImVec2(125, 60))) {
-        window3.curWindow = 0;
-    };
-    endHighlight();
-    ImGui::SameLine();
-
-    if (window3.curWindow == 1)
-        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
-    if (ImGui::Button(("Aim Assistance"), ImVec2(125, 60))) {
-        window3.curWindow = 1;
-    };
-    endHighlight();
-    ImGui::SameLine();
-    if (window3.curWindow == 2)
-        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
-    if (ImGui::Button(("Visuals"), ImVec2(125, 60))) {
-        window3.curWindow = 2;
-    };
-    endHighlight();
-
-    ImGui::SameLine();
-    if (window3.curWindow == 3)
-        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
-    if (ImGui::Button(("Inventory Changer"), ImVec2(125, 60))) {
-        window3.curWindow = 3;
-    };
-    endHighlight();
-
-    ImGui::SameLine();
-    if (window3.curWindow == 4)
-        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
-    if (ImGui::Button(("Sound"), ImVec2(125, 60))) {
-        window3.curWindow = 4;
-    };
-    endHighlight();
-
-    ImGui::SameLine();
-    if (window3.curWindow == 5)
-        beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
-    if (ImGui::Button(("Misc"), ImVec2(125, 60))) {
-        window3.curWindow = 5;
-    };
-    endHighlight();
-    ImGui::SetCursorPos(ImVec2(0, 72));
-    ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1, 0.1, 0.1, 0.7));
-    ImGui::BeginChild("##contentMenu", ImVec2(807, 500), true);
-    ImGui::PopStyleColor();
-    ImGui::SetCursorPos(ImVec2(8, 5));
+    ImGui::BeginChild("Left Bar", ImVec2(52, 488), true);
+    ImGui::SetCursorPos(ImVec2(0, 0));
+    if (ImGui::InvisibleButton("", ImVec2(52, 52))) window3.curWindow = 0;
+    ImGui::SetCursorPos(ImVec2(0, 54));
+    if (ImGui::Button("home\nicon", ImVec2(50, 86))) window3.curWindow = 0;
+    ImGui::SetCursorPos(ImVec2(0, 140));
+    if (ImGui::Button("aimbot\nicon", ImVec2(50, 86))) window3.curWindow = 1;
+    ImGui::SetCursorPos(ImVec2(0, 226));
+    if (ImGui::Button("visuals\nicon", ImVec2(50, 86))) window3.curWindow = 2;
+    ImGui::SetCursorPos(ImVec2(0, 312));
+    if (ImGui::Button("inventory\nchanger\nicon", ImVec2(50, 86))) window3.curWindow = 3;
+    ImGui::SetCursorPos(ImVec2(0, 398));
+    if (ImGui::Button("misc\nicon", ImVec2(50, 88))) window3.curWindow = 4;
+    ImGui::EndChild();
+    ImGui::SetCursorPos(ImVec2(52, 0));
+    ImGui::BeginChild("TopBar", ImVec2(0, 52));
     switch (window3.curWindow) {
-    case 0: renderHomeWindow(true); break;
-    case 1: renderAimAssistance(true); /*Misc::drawMiscAimbot()*/; break;
-    case 2: renderVisualsWindow(true); /*Misc::drawMiscVisuals();*/ break;
-    case 3: InventoryChanger::drawGUI(true); break;
-    case 4: Sound::drawGUI(true); /*Misc::drawMiscSound(); */ break;
-    case 5: Misc::drawGUI(true); break;
+    case 0: ImGui::SetCursorPos(ImVec2(396, 20)); ImGui::TextColored(ImVec4(1, 1, 1, 1), "HOME"); break;
+    case 1: ImGui::SetCursorPos(ImVec2(160, 20)); ImGui::TextColored(ImVec4(1, 1, 1, 1), "AIM ASSISTANCE"); draw_list->AddLine(ImVec2(ImGui::GetWindowPos().x+414, ImGui::GetWindowPos().y+3), ImVec2(ImGui::GetWindowPos().x+414, ImGui::GetWindowPos().y+48), ImColor(ImVec4(1, 1, 1, 1))); ImGui::SetCursorPos(ImVec2(575, 20)); ImGui::TextColored(ImVec4(1, 1, 1, 1), "TRIGGERBOT"); break;
+    
     }
     ImGui::EndChild();
-    //sidebar
-    float wi = w;           //without this compiler says that conversion from 'int' to 'float' requires a narrowing conversion!!!!!
-    float he = h;
-    ImGui::SetNextWindowSize(ImVec2(250, h), ImGuiCond_Once);
-    ImGui::SetNextWindowPos(ImVec2(w - 50, 0), ImGuiCond_Once);
-    ImGui::SetNextWindowBgAlpha(0.85f);
-    ImGui::Begin("Right Sidebar", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
-    ImVec2 curWindowPos{ ImGui::GetWindowPos() };
-    ImGui::Text(std::to_string(curWindowPos[0]).c_str());
-    ImGui::Text(std::to_string(wi - 250).c_str());
-    ImGui::Separator();
+    ImGui::PopStyleVar();
+    ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.214, 0.214, 0.214, 1));
+    ImGui::SetCursorPos(ImVec2(0, 488));
+    ImGui::BeginChild("User Info", ImVec2(160, 52), true);
+    ImGui::EndChild();
+    
 
-    ImGui::Text("Config");  //config menu here
-                            //not using BeginChild() because it makes the config menu way too wide for the sidebar
-    static bool incrementalLoad = false; //incremental load means that instead of replacing all data of already loaded config 
-                                         //with data of config that's being loaded it will instead add data from config that's 
-                                         //about to be loaded to the config that's already loaded. i.e.
-                                         //01001011+11010110=11011111 - incremental load
-                                         //01001011+11010110=11011110 - non-incremental load
-
-    auto& configItems = config->getConfigs();
-    static int currentConfig = -1;
-    static std::u8string buffer;
-
-    timeToNextConfigRefresh -= ImGui::GetIO().DeltaTime;
-    if (timeToNextConfigRefresh <= 0.0f) {
-        config->listConfigs();
-        if (const auto it = std::find(configItems.begin(), configItems.end(), buffer); it != configItems.end())
-            currentConfig = std::distance(configItems.begin(), it);
-        timeToNextConfigRefresh = 0.1f;
+    draw_list->AddLine(ImVec2(ImGui::GetWindowPos().x + 52, ImGui::GetWindowPos().y), ImVec2(ImGui::GetWindowPos().x + 52, ImGui::GetWindowPos().y + ImGui::GetWindowSize().y-52), col32, 2.0f);    //vertical line
+    draw_list->AddLine(ImVec2(ImGui::GetWindowPos().x + 52, ImGui::GetWindowPos().y+52), ImVec2(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x, ImGui::GetWindowPos().y + 52), col32, 2.0f);    //horizontal line
+    draw_list->AddLine(ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + 488), ImVec2(ImGui::GetWindowPos().x + 160, ImGui::GetWindowPos().y + 488), col32, 2.0f);                          //user info border
+    draw_list->AddLine(ImVec2(ImGui::GetWindowPos().x + 160, ImGui::GetWindowPos().y + 488), ImVec2(ImGui::GetWindowPos().x +160, ImGui::GetWindowPos().y + 540), col32, 2.0f);                     //^
+    draw_list->AddCircleFilled(ImVec2(ImGui::GetWindowPos().x+26, ImGui::GetWindowPos().y + 514), 22.f, col32);
+    ImGui::SetCursorPos(ImVec2(52, 52));
+    ImGui::SetNextWindowBgAlpha(0);
+    ImGui::BeginChild("Main Child", ImVec2(862, 436), true);
+    ImGui::PopStyleColor();
+    switch (window3.curWindow) {
+    case 0: renderHomeWindow(true); break;
+    case 1: renderAimAssistance(true); break;
+    case 2: renderVisualsWindow(true); break;
+    case 3: InventoryChanger::drawGUI(true); break;
+    case 4: Misc::drawGUI(true); break;
     }
+    ImGui::EndChild();
+    ImGui::End();
+    ImGui::PopStyleColor();
 
-    if (static_cast<std::size_t>(currentConfig) >= configItems.size())
-        currentConfig = -1;
-    ImGui::PushItemWidth(246);
-    if (ImGui::ListBox("", &currentConfig, [](void* data, int idx, const char** out_text) {
-        auto& vector = *static_cast<std::vector<std::u8string>*>(data);
-        *out_text = (const char*)vector[idx].c_str();
-        return true;
-        }, &configItems, configItems.size(), 6) && currentConfig != -1)
-        buffer = configItems[currentConfig];
-        if (ImGui::InputTextWithHint("", "config name", &buffer, ImGuiInputTextFlags_EnterReturnsTrue)) {
-            if (currentConfig != -1)
-                config->rename(currentConfig, buffer);
-        }
+    //main window
+    //ImGui::SetNextWindowSize(ImVec2(807, 500), ImGuiCond_Once);
+    //ImGui::SetNextWindowBgAlpha(1.0);
+    //ImGui::Begin("newslippery.gg", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
 
-        if (ImGui::Button("Create Config", { 246.0f, 20.0f })) {
-            config->add(buffer.c_str());
-        }
+    //ImGui::PushFont(fonts.backgroundCubes);
+    //ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0, 0, 0, 1));
+    //ImGui::SetCursorPos(ImVec2(0, 0));
+    //ImGui::Text(window3.backgroundString);
+    //ImGui::SetCursorPos(ImVec2(8, 8));
+    //ImGui::PopStyleColor();
+    //ImGui::PopFont();
+    //slipperyMenuPos = (ImGui::GetWindowPos());
+    //if (window3.curWindow == 0)
+    //    beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
+    //if (ImGui::Button(("Home"), ImVec2(125, 60))) {
+    //    window3.curWindow = 0;
+    //};
+    //endHighlight();
+    //ImGui::SameLine();
 
-        if (ImGui::Button("Load Config", { 246.0f, 20.0f })) {
-            config->load(currentConfig, incrementalLoad);
-            updateColors();
-            InventoryChanger::scheduleHudUpdate();
-            Misc::updateClanTag(true);
-        }
+    //if (window3.curWindow == 1)
+    //    beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
+    //if (ImGui::Button(("Aim Assistance"), ImVec2(125, 60))) {
+    //    window3.curWindow = 1;
+    //};
+    //endHighlight();
+    //ImGui::SameLine();
+    //if (window3.curWindow == 2)
+    //    beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
+    //if (ImGui::Button(("Visuals"), ImVec2(125, 60))) {
+    //    window3.curWindow = 2;
+    //};
+    //endHighlight();
 
-        if (ImGui::Button("         Save Config", { 210.f, 20.f }))
-            config->save(currentConfig);
+    //ImGui::SameLine();
+    //if (window3.curWindow == 3)
+    //    beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
+    //if (ImGui::Button(("Inventory Changer"), ImVec2(125, 60))) {
+    //    window3.curWindow = 3;
+    //};
+    //endHighlight();
+
+    //ImGui::SameLine();
+    //if (window3.curWindow == 4)
+    //    beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
+    //if (ImGui::Button(("Sound"), ImVec2(125, 60))) {
+    //    window3.curWindow = 4;
+    //};
+    //endHighlight();
+
+    //ImGui::SameLine();
+    //if (window3.curWindow == 5)
+    //    beginHighlight(ImVec4(0.2, 0.2, 0.2, 1));
+    //if (ImGui::Button(("Misc"), ImVec2(125, 60))) {
+    //    window3.curWindow = 5;
+    //};
+    //endHighlight();
+    //ImGui::SetCursorPos(ImVec2(0, 72));
+    //ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.1, 0.1, 0.1, 0.7));
+    //ImGui::BeginChild("##contentMenu", ImVec2(807, 500), true);
+    //ImGui::PopStyleColor();
+    //ImGui::SetCursorPos(ImVec2(8, 5));
+    //switch (window3.curWindow) {
+    //case 0: renderHomeWindow(true); break;
+    //case 1: renderAimAssistance(true); /*Misc::drawMiscAimbot()*/; break;
+    //case 2: renderVisualsWindow(true); /*Misc::drawMiscVisuals();*/ break;
+    //case 3: InventoryChanger::drawGUI(true); break;
+    //case 4: Sound::drawGUI(true); /*Misc::drawMiscSound(); */ break;
+    //case 5: Misc::drawGUI(true); break;
+    //}
+    //ImGui::EndChild();
+    ////sidebar
+    //float wi = w;           //without this compiler says that conversion from 'int' to 'float' requires a narrowing conversion!!!!!
+    //float he = h;
+    //ImGui::SetNextWindowSize(ImVec2(250, h), ImGuiCond_Once);
+    //ImGui::SetNextWindowPos(ImVec2(w - 50, 0), ImGuiCond_Once);
+    //ImGui::SetNextWindowBgAlpha(0.85f);
+    //ImGui::Begin("Right Sidebar", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    //ImVec2 curWindowPos{ ImGui::GetWindowPos() };
+    //ImGui::Text(std::to_string(curWindowPos[0]).c_str());
+    //ImGui::Text(std::to_string(wi - 250).c_str());
+    //ImGui::Separator();
+
+    //ImGui::Text("Config");  //config menu here
+    //                        //not using BeginChild() because it makes the config menu way too wide for the sidebar
+    //static bool incrementalLoad = false; //incremental load means that instead of replacing all data of already loaded config 
+    //                                     //with data of config that's being loaded it will instead add data from config that's 
+    //                                     //about to be loaded to the config that's already loaded. i.e.
+    //                                     //01001011+11010110=11011111 - incremental load
+    //                                     //01001011+11010110=11011110 - non-incremental load
+
+    //auto& configItems = config->getConfigs();
+    //static int currentConfig = -1;
+    //static std::u8string buffer;
+
+    //timeToNextConfigRefresh -= ImGui::GetIO().DeltaTime;
+    //if (timeToNextConfigRefresh <= 0.0f) {
+    //    config->listConfigs();
+    //    if (const auto it = std::find(configItems.begin(), configItems.end(), buffer); it != configItems.end())
+    //        currentConfig = std::distance(configItems.begin(), it);
+    //    timeToNextConfigRefresh = 0.1f;
+    //}
+
+    //if (static_cast<std::size_t>(currentConfig) >= configItems.size())
+    //    currentConfig = -1;
+    //ImGui::PushItemWidth(246);
+    //if (ImGui::ListBox("", &currentConfig, [](void* data, int idx, const char** out_text) {
+    //    auto& vector = *static_cast<std::vector<std::u8string>*>(data);
+    //    *out_text = (const char*)vector[idx].c_str();
+    //    return true;
+    //    }, &configItems, configItems.size(), 6) && currentConfig != -1)
+    //    buffer = configItems[currentConfig];
+    //    if (ImGui::InputTextWithHint("", "config name", &buffer, ImGuiInputTextFlags_EnterReturnsTrue)) {
+    //        if (currentConfig != -1)
+    //            config->rename(currentConfig, buffer);
+    //    }
+
+    //    if (ImGui::Button("Create Config", { 246.0f, 20.0f })) {
+    //        config->add(buffer.c_str());
+    //    }
+
+    //    if (ImGui::Button("Load Config", { 246.0f, 20.0f })) {
+    //        config->load(currentConfig, incrementalLoad);
+    //        updateColors();
+    //        InventoryChanger::scheduleHudUpdate();
+    //        Misc::updateClanTag(true);
+    //    }
+
+    //    if (ImGui::Button("         Save Config", { 210.f, 20.f }))
+    //        config->save(currentConfig);
 
 
-        ImGui::SameLine();
-        ImGui::PushFont(fonts.icons);
-        if (ImGui::Button(("B"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
-            config->openConfigDir();;   // config menu over
-        ImGui::PopFont();
-        if (ImGui::Button("Delete Config", { 246.0f, 20.0f })) {
-            window.deleteConfirmation = true;
-        }
-        if (window.deleteConfirmation) {
-            ImGui::SetNextWindowSize(ImVec2(300, 128), ImGuiCond_Once);
-            ImGui::SetNextWindowPos(ImVec2((w / 2 - 150), (h / 2 - 64)), ImGuiCond_Once);
-            ImGui::Begin("Delete confirmation", &window.deleteConfirmation, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar);
-            ImGui::Text("Are you sure you want to delete config");
-            ImGui::TextColored(ImVec4(255, 0, 0, 1), (char*)buffer.c_str());
-            ImGui::SameLine();
-            ImGui::Text("?");
-            if (ImGui::Button("Yes", ImVec2(140, 40))) {
-                config->remove(currentConfig);
-                window.deleteConfirmation = false;
-            };
-            ImGui::SameLine();
-            if (ImGui::Button("No", ImVec2(140, 40))) {
-                window.deleteConfirmation = false;
-            };
-            ImGui::End();
-        }
-        ImGui::Separator();
-        if (ImGui::IsWindowHovered() or ImGui::GetMousePos().x > (wi - 250)) {
-            ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250)) / sidebarSpeed[0], 0));
-        }       //the way code ^ and v works is it makes the position of the sidebar 
-                //less/more by ((distance to the desired position)/30) every frame
-        if (!ImGui::IsWindowHovered() and !((GetKeyState(VK_LBUTTON) & 0x8000) != 0) and ImGui::GetMousePos().x < (wi - 250)) {
-            ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0] + sidebarSpeed[0] - 1) / sidebarSpeed[0], 0));
-        }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
-                //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
-        ImGui::End();
+    //    ImGui::SameLine();
+    //    ImGui::PushFont(fonts.icons);
+    //    if (ImGui::Button(("B"), { 20.f, 20.f }))             //there should be a folder icon in place of the "a"
+    //        config->openConfigDir();;   // config menu over
+    //    ImGui::PopFont();
+    //    if (ImGui::Button("Delete Config", { 246.0f, 20.0f })) {
+    //        window.deleteConfirmation = true;
+    //    }
+    //    if (window.deleteConfirmation) {
+    //        ImGui::SetNextWindowSize(ImVec2(300, 128), ImGuiCond_Once);
+    //        ImGui::SetNextWindowPos(ImVec2((w / 2 - 150), (h / 2 - 64)), ImGuiCond_Once);
+    //        ImGui::Begin("Delete confirmation", &window.deleteConfirmation, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar);
+    //        ImGui::Text("Are you sure you want to delete config");
+    //        ImGui::TextColored(ImVec4(255, 0, 0, 1), (char*)buffer.c_str());
+    //        ImGui::SameLine();
+    //        ImGui::Text("?");
+    //        if (ImGui::Button("Yes", ImVec2(140, 40))) {
+    //            config->remove(currentConfig);
+    //            window.deleteConfirmation = false;
+    //        };
+    //        ImGui::SameLine();
+    //        if (ImGui::Button("No", ImVec2(140, 40))) {
+    //            window.deleteConfirmation = false;
+    //        };
+    //        ImGui::End();
+    //    }
+    //    ImGui::Separator();
+    //    if (ImGui::IsWindowHovered() or ImGui::GetMousePos().x > (wi - 250)) {
+    //        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] - (curWindowPos[0] - (wi - 250)) / sidebarSpeed[0], 0));
+    //    }       //the way code ^ and v works is it makes the position of the sidebar 
+    //            //less/more by ((distance to the desired position)/30) every frame
+    //    if (!ImGui::IsWindowHovered() and !((GetKeyState(VK_LBUTTON) & 0x8000) != 0) and ImGui::GetMousePos().x < (wi - 250)) {
+    //        ImGui::SetWindowPos("Right Sidebar", ImVec2(curWindowPos[0] + ((wi - 30) - curWindowPos[0] + sidebarSpeed[0] - 1) / sidebarSpeed[0], 0));
+    //    }       //listHovered is required to not make sidebar go back to it's default position when you hover over the configs list
+    //            //without the +29 the sidebar doesn't return to its original place, it stops 29 pixels before it should :(
+    //    ImGui::End();
 
 
 

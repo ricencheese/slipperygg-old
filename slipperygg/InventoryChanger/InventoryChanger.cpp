@@ -723,7 +723,7 @@ namespace ImGui
         }
 
         if (const auto icon = getItemIconTexture(item.getIconPath())) {
-            window->DrawList->AddImage(icon, smallIconMin, smallIconMax);
+            window->DrawList->AddImage(icon, smallIconMin, smallIconMax);   //IMGUI IMAGE
             if (g.HoveredWindow == window && IsMouseHoveringRect(bb.Min, ImVec2{ bb.Min.x + iconSizeSmall.x, bb.Max.y })) {
                 BeginTooltip();
                 Image(icon, iconSizeLarge);

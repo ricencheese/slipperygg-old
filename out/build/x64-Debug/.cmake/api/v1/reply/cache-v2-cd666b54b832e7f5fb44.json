@@ -14,6 +14,22 @@
 			"value" : "OFF"
 		},
 		{
+			"name" : "CMAKE_ADDR2LINE",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_ADDR2LINE-NOTFOUND"
+		},
+		{
 			"name" : "CMAKE_AR",
 			"properties" : 
 			[
@@ -27,7 +43,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.30.30705/bin/Hostx64/x64/lib.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.31.31103/bin/Hostx64/x64/lib.exe"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -75,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "21"
+			"value" : "22"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -87,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "21080301"
+			"value" : "22022201"
 		},
 		{
 			"name" : "CMAKE_COMMAND",
@@ -139,7 +155,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.30.30705/bin/Hostx64/x64/cl.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.31.31103/bin/Hostx64/x64/cl.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -155,7 +171,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/DWIN32 /D_WINDOWS /GR /EHsc"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_DEBUG",
@@ -171,7 +187,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/Zi /Ob0 /Od /RTC1"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_MINSIZEREL",
@@ -187,7 +203,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/O1 /Ob1 /DNDEBUG"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_RELEASE",
@@ -203,7 +219,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/O2 /Ob2 /DNDEBUG"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_RELWITHDEBINFO",
@@ -219,7 +235,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/Zi /O2 /Ob1 /DNDEBUG"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CXX_STANDARD_LIBRARIES",
@@ -251,7 +267,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.30.30705/bin/Hostx64/x64/cl.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.31.31103/bin/Hostx64/x64/cl.exe"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS",
@@ -267,7 +283,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/DWIN32 /D_WINDOWS"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_DEBUG",
@@ -283,7 +299,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/Zi /Ob0 /Od /RTC1"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_MINSIZEREL",
@@ -299,7 +315,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/O1 /Ob1 /DNDEBUG"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_RELEASE",
@@ -315,7 +331,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/O2 /Ob2 /DNDEBUG"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_RELWITHDEBINFO",
@@ -331,7 +347,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/Zi /O2 /Ob1 /DNDEBUG"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_C_STANDARD_LIBRARIES",
@@ -348,6 +364,22 @@
 			],
 			"type" : "STRING",
 			"value" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib"
+		},
+		{
+			"name" : "CMAKE_DLLTOOL",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_DLLTOOL-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -375,7 +407,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:x64"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_EXE_LINKER_FLAGS_DEBUG",
@@ -391,7 +423,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/debug /INCREMENTAL"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_EXE_LINKER_FLAGS_MINSIZEREL",
@@ -407,7 +439,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/INCREMENTAL:NO"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_EXE_LINKER_FLAGS_RELEASE",
@@ -423,7 +455,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/INCREMENTAL:NO"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO",
@@ -439,7 +471,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/debug /INCREMENTAL"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_EXPORT_COMPILE_COMMANDS",
@@ -555,7 +587,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.30.30705/bin/Hostx64/x64/link.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.31.31103/bin/Hostx64/x64/link.exe"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -583,7 +615,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:x64"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS_DEBUG",
@@ -599,7 +631,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/debug /INCREMENTAL"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL",
@@ -615,7 +647,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/INCREMENTAL:NO"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS_RELEASE",
@@ -631,7 +663,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/INCREMENTAL:NO"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO",
@@ -647,7 +679,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/debug /INCREMENTAL"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_MT",
@@ -666,6 +698,22 @@
 			"value" : "C:/Program Files (x86)/Windows Kits/10/bin/10.0.22000.0/x64/mt.exe"
 		},
 		{
+			"name" : "CMAKE_NM",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_NM-NOTFOUND"
+		},
+		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
 			"properties" : 
 			[
@@ -676,6 +724,38 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "3"
+		},
+		{
+			"name" : "CMAKE_OBJCOPY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_OBJCOPY-NOTFOUND"
+		},
+		{
+			"name" : "CMAKE_OBJDUMP",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_OBJDUMP-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -846,6 +926,22 @@
 			"value" : ""
 		},
 		{
+			"name" : "CMAKE_READELF",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_READELF-NOTFOUND"
+		},
+		{
 			"name" : "CMAKE_ROOT",
 			"properties" : 
 			[
@@ -855,7 +951,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.21"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.22"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -871,7 +967,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:x64"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS_DEBUG",
@@ -887,7 +983,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/debug /INCREMENTAL"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL",
@@ -903,7 +999,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/INCREMENTAL:NO"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS_RELEASE",
@@ -919,7 +1015,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/INCREMENTAL:NO"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO",
@@ -935,7 +1031,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/debug /INCREMENTAL"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_SKIP_INSTALL_RPATH",
@@ -983,7 +1079,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:x64"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_STATIC_LINKER_FLAGS_DEBUG",
@@ -1048,6 +1144,22 @@
 			],
 			"type" : "STRING",
 			"value" : ""
+		},
+		{
+			"name" : "CMAKE_STRIP",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_STRIP-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",

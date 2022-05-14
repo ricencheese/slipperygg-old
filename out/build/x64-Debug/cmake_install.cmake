@@ -32,6 +32,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "CMAKE_OBJDUMP-NOTFOUND")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("C:/Users/ricencheese/Desktop/slippery/GitHub/out/build/x64-Debug/slipperygg/freetype/cmake_install.cmake")
